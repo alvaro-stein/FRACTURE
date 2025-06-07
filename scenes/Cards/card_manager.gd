@@ -1,11 +1,13 @@
 extends Node2D
 
-#const COLLISION_MASK_CARD = 1
+#const COLLISION_MASK_CARD = 1   # Unused for now
+var standard_z_index = self.z_index
 var screen_size: Vector2
 var mouse_pos: Vector2
 var card_being_dragged: Node2D = null
 var highlighted_card: Node2D = null
-var last_entered: Node2D = null
+var last_card_hovered: Node2D = null
+var card_slot_hovered: Node2D = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,14 +25,9 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		#card_being_dragged = highlighted_card if event.pressed else null
-		if event.pressed:
-			card_being_dragged = highlighted_card
-			highlighted_card.scale = Vector2(1, 1)
-		else:
-			highlighted_card.scale = Vector2(1.1, 1.1)
-			card_being_dragged = null
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and highlighted_card:
+		start_drag() if event.pressed else finish_drag()
+		# Código antigo colapsado - são da versão do Barry
 		#card_being_dragged = raycast_check_for_card() if event.pressed else null
 		##if event.pressed:
 			###var card: Node2D = raycast_check_for_card()
@@ -39,9 +36,24 @@ func _input(event: InputEvent) -> void:
 			##card_being_dragged = raycast_check_for_card()
 		##else:
 			##card_being_dragged = null
-# Todos os códigos comentados acima são da versão do Barry
 
-# Toda essa função cometada abaixo é da versão do Barry
+
+func start_drag() -> void:
+	card_being_dragged = highlighted_card
+	highlighted_card.scale = Vector2(1, 1)
+
+
+func finish_drag() -> void:
+	highlighted_card.scale = Vector2(1.1, 1.1)
+	if card_slot_hovered and card_being_dragged and card_slot_hovered.is_empty:
+		# Then drop the card into the empty card slot
+		card_slot_hovered.is_empty = false
+		card_being_dragged.position = card_slot_hovered.position
+		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
+	card_being_dragged = null
+
+
+# Código raycast colapsado - toda a função é da versão do Barry
 #func raycast_check_for_card() -> Node2D:
 	#var space_state: PhysicsDirectSpaceState2D = get_world_2d().direct_space_state
 	#var parameters := PhysicsPointQueryParameters2D.new()
@@ -54,13 +66,14 @@ func _input(event: InputEvent) -> void:
 	#return null
 
 
-func connect_card_signals(card: Node2D):
+# Card implementation
+func connect_card_signals(card: Node2D) -> void:
 	card.connect("hovered", on_hovered_over_card)
 	card.connect("hovered_off", on_hovered_off_card)
 
 
 func on_hovered_over_card(card: Node2D) -> void:
-	last_entered = card
+	last_card_hovered = card
 	if not highlighted_card:
 		highlighted_card = card
 		highlight_card(card, true)
@@ -70,19 +83,34 @@ func on_hovered_off_card(card: Node2D) -> void:
 	if highlighted_card == card:
 		highlighted_card = null
 		highlight_card(card, false)
-		if last_entered != card:
-			highlighted_card = last_entered
-			highlight_card(last_entered, true)
+		if last_card_hovered != card:
+			highlighted_card = last_card_hovered
+			highlight_card(last_card_hovered, true)
 		else:
-			last_entered = null
+			last_card_hovered = null
 	else:
-		last_entered = highlighted_card
+		last_card_hovered = highlighted_card
 
 
-func highlight_card(card: Node2D, hovered: bool):
+func highlight_card(card: Node2D, hovered: bool) -> void:
 	if hovered:
 		card.scale = Vector2(1.1, 1.1)
-		card.z_index = 2
+		card.z_index = standard_z_index + 1
 	else:
 		card.scale = Vector2(1, 1)
-		card.z_index = 1
+		card.z_index = standard_z_index
+
+
+# Card slot implementation
+func connect_card_slot_signals(card_slot: Node2D) -> void:
+	card_slot.connect("hovered", on_hovered_over_card_slot)
+	card_slot.connect("hovered_off", on_hovered_off_card_slot)
+
+
+# Does not handle overlapping card slots (probably not needed)
+func on_hovered_over_card_slot(card_slot: Node2D) -> void:
+	card_slot_hovered = card_slot
+
+
+func on_hovered_off_card_slot(card_slot: Node2D) -> void:
+	card_slot_hovered = null
