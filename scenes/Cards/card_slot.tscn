@@ -1,16 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2etx6kcf7wll"]
 
 [ext_resource type="Texture2D" uid="uid://cut4std3hi5ys" path="res://assets/sprites/CardSlot.png" id="1_wps16"]
-[ext_resource type="Script" uid="uid://cnxomqcfc4hcf" path="res://scenes/Cards/card_slot.gd" id="1_xuqdl"]
+[ext_resource type="Script" uid="uid://cnxomqcfc4hcf" path="res://scenes/cards/card_slot.gd" id="1_xuqdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bgyk"]
-size = Vector2(126, 170)
+size = Vector2(148, 200)
 
 [node name="CardSlot" type="Node2D"]
 script = ExtResource("1_xuqdl")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.71, 0.645)
+scale = Vector2(0.85, 0.772)
 texture = ExtResource("1_wps16")
 
 [node name="Area2D" type="Area2D" parent="."]

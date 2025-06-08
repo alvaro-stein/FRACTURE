@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ebsp8cgsjef6"]
+
+[ext_resource type="Script" uid="uid://dgsf6tyx50isy" path="res://scenes/cards/deck.gd" id="1_4e1uv"]
+[ext_resource type="Texture2D" uid="uid://dwhlgd68uq0b1" path="res://assets/sprites/balatro cards/figures/Deck Backs18.png" id="2_u5uvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5uvd"]
+size = Vector2(148, 200)
+
+[node name="Deck" type="Node2D"]
+z_index = 2
+script = ExtResource("1_4e1uv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("2_u5uvd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_u5uvd")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
