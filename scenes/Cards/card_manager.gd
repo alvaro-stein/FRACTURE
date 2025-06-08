@@ -9,7 +9,12 @@ var last_card_hovered: Card = null
 @onready var card_slot_manager: Node2D = $"../CardSlotManager"
 var card_slot_hovered:
 	get: return card_slot_manager.card_slot_hovered
+@onready var discard_pile: Node2D = $"../DiscardPile"
+var discard_pile_hovered:
+	get: return discard_pile.discard_pile_hovered
 @onready var player_hand: Node2D = $"../PlayerHand"
+@onready var deck: Node2D = $"../Deck"
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -48,6 +53,8 @@ func finish_drag() -> void:
 			card_slot_hovered.is_empty = false
 			card_being_dragged.position = card_slot_hovered.position
 			card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
+		elif discard_pile_hovered and not deck.is_empty:
+			discard_pile.discard_and_buy(card_being_dragged)
 		else:
 			player_hand.add_card_to_hand(highlighted_card)
 		card_being_dragged = null
