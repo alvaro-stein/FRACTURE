@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxa4rkkv3bmd0"]
+
+[ext_resource type="Script" uid="uid://kv3u5615ac1x" path="res://scenes/cards/discard_pile.gd" id="1_ywn7x"]
+[ext_resource type="Texture2D" uid="uid://cut4std3hi5ys" path="res://assets/sprites/CardSlot.png" id="2_fagtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fagtb"]
+size = Vector2(174.118, 259.067)
+
+[node name="DiscardPile" type="Node2D"]
+script = ExtResource("1_ywn7x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.85, 0.772)
+texture = ExtResource("2_fagtb")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.85, 0.772)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_fagtb")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

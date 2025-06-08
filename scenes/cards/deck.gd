@@ -6,6 +6,7 @@ const SUITS: Array[String] = ["copas", "espadas", "ouros", "paus"]
 
 var deck_pile: Array[Card] = []
 var deck_pile_hovered: bool = false
+var is_empty: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,21 +23,21 @@ func _ready() -> void:
 	$Label.text = str(deck_pile.size())
 
 
-func draw() -> void:
+func buy() -> void:
 	var card = deck_pile.pop_back()
 	player_hand.add_card_to_hand(card)
 	card.flip()
 	card.get_node("Area2D/CollisionShape2D").disabled = false
 	$Label.text = str(deck_pile.size())
 	if not deck_pile:
-		self.visible = false
+		is_empty = true
 		self.get_node("Area2D/CollisionShape2D").disabled = true
 
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and deck_pile_hovered:
-		if event.pressed:
-			draw()
+		if event.pressed and not is_empty:
+			buy()
 
 
 func _on_area_2d_mouse_entered() -> void:
