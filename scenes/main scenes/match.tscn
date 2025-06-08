@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj2aoo5011s26"]
+[gd_scene load_steps=9 format=3 uid="uid://dj2aoo5011s26"]
 
 [ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/match.gd" id="1_6ncua"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="2_m3pp4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ebsp8cgsjef6" path="res://scenes/cards/deck.tscn" id="4_ybgof"]
 [ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/cards/card_slot.tscn" id="5_g2ndp"]
 [ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/cards/player_hand.tscn" id="5_ybgof"]
+[ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/cards/discard_pile.tscn" id="7_taav6"]
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_6ncua")
@@ -27,9 +28,6 @@ position = Vector2(1115, -33.333)
 
 [node name="Card7" parent="CardManager" instance=ExtResource("3_mtvpx")]
 position = Vector2(1270, -33.333)
-
-[node name="Card2" parent="CardManager" instance=ExtResource("3_mtvpx")]
-position = Vector2(1795, 540)
 
 [node name="CardSlotManager" parent="." instance=ExtResource("3_ni3me")]
 
@@ -96,4 +94,59 @@ position = Vector2(1344, 181)
 [node name="Deck" parent="." instance=ExtResource("4_ybgof")]
 position = Vector2(125, 540)
 
+[node name="DiscardPile" parent="." instance=ExtResource("7_taav6")]
+position = Vector2(1795, 540)
+
 [node name="PlayerHand" parent="." instance=ExtResource("5_ybgof")]
+
+[node name="notes" type="Node" parent="."]
+
+[node name="Label deck" type="Label" parent="notes"]
+offset_left = 2.0
+offset_top = 361.0
+offset_right = 247.0
+offset_bottom = 434.0
+theme_override_font_sizes/font_size = 25
+text = "deck
+(clique pra comprar)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2 discard pile" type="Label" parent="notes"]
+offset_left = 1696.0
+offset_top = 393.0
+offset_right = 1903.0
+offset_bottom = 428.0
+theme_override_font_sizes/font_size = 25
+text = "pilha de descarte"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3 opponent hand" type="Label" parent="notes"]
+offset_left = 319.0
+offset_top = 3.0
+offset_right = 567.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 25
+text = "protótipo da mão -->
+do oponente"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4 slots layout" type="Label" parent="notes"]
+offset_left = 787.0
+offset_top = 317.0
+offset_right = 1133.0
+offset_bottom = 352.0
+theme_override_font_sizes/font_size = 25
+text = "protótipo do layout dos slots"
+
+[node name="Label numbers" type="Label" parent="notes"]
+offset_left = 546.0
+offset_top = 503.0
+offset_right = 790.0
+offset_bottom = 572.0
+theme_override_font_sizes/font_size = 50
+text = "10          10           10          10           10"
+horizontal_alignment = 1
+vertical_alignment = 1
