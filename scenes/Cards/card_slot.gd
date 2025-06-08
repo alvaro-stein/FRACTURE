@@ -1,4 +1,4 @@
-extends Node2D
+class_name CardSlot extends Node2D
 
 signal hovered
 signal hovered_off
@@ -8,7 +8,7 @@ var is_empty: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# All Cards slots must be a child of CardManager or this will error
+	# All Cards slots must be a child of CardSlotManager or this will error
 	get_parent().connect_card_slot_signals(self)
 
 
