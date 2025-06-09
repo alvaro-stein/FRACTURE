@@ -25,7 +25,9 @@ func _ready() -> void:
 
 func buy() -> void:
 	var card = deck_pile.pop_back()
+	player_hand.animation_speed = 0.3
 	player_hand.add_card_to_hand(card)
+	player_hand.animation_speed = 0.2
 	card.flip()
 	card.get_node("Area2D/CollisionShape2D").disabled = false
 	$Label.text = str(deck_pile.size())
