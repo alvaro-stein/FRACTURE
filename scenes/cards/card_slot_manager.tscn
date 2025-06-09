@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://dkl8356f7d3l2" path="res://scenes/cards/card_slot_manager.gd" id="1_qt05e"]
 
 [node name="CardSlotManager" type="Node2D"]
+z_index = -1
 script = ExtResource("1_qt05e")

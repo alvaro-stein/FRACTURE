@@ -98,6 +98,7 @@ position = Vector2(125, 540)
 position = Vector2(1795, 540)
 
 [node name="PlayerHand" parent="." instance=ExtResource("5_ybgof")]
+position = Vector2(960, 1080)
 
 [node name="notes" type="Node" parent="."]
 
@@ -112,7 +113,7 @@ text = "deck
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2 discard pile" type="Label" parent="notes"]
+[node name="Label discard pile" type="Label" parent="notes"]
 offset_left = 1696.0
 offset_top = 393.0
 offset_right = 1903.0
@@ -122,7 +123,7 @@ text = "pilha de descarte"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3 opponent hand" type="Label" parent="notes"]
+[node name="Label opponent hand" type="Label" parent="notes"]
 offset_left = 319.0
 offset_top = 3.0
 offset_right = 567.0
@@ -133,7 +134,7 @@ do oponente"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label4 slots layout" type="Label" parent="notes"]
+[node name="Label slots layout" type="Label" parent="notes"]
 offset_left = 787.0
 offset_top = 317.0
 offset_right = 1133.0
@@ -148,5 +149,16 @@ offset_right = 790.0
 offset_bottom = 572.0
 theme_override_font_sizes/font_size = 50
 text = "10          10           10          10           10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label click" type="Label" parent="notes"]
+offset_left = 14.0
+offset_top = 804.0
+offset_right = 463.0
+offset_bottom = 877.0
+theme_override_font_sizes/font_size = 25
+text = "click direito do mouse
+pra flipar carta"
 horizontal_alignment = 1
 vertical_alignment = 1
