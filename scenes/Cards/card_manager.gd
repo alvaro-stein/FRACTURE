@@ -74,16 +74,16 @@ func on_hovered_over_card(card: Card) -> void:
 
 
 func on_hovered_off_card(card: Card) -> void:
-		if highlighted_card == card:
-			highlighted_card = null
-			highlight_card(card, false)
-			if last_card_hovered != card:
-				highlighted_card = last_card_hovered
-				highlight_card(last_card_hovered, true)
-			else:
-				last_card_hovered = null
+	if highlighted_card == card:
+		highlighted_card = null
+		highlight_card(card, false)
+		if last_card_hovered != card:
+			highlighted_card = last_card_hovered
+			highlight_card(last_card_hovered, true)
 		else:
-			last_card_hovered = highlighted_card
+			last_card_hovered = null
+	else:
+		last_card_hovered = highlighted_card
 
 
 func highlight_card(card: Card, hovered: bool) -> void:
