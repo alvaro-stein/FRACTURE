@@ -1,0 +1,174 @@
+[gd_scene load_steps=14 format=3 uid="uid://q26prbnehvdf"]
+
+[ext_resource type="Script" uid="uid://su2n3grymllj" path="res://scenes/Menu/tela_menu.gd" id="1_ft8my"]
+[ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="2_w605n"]
+[ext_resource type="AudioStream" uid="uid://ll5p6y3h6lbu" path="res://sfx/Somfundo/somventoloop.mp3" id="2_yq5xy"]
+[ext_resource type="FontFile" uid="uid://3bpd2kpm1dyv" path="res://fonte/VehicleBreaksDown-Regular.ttf" id="3_h2iml"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="3_h61sm"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="4_ebsqv"]
+[ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="4_kvek7"]
+[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/tela_menu.gdshader" id="4_uar5t"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="5_8d48o"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="8_7f58l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fmqe5"]
+shader = ExtResource("4_uar5t")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 1.383
+
+[sub_resource type="LabelSettings" id="LabelSettings_rucv2"]
+font = ExtResource("3_h2iml")
+font_size = 80
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmxqu"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ft8my")
+
+[node name="somfundo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_yq5xy")
+volume_db = -25.0
+autoplay = true
+
+[node name="botaosom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h61sm")
+volume_db = -17.0
+pitch_scale = 1.05
+
+[node name="botaosom2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ebsqv")
+volume_db = -15.0
+pitch_scale = 1.05
+
+[node name="botaosom3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8d48o")
+volume_db = -17.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_fmqe5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -138.0
+offset_top = -132.0
+offset_right = 210.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w605n")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(953, 572)
+amount = 300
+texture = ExtResource("4_kvek7")
+lifetime = 500.0
+preprocess = 303.03
+lifetime_randomness = 0.11
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 600)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.5
+angular_velocity_min = 2.0
+angular_velocity_max = 5.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+radial_accel_min = 0.03
+radial_accel_max = 0.05
+tangential_accel_min = -0.01
+tangential_accel_max = 0.01
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color = Color(0.568627, 0.831373, 1, 0.380392)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 350
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="titulo" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Fracture"
+label_settings = SubResource("LabelSettings_rucv2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="jogar_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
+layout_mode = 2
+theme = ExtResource("8_7f58l")
+theme_override_colors/font_hover_color = Color(0.439095, 0.913623, 0.932161, 1)
+theme_override_colors/font_pressed_color = Color(0.286691, 0.501014, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
+text = "Jogar"
+flat = true
+
+[node name="regras_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
+layout_mode = 2
+theme = ExtResource("8_7f58l")
+theme_override_colors/font_hover_color = Color(0.439216, 0.913725, 0.933333, 1)
+theme_override_colors/font_pressed_color = Color(0.286275, 0.501961, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
+text = "Regras"
+flat = true
+
+[node name="configuracao_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
+layout_mode = 2
+theme = ExtResource("8_7f58l")
+theme_override_colors/font_hover_color = Color(0.439095, 0.913623, 0.932161, 1)
+theme_override_colors/font_pressed_color = Color(0.286691, 0.501014, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
+text = "Configurações"
+flat = true
+
+[node name="creditos_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
+layout_mode = 2
+theme = ExtResource("8_7f58l")
+theme_override_colors/font_hover_color = Color(0.439216, 0.913725, 0.933333, 1)
+theme_override_colors/font_pressed_color = Color(0.286275, 0.501961, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
+text = "Creditos"
+flat = true
+
+[node name="sair_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
+layout_mode = 2
+theme = ExtResource("8_7f58l")
+theme_override_colors/font_hover_color = Color(0.439216, 0.913725, 0.933333, 1)
+theme_override_colors/font_pressed_color = Color(0.286275, 0.501961, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
+text = "Sair"
+flat = true

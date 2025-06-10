@@ -1,0 +1,150 @@
+[gd_scene load_steps=9 format=3 uid="uid://b761mg57n6fnr"]
+
+[ext_resource type="Script" uid="uid://qp16dmkij1qt" path="res://scenes/Menu/Jogar/Viridianos/viridianos_menu.gd" id="1_nvtun"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="2_665cn"]
+[ext_resource type="Texture2D" uid="uid://dba5e30318jtp" path="res://assets/sprites/Viridianos/bg_Viridianos.png" id="2_xxfgb"]
+[ext_resource type="Texture2D" uid="uid://c8sjouufjkbuq" path="res://assets/sprites/Viridianos/LiderViridiano.png" id="3_0ttqf"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="3_wkbfa"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_5p83u"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="4_olbo0"]
+
+
+[sub_resource type="LabelSettings" id="LabelSettings_rivfx"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.051971, 0.051971, 0.051971, 0.870588)
+
+[node name="ViridianosMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nvtun")
+cena_inicial = "res://Interface/Menu/tela_menu.tscn"
+
+[node name="botaosom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wkbfa")
+volume_db = -17.0
+pitch_scale = 1.05
+bus = &"Botoes menu"
+
+[node name="botaosom2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_665cn")
+volume_db = -15.0
+pitch_scale = 1.05
+bus = &"Botoes menu"
+
+[node name="botaosom3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_olbo0")
+volume_db = -17.0
+bus = &"Botoes menu"
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.577008, 0.577008, 0.577008, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xxfgb")
+
+[node name="ArteLider" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 169.0
+offset_right = 1512.0
+offset_bottom = 1923.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_0ttqf")
+
+[node name="NomeLider" type="Label" parent="."]
+modulate = Color(0.482353, 0.996078, 0.462745, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 349.0
+offset_top = 183.0
+offset_right = 549.0
+offset_bottom = 238.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "O Parasita"
+
+[node name="Textos" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -439.0
+offset_right = 959.0
+offset_bottom = 536.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="NomeRaça" type="Label" parent="Textos"]
+modulate = Color(0.482312, 0.995166, 0.461921, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Viridianos "
+label_settings = SubResource("LabelSettings_rivfx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Textos"]
+layout_mode = 2
+alignment = 1
+
+[node name="Descrição" type="RichTextLabel" parent="Textos/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(1080, 800)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[fill]		Os Viridranos são uma raça vegetal consciente originária de Phyloderra, um planeta semelhante à Terra, mas sem presença humana. Essa ausência permitiu que as plantas evoluíssem de forma extraordinária, desenvolvendo consciência coletiva e a capacidade de parasitar e controlar outras formas de vida. Utilizando mecanismos parasitários, eles transformam outros seres em \"avatares\", extensões de sua própria consciência, expandindo seu domínio por todo o planeta. Atualmente, os Viridanos operam como uma vasta rede neural biológica, com uma hierarquia de líderes regionais chamados \"Filhos das Folhas\", coordenando as ações dos avatares.
+
+	Sua principal motivação é a busca incessante por novos recursos para sustentar e expandir sua Rede Consciente. Além disso, uma invasão robótica anterior os levou a contra-atacar e a enxergar os robôs como potenciais novos avatares, ainda mais resistentes e poderosos que os biológicos. Assim, os Viridanos são uma consciência vegetal parasitária que busca expandir seu alcance através do controle de outras formas de vida, sejam elas orgânicas ou mecânicas, impulsionados pela necessidade de recursos e pela ambição de garantir sua hegemonia. [/fill]"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 1920.0
+offset_bottom = -37.0
+grow_vertical = 0
+theme = ExtResource("4_5p83u")
+theme_override_constants/separation = 650
+alignment = 1
+
+[node name="ant_button" type="Button" parent="HBoxContainer" groups=["buttons_viridianos"]]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_pressed_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_colors/font_hover_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_colors/font_pressed_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_font_sizes/font_size = 40
+text = "Anterior"
+
+[node name="jogar_button" type="Button" parent="HBoxContainer" groups=["buttons_viridianos"]]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_colors/font_hover_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_colors/font_pressed_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_font_sizes/font_size = 40
+text = "Jogar"
+
+[node name="prox_button" type="Button" parent="HBoxContainer" groups=["buttons_viridianos"]]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_colors/font_hover_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_colors/font_pressed_color = Color(0.482353, 0.996078, 0.462745, 1)
+theme_override_font_sizes/font_size = 40
+text = "Próximo"

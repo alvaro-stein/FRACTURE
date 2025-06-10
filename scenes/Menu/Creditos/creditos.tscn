@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://chcupi57h2k6r"]
+
+[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_s6me8"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_bv7u2"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="4_draql"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="5_xttpw"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="6_4iww2"]
+[ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="7_25xe7"]
+
+[node name="Créditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.374139, 0.374139, 0.374139, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_s6me8")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="Título" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "CRÉDITOS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Coluna1" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 800)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 35
+bbcode_enabled = true
+text = "[b]Artes[/b]
+Sofia
+ 
+[b]Menu[/b] 
+João Vitor
+
+[b]Estrutura do jogo[/b] 
+Arthur 
+Guilherme
+João Vitor"
+scroll_active = false
+
+[node name="Coluna2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 800)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 35
+bbcode_enabled = true
+text = "[b]Multiplayer[/b] 
+Guilherme
+
+[b]Tabuleiro[/b] 
+Arthur 
+Guilherme
+João Vitor"
+scroll_active = false
+
+[node name="sair_button" type="Button" parent="." groups=["button_creditos"]]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -930.0
+offset_top = -510.0
+offset_right = -780.0
+offset_bottom = -430.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_bv7u2")
+text = "Sair"
+
+[node name="botaosom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_draql")
+volume_db = -17.0
+pitch_scale = 1.05
+
+[node name="botaosom2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xttpw")
+volume_db = -15.0
+pitch_scale = 1.05
+
+[node name="botaosom3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_4iww2")
+volume_db = -17.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(953, 572)
+amount = 300
+texture = ExtResource("7_25xe7")
+lifetime = 500.0
+preprocess = 303.03
+lifetime_randomness = 0.11
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 600)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.5
+angular_velocity_min = 2.0
+angular_velocity_max = 5.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+radial_accel_min = 0.03
+radial_accel_max = 0.05
+tangential_accel_min = -0.01
+tangential_accel_max = 0.01
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color = Color(0.568627, 0.831373, 1, 0.0784314)
