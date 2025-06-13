@@ -1,4 +1,5 @@
 extends Node2D
+class_name Deck
 
 const SUITS: Array[String] = ["copas", "espadas", "ouros", "paus"]
 @onready var card_manager: Node2D = $"../CardManager"

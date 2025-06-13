@@ -1,4 +1,5 @@
 extends Node2D
+class_name PlayerHand
 
 const TRUE_CARD_WIDTH: float = 148.0
 const CARD_WIDTH: float = TRUE_CARD_WIDTH * 1.10

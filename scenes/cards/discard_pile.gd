@@ -1,4 +1,5 @@
 extends Node2D
+class_name DiscardPile
 
 @onready var card_manager: Node2D = $"../CardManager"
 @onready var deck: Node2D = $"../Deck"
