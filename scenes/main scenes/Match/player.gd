@@ -1,27 +1,27 @@
-extends PlayerMP
-class_name MatchPlayer
+extends MatchPlayer
+class_name Player
 
 
 signal set_time()
 signal use_time()
 
 
-var big_mana_player : int
-var small_mana_player : int
+var big_mana_player := 1
+var small_mana_player := 2
 var hand : PlayerHand
 var time_left : float
 var time_pass : int
 var timer_set : bool = false
 #var gm: GameManager
 
-func _init(nickname: String, id:int, hand: Node) -> void:
-	self.nickname = nickname
-	self.id = id
-	self.hand = hand
-	self.big_mana_player = 1
-	self.small_mana_player = 2
-	self.time_pass = 7200
-	self.time_left = 0
+#func _init(nickname: String, id:int, hand: Node) -> void:
+	#self.nickname = nickname
+	#self.id = id
+	#self.hand = hand
+	#self.big_mana_player = 1
+	#self.small_mana_player = 2
+	#self.time_pass = 7200
+	#self.time_left = 0
 
 #static func create_from_player(player: Player, hand: Node):
 	#return MatchPlayer.new(player.nickname, player.id, hand)
@@ -49,15 +49,16 @@ func try_use_mana(big_mana: int, small_mana: int):
 func reset_mana():
 	self.big_mana_player = 1
 	self.small_mana_player  = 2
-	
-	
+	#CHAMAR FUNÇÃO PRA ATUALIZAR VISUALMENTE TAMBÉM
+
+
 func change_mana():
 	if self.try_use_mana(1, 0):
 		self.small_mana_player  += 1
 		return true
 	else:
 		return false
-		
+
 func set_timer():
 	set_time.emit()
 	if timer_set == false:

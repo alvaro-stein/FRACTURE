@@ -2,9 +2,10 @@ extends Node2D
 class_name GameActions
 # Here each player action will have a function, connected by signal 
 
-var GM: GameManager
 var screen_size: Vector2
 var mouse_pos: Vector2
+
+@onready var GM: GameManager = $".."
 
 @onready var deck: Node2D = $"../Deck"
 var deck_pile:
@@ -13,8 +14,7 @@ var deck_pile:
 @onready var card_manager: Node2D = $"../CardManager"
 var highlighted_card:
 	get: return card_manager.highlighted_card
-var card_being_dragged:
-	get: return card_manager.card_being_dragged
+var card_being_dragged: Card = null
 
 @onready var card_slot_manager: Node2D = $"../CardSlotManager"
 var card_slot_hovered:
@@ -24,13 +24,13 @@ var card_slot_hovered:
 var discard_pile_hovered:
 	get: return discard_pile.discard_pile_hovered
 
-@onready var player: Node2D = $"../Player"
+@onready var player: MatchPlayer = $"../Player"
 var player_hand:
-	get: return player.get_node("PlayerHand").player_hand
+	get: return player.get_node("PlayerHand")
 
-@onready var IA: Node2D = $"../IA"
-var IA_hand:
-	get: return IA.get_node("PlayerHand").player_hand
+@onready var AI: MatchPlayer = $"../AI"
+var AI_hand:
+	get: return AI.get_node("PlayerHand")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -82,12 +82,16 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 		slot.is_empty = false
 		card.position = slot.position
 		card.get_node("Area2D/CollisionShape2D").disabled = true
+		card.z_index = 0
+	else: # Return card to hand
+		if GM.current_player == player:
+			player_hand.add_card_to_hand(card)
+		else:
+			AI_hand.add_card_to_hand(card)
 
 
 func try_discard_card(card: Card) -> void:
-	# testar se pode
 	if GM.current_player.try_use_mana(0, 2) and deck_pile:
-		# efetivamente descartar e comprar
 		card.position = discard_pile.position
 		card.get_node("Area2D/CollisionShape2D").disabled = true
 		self.buy_card()
@@ -95,7 +99,7 @@ func try_discard_card(card: Card) -> void:
 		if GM.current_player == player:
 			player_hand.add_card_to_hand(card)
 		else:
-			IA_hand.add_card_to_hand(card)
+			AI_hand.add_card_to_hand(card)
 
 
 func buy_card() -> void:
@@ -107,14 +111,14 @@ func buy_card() -> void:
 		player_hand.add_card_to_hand(new_card)
 		#player_hand.animation_speed = 0.2
 	else:
-		IA_hand.add_card_to_hand(new_card)
+		AI_hand.add_card_to_hand(new_card)
 
 
 
 
 
-func _init(game_manager: GameManager) -> void:
-	self.GM = game_manager
+#func _init(game_manager: GameManager) -> void:
+	#self.GM = game_manager
 	#GameEvents.on_buy_button_pressed.connect(buy_extra_card)
 	#GameEvents.on_end_turn_button_pressed.connect(end_turn)
 	#GameEvents.on_card_placing.connect(place_card)

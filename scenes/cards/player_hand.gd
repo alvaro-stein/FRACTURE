@@ -46,6 +46,8 @@ func update_card_position(index: int) -> void:
 	total_width = (player_hand.size() -1) * CARD_WIDTH
 	x_offset = screen_center_x + index * CARD_WIDTH - total_width/2
 	var new_position := Vector2(x_offset, SHOWN_HAND_Y_POS if hand_hovered else HAND_Y_POS)
+	if self.get_parent().name == "AI":
+		new_position = mirror_pos(new_position)
 	animate_card_to_position(player_hand[index], new_position)
 
 
@@ -69,6 +71,8 @@ func show_hand() -> void:
 	for card in player_hand:
 		var new_card_pos := Vector2(card.position.x, SHOWN_HAND_Y_POS)
 		animation_speed = 0.1
+		if self.get_parent().name == "AI":
+			new_card_pos = mirror_pos(new_card_pos)
 		animate_card_to_position(card, new_card_pos)
 	animation_speed = 0.2
 
@@ -82,3 +86,7 @@ func update_hand_area_size() -> void:
 	else:
 		new_size = Vector2(CARD_WIDTH * player_hand.size(), 2*TRUE_CARD_HEIGHT/3)
 	$Area2D/CollisionShape2D.shape.set_size(new_size)
+
+func mirror_pos(pos: Vector2):
+	pos.y = (pos.y - 1080) * (-1)
+	return pos

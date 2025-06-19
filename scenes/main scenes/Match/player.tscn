@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://j7him6825pu"]
+
+[ext_resource type="Script" uid="uid://g1ieo66rwqiv" path="res://scenes/main scenes/Match/player.gd" id="1_y3pes"]
+[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/cards/player_hand.tscn" id="2_1k5u8"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_y3pes")
+
+[node name="PlayerHand" parent="." instance=ExtResource("2_1k5u8")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]

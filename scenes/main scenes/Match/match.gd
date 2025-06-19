@@ -1,6 +1,18 @@
 extends Node
 class_name GameManager
 
+const INITIAL_HAND_SIZE := 5
+
+@onready var clock: TextureButton = $Clock
+@onready var player: MatchPlayer = $"Player"
+var player_hand:
+	get: return player.get_node("PlayerHand")
+@onready var AI: MatchPlayer = $"AI"
+var AI_hand:
+	get: return AI.get_node("PlayerHand")
+@onready var game_actions: GameActions = $GameActions
+@onready var deck: Deck = $Deck
+
 
 var current_player: MatchPlayer
 
@@ -9,22 +21,27 @@ var turn : MatchPlayer
 
 var buy_deck : Node
 var discard_deck : Node
-var _game_actions: GameActions
 var somadores_por_coluna = [0, 0, 0, 0, 0]
 var _hand
 var _opposite_hand
 
-func _init(buy_deck: Node, discard_deck: Node, hand: Node, opposite_hand: Node) -> void:
-	self.buy_deck = buy_deck
-	self.discard_deck = discard_deck
-	self._game_actions = GameActions.new(self)
-	self._hand = hand
-	self._opposite_hand = opposite_hand
 
+func deal_initial_hand() -> void:
+	await get_tree().create_timer(0.5).timeout
+	var players = [AI, player]
+	for i in INITIAL_HAND_SIZE:
+		for each_player in players:
+			await get_tree().create_timer(0.2).timeout
+			self.current_player = each_player
+			game_actions.buy_card()
 
 func _ready() -> void:
 	#await _init_players(self._hand, self._opposite_hand)
-	self.turn = players[0]
+	clock._end_turn.connect(_on_end_turn)
+	clock._end_game.connect(_on_end_game)
+	self.deal_initial_hand()
+	
+	#self.turn = players[0]
 	#GameEvents.on_game_over.connect(end_game)
 
 func _notify_gm_is_ready():
@@ -88,7 +105,7 @@ func create_cards(card_types_and_powers):
 	timer.one_shot = true
 	self.add_child(timer)
 	timer.start(1.5)
-	
+
 
 # Alterna turnos
 func end_turn(emit_event=true):
@@ -101,6 +118,29 @@ func end_turn(emit_event=true):
 	self.turn.set_timer()
 	#if emit_event:
 		#MultiplayerManager.client.current_match.request_end_turn.rpc_id(1)
+
+func _on_end_turn():
+	if self.current_player == player:
+		self.current_player = AI
+	else:
+		self.current_player = player
+	
+	current_player.reset_mana()
+	
+	if deck.deck_pile:
+		game_actions.buy_card()
+	else: # este é o último turno do jogo
+		clock.last_turn = true
+	
+	clock.reset_timer()
+
+func _on_end_game():
+	pass
+
+
+
+
+
 
 func return_card_to_player(card: Card):
 	self.turn.hand.card_slot.position_cards()
