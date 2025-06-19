@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ebsp8cgsjef6"]
+[gd_scene load_steps=3 format=3 uid="uid://ebsp8cgsjef6"]
 
 [ext_resource type="Script" uid="uid://dgsf6tyx50isy" path="res://scenes/cards/deck.gd" id="1_4e1uv"]
 [ext_resource type="Texture2D" uid="uid://cut4std3hi5ys" path="res://assets/sprites/CardSlot.png" id="2_u5uvd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5uvd"]
-size = Vector2(148, 200)
 
 [node name="Deck" type="Node2D"]
 z_index = 2
@@ -13,11 +10,6 @@ script = ExtResource("1_4e1uv")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.85, 0.772)
 texture = ExtResource("2_u5uvd")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_u5uvd")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -35,6 +27,3 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

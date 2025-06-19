@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj2aoo5011s26"]
+[gd_scene load_steps=10 format=3 uid="uid://dj2aoo5011s26"]
 
 [ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/match.gd" id="1_6ncua"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="2_m3pp4"]
+[ext_resource type="PackedScene" uid="uid://dg8ynng7jpu8g" path="res://scenes/main scenes/game_actions.tscn" id="2_ngxga"]
 [ext_resource type="PackedScene" uid="uid://bx70gmm6ej88p" path="res://scenes/cards/card.tscn" id="3_mtvpx"]
 [ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/cards/card_slot_manager.tscn" id="3_ni3me"]
 [ext_resource type="PackedScene" uid="uid://ebsp8cgsjef6" path="res://scenes/cards/deck.tscn" id="4_ybgof"]
@@ -11,6 +12,27 @@
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_6ncua")
+
+[node name="GameActions" parent="." instance=ExtResource("2_ngxga")]
+
+[node name="Timer geral" type="Node" parent="."]
+
+[node name="IA" type="Node" parent="."]
+
+[node name="IA Hand" type="Node" parent="IA"]
+
+[node name="Mana" type="Node" parent="IA"]
+
+[node name="Player" type="Node" parent="."]
+
+[node name="PlayerHand" parent="Player" instance=ExtResource("5_ybgof")]
+position = Vector2(960, 1080)
+
+[node name="ManaGrande" type="Node" parent="Player"]
+
+[node name="ManaPequena1" type="Node" parent="Player"]
+
+[node name="ManaPequena2" type="Node" parent="Player"]
 
 [node name="CardManager" parent="." instance=ExtResource("2_m3pp4")]
 
@@ -97,9 +119,6 @@ position = Vector2(125, 540)
 [node name="DiscardPile" parent="." instance=ExtResource("7_taav6")]
 position = Vector2(1795, 540)
 
-[node name="PlayerHand" parent="." instance=ExtResource("5_ybgof")]
-position = Vector2(960, 1080)
-
 [node name="notes" type="Node" parent="."]
 
 [node name="Label deck" type="Label" parent="notes"]
@@ -112,6 +131,7 @@ text = "deck
 (clique pra comprar)"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label discard pile" type="Label" parent="notes"]
 offset_left = 1696.0
@@ -122,6 +142,7 @@ theme_override_font_sizes/font_size = 25
 text = "pilha de descarte"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label opponent hand" type="Label" parent="notes"]
 offset_left = 319.0
@@ -133,6 +154,7 @@ text = "protótipo da mão -->
 do oponente"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label slots layout" type="Label" parent="notes"]
 offset_left = 787.0
@@ -141,6 +163,7 @@ offset_right = 1133.0
 offset_bottom = 352.0
 theme_override_font_sizes/font_size = 25
 text = "protótipo do layout dos slots"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label numbers" type="Label" parent="notes"]
 offset_left = 546.0
@@ -151,6 +174,7 @@ theme_override_font_sizes/font_size = 50
 text = "10          10           10          10           10"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label click" type="Label" parent="notes"]
 offset_left = 14.0
@@ -162,3 +186,4 @@ text = "click direito do mouse
 pra flipar carta"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

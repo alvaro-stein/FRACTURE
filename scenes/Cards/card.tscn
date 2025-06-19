@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bx70gmm6ej88p"]
 
-[ext_resource type="Script" uid="uid://y3le6lb5i1el" path="res://scenes/Cards/card.gd" id="1_ad4w7"]
+[ext_resource type="Script" uid="uid://y3le6lb5i1el" path="res://scenes/cards/card.gd" id="1_ad4w7"]
 [ext_resource type="Texture2D" uid="uid://b3fd06sw03muf" path="res://assets/sprites/balatro cards/numbered/espadas1.png" id="2_jl6rh"]
 [ext_resource type="Texture2D" uid="uid://dwhlgd68uq0b1" path="res://assets/sprites/balatro cards/figures/Deck Backs18.png" id="3_t5m02"]
 

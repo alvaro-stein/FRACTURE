@@ -1,8 +1,88 @@
 extends Node
 class_name GameActions
-#Here each player action will have a function, connected by signal 
- 
+# Here each player action will have a function, connected by signal 
+
 var gm: GameManager
+
+
+@onready var card_manager: Node2D = $"../CardManager"
+var highlighted_card:
+	get: return card_manager.highlighted_card
+var card_being_dragged:
+	get: return card_manager.card_being_dragged
+
+@onready var card_slot_manager: Node2D = $"../CardSlotManager"
+var card_slot_hovered:
+	get: return card_slot_manager.card_slot_hovered
+
+@onready var discard_pile: Node2D = $"../DiscardPile"
+var discard_pile_hovered:
+	get: return discard_pile.discard_pile_hovered
+
+@onready var player: Node2D = $"../Player"
+var player_hand:
+	get: return player.player_hand
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and highlighted_card:
+		start_drag() if event.pressed else finish_drag()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and highlighted_card:
+		if event.pressed:
+			highlighted_card.flip()
+
+
+func start_drag() -> void:
+	player_hand.remove_card_from_hand(highlighted_card)
+	card_being_dragged = highlighted_card
+	highlighted_card.scale = Vector2(1, 1)
+
+
+func finish_drag() -> void:
+	highlighted_card.scale = Vector2(1.05, 1.05)
+	if card_being_dragged:
+		if card_slot_hovered:
+			try_place_card(card_being_dragged, card_slot_hovered)
+		elif discard_pile_hovered:
+			try_discard_card(card_being_dragged)
+		else: # Return card to hand
+			player_hand.add_card_to_hand(highlighted_card)
+		card_being_dragged = null
+
+	#highlighted_card.scale = Vector2(1.05, 1.05)
+	#if card_being_dragged:
+		#if card_slot_hovered and card_slot_hovered.is_empty:
+			## Then drop the card into the empty card slot
+			#card_slot_hovered.is_empty = false
+			#card_being_dragged.position = card_slot_hovered.position
+			#card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
+		#elif discard_pile_hovered and not deck.is_empty:
+			#discard_pile.discard_and_buy(card_being_dragged)
+		#else:
+			#player_hand.add_card_to_hand(highlighted_card)
+		#card_being_dragged = null
+
+func try_place_card(card: Card, slot: CardSlot) -> void:
+	pass
+
+
+func try_discard_card(card: Card) -> void:
+	# testar se pode
+	if ?:
+		# efetivamente descartar e comprar
+		card.position = discard_pile.position
+		card.get_node("Area2D/CollisionShape2D").disabled = true
+		self.buy_card() # ?????????
+	else: # Return card to hand
+		player_hand.add_card_to_hand(highlighted_card)
+		
+		
+func buy_card() -> void:
+	pass
+
+
+
+
 
 func _init(game_manager: GameManager) -> void:
 	self.gm = game_manager
@@ -120,7 +200,7 @@ func place_card(card: CardUI, slot: CardSlotSystem, callback: Callable):
 		can_use_mana = self.gm.turn.try_use_mana(custo_big_mana, custo_small_mana)
 	
 	print("Depois Player small mana: ", self.gm.turn.small_mana_player)
-	print("Depois Player big	 mana: ", self.gm.turn.big_mana_player)
+	print("Depois Player big mana: ", self.gm.turn.big_mana_player)
 	
 	if can_use_mana:
 		GameEvents.on_mana_spend.emit(self.gm.turn, self.gm.turn.small_mana_player, self.gm.turn.big_mana_player > 0)
@@ -176,7 +256,7 @@ func buy_extra_card(callback: Callable):
 	else:
 		print("Não é você")
 
-func change_action(): 
+func change_action():
 	if !self.gm.turn.change_mana():
 		print("Error in change mana")
 		return false

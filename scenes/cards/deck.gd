@@ -24,6 +24,11 @@ func _ready() -> void:
 	$Label.text = str(deck_pile.size())
 
 
+func try_buy(player):
+	card = deck.buy()
+	player_hand.add_card(card)
+
+
 func buy() -> void:
 	var card = deck_pile.pop_back()
 	player_hand.animation_speed = 0.3
@@ -41,11 +46,3 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and deck_pile_hovered:
 		if event.pressed and not is_empty:
 			buy()
-
-
-func _on_area_2d_mouse_entered() -> void:
-	deck_pile_hovered = true
-
-
-func _on_area_2d_mouse_exited() -> void:
-	deck_pile_hovered = false
