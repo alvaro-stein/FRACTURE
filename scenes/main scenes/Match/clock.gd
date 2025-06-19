@@ -1,4 +1,8 @@
 extends TextureButton
+@onready var slot: Node2D = $"../CardSlotManager/PlayerSlot/Quartz"
+var slot_pile:
+	get: return slot.slot_pile
+
 
 signal _end_turn
 signal _end_game

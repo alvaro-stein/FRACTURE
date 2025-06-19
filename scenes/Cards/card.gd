@@ -13,6 +13,12 @@ var type: String
 var rank: int
 
 
+func card_set_z_index(index: int) -> void:
+	self.z_index = index
+	self.get_node("Front").z_index = index
+	self.get_node("Back").z_index = index
+
+
 func flip() -> void:
 	if is_facing_down:
 		$"AnimationPlayer".play("flip")
