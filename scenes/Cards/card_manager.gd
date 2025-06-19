@@ -1,34 +1,11 @@
 extends Node2D
 
 var standard_z_index = self.z_index
-var screen_size: Vector2
-var mouse_pos: Vector2
 var card_being_dragged: Card = null
 var highlighted_card: Card = null
 var last_card_hovered: Card = null
-@onready var player_hand: Node2D = $"../PlayerHand"
-@onready var deck: Node2D = $"../Deck"
 
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	screen_size = get_viewport_rect().size
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if card_being_dragged:
-		mouse_pos = get_global_mouse_position()
-		mouse_pos.x = clamp(mouse_pos.x, 0, screen_size.x)
-		mouse_pos.y = clamp(mouse_pos.y, 0, screen_size.y)
-		card_being_dragged.position = mouse_pos
-
-
-
-
-
-# Card implementation
 func connect_card_signals(card: Card) -> void:
 	card.connect("hovered", on_hovered_over_card)
 	card.connect("hovered_off", on_hovered_off_card)

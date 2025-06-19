@@ -12,8 +12,8 @@ var player_hand: Array[Card] = []
 var screen_center_x: float
 var total_width: float
 var x_offset: float
-var hand_hovered: bool = false
 var animation_speed: float = 0.2
+var hand_hovered: bool = false
 
 
 # Called when the node enters the scene tree for the first time.

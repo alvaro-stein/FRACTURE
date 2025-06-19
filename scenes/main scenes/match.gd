@@ -1,10 +1,12 @@
 extends Node
 class_name GameManager
 
-var is_player_turn: bool = false
+
+var current_player: MatchPlayer
 
 var players : Array[MatchPlayer]
 var turn : MatchPlayer
+
 var buy_deck : Node
 var discard_deck : Node
 var _game_actions: GameActions
