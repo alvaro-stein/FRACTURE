@@ -1,33 +1,34 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj2aoo5011s26"]
+[gd_scene load_steps=11 format=3 uid="uid://dj2aoo5011s26"]
 
-[ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/match.gd" id="1_6ncua"]
+[ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/Match/match.gd" id="1_6ncua"]
+[ext_resource type="PackedScene" uid="uid://caj23gmo4lj52" path="res://scenes/main scenes/Match/clock.tscn" id="2_8uon3"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="2_m3pp4"]
-[ext_resource type="PackedScene" uid="uid://bx70gmm6ej88p" path="res://scenes/cards/card.tscn" id="3_mtvpx"]
+[ext_resource type="PackedScene" uid="uid://dg8ynng7jpu8g" path="res://scenes/main scenes/Match/game_actions.tscn" id="2_ngxga"]
 [ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/cards/card_slot_manager.tscn" id="3_ni3me"]
+[ext_resource type="PackedScene" uid="uid://j7him6825pu" path="res://scenes/main scenes/Match/player.tscn" id="4_8uon3"]
 [ext_resource type="PackedScene" uid="uid://ebsp8cgsjef6" path="res://scenes/cards/deck.tscn" id="4_ybgof"]
 [ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/cards/card_slot.tscn" id="5_g2ndp"]
-[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/cards/player_hand.tscn" id="5_ybgof"]
 [ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/cards/discard_pile.tscn" id="7_taav6"]
+[ext_resource type="PackedScene" uid="uid://c78yrpjq28q68" path="res://scenes/main scenes/Match/ai.tscn" id="11_401qm"]
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_6ncua")
 
+[node name="Clock" parent="." instance=ExtResource("2_8uon3")]
+offset_left = 1625.0
+offset_top = 540.0
+offset_right = 1625.0
+offset_bottom = 540.0
+
+[node name="GameActions" parent="." instance=ExtResource("2_ngxga")]
+
+[node name="Player" parent="." instance=ExtResource("4_8uon3")]
+position = Vector2(960, 1080)
+
+[node name="AI" parent="." instance=ExtResource("11_401qm")]
+position = Vector2(960, 0)
+
 [node name="CardManager" parent="." instance=ExtResource("2_m3pp4")]
-
-[node name="Card3" parent="CardManager" instance=ExtResource("3_mtvpx")]
-position = Vector2(650, -33.333)
-
-[node name="Card4" parent="CardManager" instance=ExtResource("3_mtvpx")]
-position = Vector2(805, -33.333)
-
-[node name="Card5" parent="CardManager" instance=ExtResource("3_mtvpx")]
-position = Vector2(960, -33.333)
-
-[node name="Card6" parent="CardManager" instance=ExtResource("3_mtvpx")]
-position = Vector2(1115, -33.333)
-
-[node name="Card7" parent="CardManager" instance=ExtResource("3_mtvpx")]
-position = Vector2(1270, -33.333)
 
 [node name="CardSlotManager" parent="." instance=ExtResource("3_ni3me")]
 
@@ -97,9 +98,6 @@ position = Vector2(125, 540)
 [node name="DiscardPile" parent="." instance=ExtResource("7_taav6")]
 position = Vector2(1795, 540)
 
-[node name="PlayerHand" parent="." instance=ExtResource("5_ybgof")]
-position = Vector2(960, 1080)
-
 [node name="notes" type="Node" parent="."]
 
 [node name="Label deck" type="Label" parent="notes"]
@@ -112,6 +110,7 @@ text = "deck
 (clique pra comprar)"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label discard pile" type="Label" parent="notes"]
 offset_left = 1696.0
@@ -122,17 +121,7 @@ theme_override_font_sizes/font_size = 25
 text = "pilha de descarte"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Label opponent hand" type="Label" parent="notes"]
-offset_left = 319.0
-offset_top = 3.0
-offset_right = 567.0
-offset_bottom = 76.0
-theme_override_font_sizes/font_size = 25
-text = "protótipo da mão -->
-do oponente"
-horizontal_alignment = 1
-vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label slots layout" type="Label" parent="notes"]
 offset_left = 787.0
@@ -141,6 +130,7 @@ offset_right = 1133.0
 offset_bottom = 352.0
 theme_override_font_sizes/font_size = 25
 text = "protótipo do layout dos slots"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label numbers" type="Label" parent="notes"]
 offset_left = 546.0
@@ -151,6 +141,7 @@ theme_override_font_sizes/font_size = 50
 text = "10          10           10          10           10"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label click" type="Label" parent="notes"]
 offset_left = 14.0
@@ -162,3 +153,4 @@ text = "click direito do mouse
 pra flipar carta"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
