@@ -34,7 +34,9 @@ func on_hovered_off_card(card: Card) -> void:
 func highlight_card(card: Card, hovered: bool) -> void:
 	if hovered:
 		card.scale = Vector2(1.05, 1.05)
-		card.z_index = standard_z_index + 1
+		card.z_index += 1
 	else:
 		card.scale = Vector2(1, 1)
-		card.z_index = standard_z_index
+		card.z_index -= 1
+		if card.get_node("Area2D/CollisionShape2D").disabled:
+			card.z_index = 0

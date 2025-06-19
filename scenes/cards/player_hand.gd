@@ -26,13 +26,15 @@ func remove_card_from_hand(card: Card) -> void:
 	if card in player_hand:
 		var index = player_hand.find(card)
 		player_hand.remove_at(index)
+		card.z_index -= 1
 		update_hand()
 
 
 func add_card_to_hand(card: Card) -> void:
 	if card not in player_hand:
 		player_hand.append(card)
-		update_hand()
+		card.z_index += 1
+		self.update_hand()
 
 
 func update_hand() -> void:

@@ -34,12 +34,12 @@ func mana_texture():
 func mana_scale():
 	mana_p_1.scale = Vector2(0.1, 0.1)
 	mana_p_2.scale = Vector2(0.1, 0.1)
-	mana_g.scale = Vector2(0.1, 0.1)
+	mana_g.scale = Vector2(0.11, 0.11)
 
 func mana_position():
-	mana_p_1.position =  Vector2(600, -115) 
-	mana_p_2.position = Vector2(600, -215) 	
-	mana_g.position = Vector2(610, -335)
+	mana_p_1.position =  Vector2(835, -115) 
+	mana_p_2.position = Vector2(835, -215)
+	mana_g.position = Vector2(840, -335)
 	
 func update_mana_visual(available_small_mana, available_big_mana):
 	if available_small_mana != 2 or not available_big_mana:

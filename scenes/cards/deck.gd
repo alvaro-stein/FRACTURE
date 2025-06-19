@@ -1,18 +1,20 @@
 extends Node2D
 class_name Deck
 
-const SUITS: Array[String] = ["copas", "espadas", "ouros", "paus"]
-@onready var card_manager: Node2D = $"../CardManager"
+#const COLOR: Array[String] = ["GOLD", "SAPPHIRE", "RUBY", "EMERALD"]
+const COLOR: Array[String] = ["copas", "espadas", "ouros", "paus"]
+const TYPE: Array[String] = ["ACE", "LOW", "MID", "HIGH"]
 
+@onready var card_manager: Node2D = $"../CardManager"
 var deck_pile: Array[Card] = []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Initialize the deck with all 40 cards
-	for suit in SUITS: 
+	for color in COLOR:
 		for rank in range(1, 11):
-			var new_card: Card = Card.new_card(suit, rank)
+			var new_card: Card = Card.new_card(color, rank)
 			#new_card.name = suit + str(rank)
 			deck_pile.append(new_card)
 			new_card.position = self.position

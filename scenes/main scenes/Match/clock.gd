@@ -3,7 +3,7 @@ extends TextureButton
 signal _end_turn
 signal _end_game
 
-const MAX_TIME := 10
+const MAX_TIME := 60
 
 var last_turn: bool = false
 @onready var label: Label = $Label

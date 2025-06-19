@@ -4,13 +4,13 @@
 [ext_resource type="Script" uid="uid://cnxomqcfc4hcf" path="res://scenes/cards/card_slot.gd" id="1_xuqdl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6bgyk"]
-size = Vector2(148, 200)
+size = Vector2(222, 412)
 
 [node name="CardSlot" type="Node2D"]
 script = ExtResource("1_xuqdl")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.85, 0.772)
+scale = Vector2(1.275, 1.583)
 texture = ExtResource("1_wps16")
 
 [node name="Area2D" type="Area2D" parent="."]

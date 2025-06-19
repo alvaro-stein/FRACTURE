@@ -52,11 +52,12 @@ func drag_card() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and highlighted_card:
-		start_drag() if event.pressed else finish_drag()
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and highlighted_card:
-		if event.pressed:
-			highlighted_card.flip()
+	if GM.game_started:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and highlighted_card:
+			start_drag() if event.pressed else finish_drag()
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and highlighted_card:
+			if event.pressed:
+				highlighted_card.flip()
 
 
 func start_drag() -> void:
@@ -68,9 +69,9 @@ func start_drag() -> void:
 func finish_drag() -> void:
 	highlighted_card.scale = Vector2(1.05, 1.05)
 	if card_being_dragged:
-		if card_slot_hovered:
+		if card_slot_hovered and GM.current_player == player:
 			try_place_card(card_being_dragged, card_slot_hovered)
-		elif discard_pile_hovered:
+		elif discard_pile_hovered and GM.current_player == player:
 			try_discard_card(card_being_dragged)
 		else: # Return card to hand
 			player_hand.add_card_to_hand(highlighted_card)
@@ -78,11 +79,8 @@ func finish_drag() -> void:
 
 
 func try_place_card(card: Card, slot: CardSlot) -> void:
-	if slot.is_empty:
-		slot.is_empty = false
-		card.position = slot.position
-		card.get_node("Area2D/CollisionShape2D").disabled = true
-		card.z_index = 0
+	if true:
+		slot.add_card_to_slot(card)
 	else: # Return card to hand
 		if GM.current_player == player:
 			player_hand.add_card_to_hand(card)
