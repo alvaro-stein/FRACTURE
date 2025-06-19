@@ -1,0 +1,130 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvkv5mvuwaku8"]
+
+[ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="1_8elv6"]
+[ext_resource type="Script" uid="uid://dp102gwp5h2n3" path="res://scenes/Menu/Regras/Menu_regras/menu_batalha_final.gd" id="1_lh0wl"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_eklpo"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="4_v7p5h"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="5_ldv5a"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="6_ql4sj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lh0wl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.389287, 0.389287, 0.389287, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8elv6")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 250
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Batalha final"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Introducao" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_batalhaFinal"]]
+layout_mode = 2
+theme = ExtResource("3_eklpo")
+theme_override_font_sizes/font_size = 55
+text = "Introdução"
+
+[node name="Tabuleiro" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_batalhaFinal"]]
+layout_mode = 2
+theme = ExtResource("3_eklpo")
+theme_override_font_sizes/font_size = 55
+text = "Tabuleiro
+"
+
+[node name="Tipo_carta" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_batalhaFinal"]]
+layout_mode = 2
+theme = ExtResource("3_eklpo")
+theme_override_font_sizes/font_size = 55
+text = "Tipos de carta"
+
+[node name="Dinamica_jogo" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_batalhaFinal"]]
+layout_mode = 2
+theme = ExtResource("3_eklpo")
+theme_override_font_sizes/font_size = 55
+text = "Dinamica"
+
+[node name="Habilidades" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_batalhaFinal"]]
+layout_mode = 2
+theme = ExtResource("3_eklpo")
+theme_override_font_sizes/font_size = 55
+text = "Habilidades"
+
+[node name="Sair" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_batalhaFinal"]]
+layout_mode = 2
+theme = ExtResource("3_eklpo")
+theme_override_font_sizes/font_size = 55
+text = "Sair"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1200, 700)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "
+[fill]Após o baralho de compras acabar o jogador que comprou a última carta faz seu último turno e passa para o adversário. O turno do adversário será o último turno do jogo. Com ele finalizado as somas das colunas são comparadas e aquele que tiver mais batalhas vencidas será o grande vencedor.[/fill]"
+tab_size = 24
+
+[node name="botaosom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_v7p5h")
+volume_db = -15.0
+pitch_scale = 1.05
+bus = &"Botoes menu"
+
+[node name="botaosom2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ldv5a")
+volume_db = -13.0
+pitch_scale = 1.05
+bus = &"Botoes menu"
+
+[node name="botaosom3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ql4sj")
+volume_db = -15.0
+bus = &"Botoes menu"

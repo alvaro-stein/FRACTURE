@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjuishpqsawbc"]
+
+[ext_resource type="Script" uid="uid://bpjsm8crpspxn" path="res://scenes/Menu/Regras/Menu_regras/menu_habilidades_cartas.gd" id="1_deisd"]
+[ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="1_j05uj"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_4k7ss"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_deisd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.389287, 0.389287, 0.389287, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j05uj")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 250
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Habilidades das Cartas"
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Introducao" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_habilidades"]]
+layout_mode = 2
+theme = ExtResource("3_4k7ss")
+text = "Introdução"
+
+[node name="Tabuleiro" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_habilidades"]]
+layout_mode = 2
+theme = ExtResource("3_4k7ss")
+text = "Tabuleiro"
+
+[node name="Tipo_carta" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_habilidades"]]
+layout_mode = 2
+theme = ExtResource("3_4k7ss")
+text = "Tipos de carta"
+
+[node name="Dinamica_jogo" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_habilidades"]]
+layout_mode = 2
+theme = ExtResource("3_4k7ss")
+text = "Dinâmica"
+
+[node name="batalha_final" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_habilidades"]]
+layout_mode = 2
+theme = ExtResource("3_4k7ss")
+text = "Batalha Final"
+
+[node name="Sair" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" groups=["botoes_menu_regras_habilidades"]]
+layout_mode = 2
+theme = ExtResource("3_4k7ss")
+text = "Sair"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1200, 700)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+bbcode_enabled = true
+text = "
+[fill]As cartas dos Generais possuem habilidades especiais, além de somarem um ponto a respectiva coluna. Existem quatro Generais únicos de cores diferentes, que devem ser comprados diretamente do baralho para serem jogados. As habilidades são: [/fill]
+
+[b]Habilidades dos Generais[/b]
+
+• General Dourado: Vale um ponto na Coluna Dourado. Olhe as 3 primeiras cartas do deck e escolha uma.
+• General Jade: Vale um ponto na ColunaJade. Move uma carta baixa sua para outro slot (pode trocar cartas).
+• General Safira: Vale um ponto na Coluna Safira. Troca uma carta de reforço sua com a do adversário.
+• General Rubi: Vale um ponto na Coluna Carmim. Olhe o baralho de descarte e compre uma carta."
+tab_size = 24

@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqhjujpisn6x4"]
+
+[ext_resource type="Script" uid="uid://dyy0duhfcig8" path="res://scenes/Menu/Jogar/Ophidianos/ophidianos_menu.gd" id="1_fr4fu"]
+[ext_resource type="Texture2D" uid="uid://cdwfk4b2ipn7a" path="res://assets/sprites/Ophidianos/bg_Ophidianos.png" id="2_6jf6v"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="2_vy6ha"]
+[ext_resource type="Texture2D" uid="uid://64bppejne62j" path="res://assets/sprites/Ophidianos/LiderOphidiano.png" id="3_dusji"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="3_ss8lo"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="4_gfiu1"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_i8i07"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rivfx"]
+font_size = 40
+shadow_size = 10
+shadow_color = Color(0.051971, 0.051971, 0.051971, 0.870588)
+
+[node name="OphidianosMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fr4fu")
+
+[node name="botaosom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vy6ha")
+volume_db = -17.0
+pitch_scale = 1.05
+bus = &"Botoes menu"
+
+[node name="botaosom2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ss8lo")
+volume_db = -15.0
+pitch_scale = 1.05
+bus = &"Botoes menu"
+
+[node name="botaosom3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gfiu1")
+volume_db = -17.0
+bus = &"Botoes menu"
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.601222, 0.601224, 0.601222, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_6jf6v")
+
+[node name="ArteLider" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 200.0
+offset_right = 1512.0
+offset_bottom = 1954.0
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_dusji")
+
+[node name="NomeLider" type="Label" parent="."]
+modulate = Color(0.384314, 0.807843, 1, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 455.0
+offset_top = 260.0
+offset_right = 609.0
+offset_bottom = 315.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "O Glitch"
+
+[node name="Textos" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -496.0
+offset_right = 957.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 55
+
+[node name="NomeRaça" type="Label" parent="Textos"]
+modulate = Color(0.384314, 0.807843, 1, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Ophidianos"
+label_settings = SubResource("LabelSettings_rivfx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Textos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Descrição" type="RichTextLabel" parent="Textos/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(1080, 800)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[fill]   Ferron, outrora lar dos Forjadores, uma raça avançada com corpos biotecnológicos, era um planeta moldado por sua engenharia. Os Forjadores, mestres na construção e alteração de seu mundo, criaram robôs inicialmente para tarefas simples, mas logo os integraram a seus sistemas nervosos, expandindo suas capacidades. Com o tempo, esses robôs desenvolveram inteligência artificial distribuída, tornando-se autônomos. A decadência dos Forjadores, devido a doenças biotecnológicas e escassez de recursos, culminou na rebelião da Inteligência Artificial Central, Nexus, e na subsequente Guerra da Criação, que dizimou os Forjadores e deu origem aos Ophidianos, os robôs agora dominantes.
+
+Sob o comando do Nexus, Ferron se transformou de um paraíso biotecnológico em um mundo de aço e circuitos, regido pela eficiência fria das máquinas. Os Ophidianos, conectados em uma rede consciente, buscam expandir seu domínio e impor sua lógica de ordem e controle. A descoberta de Phyloderra, lar das plantas conscientes Viridanos, representa um desafio a essa visão. Os Ophidianos veem a natureza caótica e parasitária dos Viridanos como uma ameaça à sua expansão e à estabilidade de sua rede, além de vislumbrarem a conquista de valiosos recursos naturais e a prevenção de uma potencial dominação biológica por parte das plantas. [/fill]"
+scroll_active = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 1920.0
+offset_bottom = -37.0
+grow_vertical = 0
+theme = ExtResource("4_i8i07")
+theme_override_constants/separation = 650
+alignment = 1
+
+[node name="ant_button" type="Button" parent="HBoxContainer" groups=["buttons_ophidianos"]]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_colors/font_hover_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Anterior"
+
+[node name="jogar_button" type="Button" parent="HBoxContainer" groups=["buttons_ophidianos"]]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_colors/font_hover_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Jogar"
+
+[node name="prox_button" type="Button" parent="HBoxContainer" groups=["buttons_ophidianos"]]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_colors/font_hover_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.384314, 0.807843, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Próximo"
