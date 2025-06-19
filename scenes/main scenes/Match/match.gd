@@ -27,7 +27,6 @@ var _opposite_hand
 
 
 func deal_initial_hand() -> void:
-	await get_tree().create_timer(0.5).timeout
 	var players = [AI, player]
 	for i in INITIAL_HAND_SIZE:
 		for each_player in players:
@@ -39,6 +38,7 @@ func _ready() -> void:
 	#await _init_players(self._hand, self._opposite_hand)
 	clock._end_turn.connect(_on_end_turn)
 	clock._end_game.connect(_on_end_game)
+	await get_tree().create_timer(0.5).timeout
 	self.deal_initial_hand()
 	
 	#self.turn = players[0]
