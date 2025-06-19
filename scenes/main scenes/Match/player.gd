@@ -83,14 +83,12 @@ func try_use_mana(big_mana: int, small_mana: int):
 	else: #aprimorar essa parte?
 		if big_mana == 0 and self.big_mana_player and self.small_mana_player < small_mana:
 			if self.small_mana_player + 1 >= small_mana: #troca uma mana grande por uma pequena
+				self.small_mana_player += 1
 				self.big_mana_player = 0
 				self.small_mana_player -= small_mana
 				self.update_mana_visual(small_mana_player, big_mana_player)
 				return true
-			else:
-				return false
-		else:
-			return false
+		return false
 
 #func set_game_manager(game_manager: GameManager):
 	#self.gm = game_manager

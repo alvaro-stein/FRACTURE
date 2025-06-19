@@ -40,7 +40,7 @@ func _ready() -> void:
 	clock._end_game.connect(_on_end_game)
 	await get_tree().create_timer(0.5).timeout
 	await self.deal_initial_hand()
-	clock.get_node("Timer").start()
+	clock.reset_timer()
 	
 	#self.turn = players[0]
 	#GameEvents.on_game_over.connect(end_game)
