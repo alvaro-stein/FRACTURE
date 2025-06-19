@@ -10,7 +10,7 @@ var deck_pile: Array[Card] = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Initialize the deck with all 40 cards
-	for suit in SUITS:
+	for suit in SUITS: 
 		for rank in range(1, 11):
 			var new_card: Card = Card.new_card(suit, rank)
 			#new_card.name = suit + str(rank)

@@ -3,13 +3,15 @@ extends TextureButton
 signal _end_turn
 signal _end_game
 
-const MAX_TIME := 60
+const MAX_TIME := 10
 
 var last_turn: bool = false
 @onready var label: Label = $Label
 @onready var timer: Timer = $Timer
 
-
+func _ready() -> void:
+	label.text = str(MAX_TIME) #start with correct time
+	
 func reset_timer() -> void:
 	label.text = str(MAX_TIME)
 	timer.start()

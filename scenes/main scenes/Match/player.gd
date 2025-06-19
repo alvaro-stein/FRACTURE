@@ -14,6 +14,54 @@ var time_pass : int
 var timer_set : bool = false
 #var gm: GameManager
 
+@onready var mana_p_1: Sprite2D = $ManaP1
+@onready var mana_p_2: Sprite2D = $ManaP2
+@onready var mana_g: Sprite2D = $ManaG
+
+const MANA_GRANDE = preload("res://assets/mana/Mana Grande.png")
+const MANA_PEQUENA = preload("res://assets/mana/Mana Pequena.png")
+
+func _ready() -> void:
+	self.mana_texture()
+	self.mana_scale()
+	self.mana_position()
+	
+func mana_texture():
+	mana_p_1.texture = MANA_PEQUENA
+	mana_p_2.texture = MANA_PEQUENA
+	mana_g.texture = MANA_GRANDE
+	
+func mana_scale():
+	mana_p_1.scale = Vector2(0.1, 0.1)
+	mana_p_2.scale = Vector2(0.1, 0.1)
+	mana_g.scale = Vector2(0.1, 0.1)
+
+func mana_position():
+	mana_p_1.position =  Vector2(600, -115) 
+	mana_p_2.position = Vector2(600, -215) 	
+	mana_g.position = Vector2(610, -335)
+	
+func update_mana_visual(available_small_mana, available_big_mana):
+	if available_small_mana != 2 or not available_big_mana:
+		if not available_big_mana:
+			mana_g.visible = false
+			
+		if available_small_mana == 1:
+			mana_p_1.visible = false
+		elif available_small_mana == 0:
+			mana_p_1.visible = false
+			mana_p_2.visible = false
+	else: #mana inteira
+		mana_p_1.visible = true
+		mana_p_2.visible = true
+		mana_g.visible = true
+
+func reset_mana():
+	self.big_mana_player = 1
+	self.small_mana_player  = 2
+	self.update_mana_visual(small_mana_player, big_mana_player)
+	
+	
 #func _init(nickname: String, id:int, hand: Node) -> void:
 	#self.nickname = nickname
 	#self.id = id
@@ -30,12 +78,14 @@ func try_use_mana(big_mana: int, small_mana: int):
 	if self.big_mana_player >= big_mana and self.small_mana_player >= small_mana:
 		self.big_mana_player -= big_mana
 		self.small_mana_player -= small_mana
+		self.update_mana_visual(small_mana_player, big_mana_player)
 		return true
-	else: #aprimorar essa parte
+	else: #aprimorar essa parte?
 		if big_mana == 0 and self.big_mana_player and self.small_mana_player < small_mana:
-			if self.small_mana_player + 1 >= small_mana:
+			if self.small_mana_player + 1 >= small_mana: #troca uma mana grande por uma pequena
 				self.big_mana_player = 0
 				self.small_mana_player -= small_mana
+				self.update_mana_visual(small_mana_player, big_mana_player)
 				return true
 			else:
 				return false
@@ -46,18 +96,8 @@ func try_use_mana(big_mana: int, small_mana: int):
 	#self.gm = game_manager
 
 
-func reset_mana():
-	self.big_mana_player = 1
-	self.small_mana_player  = 2
-	#CHAMAR FUNÇÃO PRA ATUALIZAR VISUALMENTE TAMBÉM
 
 
-func change_mana():
-	if self.try_use_mana(1, 0):
-		self.small_mana_player  += 1
-		return true
-	else:
-		return false
 
 func set_timer():
 	set_time.emit()

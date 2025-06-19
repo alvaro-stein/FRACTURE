@@ -20,9 +20,9 @@ var card_being_dragged: Card = null
 var card_slot_hovered:
 	get: return card_slot_manager.card_slot_hovered
 
-@onready var discard_pile: Node2D = $"../DiscardPile"
+@onready var discard_deck: Node2D = $"../DiscardPile"
 var discard_pile_hovered:
-	get: return discard_pile.discard_pile_hovered
+	get: return discard_deck.discard_pile_hovered
 
 @onready var player: MatchPlayer = $"../Player"
 var player_hand:
@@ -92,8 +92,7 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 
 func try_discard_card(card: Card) -> void:
 	if GM.current_player.try_use_mana(0, 2) and deck_pile:
-		card.position = discard_pile.position
-		card.get_node("Area2D/CollisionShape2D").disabled = true
+		discard_deck.discard_card(card) #responsabilidade do discard_pile
 		self.buy_card()
 	else: # Return card to hand
 		if GM.current_player == player:

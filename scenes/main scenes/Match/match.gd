@@ -1,7 +1,7 @@
 extends Node
 class_name GameManager
 
-const INITIAL_HAND_SIZE := 5
+const INITIAL_HAND_SIZE := 18
 
 @onready var clock: TextureButton = $Clock
 @onready var player: MatchPlayer = $"Player"
@@ -39,7 +39,8 @@ func _ready() -> void:
 	clock._end_turn.connect(_on_end_turn)
 	clock._end_game.connect(_on_end_game)
 	await get_tree().create_timer(0.5).timeout
-	self.deal_initial_hand()
+	await self.deal_initial_hand()
+	clock.get_node("Timer").start()
 	
 	#self.turn = players[0]
 	#GameEvents.on_game_over.connect(end_game)
@@ -135,6 +136,7 @@ func _on_end_turn():
 	clock.reset_timer()
 
 func _on_end_game():
+	print("Jogo acabou")
 	pass
 
 
