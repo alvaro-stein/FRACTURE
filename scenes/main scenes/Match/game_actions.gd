@@ -5,6 +5,8 @@ class_name GameActions
 var screen_size: Vector2
 var mouse_pos: Vector2
 
+signal score_updated(is_AI, score_change_value, card)
+
 @onready var GM: GameManager = $".."
 
 @onready var deck: Node2D = $"../Deck"
@@ -79,13 +81,94 @@ func finish_drag() -> void:
 
 
 func try_place_card(card: Card, slot: CardSlot) -> void:
-	if true:
+	var is_AI := (GM.current_player != player)
+	
+	var allowed_slot: bool
+	if is_AI:
+		allowed_slot = slot.get_parent().name == "AISlot"
+	else:
+		allowed_slot = slot.get_parent().name == "PlayerSlot"
+	
+	# Regras de combinação por tipo
+	var combination_rules := {
+		"HIGH": {
+			["HIGH"]: "big",
+			["HIGH", "LOW"]: "big"
+		},
+		"MID": {
+			["MID"]: "big",
+			["MID", "MID"]: "big",
+			["LOW", "MID"]: "big",
+			["LOW", "LOW", "MID"]: "big"
+		},
+		"LOW": {
+			["LOW"]: "small",
+			["LOW", "LOW"]: "small",
+			["LOW", "MID"]: "small",
+			["LOW", "LOW", "MID"]: "small",
+			["HIGH", "LOW"]: "big"
+		}
+	}
+
+	var is_valid_combination := false
+	var cost_big_mana := 0
+	var cost_small_mana := 0
+
+	if card.type in combination_rules:
+		var current_types := slot.slot_pile.map(func(c): return c.type)
+		if current_types.has("ACE"):
+			current_types.erase("ACE")
+		current_types.append(card.type)
+		current_types.sort()
+		print(card.type)
+		print(current_types)
+		var type_rules = combination_rules[card.type]
+		print(type_rules.has(current_types))
+		if type_rules.has(current_types):
+			is_valid_combination = true
+			match type_rules[current_types]:
+				"small":
+					cost_small_mana = 1
+				"big":
+					cost_big_mana = 1
+
+	elif card.type == "ACE":
+		is_valid_combination = true
+		cost_small_mana = 1
+
+	print("Custo big mana: ", cost_big_mana)
+	print("Custo small mana: ", cost_small_mana)
+
+	# Condições para jogar a carta
+	var rules := [
+		card.color in ["copas", "espadas", "ouros", "paus"] or slot.color == "QUARTZ",
+		#card.color == slot.color
+		#card in GM.current_player.hand.player_hand,
+		is_valid_combination,
+		allowed_slot
+	]
+
+	var can_play = rules.reduce(func(a, b): return a and b)
+	var can_use_mana = can_play and GM.current_player.try_use_mana(cost_big_mana, cost_small_mana)
+	var score_change_value = card.rank
+	
+	if can_use_mana:
 		slot.add_card_to_slot(card)
-	else: # Return card to hand
-		if GM.current_player == player:
-			player_hand.add_card_to_hand(card)
+		if is_AI:
+			score_change_value *= -1
+		emit_signal("score_updated", is_AI, score_change_value, card)
+	else:
+		var hand
+		if is_AI:
+			hand = AI_hand
 		else:
-			AI_hand.add_card_to_hand(card)
+			hand = player_hand
+		hand.add_card_to_hand(card)
+		print
+	print(allowed_slot)
+	print(is_valid_combination)
+	print(can_play)
+	print(can_use_mana)
 
 
 func try_discard_card(card: Card) -> void:

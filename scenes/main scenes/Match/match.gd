@@ -12,6 +12,7 @@ var AI_hand:
 	get: return AI.get_node("PlayerHand")
 @onready var game_actions: GameActions = $GameActions
 @onready var deck: Deck = $Deck
+@onready var score: Node = $Score
 
 var game_started: bool = false
 var current_player: MatchPlayer
@@ -38,6 +39,7 @@ func _ready() -> void:
 	#await _init_players(self._hand, self._opposite_hand)
 	clock._end_turn.connect(_on_end_turn)
 	clock._end_game.connect(_on_end_game)
+	game_actions.score_updated.connect(_on_score_updated)
 	await get_tree().create_timer(0.5).timeout
 	await self.deal_initial_hand()
 	game_started = true
@@ -135,6 +137,10 @@ func _on_end_turn():
 		clock.last_turn = true
 	
 	clock.reset_timer()
+
+func _on_score_updated(is_AI, score_change_value, card):
+	pass
+	
 
 func _on_end_game():
 	print("Jogo acabou")
