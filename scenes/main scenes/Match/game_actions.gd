@@ -5,7 +5,7 @@ class_name GameActions
 var screen_size: Vector2
 var mouse_pos: Vector2
 
-signal score_updated(is_AI, score_change_value, card)
+signal score_updated(score_change_value, color)
 
 @onready var GM: GameManager = $".."
 
@@ -141,8 +141,7 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 
 	# Condições para jogar a carta
 	var rules := [
-		card.color in ["copas", "espadas", "ouros", "paus"] or slot.color == "QUARTZ",
-		#card.color == slot.color
+		card.color == slot.color or slot.color == "QUARTZ",
 		#card in GM.current_player.hand.player_hand,
 		is_valid_combination,
 		allowed_slot
@@ -156,7 +155,7 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 		slot.add_card_to_slot(card)
 		if is_AI:
 			score_change_value *= -1
-		emit_signal("score_updated", is_AI, score_change_value, card)
+		emit_signal("score_updated", score_change_value, slot.color)
 	else:
 		var hand
 		if is_AI:

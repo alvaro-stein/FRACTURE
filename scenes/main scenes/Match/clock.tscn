@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://caj23gmo4lj52"]
+[gd_scene load_steps=3 format=3 uid="uid://caj23gmo4lj52"]
 
+[ext_resource type="Texture2D" uid="uid://1xhbdxmjkb6r" path="res://assets/sprites/Clock/timer_100.png" id="1_gu4cm"]
 [ext_resource type="Script" uid="uid://bpwnmhlmvveg1" path="res://scenes/main scenes/Match/clock.gd" id="1_i1n7k"]
 
 [node name="Clock" type="TextureButton"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+texture_normal = ExtResource("1_gu4cm")
 script = ExtResource("1_i1n7k")
 
 [node name="Label" type="Label" parent="."]
@@ -21,6 +27,7 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "60"
 horizontal_alignment = 1
@@ -29,4 +36,5 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

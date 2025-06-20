@@ -13,6 +13,8 @@ var AI_hand:
 @onready var game_actions: GameActions = $GameActions
 @onready var deck: Deck = $Deck
 @onready var score: Node = $Score
+const FONT_COLOR_PATH := "theme_override_colors/font_color"
+
 
 var game_started: bool = false
 var current_player: MatchPlayer
@@ -126,8 +128,10 @@ func end_turn(emit_event=true):
 func _on_end_turn():
 	if self.current_player == player:
 		self.current_player = AI
+		clock.disabled = true
 	else:
 		self.current_player = player
+		clock.disabled = false
 	
 	current_player.reset_mana()
 	
@@ -138,12 +142,20 @@ func _on_end_turn():
 	
 	clock.reset_timer()
 
-func _on_score_updated(is_AI, score_change_value, card):
-	pass
-	
+
+func _on_score_updated(score_change_value: int, color: String):
+	score.get_node(color.to_upper()).get_node("SpinScore").play("spin score")
+	var score_label: Label = score.get_node(color.to_upper())
+	score_label.text = str(int(score_label.text) + score_change_value)
+	if int(score_label.text) == 0:
+		score_label.set(FONT_COLOR_PATH, Color.WHITE)
+	elif int(score_label.text) < 0:
+		score_label.set(FONT_COLOR_PATH, Color.FIREBRICK)
+	else:
+		score_label.set(FONT_COLOR_PATH, Color.SEA_GREEN)
 
 func _on_end_game():
-	print("Jogo acabou")
+	
 	pass
 
 
