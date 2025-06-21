@@ -9,6 +9,7 @@ func discard_card(card: Card):
 	card.position = self.position
 	self.discard_pile.append(card)
 	card.get_node("Area2D/CollisionShape2D").disabled = true
+	card.card_set_z_index(-5) # any number
 
 func _on_area_2d_mouse_entered() -> void:
 	discard_pile_hovered = true

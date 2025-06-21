@@ -80,7 +80,7 @@ func finish_drag() -> void:
 		card_being_dragged = null
 
 
-func try_place_card(card: Card, slot: CardSlot) -> void:
+func try_place_card(card: Card, slot: CardSlot) -> bool:
 	var is_AI := (GM.current_player != player)
 	
 	var allowed_slot: bool
@@ -120,10 +120,7 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 			current_types.erase("ACE")
 		current_types.append(card.type)
 		current_types.sort()
-		print(card.type)
-		print(current_types)
 		var type_rules = combination_rules[card.type]
-		print(type_rules.has(current_types))
 		if type_rules.has(current_types):
 			is_valid_combination = true
 			match type_rules[current_types]:
@@ -136,8 +133,6 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 		is_valid_combination = true
 		cost_small_mana = 1
 
-	print("Custo big mana: ", cost_big_mana)
-	print("Custo small mana: ", cost_small_mana)
 
 	# Condições para jogar a carta
 	var rules := [
@@ -151,11 +146,19 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 	var can_use_mana = can_play and GM.current_player.try_use_mana(cost_big_mana, cost_small_mana)
 	var score_change_value = card.rank
 	
+	print(allowed_slot)
+	print(is_valid_combination)
+	print(can_play)
+	print(can_use_mana)
+	print("Card color ", card.color)
+	print("Slot color ", slot.color)
+	
 	if can_use_mana:
 		slot.add_card_to_slot(card)
 		if is_AI:
 			score_change_value *= -1
 		emit_signal("score_updated", score_change_value, slot.color)
+		return true
 	else:
 		var hand
 		if is_AI:
@@ -163,6 +166,14 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 		else:
 			hand = player_hand
 		hand.add_card_to_hand(card)
+		return false
+	#if is_AI:
+		#print(allowed_slot)
+		#print(is_valid_combination)
+		#print(can_play)
+		#print(can_use_mana)
+		#print("Card color ", card.color)
+		#print("Slot color ", slot.color)
 
 
 func try_discard_card(card: Card) -> void:

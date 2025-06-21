@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jt80x3adspxv"]
 
-[ext_resource type="Script" uid="uid://dkl8356f7d3l2" path="res://scenes/cards/card_slot_manager.gd" id="1_qt05e"]
-[ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/cards/card_slot.tscn" id="2_x28f1"]
+[ext_resource type="Script" uid="uid://dkl8356f7d3l2" path="res://scenes/Cards/card_slot_manager.gd" id="1_qt05e"]
+[ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/Cards/card_slot.tscn" id="2_x28f1"]
 
 [node name="CardSlotManager" type="Node2D"]
 z_index = -5

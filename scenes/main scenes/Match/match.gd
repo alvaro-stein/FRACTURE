@@ -128,6 +128,13 @@ func end_turn(emit_event=true):
 		#MultiplayerManager.client.current_match.request_end_turn.rpc_id(1)
 
 func _on_end_turn():
+	#ação de passar o turno e comprar mais uma carta
+	if self.current_player.has_total_mana():
+		if deck.deck_pile:
+			game_actions.buy_card()
+		else: # este é o último turno do jogo
+			clock.last_turn = true
+	
 	if self.current_player == player:
 		self.current_player = AI
 		emit_signal("ai_turn_started")
@@ -150,14 +157,14 @@ func _on_score_updated(score_change_value: int, color: String):
 	var score_label: Label = score.get_node(color.to_upper())
 	score_label.text = str(int(score_label.text) + score_change_value)
 	if int(score_label.text) == 0:
-		score_label.set(FONT_COLOR_PATH, Color.WHITE)
+		score_label.set(FONT_COLOR_PATH, Color.BLACK)
 	elif int(score_label.text) < 0:
 		score_label.set(FONT_COLOR_PATH, Color.FIREBRICK)
 	else:
 		score_label.set(FONT_COLOR_PATH, Color.SEA_GREEN)
 
 func _on_end_game():
-	
+	print("Fim do jogo!")
 	pass
 
 

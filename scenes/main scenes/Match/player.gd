@@ -112,7 +112,11 @@ func buy_card(buy_deck):
 		print("Erro: sem cartas no baralho!")
 		return false
 
-
+func has_total_mana() -> bool:
+	if big_mana_player == 1 and small_mana_player == 2:
+		return true
+	else:
+		return false
 
 func set_timer():
 	set_time.emit()
