@@ -96,10 +96,21 @@ func try_use_mana(big_mana: int, small_mana: int):
 				return true
 		return false
 
+
 #func set_game_manager(game_manager: GameManager):
 	#self.gm = game_manager
 
-
+func buy_card(buy_deck):
+	var new_card = buy_deck.card_slot.cards[0]
+	if new_card:
+		self.hand.card_slot.add_card(new_card)
+		#if self == gm.get_local_player():
+			#self.hand.card_face_up(new_card)
+		print(self.nickname + " comprou a carta " + new_card.name)
+		return true
+	else:
+		print("Erro: sem cartas no baralho!")
+		return false
 
 
 
@@ -115,17 +126,6 @@ func try_buy_card(buy_deck: Node, condicao: bool = false):
 		return
 	#GameEvents.on_buy_button_pressed.emit(self.buy_card.bind(buy_deck))
 
-func buy_card(buy_deck):
-	var new_card = buy_deck.card_slot.cards[0]
-	if new_card:
-		self.hand.card_slot.add_card(new_card)
-		#if self == gm.get_local_player():
-			#self.hand.card_face_up(new_card)
-		print(self.nickname + " comprou a carta " + new_card.name)
-		return true
-	else:
-		print("Erro: sem cartas no baralho!")
-		return false
 
 
 #func try_end_turn():
