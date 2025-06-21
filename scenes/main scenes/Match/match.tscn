@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj2aoo5011s26"]
+[gd_scene load_steps=11 format=3 uid="uid://dj2aoo5011s26"]
 
 [ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/Match/match.gd" id="1_6ncua"]
 [ext_resource type="PackedScene" uid="uid://caj23gmo4lj52" path="res://scenes/main scenes/Match/clock.tscn" id="2_8uon3"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="2_m3pp4"]
 [ext_resource type="PackedScene" uid="uid://dg8ynng7jpu8g" path="res://scenes/main scenes/Match/game_actions.tscn" id="2_ngxga"]
 [ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="3_ni3me"]
+[ext_resource type="Texture2D" path="res://assets/sprites/Clock/timer_100.png" id="3_uwe1k"]
 [ext_resource type="PackedScene" uid="uid://j7him6825pu" path="res://scenes/main scenes/Match/player.tscn" id="4_8uon3"]
 [ext_resource type="PackedScene" uid="uid://ebsp8cgsjef6" path="res://scenes/Cards/deck.tscn" id="4_ybgof"]
 [ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/Cards/discard_pile.tscn" id="7_taav6"]
@@ -18,6 +19,7 @@ offset_left = 1646.0
 offset_top = 540.0
 offset_right = 1646.0
 offset_bottom = 540.0
+texture_normal = ExtResource("3_uwe1k")
 
 [node name="Score" type="Node" parent="."]
 
@@ -165,3 +167,5 @@ pra flipar carta"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="Clock" to="Clock" method="_on_button_down"]

@@ -1,6 +1,8 @@
 extends Node
 class_name GameManager
 
+signal ai_turn_started
+
 const INITIAL_HAND_SIZE := 5
 
 @onready var clock: TextureButton = $Clock
@@ -126,6 +128,7 @@ func end_turn(emit_event=true):
 func _on_end_turn():
 	if self.current_player == player:
 		self.current_player = AI
+		emit_signal("ai_turn_started")
 	else:
 		self.current_player = player
 	

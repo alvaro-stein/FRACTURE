@@ -7,7 +7,7 @@ var slot_pile:
 signal _end_turn
 signal _end_game
 
-const MAX_TIME := 60
+const MAX_TIME := 15
 
 var last_turn: bool = false
 @onready var label: Label = $Label

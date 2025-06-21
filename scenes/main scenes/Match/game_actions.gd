@@ -164,11 +164,6 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 		else:
 			hand = player_hand
 		hand.add_card_to_hand(card)
-		print
-	print(allowed_slot)
-	print(is_valid_combination)
-	print(can_play)
-	print(can_use_mana)
 
 
 func try_discard_card(card: Card) -> void:
