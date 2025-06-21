@@ -129,11 +129,9 @@ func end_turn(emit_event=true):
 
 func _on_end_turn():
 	#ação de passar o turno e comprar mais uma carta
-	if self.current_player.has_total_mana():
+	if self.current_player.has_full_mana():
 		if deck.deck_pile:
 			game_actions.buy_card()
-		else: # este é o último turno do jogo
-			clock.last_turn = true
 	
 	if self.current_player == player:
 		self.current_player = AI

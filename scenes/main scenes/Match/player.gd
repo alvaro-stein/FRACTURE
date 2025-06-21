@@ -80,12 +80,11 @@ func reset_mana():
 #static func create_from_player(player: Player, hand: Node):
 	#return MatchPlayer.new(player.nickname, player.id, hand)
 
-func try_use_mana(big_mana: int, small_mana: int):
+func use_mana(big_mana: int, small_mana: int):
 	if self.big_mana_player >= big_mana and self.small_mana_player >= small_mana:
 		self.big_mana_player -= big_mana
 		self.small_mana_player -= small_mana
 		self.update_mana_visual(small_mana_player, big_mana_player)
-		return true
 	else: #aprimorar essa parte?
 		if big_mana == 0 and self.big_mana_player and self.small_mana_player < small_mana:
 			if self.small_mana_player + 1 >= small_mana: #troca uma mana grande por uma pequena
@@ -93,9 +92,15 @@ func try_use_mana(big_mana: int, small_mana: int):
 				self.big_mana_player = 0
 				self.small_mana_player -= small_mana
 				self.update_mana_visual(small_mana_player, big_mana_player)
+
+func can_use_mana(big_mana: int, small_mana: int):
+	if self.big_mana_player >= big_mana and self.small_mana_player >= small_mana:
+		return true
+	else:
+		if big_mana == 0 and self.big_mana_player and self.small_mana_player < small_mana:
+			if self.small_mana_player + 1 >= small_mana: #troca uma mana grande por uma pequena
 				return true
 		return false
-
 
 #func set_game_manager(game_manager: GameManager):
 	#self.gm = game_manager
@@ -112,7 +117,7 @@ func buy_card(buy_deck):
 		print("Erro: sem cartas no baralho!")
 		return false
 
-func has_total_mana() -> bool:
+func has_full_mana() -> bool:
 	if big_mana_player == 1 and small_mana_player == 2:
 		return true
 	else:
