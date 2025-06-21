@@ -1,115 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj2aoo5011s26"]
+[gd_scene load_steps=12 format=3 uid="uid://dj2aoo5011s26"]
 
 [ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/Match/match.gd" id="1_6ncua"]
 [ext_resource type="PackedScene" uid="uid://caj23gmo4lj52" path="res://scenes/main scenes/Match/clock.tscn" id="2_8uon3"]
-[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="2_m3pp4"]
+[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_401qm"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="2_m3pp4"]
 [ext_resource type="PackedScene" uid="uid://dg8ynng7jpu8g" path="res://scenes/main scenes/Match/game_actions.tscn" id="2_ngxga"]
-[ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="3_ni3me"]
+
+[ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/cards/card_slot_manager.tscn" id="3_ni3me"]
+[ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="3_uwe1k"]
+
 [ext_resource type="PackedScene" uid="uid://j7him6825pu" path="res://scenes/main scenes/Match/player.tscn" id="4_8uon3"]
-[ext_resource type="PackedScene" uid="uid://ebsp8cgsjef6" path="res://scenes/Cards/deck.tscn" id="4_ybgof"]
-[ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/Cards/discard_pile.tscn" id="7_taav6"]
+[ext_resource type="PackedScene" uid="uid://ebsp8cgsjef6" path="res://scenes/cards/deck.tscn" id="4_ybgof"]
+[ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/cards/discard_pile.tscn" id="7_taav6"]
 [ext_resource type="PackedScene" uid="uid://c78yrpjq28q68" path="res://scenes/main scenes/Match/ai.tscn" id="11_401qm"]
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_6ncua")
 
+[node name="Fundo" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(957, 551)
+rotation = -0.139626
+scale = Vector2(1.44782, 1.44782)
+texture = ExtResource("2_401qm")
+
 [node name="Clock" parent="." instance=ExtResource("2_8uon3")]
-offset_left = 1646.0
-offset_top = 540.0
-offset_right = 1646.0
-offset_bottom = 540.0
 
-[node name="Score" type="Node" parent="."]
+offset_left = 1691.5
+offset_top = 476.0
+offset_right = 1819.5
+offset_bottom = 604.0
 
-[node name="Gold" type="Label" parent="Score"]
-custom_minimum_size = Vector2(128, 128)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -548.5
-offset_top = -34.5
-offset_right = -491.5
-offset_bottom = 34.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "10"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="Sapphire" type="Label" parent="Score"]
-custom_minimum_size = Vector2(128, 128)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -324.0
-offset_top = -64.0
-offset_right = -196.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "10"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Quartz" type="Label" parent="Score"]
-custom_minimum_size = Vector2(128, 128)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "10"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Ruby" type="Label" parent="Score"]
-custom_minimum_size = Vector2(128, 128)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 196.0
-offset_top = -64.0
-offset_right = 324.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "10"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Emerald" type="Label" parent="Score"]
-custom_minimum_size = Vector2(128, 128)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 456.0
-offset_top = -64.0
-offset_right = 584.0
-offset_bottom = 64.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "10"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Score" parent="." instance=ExtResource("3_uwe1k")]
 
 [node name="GameActions" parent="." instance=ExtResource("2_ngxga")]
 
@@ -125,43 +48,9 @@ position = Vector2(960, 0)
 z_index = -1
 
 [node name="Deck" parent="." instance=ExtResource("4_ybgof")]
-position = Vector2(125, 540)
+position = Vector2(164.5, 386)
 
 [node name="DiscardPile" parent="." instance=ExtResource("7_taav6")]
-position = Vector2(1795, 540)
 
-[node name="notes" type="Node" parent="."]
+position = Vector2(164.5, 697)
 
-[node name="Label deck" type="Label" parent="notes"]
-offset_left = 7.0
-offset_top = 373.0
-offset_right = 252.0
-offset_bottom = 446.0
-theme_override_font_sizes/font_size = 25
-text = "deck de compras"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label discard pile" type="Label" parent="notes"]
-offset_left = 1696.0
-offset_top = 393.0
-offset_right = 1903.0
-offset_bottom = 428.0
-theme_override_font_sizes/font_size = 25
-text = "pilha de descarte"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label click" type="Label" parent="notes"]
-offset_left = -63.0
-offset_top = 818.0
-offset_right = 386.0
-offset_bottom = 891.0
-theme_override_font_sizes/font_size = 25
-text = "click direito do mouse
-pra flipar carta"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true

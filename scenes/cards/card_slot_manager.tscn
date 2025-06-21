@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jt80x3adspxv"]
 
-[ext_resource type="Script" uid="uid://dkl8356f7d3l2" path="res://scenes/Cards/card_slot_manager.gd" id="1_qt05e"]
-[ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/Cards/card_slot.tscn" id="2_x28f1"]
+[ext_resource type="Script" uid="uid://dkl8356f7d3l2" path="res://scenes/cards/card_slot_manager.gd" id="1_qt05e"]
+[ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/cards/card_slot.tscn" id="2_x28f1"]
 
 [node name="CardSlotManager" type="Node2D"]
 z_index = -5
@@ -9,34 +9,34 @@ script = ExtResource("1_qt05e")
 
 [node name="PlayerSlot" type="Node" parent="."]
 
-[node name="Gold" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+[node name="GOLD" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
 position = Vector2(440, 803)
 
-[node name="Sapphire" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+[node name="SAPPHIRE" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
 position = Vector2(700, 800)
 
-[node name="Quartz" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+[node name="QUARTZ" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
 position = Vector2(960, 800)
 
-[node name="Ruby" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+[node name="RUBY" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
 position = Vector2(1220, 800)
 
-[node name="Emerald" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+[node name="EMERALD" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
 position = Vector2(1480, 800)
 
 [node name="AISlot" type="Node" parent="."]
 
-[node name="Gold" parent="AISlot" instance=ExtResource("2_x28f1")]
+[node name="GOLD" parent="AISlot" instance=ExtResource("2_x28f1")]
 position = Vector2(440, 280)
 
-[node name="Sapphire" parent="AISlot" instance=ExtResource("2_x28f1")]
+[node name="SAPPHIRE" parent="AISlot" instance=ExtResource("2_x28f1")]
 position = Vector2(700, 280)
 
-[node name="Quartz" parent="AISlot" instance=ExtResource("2_x28f1")]
+[node name="QUARTZ" parent="AISlot" instance=ExtResource("2_x28f1")]
 position = Vector2(960, 280)
 
-[node name="Ruby" parent="AISlot" instance=ExtResource("2_x28f1")]
+[node name="RUBY" parent="AISlot" instance=ExtResource("2_x28f1")]
 position = Vector2(1220, 280)
 
-[node name="Emerald" parent="AISlot" instance=ExtResource("2_x28f1")]
+[node name="EMERALD" parent="AISlot" instance=ExtResource("2_x28f1")]
 position = Vector2(1480, 280)

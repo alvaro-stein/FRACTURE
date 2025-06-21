@@ -32,29 +32,35 @@ func mana_texture():
 	mana_g.texture = MANA_GRANDE
 	
 func mana_scale():
-	mana_p_1.scale = Vector2(0.1, 0.1)
-	mana_p_2.scale = Vector2(0.1, 0.1)
-	mana_g.scale = Vector2(0.11, 0.11)
+	mana_p_1.scale = Vector2(0.12, 0.12)
+	mana_p_2.scale = Vector2(0.12, 0.12)
+	mana_g.scale = Vector2(0.13, 0.13)
 
 func mana_position():
-	mana_p_1.position =  Vector2(835, -115) 
-	mana_p_2.position = Vector2(835, -215)
-	mana_g.position = Vector2(840, -335)
+	mana_p_1.position =  Vector2(800, -100)
+	mana_p_2.position = Vector2(800, -215)
+	mana_g.position = Vector2(810, -360)
 	
 func update_mana_visual(available_small_mana, available_big_mana):
 	if available_small_mana != 2 or not available_big_mana:
 		if not available_big_mana:
-			mana_g.visible = false
-			
+			change_mana_visibility(mana_g, false)
+
 		if available_small_mana == 1:
-			mana_p_1.visible = false
+			change_mana_visibility(mana_p_1, false)
 		elif available_small_mana == 0:
-			mana_p_1.visible = false
-			mana_p_2.visible = false
+			change_mana_visibility(mana_p_1, false)
+			change_mana_visibility(mana_p_2, false)
 	else: #mana inteira
-		mana_p_1.visible = true
-		mana_p_2.visible = true
-		mana_g.visible = true
+		change_mana_visibility(mana_p_1, true)
+		change_mana_visibility(mana_p_2, true)
+		change_mana_visibility(mana_g, true)
+
+func change_mana_visibility(mana: Sprite2D, turn_visible: bool) -> void:
+	if turn_visible:
+		mana.modulate.a = 1.0
+	else: # turn "invisible"
+		mana.modulate.a = 0.25
 
 func reset_mana():
 	self.big_mana_player = 1
@@ -90,10 +96,21 @@ func try_use_mana(big_mana: int, small_mana: int):
 				return true
 		return false
 
+
 #func set_game_manager(game_manager: GameManager):
 	#self.gm = game_manager
 
-
+func buy_card(buy_deck):
+	var new_card = buy_deck.card_slot.cards[0]
+	if new_card:
+		self.hand.card_slot.add_card(new_card)
+		#if self == gm.get_local_player():
+			#self.hand.card_face_up(new_card)
+		print(self.nickname + " comprou a carta " + new_card.name)
+		return true
+	else:
+		print("Erro: sem cartas no baralho!")
+		return false
 
 
 
@@ -109,17 +126,6 @@ func try_buy_card(buy_deck: Node, condicao: bool = false):
 		return
 	#GameEvents.on_buy_button_pressed.emit(self.buy_card.bind(buy_deck))
 
-func buy_card(buy_deck):
-	var new_card = buy_deck.card_slot.cards[0]
-	if new_card:
-		self.hand.card_slot.add_card(new_card)
-		#if self == gm.get_local_player():
-			#self.hand.card_face_up(new_card)
-		print(self.nickname + " comprou a carta " + new_card.name)
-		return true
-	else:
-		print("Erro: sem cartas no baralho!")
-		return false
 
 
 #func try_end_turn():

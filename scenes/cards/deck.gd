@@ -1,8 +1,7 @@
 extends Node2D
 class_name Deck
 
-#const COLOR: Array[String] = ["GOLD", "SAPPHIRE", "RUBY", "EMERALD"]
-const COLOR: Array[String] = ["copas", "espadas", "ouros", "paus"]
+const COLOR: Array[String] = ["GOLD", "SAPPHIRE", "RUBY", "EMERALD"]
 const TYPE: Array[String] = ["ACE", "LOW", "MID", "HIGH"]
 
 @onready var card_manager: Node2D = $"../CardManager"
