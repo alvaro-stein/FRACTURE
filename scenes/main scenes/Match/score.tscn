@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=9 format=3 uid="uid://ddkgpa37r2cnu"]
+
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u2f4u"]
 load_path = "res://.godot/imported/score.png-c85e165ee71ddf12b21eed9031be492c.ctex"
@@ -21,6 +23,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_u2f4u"]
 resource_name = "spin score"
 length = 1.5
+
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,6 +31,8 @@ tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+
+
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(0.4, 0.366021),
 "update": 0,
