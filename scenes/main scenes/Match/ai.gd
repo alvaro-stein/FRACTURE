@@ -30,29 +30,35 @@ func mana_texture():
 	mana_g.texture = MANA_GRANDE
 	
 func mana_scale():
-	mana_p_1.scale = Vector2(0.1, 0.1)
-	mana_p_2.scale = Vector2(0.1, 0.1)
-	mana_g.scale = Vector2(0.11, 0.11)
+	mana_p_1.scale = Vector2(0.12, 0.12)
+	mana_p_2.scale = Vector2(0.12, 0.12)
+	mana_g.scale = Vector2(0.13, 0.13)
 
 func mana_position():
-	mana_p_1.position =  Vector2(835, 115) 
-	mana_p_2.position = Vector2(835, 215)
-	mana_g.position = Vector2(840, 335)
+	mana_p_1.position =  Vector2(800, 100) 
+	mana_p_2.position = Vector2(800, 215)
+	mana_g.position = Vector2(810, 360)
 
 func update_mana_visual(available_small_mana, available_big_mana):
 	if available_small_mana != 2 or not available_big_mana:
 		if not available_big_mana:
-			mana_g.visible = false
-			
+			change_mana_visibility(mana_g, false)
+
 		if available_small_mana == 1:
-			mana_p_1.visible = false
+			change_mana_visibility(mana_p_1, false)
 		elif available_small_mana == 0:
-			mana_p_1.visible = false
-			mana_p_2.visible = false
+			change_mana_visibility(mana_p_1, false)
+			change_mana_visibility(mana_p_2, false)
 	else: #mana inteira
-		mana_p_1.visible = true
-		mana_p_2.visible = true
-		mana_g.visible = true
+		change_mana_visibility(mana_p_1, true)
+		change_mana_visibility(mana_p_2, true)
+		change_mana_visibility(mana_g, true)
+
+func change_mana_visibility(mana: Sprite2D, turn_visible: bool) -> void:
+	if turn_visible:
+		mana.modulate.a = 1.0
+	else: # turn "invisible"
+		mana.modulate.a = 0.25
 
 func reset_mana():
 	self.big_mana_AI = 1

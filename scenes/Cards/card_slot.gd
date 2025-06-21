@@ -4,10 +4,17 @@ signal hovered
 signal hovered_off
 
 const COLOR: Array[String] = ["GOLD", "SAPPHIRE", "QUARTZ", "RUBY", "EMERALD"]
+#const RECT_COLOR: Array[Color] = [Color.DARK_GOLDENROD, Color.DARK_SLATE_BLUE, Color.MISTY_ROSE, Color.FIREBRICK, Color.SEA_GREEN]
 const TYPE: Array[String] = ["ACE", "LOW", "MID", "HIGH"]
 const OFFSET: int = 103
 const CARD_WIDTH: float = 148.0
+const COLOR_SPRITE := [preload("res://assets/sprites/Slots/OuroFundo.png"),
+					   preload("res://assets/sprites/Slots/SafiraFundo.png"),
+					   preload("res://assets/sprites/Slots/QuartzoFundo.png"),
+					   preload("res://assets/sprites/Slots/RubiFundo.png"),
+					   preload("res://assets/sprites/Slots/EsmeraldaFundo.png")]
 
+@onready var sprite: Sprite2D = $Sprite
 var color: String
 var slot_pile: Array[Card] = []
 var total: int
@@ -56,7 +63,8 @@ func calculate_new_position(index: int) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	color = self.name.to_upper()
+	color = self.name
+	sprite.texture = COLOR_SPRITE[COLOR.find(color)]
 	# All Cards slots must be a child of CardSlotManager or this will error
 	get_parent().get_parent().connect_card_slot_signals(self)
 
