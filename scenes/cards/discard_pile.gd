@@ -5,7 +5,8 @@ var discard_pile_hovered: bool = false
 var discard_pile: Array[Card] = []
 
 func discard_card(card: Card):
-	card.flip()
+	if not card.is_facing_down:
+		card.flip()
 	card.position = self.position
 	self.discard_pile.append(card)
 	card.get_node("Area2D/CollisionShape2D").disabled = true

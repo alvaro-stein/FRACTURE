@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/Match/match.gd" id="1_6ncua"]
 [ext_resource type="PackedScene" uid="uid://caj23gmo4lj52" path="res://scenes/main scenes/Match/clock.tscn" id="2_8uon3"]
-
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_401qm"]
-[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="2_m3pp4"]
-
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="2_m3pp4"]
 [ext_resource type="PackedScene" uid="uid://dg8ynng7jpu8g" path="res://scenes/main scenes/Match/game_actions.tscn" id="2_ngxga"]
 [ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="3_ni3me"]
 [ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="3_uwe1k"]
