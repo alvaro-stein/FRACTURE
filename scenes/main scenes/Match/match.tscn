@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dj2aoo5011s26"]
+[gd_scene load_steps=12 format=3 uid="uid://dj2aoo5011s26"]
 
 [ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/Match/match.gd" id="1_6ncua"]
 [ext_resource type="PackedScene" uid="uid://caj23gmo4lj52" path="res://scenes/main scenes/Match/clock.tscn" id="2_8uon3"]
-[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="2_m3pp4"]
+
+[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_401qm"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="2_m3pp4"]
+
 [ext_resource type="PackedScene" uid="uid://dg8ynng7jpu8g" path="res://scenes/main scenes/Match/game_actions.tscn" id="2_ngxga"]
 [ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="3_ni3me"]
 [ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="3_uwe1k"]
@@ -13,6 +16,13 @@
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_6ncua")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(957, 551)
+rotation = -0.139626
+scale = Vector2(1.44782, 1.44782)
+texture = ExtResource("2_401qm")
 
 [node name="Clock" parent="." instance=ExtResource("2_8uon3")]
 offset_left = 1691.5
