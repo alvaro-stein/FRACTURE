@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=9 format=3 uid="uid://ddkgpa37r2cnu"]
-
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u2f4u"]
 load_path = "res://.godot/imported/score.png-c85e165ee71ddf12b21eed9031be492c.ctex"

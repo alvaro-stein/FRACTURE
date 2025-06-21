@@ -80,9 +80,32 @@ func finish_drag() -> void:
 		card_being_dragged = null
 
 
-func try_place_card(card: Card, slot: CardSlot) -> void:
+func try_place_card(card: Card, slot: CardSlot) -> bool:
 	var is_AI := (GM.current_player != player)
+	var can_place_card = self.can_place_card(card, slot, is_AI) 
+	var can_play = can_place_card[0]
+	var cost_big_mana = can_place_card[1]
+	var cost_small_mana = can_place_card[2]
+	var score_change_value = card.rank
 	
+	if can_play:
+		GM.current_player.use_mana(cost_big_mana, cost_small_mana)
+		slot.add_card_to_slot(card, is_AI)
+		if is_AI:
+			score_change_value *= -1
+		emit_signal("score_updated", score_change_value, slot.color)
+		return true
+	else:
+		var hand
+		if is_AI:
+			hand = AI_hand
+		else:
+			hand = player_hand
+		hand.add_card_to_hand(card)
+		return false
+
+
+func can_place_card(card: Card, slot: CardSlot, is_AI: bool):
 	var allowed_slot: bool
 	if is_AI:
 		allowed_slot = slot.get_parent().name == "AISlot"
@@ -120,10 +143,7 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 			current_types.erase("ACE")
 		current_types.append(card.type)
 		current_types.sort()
-		print(card.type)
-		print(current_types)
 		var type_rules = combination_rules[card.type]
-		print(type_rules.has(current_types))
 		if type_rules.has(current_types):
 			is_valid_combination = true
 			match type_rules[current_types]:
@@ -133,11 +153,12 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 					cost_big_mana = 1
 
 	elif card.type == "ACE":
-		is_valid_combination = true
+		if slot.color == "QUARTZ":
+			is_valid_combination = true
+		else:
+			is_valid_combination = false
 		cost_small_mana = 1
 
-	print("Custo big mana: ", cost_big_mana)
-	print("Custo small mana: ", cost_small_mana)
 
 	# Condições para jogar a carta
 	var rules := [
@@ -148,25 +169,25 @@ func try_place_card(card: Card, slot: CardSlot) -> void:
 	]
 
 	var can_play = rules.reduce(func(a, b): return a and b)
-	var can_use_mana = can_play and GM.current_player.try_use_mana(cost_big_mana, cost_small_mana)
-	var score_change_value = card.rank
+	var can_use_mana = GM.current_player.can_use_mana(cost_big_mana, cost_small_mana)
 	
-	if can_use_mana:
-		slot.add_card_to_slot(card)
-		if is_AI:
-			score_change_value *= -1
-		emit_signal("score_updated", score_change_value, slot.color)
-	else:
-		var hand
-		if is_AI:
-			hand = AI_hand
-		else:
-			hand = player_hand
-		hand.add_card_to_hand(card)
+	print(allowed_slot)
+	print(is_valid_combination)
+	print(can_play)
+	print(can_use_mana)
+	print("Card color ", card.color)
+	print("Slot color ", slot.color)
+	
+	if can_play and can_use_mana:
+		return [true, cost_big_mana, cost_small_mana]
+	else: 
+		return [false, null, null]
 
+	
 
 func try_discard_card(card: Card) -> void:
-	if GM.current_player.try_use_mana(0, 2) and deck_pile:
+	if GM.current_player.can_use_mana(0, 2) and deck_pile:
+		GM.current_player.use_mana(0, 2)
 		discard_deck.discard_card(card) #responsabilidade do discard_pile
 		self.buy_card()
 	else: # Return card to hand
@@ -209,121 +230,7 @@ func buy_card() -> void:
 		#callback.call()
 	
 
-#func place_card(card: CardUI, slot: CardSlotSystem, callback: Callable):
-	## checar tipo da coluna/carta
-	#var parent = slot.slot_node.get_parent()
-	#var type_slot
-	#if slot.slot_node is Slot:
-		#type_slot = slot.slot_node.type_slot
-	#else:
-		#type_slot = null
-	#var column_type
-	#if parent.has_method("get_column_type"):
-		#column_type = parent.get_column_type()
-		#
-	## Garantir que o jogador só pode jogar nos seus próprios slots
-	#var current_player = self.gm.turn  
-	#var allowed_slots = []
-	#if current_player.id == self.gm.get_local_player().id:  # Player 1
-		#print("VOCE COME")
-		#allowed_slots = ["Soldado_Down", "General_Down"]
-	#
-	#var is_valid_combination = false
-	#var custo_big_mana = 0
-	#var custo_small_mana = 0
-	#
-	#if card.type == "Soldado": 
-		#var existing_cards = slot.cards  # Pega as cartas já no slot
-		#var current_ranks = [] 
-		#
-		#for c in existing_cards:
-			#current_ranks.append(c.rank)  
-			#
-		#current_ranks.append(card.rank)  
-		#
-		#current_ranks.sort()
-		#
-		#if card.rank == "Alto":
-			#if current_ranks == ["Alto"]:
-				#is_valid_combination = true
-			#elif current_ranks == ["Alto", "Baixo"]:
-				#is_valid_combination = true
-			#custo_big_mana = 1
-			#
-		#elif card.rank == "Medio":
-			#if current_ranks == ["Medio"]:
-				#is_valid_combination = true
-			#elif current_ranks == ["Medio", "Medio"]:
-				#is_valid_combination = true
-			#elif current_ranks == ["Baixo", "Medio"]:
-				#is_valid_combination = true
-			#elif current_ranks == ["Baixo", "Baixo","Medio"]:
-				#is_valid_combination = true
-			#custo_big_mana = 1
-			#
-		#elif card.rank == "Baixo":
-			#if current_ranks == ["Baixo"]:
-				#is_valid_combination = true
-				#custo_small_mana = 1
-			#elif current_ranks == ["Alto", "Baixo"]:
-				#is_valid_combination = true
-				#custo_big_mana = 1
-			#elif current_ranks == ["Baixo", "Medio"]:
-				#is_valid_combination = true
-				#custo_small_mana = 1
-			#elif current_ranks == ["Baixo", "Baixo"]:
-				#is_valid_combination = true
-				#custo_small_mana = 1
-			#elif current_ranks == ["Baixo", "Baixo","Medio"]:
-				#is_valid_combination = true
-				#custo_small_mana = 1
-			#
-	#else:
-		#custo_small_mana = 1
-		#is_valid_combination = true
-	#print("Custo big mana: ", custo_big_mana)
-	#print("Custo small mana: ", custo_small_mana)
-		#
-	## menos performance, mas evita o inferno de if-else's
-	#var type_rules = [
-		#card.type == "Soldado" and type_slot in ["Soldado_Top", "Soldado_Down"],
-		#card.type == "General" and type_slot in ["General_Top", "General_Down"],
-		#card.type == "Lider" and type_slot == "Lider",
-	#]
-#
-	#
-	#var rules = [
-		#(card.type_color == column_type or column_type == "Quartzo"),
-		#type_rules.reduce(func(a, b): return a or b),
-		#card in self.gm.turn.hand.card_slot.cards,
-		#type_slot in allowed_slots,
-		#is_valid_combination,
-	#]
-	## Imprimir as regras
-	#print("Player small mana: ", self.gm.turn.small_mana_player)
-	#print("Player big mana: ", self.gm.turn.big_mana_player)
-	#var can_use_mana = false
-	#if rules.reduce(func(a, b): return a and b):
-		#can_use_mana = self.gm.turn.try_use_mana(custo_big_mana, custo_small_mana)
-	#
-	#print("Depois Player small mana: ", self.gm.turn.small_mana_player)
-	#print("Depois Player big mana: ", self.gm.turn.big_mana_player)
-	#
-	#if can_use_mana:
-		#GameEvents.on_mana_spend.emit(self.gm.turn, self.gm.turn.small_mana_player, self.gm.turn.big_mana_player > 0)
-		#if card.type == "Soldado" and (slot.slot_node.type_slot in ["Soldado_Top", "Soldado_Down"]):
-			#var power = int(card.get_node("Power").text)
-			#if current_player == self.gm.get_local_player():
-				#slot.slot_node.somador.adicionar_pontos(power)
-			#else:
-				#slot.slot_node.somador.adicionar_pontos(-power)
-		#if card.type == "General" and (slot.slot_node.type_slot in ["General_Top", "General_Down"]):
-				#if current_player == self.gm.get_local_player():
-					#slot.slot_node.somador.adicionar_pontos(1)
-				#else:
-					#slot.slot_node.somador.adicionar_pontos(-1)
-		#callback.call()
-	#card.parent_slot.card_slot.position_cards()
+
 
 
 #func use_ability(card: CardUI):
