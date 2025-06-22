@@ -163,7 +163,8 @@ func _on_score_updated(score_change_value: int, color: String):
 
 func _on_end_game():
 	print("Fim do jogo!")
-	pass
+	get_tree().quit()
+
 
 
 

@@ -75,7 +75,9 @@ func finish_drag() -> void:
 			try_place_card(card_being_dragged, card_slot_hovered)
 		elif discard_pile_hovered and GM.current_player == player:
 			try_discard_card(card_being_dragged)
+			print("NÃO ESTAVA EM CIMA DO DESCARTE")
 		else: # Return card to hand
+			print("NÃO ESTAVA EM CIMA DO SLOT")
 			player_hand.add_card_to_hand(highlighted_card)
 		card_being_dragged = null
 
@@ -87,6 +89,8 @@ func try_place_card(card: Card, slot: CardSlot) -> bool:
 	var cost_big_mana = can_place_card.cost_big
 	var cost_small_mana = can_place_card.cost_small
 	var score_change_value = card.rank
+	
+	print("POSSO JOGAR AQUI? ", can_play)
 	
 	if can_play:
 		GM.current_player.use_mana(cost_big_mana, cost_small_mana)
@@ -207,6 +211,7 @@ func buy_card() -> void:
 		player_hand.add_card_to_hand(new_card)
 		#player_hand.animation_speed = 0.2
 	else:
+		new_card.flip() #adicionado para testes
 		AI_hand.add_card_to_hand(new_card)
 
 	
