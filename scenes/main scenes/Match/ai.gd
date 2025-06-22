@@ -167,6 +167,7 @@ func decide_best_action():
 	var best_score = -1000000 
 	var best_action = null  # Armazenará a melhor ação (e.g., {"type": "play_card", "card": card, "slot": slot})
 	
+	# --- 1. AVALIAR JOGAR UMA CARTA ---
 	for card in hand.player_hand:
 		# Tenta jogar a carta em slots de cor ou QUARTZ
 		var potential_slots = get_potential_slots(card)
@@ -180,7 +181,19 @@ func decide_best_action():
 					best_score = current_score
 					best_action = {"type": "play_card", "card": card, "slot": slot, "cost": simulated_cost}
 					
-					
+		# --- 2. AVALIAR FUSÃO DE CARTAS (NOVO CÓDIGO) ---
+	var possible_merges = find_possible_merges()
+	for merge_pair in possible_merges:
+		var card1 = merge_pair[0]
+		var card2 = merge_pair[1]
+		
+		var merge_score = evaluate_merge_cards(card1, card2)
+		if merge_score > best_score:
+			print("Melhor score atual (via fusão): ", merge_score)
+			best_score = merge_score
+			best_action = {"type": "merge_cards", "cards": [card1, card2]}
+			
+	# --- 3. AVALIAR DESCARTAR E COMPRAR ---
 	var discard_cost = {"large": 0, "small": 2}
 	if can_use_mana(discard_cost.large, discard_cost.small):
 		# Descartar e comprar é uma boa opção se não houver jogadas boas e a mão for ruim.
@@ -190,11 +203,6 @@ func decide_best_action():
 			best_score = discard_score
 			best_action = {"type": "discard_and_draw", "cost": discard_cost}
 			
-	# --- 3. Avaliar a ação de Passar a Vez e Comprar (se não jogar nada) ---
-	# Se a IA não tiver mana ou boas jogadas, passar a vez para comprar pode ser a única opção
-	# Não tem custo de mana, mas o ganho é indireto (futuras cartas melhores).
-	# Este é geralmente o último recurso se nenhuma outra ação for boa.
-	# Por agora, vamos assumir que se não há 'best_action', ela passa a vez.
 	
 	 # --- Executar a Melhor Ação ---
 	if best_action:
@@ -297,6 +305,71 @@ func evaluate_discard_and_draw() -> float:
 			
 	return score
 	
+func find_possible_merges() -> Array:
+	var possible_merges = []
+	var current_hand = hand.player_hand
+	
+	if current_hand.size() < 2:
+		return possible_merges
+		
+	# Loop aninhado para verificar todos os pares de cartas sem repetir
+	for i in range(current_hand.size()):
+		for j in range(i + 1, current_hand.size()):
+			var card1 = current_hand[i]
+			var card2 = current_hand[j]
+
+			var pair = [card1.rank, card2.rank]
+			pair.sort() # Ordena para comparar com os pares válidos
+
+			# Supondo que você tenha os pares válidos definidos como no exemplo anterior
+			# Ex: const VALID_PAIRS = [[2, 2], [2, 5], [2, 8]]
+			if pair in hand.VALID_PAIRS: 
+				possible_merges.append([card1, card2])
+				
+	return possible_merges	
+	
+# Avalia o quão boa é uma ação de fusão
+func evaluate_merge_cards(card1: Card, card2: Card) -> float:
+	var score = 0.0
+	
+	score += 5.0 # Penalidade por diminuir o tamanho da mão
+
+	# 3. Análise Estratégica: A fusão resolveu um problema?
+	# Se as cartas antigas eram "inúteis" (não podiam ser jogadas em bons slots),
+	# a fusão é muito mais valiosa.
+	var card1_slots = get_potential_slots(card1)
+	var card2_slots = get_potential_slots(card2)
+
+	if card1_slots.is_empty():
+		score += 15.0 # Bônus enorme por se livrar de uma carta inútil
+	if card2_slots.is_empty():
+		score += 15.0 # Bônus enorme
+
+	var new_value = card1.rank + card2.rank
+	
+	var new_color
+	if card1.rank > card2.rank:
+		new_color = card1.color
+	else:
+		new_color = card2.color
+	
+	var new_card = Card.new_card(new_color, new_value)
+	
+	var new_card_slots = get_potential_slots(new_card)
+	
+	var best_score = 0
+	for slot in new_card_slots:
+			var simulated_cost = calculate_play_cost(new_card, slot)
+			if can_use_mana(simulated_cost.large, simulated_cost.small):
+				var current_score = evaluate_play_card(new_card, slot, simulated_cost)
+				if current_score > best_score:
+					best_score = current_score
+	
+	score += best_score
+	
+	return score
+
+	
 func execute_action(action: Dictionary):
 
 	if action.type == "play_card":
@@ -324,3 +397,14 @@ func execute_action(action: Dictionary):
 			hand.remove_card_from_hand(card_to_discard)
 			game_actions.try_discard_card(card_to_discard)
 			print(str("IA descartou: ", card_to_discard.name))
+			
+	elif action.type == "merge_cards":
+		var cards_to_merge: Array = action.cards
+		var card1 = cards_to_merge[0]
+		var card2 = cards_to_merge[1]
+
+		print(str("IA decidiu fundir: ", card1.name, " com ", card2.name))
+
+		# Chama a função de fusão que criamos anteriormente no script da Mão (Hand)
+		# Supondo que a função se chame 'merge_cards_logic' e esteja no script 'hand'
+		hand.attempt_merge(cards_to_merge)

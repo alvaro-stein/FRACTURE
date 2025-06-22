@@ -102,7 +102,7 @@ func mirror_pos(pos: Vector2):
 func _on_card_right_clicked(card: Node):
 	if card not in self.player_hand:
 		return 
-	print("PASSOU POR AQUI")
+		
 	if card in selected_cards:
 		print("Carta já está selecionada")
 		selected_cards.erase(card)
@@ -114,12 +114,12 @@ func _on_card_right_clicked(card: Node):
 	
 	# Se temos duas cartas selecionadas, tentamos a fusão
 	if selected_cards.size() == 2:
-		attempt_merge()
+		attempt_merge(selected_cards)
 		
 	print(selected_cards)
 
 # Lógica principal da fusão
-func attempt_merge():
+func attempt_merge(selected_cards):
 	var card1 = selected_cards[0]
 	var card2 = selected_cards[1]
 	
@@ -161,6 +161,8 @@ func merge_cards(card1: Card, card2: Card):
 	card_manager.add_child(new_card)
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	new_card.flip()
+	
+	
 	
 	self.add_card_to_hand(new_card)
 	
