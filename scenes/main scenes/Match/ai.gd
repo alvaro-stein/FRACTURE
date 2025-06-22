@@ -269,7 +269,7 @@ func evaluate_play_card(card: Card, target_slot: Node, cost: Dictionary) -> floa
 			elif projected_slot_value == 12:
 				score += 20.0
 			else:
-				score -= 30
+				score -= 10
 		
 	return score
 	
@@ -284,9 +284,8 @@ func evaluate_discard_and_draw() -> float:
 	# - Calcular um "valor médio" das cartas da IA e se todas forem "ruins", dar um score mais alto.
 	# - Penalizar se a mão já está boa.
 	
-	var score = 0.0
+	var score = -5.0
 	if hand.player_hand.size() > 0:
-		score = 3.0 
 		var unplayable_cards = 0
 		for card in hand.player_hand:
 			if get_potential_slots(card).is_empty():
@@ -316,8 +315,8 @@ func execute_action(action: Dictionary):
 		var card_to_discard: Card
 		
 		for card_in_hand in hand.player_hand:
-			if get_potential_slots(card_in_hand).is_empty():
-				print(get_potential_slots(card_in_hand))
+			print(get_potential_slots(card_in_hand))
+			if get_potential_slots(card_in_hand).is_empty() or get_potential_slots(card_in_hand)[0].name == "QUARTZ":
 				card_to_discard = card_in_hand
 				break
 				

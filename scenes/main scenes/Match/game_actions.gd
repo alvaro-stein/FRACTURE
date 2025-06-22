@@ -5,6 +5,7 @@ class_name GameActions
 var screen_size: Vector2
 var mouse_pos: Vector2
 
+signal card_right_clicked
 signal score_updated(score_change_value, color)
 
 @onready var GM: GameManager = $".."
@@ -59,6 +60,7 @@ func _input(event: InputEvent) -> void:
 			start_drag() if event.pressed else finish_drag()
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and highlighted_card:
 			if event.pressed:
+				emit_signal("card_right_clicked", highlighted_card)
 				highlighted_card.flip()
 
 
