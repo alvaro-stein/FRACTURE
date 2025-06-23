@@ -3,7 +3,7 @@ class_name GameManager
 
 signal ai_turn_started
 
-const INITIAL_HAND_SIZE := 5
+const INITIAL_HAND_SIZE := 19
 
 @onready var clock: TextureButton = $Clock
 @onready var player: MatchPlayer = $"Player"
@@ -162,9 +162,36 @@ func _on_score_updated(score_change_value: int, color: String):
 		score_label.set(FONT_COLOR_PATH, Color.SEA_GREEN)
 
 func _on_end_game():
-	print("Fim do jogo!")
-	pass
+	clock.get_node("Timer").stop()
+	self.add_child(load("res://scenes/main scenes/Match/end_scene.tscn").instantiate())
 
+func who_win():
+	var score_parent = get_node("Score")
+	var player_slot_win = 0
+	var AI_slot_win = 0
+	var player_total_score = 0
+	var AI_total_score = 0
+	
+	for score in score_parent.get_children():
+		if int(score.text) > 0:
+			player_slot_win += 1
+			player_total_score += int(score.text)
+		elif int(score.text) < 0:
+			AI_slot_win += 1
+			AI_total_score += int(score.text)
+			
+	if player_slot_win > AI_slot_win:
+		return "player"
+	elif player_slot_win < AI_slot_win:
+		return "AI"
+	else: #iguais
+		if player_total_score > AI_total_score:
+			return "player"
+		elif player_total_score < AI_total_score:
+			return "AI"
+		else:
+			return "empate"
+		
 
 
 
