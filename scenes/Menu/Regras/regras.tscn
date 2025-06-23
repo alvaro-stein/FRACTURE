@@ -158,6 +158,7 @@ color = Color(0.568627, 0.831373, 1, 0.0784314)
 
 [node name="sair_button" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 80)
+layout_mode = 0
 offset_left = 35.0
 offset_top = 35.0
 offset_right = 185.0

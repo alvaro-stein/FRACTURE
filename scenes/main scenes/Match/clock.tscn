@@ -3,14 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://1xhbdxmjkb6r" path="res://assets/sprites/Clock/timer_100.png" id="1_gu4cm"]
 [ext_resource type="Script" uid="uid://bpwnmhlmvveg1" path="res://scenes/main scenes/Match/clock.gd" id="1_i1n7k"]
 
-[node name="Clock" type="TextureButton"]
+[node name="Clock" type="Button"]
 offset_left = -64.0
 offset_top = -64.0
 offset_right = 64.0
 offset_bottom = 64.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("1_gu4cm")
+disabled = true
+icon = ExtResource("1_gu4cm")
+flat = true
 script = ExtResource("1_i1n7k")
 
 [node name="Label" type="Label" parent="."]

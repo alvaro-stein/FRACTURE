@@ -1,22 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://dj2aoo5011s26"]
+[gd_scene load_steps=16 format=3 uid="uid://dj2aoo5011s26"]
 
 [ext_resource type="Script" uid="uid://cd77pycciaqr1" path="res://scenes/main scenes/Match/match.gd" id="1_6ncua"]
 [ext_resource type="PackedScene" uid="uid://caj23gmo4lj52" path="res://scenes/main scenes/Match/clock.tscn" id="2_8uon3"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_401qm"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="2_m3pp4"]
 [ext_resource type="PackedScene" uid="uid://dg8ynng7jpu8g" path="res://scenes/main scenes/Match/game_actions.tscn" id="2_ngxga"]
+[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_wf7y1"]
 [ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/cards/card_slot_manager.tscn" id="3_ni3me"]
 [ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="3_uwe1k"]
 [ext_resource type="PackedScene" uid="uid://j7him6825pu" path="res://scenes/main scenes/Match/player.tscn" id="4_8uon3"]
 [ext_resource type="PackedScene" uid="uid://ebsp8cgsjef6" path="res://scenes/cards/deck.tscn" id="4_ybgof"]
 [ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/cards/discard_pile.tscn" id="7_taav6"]
 [ext_resource type="PackedScene" uid="uid://c78yrpjq28q68" path="res://scenes/main scenes/Match/ai.tscn" id="11_401qm"]
+[ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="12_6kwvs"]
+[ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="13_ekjb3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kk7yl"]
+shader = ExtResource("2_wf7y1")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 1.5
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_6ncua")
 
 [node name="Fundo" type="Sprite2D" parent="."]
 z_index = -10
+material = SubResource("ShaderMaterial_kk7yl")
 position = Vector2(957, 551)
 rotation = -0.139626
 scale = Vector2(1.44782, 1.44782)
@@ -48,3 +57,33 @@ position = Vector2(164.5, 386)
 
 [node name="DiscardPile" parent="." instance=ExtResource("7_taav6")]
 position = Vector2(164.5, 697)
+
+[node name="PauseButton" parent="." instance=ExtResource("12_6kwvs")]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(953, 572)
+amount = 300
+texture = ExtResource("13_ekjb3")
+lifetime = 500.0
+preprocess = 303.03
+lifetime_randomness = 0.11
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 600)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.5
+angular_velocity_min = 2.0
+angular_velocity_max = 5.0
+orbit_velocity_min = -0.01
+orbit_velocity_max = 0.01
+radial_accel_min = 0.03
+radial_accel_max = 0.05
+tangential_accel_min = -0.01
+tangential_accel_max = 0.01
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color = Color(0.568627, 0.831373, 1, 0.380392)
