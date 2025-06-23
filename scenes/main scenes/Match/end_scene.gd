@@ -51,6 +51,7 @@ func _ready() -> void:
 	sum_points.visible = true
 	await get_tree().create_timer(0.75, false).timeout
 	result.visible = true
+	await get_tree().create_timer(0.75, false).timeout
 	button.visible = true
 	
 

@@ -10,33 +10,43 @@ script = ExtResource("1_qt05e")
 [node name="PlayerSlot" type="Node" parent="."]
 
 [node name="GOLD" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(440, 803)
 
 [node name="SAPPHIRE" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(700, 800)
 
 [node name="QUARTZ" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(960, 800)
 
 [node name="RUBY" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(1220, 800)
 
 [node name="EMERALD" parent="PlayerSlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(1480, 800)
 
 [node name="AISlot" type="Node" parent="."]
 
 [node name="GOLD" parent="AISlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(440, 280)
 
 [node name="SAPPHIRE" parent="AISlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(700, 280)
 
 [node name="QUARTZ" parent="AISlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(960, 280)
 
 [node name="RUBY" parent="AISlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(1220, 280)
 
 [node name="EMERALD" parent="AISlot" instance=ExtResource("2_x28f1")]
+z_index = -10
 position = Vector2(1480, 280)

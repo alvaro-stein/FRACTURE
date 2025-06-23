@@ -173,25 +173,25 @@ func who_win():
 	var score_parent = get_node("Score")
 	var player_slot_win = 0
 	var AI_slot_win = 0
-	var player_total_score = 0
-	var AI_total_score = 0
+	var total_score = 0
 	
 	for score in score_parent.get_children():
 		if int(score.text) > 0:
 			player_slot_win += 1
-			player_total_score += int(score.text)
+			total_score += int(score.text)
 		elif int(score.text) < 0:
 			AI_slot_win += 1
-			AI_total_score += int(score.text)
+			total_score += int(score.text)
 			
+	print(total_score)
 	if player_slot_win > AI_slot_win:
 		return "player"
 	elif player_slot_win < AI_slot_win:
 		return "AI"
 	else: #iguais
-		if player_total_score > AI_total_score:
+		if total_score > 0:
 			return "player"
-		elif player_total_score < AI_total_score:
+		elif total_score < 0:
 			return "AI"
 		else:
 			return "empate"
