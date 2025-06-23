@@ -1,23 +1,23 @@
 [gd_scene load_steps=14 format=3 uid="uid://q26prbnehvdf"]
 
-[ext_resource type="Script" uid="uid://su2n3grymllj" path="res://scenes/Menu/tela_menu.gd" id="1_ft8my"]
-[ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="2_w605n"]
-[ext_resource type="AudioStream" uid="uid://ll5p6y3h6lbu" path="res://sfx/Somfundo/somventoloop.mp3" id="2_yq5xy"]
-[ext_resource type="FontFile" uid="uid://3bpd2kpm1dyv" path="res://fonte/VehicleBreaksDown-Regular.ttf" id="3_h2iml"]
-[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="3_h61sm"]
-[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="4_ebsqv"]
-[ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="4_kvek7"]
-[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/tela_menu.gdshader" id="4_uar5t"]
-[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="5_8d48o"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="8_7f58l"]
+[ext_resource type="Script" uid="uid://su2n3grymllj" path="res://scenes/Menu/menu.gd" id="1_dnmm8"]
+[ext_resource type="AudioStream" uid="uid://ll5p6y3h6lbu" path="res://sfx/Somfundo/somventoloop.mp3" id="2_nqj45"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="3_t022d"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="4_vd2iv"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="5_sum3h"]
+[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/menu.gdshader" id="6_dsxoc"]
+[ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="7_1ro1i"]
+[ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="8_ywsxe"]
+[ext_resource type="FontFile" uid="uid://3bpd2kpm1dyv" path="res://fonte/VehicleBreaksDown-Regular.ttf" id="9_8y810"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="10_cbysg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fmqe5"]
-shader = ExtResource("4_uar5t")
+shader = ExtResource("6_dsxoc")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.383
 
 [sub_resource type="LabelSettings" id="LabelSettings_rucv2"]
-font = ExtResource("3_h2iml")
+font = ExtResource("9_8y810")
 font_size = 80
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
@@ -27,30 +27,28 @@ shadow_offset = Vector2(0, 4)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_ft8my")
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_dnmm8")
 
 [node name="somfundo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_yq5xy")
+stream = ExtResource("2_nqj45")
 volume_db = -25.0
 autoplay = true
 
 [node name="botaosom" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_h61sm")
+stream = ExtResource("3_t022d")
 volume_db = -17.0
 pitch_scale = 1.05
 
 [node name="botaosom2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ebsqv")
+stream = ExtResource("4_vd2iv")
 volume_db = -15.0
 pitch_scale = 1.05
 
 [node name="botaosom3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_8d48o")
+stream = ExtResource("5_sum3h")
 volume_db = -17.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -65,12 +63,12 @@ offset_right = 210.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_w605n")
+texture = ExtResource("7_1ro1i")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(953, 572)
 amount = 300
-texture = ExtResource("4_kvek7")
+texture = ExtResource("8_ywsxe")
 lifetime = 500.0
 preprocess = 303.03
 lifetime_randomness = 0.11
@@ -130,7 +128,7 @@ theme_override_constants/separation = 15
 
 [node name="jogar_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
 layout_mode = 2
-theme = ExtResource("8_7f58l")
+theme = ExtResource("10_cbysg")
 theme_override_colors/font_hover_color = Color(0.439095, 0.913623, 0.932161, 1)
 theme_override_colors/font_pressed_color = Color(0.286691, 0.501014, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
@@ -139,7 +137,7 @@ flat = true
 
 [node name="regras_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
 layout_mode = 2
-theme = ExtResource("8_7f58l")
+theme = ExtResource("10_cbysg")
 theme_override_colors/font_hover_color = Color(0.439216, 0.913725, 0.933333, 1)
 theme_override_colors/font_pressed_color = Color(0.286275, 0.501961, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
@@ -148,7 +146,7 @@ flat = true
 
 [node name="configuracao_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
 layout_mode = 2
-theme = ExtResource("8_7f58l")
+theme = ExtResource("10_cbysg")
 theme_override_colors/font_hover_color = Color(0.439095, 0.913623, 0.932161, 1)
 theme_override_colors/font_pressed_color = Color(0.286691, 0.501014, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
@@ -157,7 +155,7 @@ flat = true
 
 [node name="creditos_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
 layout_mode = 2
-theme = ExtResource("8_7f58l")
+theme = ExtResource("10_cbysg")
 theme_override_colors/font_hover_color = Color(0.439216, 0.913725, 0.933333, 1)
 theme_override_colors/font_pressed_color = Color(0.286275, 0.501961, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
@@ -166,7 +164,7 @@ flat = true
 
 [node name="sair_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
 layout_mode = 2
-theme = ExtResource("8_7f58l")
+theme = ExtResource("10_cbysg")
 theme_override_colors/font_hover_color = Color(0.439216, 0.913725, 0.933333, 1)
 theme_override_colors/font_pressed_color = Color(0.286275, 0.501961, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")

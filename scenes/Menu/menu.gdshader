@@ -5,7 +5,7 @@ uniform float intensity : hint_range(1.0, 2.0) = 1.5;
 
 void fragment() {
     vec4 tex_color = texture(TEXTURE, UV);
-    
+
     // Detecta partes brilhantes (estrelas) na textura baseando-se na luminosidade
     float brightness = dot(tex_color.rgb, vec3(0.299, 0.587, 0.114));
     float glow = smoothstep(0.6, 1.0, brightness);
@@ -32,6 +32,6 @@ void fragment() {
 
     // Aplica o brilho apenas nas estrelas
     vec3 final_color = tex_color.rgb + glow * glow_color * (intensity - 1.0);
-    
+
     COLOR = vec4(final_color, tex_color.a);
 }

@@ -1,12 +1,16 @@
 extends Control
 class_name MainMenu
 
+signal change_scene_to
+
+
 func _ready() -> void:
-
-
+	get_parent().connect_change_scene_signals(self)
+	
 	for _button in get_tree().get_nodes_in_group("buttons"):
 		_button.pressed.connect(_on_button_pressed.bind(_button))
-		
+
+
 func _on_button_pressed(_button : Button) -> void:
 	var audio = get_node("somfundo")
 	# Garantir que o áudio esteja na árvore de nós principal
@@ -19,13 +23,14 @@ func _on_button_pressed(_button : Button) -> void:
 	await sound_player.finished
 	
 	match _button.name:
-		"jogar_button": 
-			get_tree().change_scene_to_file("res://Interface/Menu_Personagens/CharacterSelect/character_select_scene.tscn")
-		"regras_button": 
-			get_tree().change_scene_to_file("res://Interface/Regras/Menu_regras/menu_principal_regras.tscn")
+		"jogar_button":
+			emit_signal("change_scene_to", "Match")
+			#get_tree().change_scene_to_file("res://Interface/Menu_Personagens/CharacterSelect/character_select_scene.tscn")
+		"regras_button":
+			emit_signal("change_scene_to", "Regras")
 		"configuracao_button":
-			get_tree().change_scene_to_file("res://Interface/Configuracao/menu_configuracao.tscn")
-		"creditos_button": 
-			get_tree().change_scene_to_file("res://Interface/Créditos/creditos.tscn")
-		"sair_button": 
+			emit_signal("change_scene_to", "Config")
+		"creditos_button":
+			emit_signal("change_scene_to", "Creditos")
+		"sair_button":
 			get_tree().quit()
