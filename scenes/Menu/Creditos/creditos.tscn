@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://chcupi57h2k6r"]
+[gd_scene load_steps=8 format=3 uid="uid://chcupi57h2k6r"]
 
+[ext_resource type="Script" uid="uid://i2dw8kpocqst" path="res://scenes/Menu/Creditos/creditos.gd" id="1_q67wh"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_s6me8"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_bv7u2"]
 [ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="4_draql"]
@@ -9,11 +10,12 @@
 
 [node name="Créditos" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q67wh")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.374139, 0.374139, 0.374139, 1)

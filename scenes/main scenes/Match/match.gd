@@ -1,11 +1,12 @@
 extends Node
 class_name GameManager
 
+signal change_scene_to
 signal ai_turn_started
 
 const INITIAL_HAND_SIZE := 5
 
-@onready var clock: TextureButton = $Clock
+@onready var clock: Button = $Clock
 @onready var player: MatchPlayer = $"Player"
 var player_hand:
 	get: return player.get_node("PlayerHand")
@@ -35,26 +36,28 @@ func deal_initial_hand() -> void:
 	var players = [AI, player]
 	for i in INITIAL_HAND_SIZE:
 		for each_player in players:
-			await get_tree().create_timer(0.2).timeout
+			await get_tree().create_timer(0.2, false).timeout
 			self.current_player = each_player
 			game_actions.buy_card()
 
 func _ready() -> void:
+	get_parent().connect_change_scene_signals(self)
 	#await _init_players(self._hand, self._opposite_hand)
 	clock._end_turn.connect(_on_end_turn)
 	clock._end_game.connect(_on_end_game)
 	game_actions.score_updated.connect(_on_score_updated)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	await self.deal_initial_hand()
 	game_started = true
 	clock.reset_timer()
+	clock.disabled = false
 	
 	#self.turn = players[0]
 	#GameEvents.on_game_over.connect(end_game)
 
 func _notify_gm_is_ready():
 	while self.players == []:
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.25, false).timeout
 	if not self.is_node_ready():
 		await self.ready
 	#GameEvents.on_player_ready.emit()
@@ -107,7 +110,7 @@ func create_cards(card_types_and_powers):
 				receiving_player.hand.card_face_up(new_card)
 			
 			alternate = not alternate
-			await get_tree().create_timer(0.2).timeout
+			await get_tree().create_timer(0.2, false).timeout
 	var timer = Timer.new()
 	(timer.timeout as Signal).connect(deal_cards)
 	timer.one_shot = true
@@ -134,6 +137,7 @@ func _on_end_turn():
 			game_actions.buy_card()
 	
 	if self.current_player == player:
+		clock.disabled = true
 		self.current_player = AI
 		emit_signal("ai_turn_started")
 	else:
@@ -162,8 +166,35 @@ func _on_score_updated(score_change_value: int, color: String):
 		score_label.set(FONT_COLOR_PATH, Color.SEA_GREEN)
 
 func _on_end_game():
-	print("Fim do jogo!")
-	pass
+	clock.get_node("Timer").stop()
+	self.add_child(load("res://scenes/main scenes/Match/end_scene.tscn").instantiate())
+
+func who_win():
+	var score_parent = get_node("Score")
+	var player_slot_win = 0
+	var AI_slot_win = 0
+	var player_total_score = 0
+	var AI_total_score = 0
+	
+	for score in score_parent.get_children():
+		if int(score.text) > 0:
+			player_slot_win += 1
+			player_total_score += int(score.text)
+		elif int(score.text) < 0:
+			AI_slot_win += 1
+			AI_total_score += int(score.text)
+			
+	if player_slot_win > AI_slot_win:
+		return "player"
+	elif player_slot_win < AI_slot_win:
+		return "AI"
+	else: #iguais
+		if player_total_score > AI_total_score:
+			return "player"
+		elif player_total_score < AI_total_score:
+			return "AI"
+		else:
+			return "empate"
 
 
 
