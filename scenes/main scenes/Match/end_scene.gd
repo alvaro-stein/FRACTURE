@@ -8,6 +8,7 @@ const FONT_COLOR_PATH := "theme_override_colors/font_color"
 @onready var sum_points: Label = $SumPoints
 
 func _ready() -> void:
+	$"../PauseButton".queue_free()
 	var total_points = 0
 	var tween = self.create_tween()
 	tween.tween_property(self, "color", Color(0, 0, 0, 0.9), 1)
@@ -24,20 +25,20 @@ func _ready() -> void:
 		elif label.get_node("Sprite2D").modulate == Color.SEA_GREEN:
 			label.get_node("Sprite2D").modulate = Color(0.123, 0.95, 0.482)
 		
-		label.get_node("Sprite2D").z_index = 11
+		label.get_node("Sprite2D").z_index = 26
 		label.get_node("SpinScore").play("spin score")
 		await get_tree().create_timer(0.75, false).timeout
 	
 	var victorious = Match.who_win()
 	match victorious:
 		"player":
-			result.text = "VITÓRIA"
+			result.bbcode = "[wave amp=15 freq=3][curspull]VITÓRIA"
 			result.set("theme_override_colors/default_color", Color(0.123, 0.95, 0.482))
 		"AI":
-			result.text = "DERROTA"
+			result.bbcode = "[jit2 scale=3 freq=20][curspull -1.0]DERROTA"
 			result.set("theme_override_colors/default_color", Color(1.0, 0.19, 0.19))
 		"empate":
-			result.text = "EMPATE"
+			result.bbcode = "[wave amp=15 freq=3][curspull]EMPATE"
 			result.set("theme_override_colors/default_color", Color.WHITE_SMOKE)
 	
 	sum_points.text = sum_points.text + str(total_points)
