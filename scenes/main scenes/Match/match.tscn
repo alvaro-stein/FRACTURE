@@ -26,9 +26,8 @@ script = ExtResource("1_6ncua")
 [node name="Fundo" type="Sprite2D" parent="."]
 z_index = -10
 material = SubResource("ShaderMaterial_kk7yl")
-position = Vector2(957, 551)
-rotation = -0.139626
-scale = Vector2(1.44782, 1.44782)
+position = Vector2(960, 540)
+scale = Vector2(1.388, 1.388)
 texture = ExtResource("2_401qm")
 
 [node name="Clock" parent="." instance=ExtResource("2_8uon3")]
