@@ -8,6 +8,7 @@ const TYPE: Array[String] = ["ACE", "LOW", "MID", "HIGH"]
 
 const CARD_SCENE = preload("res://scenes/cards/card.tscn")
 var is_facing_down = true
+var is_selected = false
 var color: String
 var type: String
 var rank: int

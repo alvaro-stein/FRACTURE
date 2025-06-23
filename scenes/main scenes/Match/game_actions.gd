@@ -5,6 +5,7 @@ class_name GameActions
 var screen_size: Vector2
 var mouse_pos: Vector2
 
+signal card_right_clicked
 signal score_updated(score_change_value, color)
 
 @onready var GM: GameManager = $".."
@@ -59,6 +60,7 @@ func _input(event: InputEvent) -> void:
 			start_drag() if event.pressed else finish_drag()
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and highlighted_card:
 			if event.pressed:
+				emit_signal("card_right_clicked", highlighted_card)
 				highlighted_card.flip()
 
 
@@ -75,7 +77,9 @@ func finish_drag() -> void:
 			try_place_card(card_being_dragged, card_slot_hovered)
 		elif discard_pile_hovered and GM.current_player == player:
 			try_discard_card(card_being_dragged)
+			print("NÃO ESTAVA EM CIMA DO DESCARTE")
 		else: # Return card to hand
+			print("NÃO ESTAVA EM CIMA DO SLOT")
 			player_hand.add_card_to_hand(highlighted_card)
 		card_being_dragged = null
 
@@ -83,10 +87,12 @@ func finish_drag() -> void:
 func try_place_card(card: Card, slot: CardSlot) -> bool:
 	var is_AI := (GM.current_player != player)
 	var can_place_card = self.can_place_card(card, slot, is_AI) 
-	var can_play = can_place_card[0]
-	var cost_big_mana = can_place_card[1]
-	var cost_small_mana = can_place_card[2]
+	var can_play = can_place_card.can_place
+	var cost_big_mana = can_place_card.cost_big
+	var cost_small_mana = can_place_card.cost_small
 	var score_change_value = card.rank
+	
+	print("POSSO JOGAR AQUI? ", can_play)
 	
 	if can_play:
 		GM.current_player.use_mana(cost_big_mana, cost_small_mana)
@@ -106,6 +112,8 @@ func try_place_card(card: Card, slot: CardSlot) -> bool:
 
 
 func can_place_card(card: Card, slot: CardSlot, is_AI: bool):
+	var can_place := {"can_place": false, "cost_big": 0, "cost_small": 0}
+	
 	var allowed_slot: bool
 	if is_AI:
 		allowed_slot = slot.get_parent().name == "AISlot"
@@ -113,6 +121,45 @@ func can_place_card(card: Card, slot: CardSlot, is_AI: bool):
 		allowed_slot = slot.get_parent().name == "PlayerSlot"
 	
 	# Regras de combinação por tipo
+	var combination = is_valid_combination(card, slot)
+	
+	can_place.cost_big = combination.cost_big
+	can_place.cost_small = combination.cost_small
+	# Condições para jogar a carta
+	var rules := [
+		card.color == slot.color or slot.color == "QUARTZ",
+		#card in GM.current_player.hand.player_hand,
+		combination.is_valid,
+		allowed_slot
+	]
+	var can_play = rules.reduce(func(a, b): return a and b)
+	var can_use_mana = GM.current_player.can_use_mana(can_place.cost_big, can_place.cost_small)
+	
+	#print(allowed_slot)
+	#print(combination.is_valid)
+	#print(can_play)
+	#print(can_use_mana)
+	
+	if can_play and can_use_mana:
+		can_place.can_place = true
+	else: 
+		can_place.can_place = false
+	return can_place
+	
+
+func try_discard_card(card: Card) -> void:
+	if GM.current_player.can_use_mana(0, 2) and deck_pile:
+		GM.current_player.use_mana(0, 2)
+		discard_deck.discard_card(card) #responsabilidade do discard_pile
+		self.buy_card()
+	else: # Return card to hand
+		if GM.current_player == player:
+			player_hand.add_card_to_hand(card)
+		else:
+			AI_hand.add_card_to_hand(card)
+
+func is_valid_combination(card: Card, slot: CardSlot):
+	var combination := {"cost_big": 0, "cost_small": 0, "is_valid": false}
 	var combination_rules := {
 		"HIGH": {
 			["HIGH"]: "big",
@@ -133,10 +180,6 @@ func can_place_card(card: Card, slot: CardSlot, is_AI: bool):
 		}
 	}
 
-	var is_valid_combination := false
-	var cost_big_mana := 0
-	var cost_small_mana := 0
-
 	if card.type in combination_rules:
 		var current_types := slot.slot_pile.map(func(c): return c.type)
 		if current_types.has("ACE"):
@@ -145,57 +188,21 @@ func can_place_card(card: Card, slot: CardSlot, is_AI: bool):
 		current_types.sort()
 		var type_rules = combination_rules[card.type]
 		if type_rules.has(current_types):
-			is_valid_combination = true
+			combination.is_valid = true
 			match type_rules[current_types]:
 				"small":
-					cost_small_mana = 1
+					combination.cost_small = 1
 				"big":
-					cost_big_mana = 1
-
+					combination.cost_big= 1
+					
 	elif card.type == "ACE":
 		if slot.color == "QUARTZ":
-			is_valid_combination = true
+			combination.is_valid = false
 		else:
-			is_valid_combination = false
-		cost_small_mana = 1
-
-
-	# Condições para jogar a carta
-	var rules := [
-		card.color == slot.color or slot.color == "QUARTZ",
-		#card in GM.current_player.hand.player_hand,
-		is_valid_combination,
-		allowed_slot
-	]
-
-	var can_play = rules.reduce(func(a, b): return a and b)
-	var can_use_mana = GM.current_player.can_use_mana(cost_big_mana, cost_small_mana)
+			combination.is_valid = true
+		combination.cost_small = 1
 	
-	print(allowed_slot)
-	print(is_valid_combination)
-	print(can_play)
-	print(can_use_mana)
-	print("Card color ", card.color)
-	print("Slot color ", slot.color)
-	
-	if can_play and can_use_mana:
-		return [true, cost_big_mana, cost_small_mana]
-	else: 
-		return [false, null, null]
-
-	
-
-func try_discard_card(card: Card) -> void:
-	if GM.current_player.can_use_mana(0, 2) and deck_pile:
-		GM.current_player.use_mana(0, 2)
-		discard_deck.discard_card(card) #responsabilidade do discard_pile
-		self.buy_card()
-	else: # Return card to hand
-		if GM.current_player == player:
-			player_hand.add_card_to_hand(card)
-		else:
-			AI_hand.add_card_to_hand(card)
-
+	return combination
 
 func buy_card() -> void:
 	var new_card = deck.buy()
@@ -206,9 +213,10 @@ func buy_card() -> void:
 		player_hand.add_card_to_hand(new_card)
 		#player_hand.animation_speed = 0.2
 	else:
+		new_card.flip() #adicionado para testes
 		AI_hand.add_card_to_hand(new_card)
 
-
+	
 
 
 
