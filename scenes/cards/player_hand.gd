@@ -153,7 +153,7 @@ func merge_cards(card1: Card, card2: Card):
 	card_manager.add_child(new_card)
 	if self.get_parent().name == "Player":
 		new_card.get_node("Area2D/CollisionShape2D").disabled = false
-	new_card.flip()
+		new_card.flip()
 	
 	self.add_card_to_hand(new_card)
 	
