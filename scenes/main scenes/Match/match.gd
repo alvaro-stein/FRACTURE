@@ -1,6 +1,7 @@
 extends Node
 class_name GameManager
 
+signal change_scene_to
 signal ai_turn_started
 
 const INITIAL_HAND_SIZE := 19
@@ -40,6 +41,7 @@ func deal_initial_hand() -> void:
 			game_actions.buy_card()
 
 func _ready() -> void:
+	get_parent().connect_change_scene_signals(self)
 	#await _init_players(self._hand, self._opposite_hand)
 	clock._end_turn.connect(_on_end_turn)
 	clock._end_game.connect(_on_end_game)
@@ -191,7 +193,7 @@ func who_win():
 			return "AI"
 		else:
 			return "empate"
-		
+
 
 
 
