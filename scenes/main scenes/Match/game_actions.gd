@@ -213,10 +213,9 @@ func buy_card() -> void:
 		player_hand.add_card_to_hand(new_card)
 		#player_hand.animation_speed = 0.2
 	else:
-		new_card.flip() #adicionado para testes
+		#new_card.flip() #adicionado para testes
 		AI_hand.add_card_to_hand(new_card)
 
-	
 
 
 

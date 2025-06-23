@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
-uniform float speed : hint_range(0.1, 5.0) = 1.0;
-uniform float intensity : hint_range(1.0, 2.0) = 1.5;
+uniform float speed : hint_range(0.1, 5.0) = 0.1;
+uniform float intensity : hint_range(1.0, 2.0) = 2.0;
 
 void fragment() {
     vec4 tex_color = texture(TEXTURE, UV);
@@ -11,7 +11,7 @@ void fragment() {
     float glow = smoothstep(0.6, 1.0, brightness);
 
     // Onda de brilho - Fazendo um ciclo de transição perceptível
-    float cycle = sin(TIME * speed) * 0.5 + 0.5;  // Varia de 0 a 1 suavemente
+    float cycle = sin(TIME * speed) * 0.1 + 0.5;  // Varia de 0 a 1 suavemente
 
     // Definição das cores para transição
     vec3 color_dark = vec3(0.0, 0.0, 0.0);  // Apagado (escuro)

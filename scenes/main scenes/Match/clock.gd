@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 signal _end_turn
 signal _end_game
@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func reset_timer() -> void:
 	label.text = str(MAX_TIME)
-	self.texture_normal = CLOCK_SPRITE[0]
+	self.icon = CLOCK_SPRITE[0]
 	timer.start()
 
 
@@ -33,8 +33,8 @@ func update_label() -> void:
 		_end_game.emit()
 
 func update_clock_sprite() -> void:
-	var index = CLOCK_SPRITE.find(self.texture_normal)
-	self.texture_normal = CLOCK_SPRITE[(index + 1) % 5]
+	var index = CLOCK_SPRITE.find(self.icon)
+	self.icon = CLOCK_SPRITE[(index + 1) % 5]
 
 func _on_timer_timeout() -> void:
 	update_label()
@@ -43,7 +43,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_button_down() -> void:
-	self.disabled = true
+	self.release_focus()
 	if not last_turn:
 		_end_turn.emit()
 	else:

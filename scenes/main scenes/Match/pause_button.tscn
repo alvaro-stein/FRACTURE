@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://se8i2us8xx1p"]
+
+[ext_resource type="Texture2D" uid="uid://dr72if31vjdrh" path="res://assets/sprites/gear.png" id="1_njft8"]
+[ext_resource type="Script" uid="uid://wgtdcm1rygmh" path="res://scenes/main scenes/Match/pause_button.gd" id="2_et1ey"]
+
+[node name="PauseButton" type="Button"]
+process_mode = 3
+z_index = 21
+offset_left = 1812.0
+offset_right = 1920.0
+offset_bottom = 108.0
+icon = ExtResource("1_njft8")
+flat = true
+icon_alignment = 1
+script = ExtResource("2_et1ey")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

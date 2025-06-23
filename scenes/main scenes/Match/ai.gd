@@ -97,21 +97,21 @@ func _start_ai_turn():
 	print("AI começa o turno")
 	
 	if not hand.player_hand.size() == 0:
-		await get_tree().create_timer(2).timeout #pensando
+		await get_tree().create_timer(2, false).timeout #pensando
 		self.decide_best_action()
 		var play_again = randi_range(0, 1) #sem usar por enquanto
 		if self.big_mana_AI or self.small_mana_AI == 2:
-			await get_tree().create_timer(2).timeout 
+			await get_tree().create_timer(2, false).timeout 
 			self.decide_best_action()
 			
 			
 	
 	else:
 		print("IA não tem cartas na mão para jogar. Passando o turno.")
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1, false).timeout
 		GM._on_end_turn()
 		
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(3, false).timeout
 	GM.get_node("Clock")._on_button_down()
 
 func place_card_AI():
