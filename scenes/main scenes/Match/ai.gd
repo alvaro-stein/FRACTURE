@@ -111,7 +111,7 @@ func _start_ai_turn():
 		await get_tree().create_timer(1).timeout
 		GM._on_end_turn()
 		
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
 	GM.get_node("Clock")._on_button_down()
 
 func place_card_AI():
@@ -408,3 +408,4 @@ func execute_action(action: Dictionary):
 		# Chama a função de fusão que criamos anteriormente no script da Mão (Hand)
 		# Supondo que a função se chame 'merge_cards_logic' e esteja no script 'hand'
 		hand.attempt_merge(cards_to_merge)
+		self.decide_best_action()

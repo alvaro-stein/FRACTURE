@@ -43,6 +43,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_button_down() -> void:
+	self.disabled = true
 	if not last_turn:
 		_end_turn.emit()
 	else:

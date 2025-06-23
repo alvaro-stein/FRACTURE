@@ -7,7 +7,7 @@ const TRUE_CARD_HEIGHT: float = 200.0
 const CARD_HEIGHT: float = TRUE_CARD_HEIGHT * 1.10
 const HAND_Y_POS: float = 1080 + TRUE_CARD_HEIGHT/6 # 1 terço a mostra
 const SHOWN_HAND_Y_POS: float = 1080 - CARD_HEIGHT/2
-const VALID_PAIRS = [[2, 2], [2, 5], [2, 8]]
+const VALID_PAIRS = [[2, 2], [2, 5], [2, 8], [5, 2], [8, 2]]
 
 @onready var game_actions = get_node("../../GameActions")
 @onready var card_manager = get_node("../../CardManager")
@@ -20,12 +20,12 @@ var x_offset: float
 var animation_speed: float = 0.2
 var hand_hovered: bool = false
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Area2D/CollisionShape2D.shape.set_size(Vector2(0, 0))
 	screen_center_x = get_viewport_rect().size.x / 2
-	game_actions.card_right_clicked.connect(_on_card_right_clicked)
+	if self.get_parent().name == "Player":
+		game_actions.card_right_clicked.connect(_on_card_right_clicked)
 
 
 func remove_card_from_hand(card: Card) -> void:
@@ -100,13 +100,9 @@ func mirror_pos(pos: Vector2):
 	return pos
 
 func _on_card_right_clicked(card: Node):
-	if card not in self.player_hand:
-		return 
-		
+
 	if card in selected_cards:
-		print("Carta já está selecionada")
 		selected_cards.erase(card)
-		print(selected_cards)
 		return
 	# Adiciona a carta à lista de seleção e atualiza seu visual
 	selected_cards.append(card)
@@ -116,7 +112,6 @@ func _on_card_right_clicked(card: Node):
 	if selected_cards.size() == 2:
 		attempt_merge(selected_cards)
 		
-	print(selected_cards)
 
 # Lógica principal da fusão
 func attempt_merge(selected_cards):
@@ -128,7 +123,6 @@ func attempt_merge(selected_cards):
 	
 	# Para a verificação ser mais fácil, criamos um par e o ordenamos
 	var pair = [val1, val2]
-	pair.sort()
 	
 	if pair in VALID_PAIRS:
 		# Combinação VÁLIDA!
@@ -144,43 +138,29 @@ func merge_cards(card1: Card, card2: Card):
 	var new_value = card1.rank + card2.rank
 	
 	var new_color
-	if card1.rank > card2.rank:
+	if card1.rank >= card2.rank:
 		new_color = card1.color
 	else:
 		new_color = card2.color
 
 	var new_card = Card.new_card(new_color, new_value)
 	
-	print(new_card.color)
-	print(new_card.rank)
-	print(new_card.name)
-	
 	self.player_hand.erase(card1)
 	self.player_hand.erase(card2)
 	
+	new_card.position = self.get_parent().position
+	
 	card_manager.add_child(new_card)
-	new_card.get_node("Area2D/CollisionShape2D").disabled = false
+	if self.get_parent().name == "Player":
+		new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	new_card.flip()
-	
-	
 	
 	self.add_card_to_hand(new_card)
 	
 	card1.queue_free()
 	card2.queue_free()
-	
-	print(player_hand)
+
 	selected_cards.clear()
-	# OPCIONAL: Posiciona a nova carta onde a primeira estava
-	# Se você usa um HBoxContainer ou VBoxContainer, ele se ajeitará sozinho.
-	# Se não, você precisará definir a posição manualmente.
-	# new_card.global_position = card1.global_position
-
-	# Remove as cartas antigas da cena
-
-
-	# Limpa a lista de seleção
-	
 
 # Função para resetar a seleção caso a fusão falhe
 func reset_selection():
