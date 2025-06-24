@@ -7,7 +7,7 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_gda2a"]
 resource_name = "curspull"
 script = ExtResource("2_gda2a")
-metadata/rt = 4434218270264
+metadata/rt = 2844358951744
 
 [node name="PauseMenu" type="ColorRect"]
 process_mode = 2

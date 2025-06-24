@@ -236,16 +236,23 @@ func evaluate_play_card(card: Card, target_slot: Node, cost: Dictionary) -> floa
 		
 	var projected_slot_value = current_slot_value + card.rank
 	
-	if projected_slot_value > 15:
-		score -= 150.0 # Penalidade severa, invalida o slot
-	elif projected_slot_value == 15:
-		score += 200.0 
-	elif projected_slot_value == 14:
-		score += 80.0
-	elif projected_slot_value == 13:
-		score += 60.0 
-	elif projected_slot_value <= 10 and projected_slot_value > 0: # Bônus menor para valores razoáveis
-		score += 8.0 * (projected_slot_value / 10.0) # Escala o bônus de 0 a 10
+	if target_slot.name.to_upper() != "QUARTZ":
+		if projected_slot_value > 15:
+			score -= 150.0 # Penalidade severa, invalida o slot
+		elif projected_slot_value == 15:
+			score += 200.0 
+		elif projected_slot_value == 14:
+			score += 80.0
+		elif projected_slot_value == 13:
+			score += 60.0 
+		elif projected_slot_value <= 10 and projected_slot_value > 0: # Bônus menor para valores razoáveis
+			score += 8.0 * (projected_slot_value / 10.0) # Escala o bônus de 0 a 10
+	else: 
+		if projected_slot_value == 15:
+			score += 200.0 
+		elif projected_slot_value == 14:
+			score += 80.0
+		
 		
 	if card.type == "ACE" and target_slot.name.to_upper() == card.color.to_upper():
 		# Se o slot está vazio, jogar um ACE é um bom começo
