@@ -54,6 +54,19 @@ func drag_card() -> void:
 		card_being_dragged.position = mouse_pos
 
 
+# Returns an Array of Dictionaries, each containing a colliding object. Empty if no collision.
+func raycast_at_cursor(collision_mask: int) -> Array[Dictionary]:
+	# Get the 2D physics space state from the current world.
+	var space_state = get_world_2d().direct_space_state
+	var mouse_pos = get_global_mouse_position()
+	# Create the query parameters object.
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = mouse_pos
+	query.collision_mask = collision_mask
+	# Returns an Array[Dictionary]
+	return space_state.intersect_point(query)
+
+
 func _input(event: InputEvent) -> void:
 	if GM.game_started:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and highlighted_card:
