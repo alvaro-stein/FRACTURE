@@ -1,0 +1,166 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw3foc5m7l8ge"]
+
+[ext_resource type="Script" uid="uid://ctnr7437f0fcu" path="res://scenes/main scenes/Tutorial/Tutorial1/tutorial_deck.gd" id="1_ub7x2"]
+[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_ueov6"]
+[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_dx5sq"]
+[ext_resource type="Script" uid="uid://ckgw7vb3rieii" path="res://scenes/main scenes/Tutorial/Tutorial1/deck_tutorial.gd" id="4_f6sqv"]
+[ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="5_phppk"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="6_tbujl"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="7_ueov6"]
+[ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="8_dx5sq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qwtks"]
+shader = ExtResource("2_ueov6")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 1.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_3tjcb"]
+line_spacing = 0.0
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="TutorialDeck" type="Node2D"]
+script = ExtResource("1_ub7x2")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+z_index = -10
+material = SubResource("ShaderMaterial_qwtks")
+position = Vector2(960, 540)
+scale = Vector2(1.388, 1.388)
+texture = ExtResource("3_dx5sq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1090)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(-213, 540)
+script = ExtResource("4_f6sqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck"]
+modulate = Color(1, 1, 1, 0.74902)
+scale = Vector2(0.132258, 0.124358)
+texture = ExtResource("5_phppk")
+
+[node name="Label" type="Label" parent="Deck"]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+label_settings = SubResource("LabelSettings_3tjcb")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CardManager" parent="." instance=ExtResource("6_tbujl")]
+z_index = 0
+
+[node name="Text" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 138)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 540.0
+offset_right = 1920.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 2
+script = ExtResource("7_ueov6")
+bbcode = "[]O baralho é compartilhado entre os jogadores e é 
+composto por 40 cartas únicas, sendo 10 de cada cor"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 50
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "%s"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+
+[node name="ContinueButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1741.0
+offset_top = 987.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Continuar"
+
+[node name="PauseButton" parent="." instance=ExtResource("8_dx5sq")]
+
+[connection signal="button_down" from="ContinueButton" to="." method="_on_continue_button_button_down"]

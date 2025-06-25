@@ -69,14 +69,3 @@ func calculate_new_position(index: int, is_AI: bool) -> void:
 func _ready() -> void:
 	color = self.name
 	sprite.texture = COLOR_SPRITE[COLOR.find(color)]
-
-	# All Cards slots must be a child of CardSlotManager or this will error
-	#get_parent().get_parent().connect_card_slot_signals(self)
-#
-#
-#func _on_area_2d_mouse_entered() -> void:
-	#emit_signal("hovered", self)
-#
-#
-#func _on_area_2d_mouse_exited() -> void:
-	#emit_signal("hovered_off", self)
