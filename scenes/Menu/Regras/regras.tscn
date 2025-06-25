@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://2krmhcdinrk0"]
+[gd_scene load_steps=6 format=3 uid="uid://2krmhcdinrk0"]
 
 [ext_resource type="Script" uid="uid://0qx2fn4lf6em" path="res://scenes/Menu/Regras/regras.gd" id="1_qvsup"]
-[ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="2_p8a23"]
-[ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="3_y5cp8"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_nc7kh"]
 [ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="5_mhwx7"]
 [ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="6_6pfaa"]
@@ -16,17 +14,12 @@ offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qvsup")
-cena_inicial = "res://Interface/Menu/tela_menu.tscn"
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.197937, 0.197937, 0.197937, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_p8a23")
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.74902)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -127,34 +120,6 @@ Algumas cartas possuem habilidades que aumentam a diversidade de jogadas e estra
 
 
 "
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(953, 572)
-amount = 300
-texture = ExtResource("3_y5cp8")
-lifetime = 500.0
-preprocess = 303.03
-lifetime_randomness = 0.11
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 600)
-direction = Vector2(0, 0)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 0.3
-initial_velocity_max = 0.5
-angular_velocity_min = 2.0
-angular_velocity_max = 5.0
-orbit_velocity_min = -0.01
-orbit_velocity_max = 0.01
-radial_accel_min = 0.03
-radial_accel_max = 0.05
-tangential_accel_min = -0.01
-tangential_accel_max = 0.01
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.1
-scale_amount_max = 0.2
-color = Color(0.568627, 0.831373, 1, 0.0784314)
 
 [node name="sair_button" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 80)

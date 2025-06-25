@@ -1,14 +1,19 @@
 extends Control
 
-signal change_scene_to
+
+func _input(event):
+	if event.is_action_pressed("Esc"):
+		self.get_parent().close_option()
+
+
+func _on_sair_button_pressed() -> void:
+	self.get_parent().close_option()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_parent().connect_change_scene_signals(self)
-	
-	for _button in get_tree().get_nodes_in_group("button_config"):
-		_button.pressed.connect(_on_button_pressed.bind(_button))
+	#for _button in get_tree().get_nodes_in_group("button_config"):
+		#_button.pressed.connect(_on_button_pressed.bind(_button))
 	
 	$MarginContainer/VBoxContainer/ControleVolume.value = (AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Menu")))
 	$MarginContainer/VBoxContainer/ControleVolume2.value = (AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Botoes menu")))
@@ -30,19 +35,14 @@ func _ready() -> void:
 		#AudioServer.set_bus_mute(AudioServer.get_bus_index("somjogo"), false)
 
 
-func _input(event):
-	if event.is_action_pressed("Esc"):
-		emit_signal("change_scene_to", "Menu")
-
-
-func _on_button_pressed(_button : Button) -> void:
-	var sound_player = [$botaosom, $botaosom2, $botaosom3].pick_random()  # Escolhe aleatoriamente um dos sons
-	sound_player.play()
-	await sound_player.finished
-	
-	match _button.name:
-		"sair_button": 
-			emit_signal("change_scene_to", "Menu")
+#func _on_button_pressed(_button : Button) -> void:
+	##var sound_player = [$botaosom, $botaosom2, $botaosom3].pick_random()  # Escolhe aleatoriamente um dos sons
+	##sound_player.play()
+	##await sound_player.finished
+	#
+	#match _button.name:
+		#"sair_button": 
+			#self.get_parent().close_option()
 
 
 func _on_controle_volume_value_changed(value: float) -> void:
