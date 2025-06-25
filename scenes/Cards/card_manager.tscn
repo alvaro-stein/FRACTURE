@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dapf7tew78ua2"]
 
-[ext_resource type="Script" uid="uid://bgvd47s7l8sl2" path="res://scenes/Cards/card_manager.gd" id="1_pyupu"]
+[ext_resource type="Script" uid="uid://bgvd47s7l8sl2" path="res://scenes/cards/card_manager.gd" id="1_pyupu"]
 
 [node name="CardManager" type="Node2D"]
 z_index = 1

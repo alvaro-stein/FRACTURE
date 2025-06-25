@@ -25,7 +25,7 @@ func _ready() -> void:
 		elif label.get_node("Sprite2D").modulate == Color.SEA_GREEN:
 			label.get_node("Sprite2D").modulate = Color(0.123, 0.95, 0.482)
 		
-		label.get_node("Sprite2D").z_index = 26
+		label.get_node("Sprite2D").z_index = 11
 		label.get_node("SpinScore").play("spin score")
 		await get_tree().create_timer(0.75, false).timeout
 	

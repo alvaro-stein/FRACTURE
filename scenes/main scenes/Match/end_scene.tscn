@@ -1,22 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcnyt81j4dkl3"]
+[gd_scene load_steps=5 format=3 uid="uid://bcnyt81j4dkl3"]
 
 [ext_resource type="Script" uid="uid://51s1oc86f2t6" path="res://scenes/main scenes/Match/end_scene.gd" id="1_4rqcn"]
-[ext_resource type="Script" uid="uid://cuyp5kmoygg6s" path="res://addons/richtext2/text_effects/effects/rte_jit2.gd" id="2_fj2v2"]
 [ext_resource type="Script" uid="uid://dhbxvg36y8pfd" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="2_wfiso"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="3_fj2v2"]
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_q7wq7"]
-resource_name = "jit2"
-script = ExtResource("2_fj2v2")
-metadata/rt = 5485042424214
-
-[sub_resource type="RichTextEffect" id="RichTextEffect_x83y3"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_wfiso"]
 resource_name = "curspull"
 script = ExtResource("2_wfiso")
-metadata/rt = 5485042424214
+metadata/rt = 2405584423554
 
 [node name="EndScene" type="ColorRect"]
-z_index = 25
+z_index = 10
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0)
@@ -24,6 +18,7 @@ script = ExtResource("1_4rqcn")
 
 [node name="Result" type="RichTextLabel" parent="."]
 visible = false
+clip_contents = false
 custom_minimum_size = Vector2(0, 205)
 layout_mode = 1
 anchors_preset = 8
@@ -37,17 +32,20 @@ offset_right = 730.5
 offset_bottom = 287.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_font_sizes/bold_italics_font_size = 150
 theme_override_font_sizes/italics_font_size = 150
 theme_override_font_sizes/mono_font_size = 150
 theme_override_font_sizes/normal_font_size = 150
 theme_override_font_sizes/bold_font_size = 150
+bbcode_enabled = true
+fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-custom_effects = [SubResource("RichTextEffect_q7wq7"), SubResource("RichTextEffect_x83y3")]
+custom_effects = [SubResource("RichTextEffect_wfiso")]
 script = ExtResource("3_fj2v2")
-bbcode = "[jit2 scale=3 freq=20][curspull -1.0]EMPATE"
+bbcode = "[wave amp=15 freq=3][curspull]EMPATE"
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)

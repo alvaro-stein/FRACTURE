@@ -99,7 +99,7 @@ func mirror_pos(pos: Vector2):
 	pos.y = (pos.y - 1080) * (-1)
 	return pos
 
-func _on_card_right_clicked(card: Node):
+func _on_card_right_clicked(card: Card):
 
 	if card in selected_cards:
 		selected_cards.erase(card)
