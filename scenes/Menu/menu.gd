@@ -3,6 +3,24 @@ class_name MainMenu
 
 signal change_scene_to
 
+const REGRAS_SCENE := preload("res://scenes/Menu/Regras/regras.tscn")
+const CONFIG_SCENE := preload("res://scenes/Menu/Configuracoes/menu_configuracao.tscn")
+const CREDITOS_SCENE := preload("res://scenes/Menu/Creditos/creditos.tscn")
+
+
+@onready var buttons_box: MarginContainer = $ButtonsBox
+var current_option: Node = null
+
+
+func open_option(option: String) -> void:
+	buttons_box.visible = true
+	match option:
+		"Regras":
+			pass
+		"Config":
+			pass
+		"Creditos":
+			pass
 
 func _ready() -> void:
 	get_parent().connect_change_scene_signals(self)
@@ -25,14 +43,16 @@ func _on_button_pressed(_button : Button) -> void:
 	match _button.name:
 		"jogar_button":
 			emit_signal("change_scene_to", "Match")
-			#get_tree().change_scene_to_file("res://Interface/Menu_Personagens/CharacterSelect/character_select_scene.tscn")
 		"tutorial_button":
 			emit_signal("change_scene_to", "Tutorial")
 		"regras_button":
-			emit_signal("change_scene_to", "Regras")
+			#emit_signal("change_scene_to", "Regras")
+			open_option("Regras")
 		"configuracao_button":
-			emit_signal("change_scene_to", "Config")
+			#emit_signal("change_scene_to", "Config")
+			open_option("Config")
 		"creditos_button":
 			emit_signal("change_scene_to", "Creditos")
+			open_option("Creditos")
 		"sair_button":
 			get_tree().quit()

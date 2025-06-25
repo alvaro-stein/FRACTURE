@@ -3,9 +3,10 @@ extends Node2D
 const TRANSITION_SCENE = preload("res://scenes/main scenes/scene_transition.tscn")
 const SCENES_PATHS = {"Menu": "res://scenes/Menu/menu.tscn",
 					  "Match": "res://scenes/main scenes/Match/match.tscn",
-					  "Regras": "res://scenes/Menu/Regras/regras.tscn",
-					  "Config": "res://scenes/Menu/Configuracoes/menu_configuracao.tscn",
-					  "Creditos": "res://scenes/Menu/Creditos/creditos.tscn"}
+					  "Tutorial": ""}
+					  #"Regras": "res://scenes/Menu/Regras/regras.tscn",
+					  #"Config": "res://scenes/Menu/Configuracoes/menu_configuracao.tscn",
+					  #"Creditos": "res://scenes/Menu/Creditos/creditos.tscn",}
 
 var current_scene: Node = null
 
