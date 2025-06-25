@@ -23,7 +23,6 @@ func _ready() -> void:
 	deck.deck_ready.connect(distribute_cards)
 
 func distribute_cards():
-
 	if deck.deck_pile.is_empty():
 		return
 		
