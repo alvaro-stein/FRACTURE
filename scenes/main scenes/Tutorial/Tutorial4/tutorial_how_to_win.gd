@@ -1,4 +1,5 @@
 extends Node2D
+class_name TutorialHowToWin
 
 signal change_scene_to
 
@@ -17,7 +18,7 @@ func _ready() -> void:
 	self.position_cards()
 	
 func _on_continue_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial1")
+	emit_signal("change_scene_to", "Tutorial5")
 
 func _on_return_button_button_up() -> void:
 	emit_signal("change_scene_to", "Tutorial3")
@@ -28,7 +29,6 @@ func position_cards():
 	new_card_enemy.position = Vector2(440.0, 350.0)
 	card_slot_manager.get_node("AISlot").get_node(new_card_enemy.color.to_upper()).add_card_to_slot(new_card_enemy, true)
 	score_uptade(-new_card_enemy.rank, new_card_enemy.color)
-	
 	
 	var new_card: Card = Card.new_card("SAPPHIRE", 6)
 	card_manager.add_child(new_card)
