@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://drxfne1t0ywe2"]
+
+[ext_resource type="Script" uid="uid://wf3m7afhb1bx" path="res://scenes/main scenes/Tutorial/Tutorial4/tutorial_how_to_win.gd" id="1_gan2o"]
+[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_0dpyl"]
+[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_v2yg4"]
+[ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_jgxhd"]
+[ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="5_1yam0"]
+[ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="6_7ksht"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="7_3f0w1"]
+[ext_resource type="PackedScene" uid="uid://c3jlm8taxhbp1" path="res://scenes/Secundary Scenes/pointing_arrow.tscn" id="8_0dpyl"]
+[ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="9_v2yg4"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="10_jgxhd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2bqpq"]
+shader = ExtResource("2_0dpyl")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 1.5
+
+[node name="TutorialHowToWin" type="Node2D"]
+script = ExtResource("1_gan2o")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+z_index = -10
+material = SubResource("ShaderMaterial_2bqpq")
+position = Vector2(960, 540)
+scale = Vector2(1.388, 1.388)
+texture = ExtResource("3_v2yg4")
+
+[node name="ContinueButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1741.0
+offset_top = 987.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Continuar"
+
+[node name="PauseButton" parent="." instance=ExtResource("4_jgxhd")]
+
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 987.0
+offset_right = 179.0
+offset_bottom = 1030.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+
+[node name="CardSlotManager" parent="." instance=ExtResource("5_1yam0")]
+
+[node name="Score" parent="." instance=ExtResource("6_7ksht")]
+
+[node name="CardManager" parent="." instance=ExtResource("7_3f0w1")]
+
+[node name="PointingArrow" parent="." instance=ExtResource("8_0dpyl")]
+
+[node name="PointingArrow2" parent="." instance=ExtResource("8_0dpyl")]
+
+[node name="PointingArrow3" parent="." instance=ExtResource("8_0dpyl")]
+
+[node name="PointingArrow4" parent="." instance=ExtResource("8_0dpyl")]
+
+[node name="PointingArrow5" parent="." instance=ExtResource("8_0dpyl")]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(440, 540)
+
+[node name="TextBox" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 175)
+offset_left = 53.0
+offset_top = 642.0
+offset_right = 529.0
+offset_bottom = 825.0
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 25
+theme_override_font_sizes/italics_font_size = 25
+theme_override_font_sizes/mono_font_size = 25
+theme_override_font_sizes/normal_font_size = 25
+theme_override_font_sizes/bold_font_size = 25
+theme_override_styles/normal = ExtResource("9_v2yg4")
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("10_jgxhd")
+bbcode = "[fill]Vença conquistando 3 ou mais slots a mais que o oponente. Os hexágonos mostram a diferença de pontos. Se houver empate nos slots, ganha quem tiver mais pontos no total.[/fill]"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 25
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = false
+autostyle_numbers_tag = "%s"
+autostyle_numbers_pad_decimals = false
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+
+[connection signal="button_up" from="ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]

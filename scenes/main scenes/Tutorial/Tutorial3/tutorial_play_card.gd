@@ -11,8 +11,8 @@ const ARROW_SCENE = preload("res://scenes/Secundary Scenes/pointing_arrow.tscn")
 @onready var card_manager: Node2D = $CardManager
 @onready var continue_button: Button = $ContinueButton
 @onready var score: Node = $Score
-@onready var ui_place_card: Label = $UIPlaceCard
 @onready var card_slot_manager: Node2D = $CardSlotManager
+@onready var text_box: RicherTextLabel = $TextBox
 
 var card_held: Card = null
 var mouse_pos: Vector2
@@ -26,8 +26,8 @@ func _ready() -> void:
 	var new_card_enemy: Card = Card.new_card("GOLD", 9)
 	card_manager.add_child(new_card_enemy)
 	new_card_enemy.position = Vector2(960.0, 0)
-	card_slot_manager.get_node("AISlot").get_node("GOLD").add_card_to_slot(new_card_enemy, true)
-	score_uptade(-9, "GOLD")
+	card_slot_manager.get_node("AISlot").get_node(new_card_enemy.color.to_upper()).add_card_to_slot(new_card_enemy, true)
+	score_uptade(-new_card_enemy.rank, new_card_enemy.color)
 	
 	await get_tree().create_timer(0.7, false).timeout
 	
@@ -144,10 +144,7 @@ func score_uptade(value, color):
 		score_label.set("theme_override_colors/font_color", Color.SEA_GREEN)
 
 func finish_tutorial():
-	ui_place_card.text = "Boa! Você somou
-						pontos ao jogar a carta!
-						É assim que você irá
-						ganhar do seu oponente"
+	text_box.text = "[fill]Boa! Você somou pontos ao jogar a carta! É assim que você irá ganhar do seu oponente. [/fill]"
 	var arrow = ARROW_SCENE.instantiate()
 	self.add_child(arrow)
 	arrow.point_at(Vector2(440.0, 540.0), Vector2(-40, -40))

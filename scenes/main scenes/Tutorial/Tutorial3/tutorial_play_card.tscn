@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjv83fpleobvt"]
+[gd_scene load_steps=12 format=3 uid="uid://bjv83fpleobvt"]
 
 [ext_resource type="Script" uid="uid://bkujmuougufae" path="res://scenes/main scenes/Tutorial/Tutorial3/tutorial_play_card.gd" id="1_oj6t4"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_66rrl"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="6_008io"]
 [ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="7_hwwuo"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="8_66rrl"]
+[ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="9_x3poc"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="10_eyygy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s8awi"]
 shader = ExtResource("2_66rrl")
@@ -69,23 +71,77 @@ position = Vector2(960, 1080)
 
 [node name="CardManager" parent="." instance=ExtResource("8_66rrl")]
 
-[node name="UIPlaceCard" type="Label" parent="."]
-offset_left = 12.0
-offset_top = 518.0
-offset_right = 314.0
-offset_bottom = 743.0
-theme_override_font_sizes/font_size = 25
-text = "Vamos jogar sua
- primeira carta! 
-Você tem um 10 de
-OURO, jogue ele no 
-slot correspondente 
-aqui ao lado."
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Node2D" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 540)
+
+[node name="TextBox" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 170)
+offset_left = 8.0
+offset_top = 621.0
+offset_right = 319.0
+offset_bottom = 799.0
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_styles/normal = ExtResource("9_x3poc")
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("10_eyygy")
+bbcode = "[fill]Vamos jogar sua primeira carta! Você tem um 10 de OURO, jogue ele no slot correspondente aqui ao lado.[/fill]"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 24
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = false
+autostyle_numbers_tag = "%s"
+autostyle_numbers_pad_decimals = false
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
 
 [connection signal="button_up" from="ContinueButton" to="." method="_on_continue_button_button_up"]
 [connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]
