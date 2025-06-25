@@ -4,7 +4,10 @@ const SCENES_PATHS = {"Menu": "res://scenes/Menu/menu.tscn",
 					  "Match": "res://scenes/main scenes/Match/match.tscn",
 					  "Regras": "res://scenes/Menu/Regras/regras.tscn",
 					  "Config": "res://scenes/Menu/Configuracoes/menu_configuracao.tscn",
-					  "Creditos": "res://scenes/Menu/Creditos/creditos.tscn"}
+					  "Creditos": "res://scenes/Menu/Creditos/creditos.tscn",
+					  "Tutorial1": "res://scenes/main scenes/Tutorial/Tutorial1/tutorial_deck.tscn",
+					  "Tutorial2": "res://scenes/main scenes/Tutorial/Tutorial2/tutorial_slot.tscn",
+					}
 
 var current_scene: Node = null
 

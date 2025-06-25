@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3jlm8taxhbp1"]
+
+[ext_resource type="Texture2D" uid="uid://boqbjvrwkfa1t" path="res://assets/sprites/Arrow/arrow_decorative_e.png" id="1_jrulj"]
+[ext_resource type="Script" uid="uid://did180bkld6jb" path="res://scenes/Secundary Scenes/pointing_arrow.gd" id="1_pmxt3"]
+
+[node name="PointingArrow" type="Node2D"]
+z_index = 20
+script = ExtResource("1_pmxt3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jrulj")
+offset = Vector2(-32, 0)

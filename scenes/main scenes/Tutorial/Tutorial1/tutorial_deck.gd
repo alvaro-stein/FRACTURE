@@ -19,6 +19,7 @@ const DELAY_BETWEEN_CARDS: float = 0.1
 
 
 func _ready() -> void:
+	get_parent().connect_change_scene_signals(self)
 	deck.deck_ready.connect(distribute_cards)
 
 func distribute_cards():
@@ -51,9 +52,9 @@ func distribute_cards():
 			
 	print("Distribuição de cartas concluída.")
 	
-func _input(event):
-	if event.is_action_pressed("Esc"):
-		emit_signal("change_scene_to", "Menu")
 		
-func _on_continue_button_button_down() -> void:
+func _on_continue_button_button_up() -> void:
+	emit_signal("change_scene_to", "Tutorial2")
+	
+func _on_return_button_button_up() -> void:
 	emit_signal("change_scene_to", "Menu")

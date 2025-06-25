@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjv83fpleobvt"]
+
+[ext_resource type="Script" uid="uid://bkujmuougufae" path="res://scenes/main scenes/Tutorial/Tutorial3/tutorial_play_card.gd" id="1_oj6t4"]
+[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_66rrl"]
+[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_cbe5v"]
+[ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_x3poc"]
+[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/Cards/player_hand.tscn" id="5_eyygy"]
+[ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="6_008io"]
+[ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="7_hwwuo"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="8_66rrl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s8awi"]
+shader = ExtResource("2_66rrl")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 1.5
+
+[node name="TutorialPlayCard" type="Node2D"]
+script = ExtResource("1_oj6t4")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+z_index = -10
+material = SubResource("ShaderMaterial_s8awi")
+position = Vector2(960, 540)
+scale = Vector2(1.388, 1.388)
+texture = ExtResource("3_cbe5v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1920, 1090)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="ContinueButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1741.0
+offset_top = 987.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Continuar"
+
+[node name="PauseButton" parent="." instance=ExtResource("4_x3poc")]
+
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 987.0
+offset_right = 179.0
+offset_bottom = 1030.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+
+[node name="PlayerHand" parent="." instance=ExtResource("5_eyygy")]
+position = Vector2(960, 1080)
+
+[node name="CardSlotManager" parent="." instance=ExtResource("6_008io")]
+
+[node name="Score" parent="." instance=ExtResource("7_hwwuo")]
+
+[node name="CardManager" parent="." instance=ExtResource("8_66rrl")]
+
+[node name="UIPlaceCard" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 665.0
+offset_right = 305.0
+offset_bottom = 755.0
+theme_override_font_sizes/font_size = 20
+text = "Você tem um 10 de
+OURO, jogue ele no slot 
+correspondente aqui ao lado!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2(440, 540)
+
+[connection signal="button_up" from="ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]
