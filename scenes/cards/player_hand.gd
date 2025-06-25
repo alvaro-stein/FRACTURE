@@ -2,9 +2,9 @@ extends Node2D
 class_name PlayerHand 
 
 const TRUE_CARD_WIDTH: float = 148.0
-const CARD_WIDTH: float = TRUE_CARD_WIDTH * 1.10
+const CARD_WIDTH: float = TRUE_CARD_WIDTH * 1.1
 const TRUE_CARD_HEIGHT: float = 200.0
-const CARD_HEIGHT: float = TRUE_CARD_HEIGHT * 1.10
+const CARD_HEIGHT: float = TRUE_CARD_HEIGHT * 1.1
 const HAND_Y_POS: float = 1080 + TRUE_CARD_HEIGHT/6 # 1 terço a mostra
 const SHOWN_HAND_Y_POS: float = 1080 - CARD_HEIGHT/2
 const VALID_PAIRS = [[2, 2], [2, 5], [2, 8], [5, 2], [8, 2]]
