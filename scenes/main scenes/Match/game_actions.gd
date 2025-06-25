@@ -52,7 +52,7 @@ func drag_card() -> void:
 func raycast_at_cursor(collision_mask: int) -> Array[Dictionary]:
 	# Get the 2D physics space state from the current world.
 	var space_state = get_world_2d().direct_space_state
-	var mouse_pos = get_global_mouse_position()
+	mouse_pos = get_global_mouse_position()
 	# Create the query parameters object.
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = mouse_pos

@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0h2i1cn8khyc"]
+
+[ext_resource type="Script" uid="uid://cciobsc3u31pg" path="res://scenes/main scenes/scene_transition.gd" id="1_860pm"]
+[ext_resource type="Shader" uid="uid://ka8rhfi6f16a" path="res://Shaders/scene_transition.gdshader" id="1_p8tsg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_48ksk"]
+shader = ExtResource("1_p8tsg")
+shader_parameter/progress = 0.0
+shader_parameter/diamondPixelSize = 25.0
+
+[sub_resource type="Animation" id="Animation_ocvjl"]
+resource_name = "transition"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_p8tsg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6v0o3"]
+_data = {
+&"RESET": SubResource("Animation_p8tsg"),
+&"transition": SubResource("Animation_ocvjl")
+}
+
+[node name="SceneTransition" type="ColorRect"]
+z_index = 20
+material = SubResource("ShaderMaterial_48ksk")
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_860pm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6v0o3")
+}

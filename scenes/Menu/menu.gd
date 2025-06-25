@@ -26,6 +26,8 @@ func _on_button_pressed(_button : Button) -> void:
 		"jogar_button":
 			emit_signal("change_scene_to", "Match")
 			#get_tree().change_scene_to_file("res://Interface/Menu_Personagens/CharacterSelect/character_select_scene.tscn")
+		"tutorial_button":
+			emit_signal("change_scene_to", "Tutorial")
 		"regras_button":
 			emit_signal("change_scene_to", "Regras")
 		"configuracao_button":

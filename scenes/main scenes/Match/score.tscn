@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddkgpa37r2cnu"]
 
-[ext_resource type="Texture2D" uid="uid://dxsrww0hmr4n1" path="res://assets/sprites/score3.png" id="1_awygp"]
+[ext_resource type="Texture2D" uid="uid://dxsrww0hmr4n1" path="res://assets/sprites/score.png" id="1_awygp"]
 
 [sub_resource type="Animation" id="Animation_awygp"]
 length = 0.001

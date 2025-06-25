@@ -46,7 +46,7 @@ func _ready() -> void:
 	clock._end_turn.connect(_on_end_turn)
 	clock._end_game.connect(_on_end_game)
 	game_actions.score_updated.connect(_on_score_updated)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(1, false).timeout
 	await self.deal_initial_hand()
 	game_started = true
 	clock.reset_timer()

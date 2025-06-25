@@ -18,7 +18,7 @@ shader_parameter/intensity = 1.383
 
 [sub_resource type="LabelSettings" id="LabelSettings_rucv2"]
 font = ExtResource("9_8y810")
-font_size = 80
+font_size = 150
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(0, 4)
@@ -93,6 +93,16 @@ scale_amount_min = 0.1
 scale_amount_max = 0.2
 color = Color(0.568627, 0.831373, 1, 0.380392)
 
+[node name="titulo" type="Label" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 350.0
+size_flags_horizontal = 4
+text = "Fracture"
+label_settings = SubResource("LabelSettings_rucv2")
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
@@ -101,19 +111,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_top = 350
+theme_override_constants/margin_top = 550
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/separation = 20
-
-[node name="titulo" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Fracture"
-label_settings = SubResource("LabelSettings_rucv2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -133,6 +137,15 @@ theme_override_colors/font_hover_color = Color(0.439095, 0.913623, 0.932161, 1)
 theme_override_colors/font_pressed_color = Color(0.286691, 0.501014, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
 text = "Jogar"
+flat = true
+
+[node name="tutorial_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
+layout_mode = 2
+theme = ExtResource("10_cbysg")
+theme_override_colors/font_hover_color = Color(0.439216, 0.913725, 0.933333, 1)
+theme_override_colors/font_pressed_color = Color(0.286275, 0.501961, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
+text = "Tutorial"
 flat = true
 
 [node name="regras_button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Buttons" groups=["buttons"]]
