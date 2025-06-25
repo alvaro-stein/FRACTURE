@@ -7,12 +7,13 @@ const SCENES_PATHS = {"Menu": "res://scenes/Menu/menu.tscn",
 					  "Creditos": "res://scenes/Menu/Creditos/creditos.tscn",
 					  "Tutorial1": "res://scenes/main scenes/Tutorial/Tutorial1/tutorial_deck.tscn",
 					  "Tutorial2": "res://scenes/main scenes/Tutorial/Tutorial2/tutorial_slot.tscn",
+					  "Tutorial3": "res://scenes/main scenes/Tutorial/Tutorial3/tutorial_play_card.tscn",
 					}
 
 var current_scene: Node = null
 
 func _ready() -> void:
-	var initial_scene = load(SCENES_PATHS["Menu"]).instantiate()
+	var initial_scene = load(SCENES_PATHS["Tutorial1"]).instantiate()
 	self.add_child(initial_scene)
 	current_scene = initial_scene
 

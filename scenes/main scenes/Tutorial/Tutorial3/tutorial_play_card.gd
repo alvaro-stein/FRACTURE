@@ -1,7 +1,7 @@
 extends Node2D
 class_name TutorialPlay
 
-
+signal change_scene_to
 
 const CARD_LAYER := 2 # Layer 2, valor 2
 const SLOT_LAYER := 4 # Layer 3, valor 4 # Pois são potencias de 2
@@ -19,17 +19,20 @@ var mouse_pos: Vector2
 var screen_size: Vector2
 
 func _ready() -> void:
-	#get_parent().connect_change_scene_signals(self)
+	get_parent().connect_change_scene_signals(self)
 	continue_button.disabled = true
 	screen_size = get_viewport_rect().size
 	
 	var new_card_enemy: Card = Card.new_card("GOLD", 9)
 	card_manager.add_child(new_card_enemy)
+	new_card_enemy.position = Vector2(960.0, 0)
 	card_slot_manager.get_node("AISlot").get_node("GOLD").add_card_to_slot(new_card_enemy, true)
 	score_uptade(-9, "GOLD")
 	
+	await get_tree().create_timer(0.7, false).timeout
+	
 	var new_card: Card = Card.new_card("GOLD", 10)
-	new_card.position = Vector2(960.0, 1200)
+	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
 	new_card.flip()
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
