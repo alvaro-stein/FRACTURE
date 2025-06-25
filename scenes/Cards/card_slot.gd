@@ -1,7 +1,7 @@
 class_name CardSlot extends Node2D
 
-signal hovered
-signal hovered_off
+#signal hovered
+#signal hovered_off
 
 const COLOR: Array[String] = ["GOLD", "SAPPHIRE", "QUARTZ", "RUBY", "EMERALD"]
 #const RECT_COLOR: Array[Color] = [Color.DARK_GOLDENROD, Color.DARK_SLATE_BLUE, Color.MISTY_ROSE, Color.FIREBRICK, Color.SEA_GREEN]
