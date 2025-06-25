@@ -1,7 +1,6 @@
 extends Node2D
 
 var standard_z_index = self.z_index
-var card_being_dragged: Card = null
 var highlighted_card: Card = null
 var last_card_hovered: Card = null
 
