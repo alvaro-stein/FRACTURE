@@ -18,10 +18,10 @@ func _ready() -> void:
 	self.position_cards()
 	
 func _on_continue_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial5")
+	emit_signal("change_scene_to", "TutorialCardTypes")
 
 func _on_return_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial3")
+	emit_signal("change_scene_to", "TutorialPlayCard")
 
 func position_cards():
 	var new_card_enemy: Card = Card.new_card("GOLD", 7)

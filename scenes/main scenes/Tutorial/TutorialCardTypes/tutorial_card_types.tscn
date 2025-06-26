@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://4w3a1rv4agdy"]
 
-[ext_resource type="Script" uid="uid://cxj6td7xm7jqu" path="res://scenes/main scenes/Tutorial/Tutorial5/tutorial_card_types.gd" id="1_q22xq"]
+[ext_resource type="Script" uid="uid://cxj6td7xm7jqu" path="res://scenes/main scenes/Tutorial/TutorialCardTypes/tutorial_card_types.gd" id="1_q22xq"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_g5hio"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_x6re0"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_h2w63"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="6_quhq5"]
-[ext_resource type="Script" uid="uid://c7x56t0480kpl" path="res://scenes/main scenes/Tutorial/Tutorial5/deck_types.gd" id="7_sum2t"]
+[ext_resource type="Script" uid="uid://c7x56t0480kpl" path="res://scenes/main scenes/Tutorial/TutorialCardTypes/deck_types.gd" id="7_sum2t"]
 [ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="8_g5hio"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="9_x6re0"]
 

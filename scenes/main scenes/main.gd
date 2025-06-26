@@ -5,21 +5,25 @@ const SCENES_PATHS = {"Menu": "res://scenes/Menu/menu.tscn",
 					  "Regras": "res://scenes/Menu/Regras/regras.tscn",
 					  "Config": "res://scenes/Menu/Configuracoes/menu_configuracao.tscn",
 					  "Creditos": "res://scenes/Menu/Creditos/creditos.tscn",
-					  "Tutorial1": "res://scenes/main scenes/Tutorial/Tutorial1/tutorial_deck.tscn",
-					  "Tutorial2": "res://scenes/main scenes/Tutorial/Tutorial2/tutorial_slot.tscn",
-					  "Tutorial3": "res://scenes/main scenes/Tutorial/Tutorial3/tutorial_play_card.tscn",
-					  "Tutorial4": "res://scenes/main scenes/Tutorial/Tutorial4/tutorial_how_to_win.tscn",
-					  "Tutorial5": "res://scenes/main scenes/Tutorial/Tutorial5/tutorial_card_types.tscn",
-					  "Tutorial6": "res://scenes/main scenes/Tutorial/Tutorial6/tutorial_combinations.tscn",
-					  "Tutorial7": "res://scenes/main scenes/Tutorial/Tutorial7/tutorial_discard.tscn",
-					  "Tutorial8": "res://scenes/main scenes/Tutorial/Tutorial8/tutorial_mana.tscn",
-					  "Tutorial9": "res://scenes/main scenes/Tutorial/Tutorial9/tuturial_cost_mana.tscn"
+					  "TutorialDeck": "res://scenes/main scenes/Tutorial/TutorialDeck/tutorial_deck.tscn",
+					  "TutorialSlot": "res://scenes/main scenes/Tutorial/TutorialSlot/tutorial_slot.tscn",
+					  "TutorialPlayCard": "res://scenes/main scenes/Tutorial/TutorialPlayCard/tutorial_play_card.tscn",
+					  "TutorialHowToWin": "res://scenes/main scenes/Tutorial/TutorialHowToWin/tutorial_how_to_win.tscn",
+					  "TutorialCardTypes": "res://scenes/main scenes/Tutorial/TutorialCardTypes/tutorial_card_types.tscn",
+					  "TutorialCombinations": "res://scenes/main scenes/Tutorial/TutorialCombinations/tutorial_combinations.tscn",
+					  "TutorialDiscard": "res://scenes/main scenes/Tutorial/TutorialDiscard/tutorial_discard.tscn",
+					  "TutorialMana": "res://scenes/main scenes/Tutorial/TutorialMana/tutorial_mana.tscn",
+					  "TutorialCostMana": "res://scenes/main scenes/Tutorial/TutorialCostMana/tuturial_cost_mana.tscn",
+					  "TutorialForge2": "res://scenes/main scenes/Tutorial/TutorialForge2/tutorial_forge2.tscn",
+					  "TutorialEndTurn": "",
+					  "TutorialEndGame": "",
+					  "TutorialFinal": "",
 					}
 
 var current_scene: Node = null
 
 func _ready() -> void:
-	var initial_scene = load(SCENES_PATHS["Tutorial1"]).instantiate()
+	var initial_scene = load(SCENES_PATHS["TutorialDeck"]).instantiate()
 	self.add_child(initial_scene)
 	current_scene = initial_scene
 

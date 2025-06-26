@@ -16,10 +16,10 @@ const DURATION_PER_CARD: float = 0.55
 const DELAY_BETWEEN_CARDS: float = 0.1
 
 func _on_continue_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial6")
+	emit_signal("change_scene_to", "TutorialCombinations")
 
 func _on_return_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial4")
+	emit_signal("change_scene_to", "TutorialHowToWin")
 
 func _ready() -> void:
 	get_parent().connect_change_scene_signals(self)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://d3rfw60x6wiso"]
 
-[ext_resource type="Script" uid="uid://cxs6chdv4oew2" path="res://scenes/main scenes/Tutorial/Tutorial9/tuturial_cost_mana.gd" id="1_vawe5"]
+[ext_resource type="Script" uid="uid://cxs6chdv4oew2" path="res://scenes/main scenes/Tutorial/TutorialCostMana/tuturial_cost_mana.gd" id="1_vawe5"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_mp4ke"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_wbmvw"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_vi61b"]
@@ -103,36 +103,35 @@ texture = ExtResource("7_fc7ey")
 
 [node name="TextBox" type="RichTextLabel" parent="Text"]
 clip_contents = false
-custom_minimum_size = Vector2(0, 69)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -323.0
-offset_top = -432.0
-offset_right = 323.0
-offset_bottom = -348.0
+offset_left = -756.0
+offset_top = -390.0
+offset_right = 756.0
+offset_bottom = -297.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 50
-theme_override_font_sizes/italics_font_size = 50
-theme_override_font_sizes/mono_font_size = 50
-theme_override_font_sizes/normal_font_size = 50
-theme_override_font_sizes/bold_font_size = 50
+theme_override_font_sizes/bold_italics_font_size = 55
+theme_override_font_sizes/italics_font_size = 55
+theme_override_font_sizes/mono_font_size = 55
+theme_override_font_sizes/normal_font_size = 55
+theme_override_font_sizes/bold_font_size = 55
 theme_override_styles/normal = ExtResource("8_vc1jh")
 bbcode_enabled = true
 fit_content = true
 script = ExtResource("9_bd36q")
-bbcode = "[fill]Custo de mana por jogada[/fill]"
+bbcode = "[fill]Aqui temos os custos em mana de cada possível  jogada[/fill]"
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = ""
 font_auto_setup = true
-font_size = 50
+font_size = 55
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25

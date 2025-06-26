@@ -6,10 +6,10 @@ signal change_scene_to
 @onready var card_manager: Node2D = $CardManager
 
 func _on_continue_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial7")
+	emit_signal("change_scene_to", "TutorialDiscard")
 
 func _on_return_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial5")
+	emit_signal("change_scene_to", "TutorialCardTypes")
 
 func _ready() -> void:
 	get_parent().connect_change_scene_signals(self)

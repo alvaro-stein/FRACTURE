@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://k0kl5xnqko2q"]
 
-[ext_resource type="Script" uid="uid://c81k557tvapgy" path="res://scenes/main scenes/Tutorial/Tutorial8/tutorial_mana.gd" id="1_xw0d3"]
+[ext_resource type="Script" uid="uid://c81k557tvapgy" path="res://scenes/main scenes/Tutorial/TutorialMana/tutorial_mana.gd" id="1_xw0d3"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_h7aof"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_7w076"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_xypv3"]
@@ -104,7 +104,7 @@ theme_override_styles/normal = ExtResource("7_icr2r")
 bbcode_enabled = true
 fit_content = true
 script = ExtResource("8_xkh61")
-bbcode = "[fill]O jogo  possui um sistema de Mana, para controlar os tipos e quantidade de ações por turno. Elas são divididas em manas pequenas e grandes e representadas por diferentes cristais, um grande e um pequeno. Cada turno você terá uma mana grande e uma mana pequena para planejar suas ações.[/fill]"
+bbcode = "[fill]O jogo  possui um sistema de Mana, para controlar a quantidade de ações por turno. Elas são divididas em manas pequenas e grandesn sendo representadas por diferentes cristais, como visto acima. Cada turno você terá uma mana grande e duas manas pequena para planejar suas ações.[/fill]"
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)

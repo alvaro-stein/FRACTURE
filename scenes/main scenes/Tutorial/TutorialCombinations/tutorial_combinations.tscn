@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://djv50bltap2kg"]
 
-[ext_resource type="Script" uid="uid://cgo4rhmni4du3" path="res://scenes/main scenes/Tutorial/Tutorial6/tutorial_combinations.gd" id="1_d6am6"]
+[ext_resource type="Script" uid="uid://cgo4rhmni4du3" path="res://scenes/main scenes/Tutorial/TutorialCombinations/tutorial_combinations.gd" id="1_d6am6"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_4u74k"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_0svvd"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_jo0up"]

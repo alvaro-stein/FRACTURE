@@ -7,7 +7,7 @@ func _ready() -> void:
 	get_parent().connect_change_scene_signals(self)
 
 func _on_continue_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial10")
+	emit_signal("change_scene_to", "TutorialForge2")
 	
 func _on_return_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial8")
+	emit_signal("change_scene_to", "TutorialMana")

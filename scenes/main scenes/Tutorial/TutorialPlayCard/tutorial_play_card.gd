@@ -1,5 +1,5 @@
 extends Node2D
-class_name TutorialDiscard
+class_name TutorialPlay
 
 signal change_scene_to
 
@@ -13,36 +13,36 @@ const ARROW_SCENE = preload("res://scenes/Secundary Scenes/pointing_arrow.tscn")
 @onready var score: Node = $Score
 @onready var card_slot_manager: Node2D = $CardSlotManager
 @onready var text_box: RicherTextLabel = $TextBox
-@onready var discard_deck: DiscardPile = $DiscardPile
-@onready var deck_tutorial_discard: DeckTutorialDiscard = $DeckTutorialDiscard
 
 var card_held: Card = null
 var mouse_pos: Vector2
 var screen_size: Vector2
-
-func _on_continue_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial8")
-
-func _on_return_button_button_up() -> void:
-	emit_signal("change_scene_to", "Tutorial6")
 
 func _ready() -> void:
 	get_parent().connect_change_scene_signals(self)
 	continue_button.disabled = true
 	screen_size = get_viewport_rect().size
 	
-	var new_card: Card = Card.new_card("EMERALD", 2)
+	var new_card_enemy: Card = Card.new_card("GOLD", 9)
+	card_manager.add_child(new_card_enemy)
+	new_card_enemy.position = Vector2(960.0, 0)
+	card_slot_manager.get_node("AISlot").get_node(new_card_enemy.color.to_upper()).add_card_to_slot(new_card_enemy, true)
+	score_uptade(-new_card_enemy.rank, new_card_enemy.color)
+	
+	await get_tree().create_timer(0.7, false).timeout
+	
+	var new_card: Card = Card.new_card("GOLD", 10)
 	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
 	new_card.flip()
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	player_hand.add_card_to_hand(new_card)
 	
-	var arrow = ARROW_SCENE.instantiate()
-	self.add_child(arrow)
-	arrow.point_at(Vector2(164.5, 697.0), Vector2(100, -60))
-	arrow.z_index = 1
-	
+func _on_continue_button_button_up() -> void:
+	emit_signal("change_scene_to", "TutorialHowToWin")
+
+func _on_return_button_button_up() -> void:
+	emit_signal("change_scene_to", "TutorialSlot")
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -90,8 +90,8 @@ func try_get_card() -> Card:
 	else:
 		return null
 
-func try_get_discard_pile() -> DiscardPile:
-	var result = raycast_at_cursor(DISCARD_PILE_LAYER)
+func try_get_slot() -> CardSlot:
+	var result = raycast_at_cursor(SLOT_LAYER)
 	return result[0].collider.get_parent() if result else null
 
 func start_drag() -> void:
@@ -101,20 +101,52 @@ func start_drag() -> void:
 func finish_drag() -> void:
 	if card_held:
 		card_held.scale = Vector2(1.05, 1.05)
-		var discard_pile_hovered = try_get_discard_pile()
-		if discard_pile_hovered and deck_tutorial_discard.deck_pile.size() > 0:
-			discard_deck.discard_card(card_held)
-			var new_card = deck_tutorial_discard.buy()
-			new_card.flip()
-			new_card.get_node("Area2D/CollisionShape2D").disabled = false
-			new_card.z_index = 0
-			player_hand.add_card_to_hand(new_card)
+		var card_slot_hovered = try_get_slot()
+		if card_slot_hovered and self.can_place_card(card_held, card_slot_hovered, 0):
+			card_slot_hovered.add_card_to_slot(card_held, 0)
+			score_uptade(10, card_slot_hovered.color)
 			finish_tutorial()
 		else: # Return card to hand
 			player_hand.add_card_to_hand(card_held)
 		card_held = null
 
+func can_place_card(card: Card, slot: CardSlot, is_AI: bool):
+	var can_place: bool
+	
+	var allowed_slot: bool
+	if is_AI:
+		allowed_slot = slot.get_parent().name == "AISlot"
+	else:
+		allowed_slot = slot.get_parent().name == "PlayerSlot"
+	
+	# Regras de combinação por tipo
+	var combination = true
+	
+	# Condições para jogar a carta
+	var rules := [
+		card.color == slot.color,
+		#card in GM.current_player.hand.player_hand,
+		combination,
+		allowed_slot
+	]
+	var can_play = rules.reduce(func(a, b): return a and b)
+	return can_play
+	
+func score_uptade(value, color):
+	score.get_node(color.to_upper()).get_node("SpinScore").play("spin score")
+	var score_label: Label = score.get_node(color.to_upper())
+	score_label.text = str(int(score_label.text) + value)
+	if int(score_label.text) == 0:
+		score_label.set("theme_override_colors/font_color", Color.BLACK)
+	elif int(score_label.text) < 0:
+		score_label.set("theme_override_colors/font_color", Color.FIREBRICK)
+	else:
+		score_label.set("theme_override_colors/font_color", Color.SEA_GREEN)
+
 func finish_tutorial():
-	text_box.text = "[fill]Boa! Ao descartar você compra automaticamente uma nova carta do baralho, podendo conseguir cartas melhores. Isso pode ser feito uma vez por turno.[/fill]"
+	text_box.text = "[fill]Boa! Você somou pontos ao jogar a carta! É assim que você irá ganhar do seu oponente. [/fill]"
+	var arrow = ARROW_SCENE.instantiate()
+	self.add_child(arrow)
+	arrow.point_at(Vector2(440.0, 540.0), Vector2(-40, -40))
 	await get_tree().create_timer(0.5, false).timeout
 	continue_button.disabled = false

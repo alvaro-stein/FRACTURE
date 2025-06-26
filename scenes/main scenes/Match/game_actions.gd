@@ -99,7 +99,7 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			var highlighted_card = try_get_card()
 			emit_signal("card_right_clicked", highlighted_card)
-			highlighted_card.flip()
+			
 
 
 func start_drag() -> void:
