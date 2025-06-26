@@ -12,7 +12,7 @@ const VERTICAL_SPACING: float = -140.0  # Espaço vertical entre linhas
 const START_POSITION: Vector2 = Vector2(0, 440)
 const CARDS_PER_ROW: int = 10
 const DECK_POSITION: Vector2 = Vector2(-213.0, 540)
-const DURATION_PER_CARD: float = 0.35
+const DURATION_PER_CARD: float = 0.55
 const DELAY_BETWEEN_CARDS: float = 0.1
 
 func _on_continue_button_button_up() -> void:

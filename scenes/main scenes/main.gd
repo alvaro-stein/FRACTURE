@@ -10,6 +10,8 @@ const SCENES_PATHS = {"Menu": "res://scenes/Menu/menu.tscn",
 					  "Tutorial3": "res://scenes/main scenes/Tutorial/Tutorial3/tutorial_play_card.tscn",
 					  "Tutorial4": "res://scenes/main scenes/Tutorial/Tutorial4/tutorial_how_to_win.tscn",
 					  "Tutorial5": "res://scenes/main scenes/Tutorial/Tutorial5/tutorial_card_types.tscn",
+					  "Tutorial6": "res://scenes/main scenes/Tutorial/Tutorial6/tutorial_combinations.tscn",
+					  "Tutorial7": "res://scenes/main scenes/Tutorial/Tutorial7/tutorial_discard.tscn"
 					}
 
 var current_scene: Node = null

@@ -49,6 +49,7 @@ theme_override_font_sizes/font_size = 25
 text = "Continuar"
 
 [node name="PauseButton" parent="." instance=ExtResource("4_x3poc")]
+z_index = -1
 
 [node name="ReturnButton" type="Button" parent="."]
 anchors_preset = 2
@@ -78,10 +79,10 @@ position = Vector2(0, 540)
 [node name="TextBox" type="RichTextLabel" parent="."]
 clip_contents = false
 custom_minimum_size = Vector2(0, 170)
-offset_left = 8.0
-offset_top = 621.0
-offset_right = 319.0
-offset_bottom = 799.0
+offset_left = 26.0
+offset_top = 454.0
+offset_right = 342.0
+offset_bottom = 636.0
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_font_sizes/bold_italics_font_size = 24
 theme_override_font_sizes/italics_font_size = 24

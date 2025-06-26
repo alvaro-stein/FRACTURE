@@ -215,6 +215,7 @@ func is_valid_combination(card: Card, slot: CardSlot):
 			["LOW", "LOW"]: "small",
 			["LOW", "MID"]: "small",
 			["LOW", "LOW", "MID"]: "small",
+			["LOW", "LOW", "MID"]: "small",
 			["HIGH", "LOW"]: "big"
 		}
 	}
@@ -235,10 +236,7 @@ func is_valid_combination(card: Card, slot: CardSlot):
 					combination.cost_big= 1
 					
 	elif card.type == "ACE":
-		if slot.color == "QUARTZ":
-			combination.is_valid = false
-		else:
-			combination.is_valid = true
+		combination.is_valid = true
 		combination.cost_small = 1
 	
 	return combination

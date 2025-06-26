@@ -1,0 +1,182 @@
+[gd_scene load_steps=14 format=3 uid="uid://d21g6vgn18n3y"]
+
+[ext_resource type="Script" uid="uid://bvb712mmgsejy" path="res://scenes/main scenes/Tutorial/Tutorial7/tutorial_discard.gd" id="1_rgjne"]
+[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_70ofx"]
+[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_b5i2q"]
+[ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_bfa6b"]
+[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/Cards/player_hand.tscn" id="5_st8ca"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="6_um321"]
+[ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="7_a2vb2"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="8_j5tnc"]
+[ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/Cards/discard_pile.tscn" id="9_ybbjp"]
+[ext_resource type="Script" uid="uid://cnpaq1emxrkdb" path="res://scenes/main scenes/Tutorial/Tutorial7/deck_tutorial_discard.gd" id="10_7mmej"]
+[ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="11_6k7x5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nd2xp"]
+shader = ExtResource("2_70ofx")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 1.5
+
+[sub_resource type="LabelSettings" id="LabelSettings_klqdn"]
+line_spacing = 0.0
+font_size = 50
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="TutorialDiscard" type="Node2D"]
+script = ExtResource("1_rgjne")
+
+[node name="Fundo" type="Sprite2D" parent="."]
+z_index = -10
+material = SubResource("ShaderMaterial_nd2xp")
+position = Vector2(960, 540)
+scale = Vector2(1.388, 1.388)
+texture = ExtResource("3_b5i2q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(1920, 1090)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="ContinueButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1741.0
+offset_top = 987.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Continuar"
+
+[node name="PauseButton" parent="." instance=ExtResource("4_bfa6b")]
+z_index = -1
+
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 987.0
+offset_right = 179.0
+offset_bottom = 1030.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+
+[node name="PlayerHand" parent="." instance=ExtResource("5_st8ca")]
+position = Vector2(960, 1080)
+
+[node name="CardManager" parent="." instance=ExtResource("6_um321")]
+
+[node name="TextBox" type="RichTextLabel" parent="."]
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 361.0
+offset_top = 474.0
+offset_right = 871.0
+offset_bottom = 622.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+theme_override_styles/normal = ExtResource("7_a2vb2")
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("8_j5tnc")
+bbcode = "[fill]Você ainda pode descartar cartas que não sei encaixam no seu jogo. Para fazer isso, arraste a carta que deseja descartar para a pilha de descarte na esquerda.[/fill]"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 24
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = false
+autostyle_numbers_tag = "%s"
+autostyle_numbers_pad_decimals = false
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+
+[node name="DiscardPile" parent="." instance=ExtResource("9_ybbjp")]
+position = Vector2(164.5, 697)
+
+[node name="DeckTutorialDiscard" type="Node2D" parent="."]
+position = Vector2(164.5, 386)
+script = ExtResource("10_7mmej")
+
+[node name="Sprite2D" type="Sprite2D" parent="DeckTutorialDiscard"]
+modulate = Color(1, 1, 1, 0.74902)
+scale = Vector2(0.132258, 0.124358)
+texture = ExtResource("11_6k7x5")
+
+[node name="Label" type="Label" parent="DeckTutorialDiscard"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "0"
+label_settings = SubResource("LabelSettings_klqdn")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
