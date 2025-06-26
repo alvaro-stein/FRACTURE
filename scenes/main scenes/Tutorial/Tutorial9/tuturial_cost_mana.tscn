@@ -65,23 +65,23 @@ text = "Voltar"
 [node name="Mana" type="Node" parent="."]
 
 [node name="ManaP2" type="Sprite2D" parent="Mana"]
-position = Vector2(1572, 584)
-scale = Vector2(0.15, 0.15)
+position = Vector2(1751, 389.5)
+scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_6cryy")
 
 [node name="ManaP3" type="Sprite2D" parent="Mana"]
-position = Vector2(1716, 592)
-scale = Vector2(0.15, 0.15)
+position = Vector2(1721, 577.5)
+scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_6cryy")
 
 [node name="ManaP4" type="Sprite2D" parent="Mana"]
-position = Vector2(1666, 794)
-scale = Vector2(0.15, 0.15)
+position = Vector2(1841, 577.5)
+scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_6cryy")
 
 [node name="ManaP5" type="Sprite2D" parent="Mana"]
-position = Vector2(1604, 374)
-scale = Vector2(0.15, 0.15)
+position = Vector2(1751, 793)
+scale = Vector2(0.13, 0.13)
 texture = ExtResource("6_6cryy")
 
 [node name="ManaG" type="Sprite2D" parent="Mana"]
@@ -103,6 +103,7 @@ texture = ExtResource("7_fc7ey")
 
 [node name="TextBox" type="RichTextLabel" parent="Text"]
 clip_contents = false
+custom_minimum_size = Vector2(0, 69)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -477,6 +478,7 @@ metadata/_custom_type_script = "uid://2f4fi75scxes"
 
 [node name="TextBox6" type="RichTextLabel" parent="Text"]
 clip_contents = false
+custom_minimum_size = Vector2(0, 55)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -551,6 +553,7 @@ metadata/_custom_type_script = "uid://2f4fi75scxes"
 
 [node name="TextBox7" type="RichTextLabel" parent="Text"]
 clip_contents = false
+custom_minimum_size = Vector2(0, 110)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -656,7 +659,7 @@ position = Vector2(160, 0)
 polygon = PackedVector2Array(-30, -20, 0, 0, -30, 20)
 
 [node name="StaticArrow4" type="Node2D" parent="Arrows"]
-position = Vector2(1446, 363)
+position = Vector2(1471, 389.5)
 
 [node name="Line2D" type="Line2D" parent="Arrows/StaticArrow4"]
 points = PackedVector2Array(0, 0, 150, 0)
@@ -666,7 +669,7 @@ position = Vector2(160, 0)
 polygon = PackedVector2Array(-30, -20, 0, 0, -30, 20)
 
 [node name="StaticArrow5" type="Node2D" parent="Arrows"]
-position = Vector2(1497, 593)
+position = Vector2(1471, 577.5)
 
 [node name="Line2D" type="Line2D" parent="Arrows/StaticArrow5"]
 points = PackedVector2Array(0, 0, 150, 0)
@@ -676,7 +679,7 @@ position = Vector2(160, 0)
 polygon = PackedVector2Array(-30, -20, 0, 0, -30, 20)
 
 [node name="StaticArrow6" type="Node2D" parent="Arrows"]
-position = Vector2(1460, 796)
+position = Vector2(1471, 793)
 
 [node name="Line2D" type="Line2D" parent="Arrows/StaticArrow6"]
 points = PackedVector2Array(0, 0, 150, 0)
