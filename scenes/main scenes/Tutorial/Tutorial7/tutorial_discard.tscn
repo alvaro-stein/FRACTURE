@@ -180,3 +180,6 @@ label_settings = SubResource("LabelSettings_klqdn")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[connection signal="button_up" from="ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]
