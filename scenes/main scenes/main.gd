@@ -28,7 +28,7 @@ var current_scene: Node = null
 
 
 func _ready() -> void:
-	var initial_scene = load(SCENES_PATHS["TutorialDeck"]).instantiate()
+	var initial_scene = load(SCENES_PATHS["Menu"]).instantiate()
 	self.add_child(initial_scene)
 	current_scene = initial_scene
 	AudioGlobal.opening.play()

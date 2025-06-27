@@ -25,8 +25,8 @@ func _ready() -> void:
 	var rank = [7, 5, 2]
 	var i = 0
 	for card in card_manager.get_children():
-		card.get_node("Front").texture = load("res://assets/sprites/balatro cards/numbered/%s%s.png" %[color[i], rank[i]])
-		card.flip()
+		card.get_node("Front").texture = load("res://assets/sprites/card sprites/numbered/%s%s.png" %[color[i], rank[i]])
+		card.flip(true)
 		i += 1
 		
 	#self.hide_slots()
@@ -40,28 +40,28 @@ func _ready() -> void:
 	var new_card: Card = Card.new_card("RUBY", 2)
 	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
-	new_card.flip()
+	new_card.flip(true)
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	player_hand.add_card_to_hand(new_card)
 	
 	new_card = Card.new_card("SAPPHIRE", 2)
 	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
-	new_card.flip()
+	new_card.flip(true)
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	player_hand.add_card_to_hand(new_card)
 	
 	new_card = Card.new_card("GOLD", 2)
 	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
-	new_card.flip()
+	new_card.flip(true)
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	player_hand.add_card_to_hand(new_card)
 	
 	new_card = Card.new_card("EMERALD", 8)
 	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
-	new_card.flip()
+	new_card.flip(true)
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	player_hand.add_card_to_hand(new_card)
 

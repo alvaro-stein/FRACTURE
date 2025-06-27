@@ -34,7 +34,7 @@ func _ready() -> void:
 	var new_card: Card = Card.new_card("EMERALD", 2)
 	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
-	new_card.flip()
+	new_card.flip(true)
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	player_hand.add_card_to_hand(new_card)
 	
@@ -105,7 +105,7 @@ func finish_drag() -> void:
 		if discard_pile_hovered and deck_tutorial_discard.deck_pile.size() > 0:
 			discard_deck.discard_card(card_held)
 			var new_card = deck_tutorial_discard.buy()
-			new_card.flip()
+			new_card.flip(true)
 			new_card.get_node("Area2D/CollisionShape2D").disabled = false
 			new_card.z_index = 0
 			player_hand.add_card_to_hand(new_card)

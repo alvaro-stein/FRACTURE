@@ -46,7 +46,7 @@ func _ready() -> void:
 	arrow.point_at(Vector2(1691.5, 544), Vector2(-40, -0))
 	arrow.z_index = 1
 
-		#new_card.flip()
+		#new_card.flip(true)
 	#new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	#player_hand.add_card_to_hand(new_card)
 	
@@ -66,7 +66,7 @@ func clock_clicked():
 	arrow.show_arrow()
 	
 	var card = deck.buy()
-	card.flip()
+	card.flip(true)
 	card.get_node("Area2D/CollisionShape2D").disabled = false
 	#player_hand.animation_speed = 0.3
 	player_hand_forge_2.add_card_to_hand(card)

@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_4rasy"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_m2b5w"]
 [ext_resource type="Script" uid="uid://bldjsxufh4kax" path="res://scenes/main scenes/Tutorial/TutorialForge2/player_hand_forge2.gd" id="5_767oq"]
-[ext_resource type="PackedScene" uid="uid://bx70gmm6ej88p" path="res://scenes/Cards/card.tscn" id="7_usrnq"]
-[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="8_tswte"]
+[ext_resource type="PackedScene" uid="uid://bx70gmm6ej88p" path="res://scenes/cards/card.tscn" id="7_usrnq"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="8_tswte"]
 [ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="9_plp25"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="10_sa3a0"]
 

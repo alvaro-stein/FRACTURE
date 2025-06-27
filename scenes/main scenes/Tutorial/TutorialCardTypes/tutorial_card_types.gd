@@ -50,5 +50,5 @@ func distribute_cards():
 		
 		await get_tree().create_timer(DELAY_BETWEEN_CARDS).timeout
 		
-		card.flip()
+		card.flip(true)
 		

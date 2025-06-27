@@ -117,9 +117,7 @@ func finish_drag() -> void:
 			try_place_card(card_held, card_slot_hovered)
 		elif discard_pile_hovered and GM.current_player == player:
 			try_discard_card(card_held)
-			print("NÃO ESTAVA EM CIMA DO DESCARTE")
 		else: # Return card to hand
-			print("NÃO ESTAVA EM CIMA DO SLOT")
 			player_hand.add_card_to_hand(card_held)
 		card_held = null
 

@@ -51,7 +51,7 @@ func _on_button_pressed(_button : Button) -> void:
 		"jogar_button":
 			emit_signal("change_scene_to", "Match")
 		"tutorial_button":
-			emit_signal("change_scene_to", "Tutorial")
+			emit_signal("change_scene_to", "TutorialDeck")
 		"regras_button":
 			open_option("Regras")
 		"configuracao_button":

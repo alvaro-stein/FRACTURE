@@ -8,11 +8,11 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_8gcb0"]
 resource_name = "curspull"
 script = ExtResource("2_gda2a")
-metadata/rt = 26064210463294
+metadata/rt = 5614797427722
 
 [node name="PauseMenu" type="ColorRect"]
 process_mode = 2
-z_index = 10
+z_index = 20
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
@@ -95,8 +95,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://2f4fi75scxes"
-metadata/mouse_position = Vector2(1459.99, 662.162)
-metadata/frame = 395111
+metadata/mouse_position = Vector2(835, -205)
+metadata/frame = 48519
 metadata/rand = Array[int]([421576272, 2992739049, 3048483396, 2818746253, 4286089397, 485307845, 3677351074])
 
 [node name="Button" type="Button" parent="."]

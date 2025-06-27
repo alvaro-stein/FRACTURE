@@ -102,12 +102,12 @@ func mirror_pos(pos: Vector2):
 func _on_card_right_clicked(card: Card):
 	if card in selected_cards:
 		selected_cards.erase(card)
-		card.flip()
+		card.flip(true)
 		return
 	# Adiciona a carta à lista de seleção e atualiza seu visual
 	selected_cards.append(card)
 	
-	card.flip()
+	card.flip(true)
 	
 	# Se temos duas cartas selecionadas, tentamos a fusão
 	if selected_cards.size() == 2:

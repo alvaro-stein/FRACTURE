@@ -55,7 +55,7 @@ func clock_clicked():
 	var new_card: Card = Card.new_card("EMERALD", 6)
 	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
-	new_card.flip()
+	new_card.flip(true)
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	player_hand_end_turn.add_card_to_hand(new_card)
 

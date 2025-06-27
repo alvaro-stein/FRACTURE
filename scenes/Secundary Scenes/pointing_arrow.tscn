@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://did180bkld6jb" path="res://scenes/Secundary Scenes/pointing_arrow.gd" id="1_pmxt3"]
 
 [node name="PointingArrow" type="Node2D"]
-z_index = 20
+z_index = 15
 script = ExtResource("1_pmxt3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
