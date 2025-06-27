@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cw3foc5m7l8ge"]
 
-[ext_resource type="Script" uid="uid://ctnr7437f0fcu" path="res://scenes/main scenes/Tutorial/Tutorial1/tutorial_deck.gd" id="1_ub7x2"]
+[ext_resource type="Script" uid="uid://ctnr7437f0fcu" path="res://scenes/main scenes/Tutorial/TutorialDeck/tutorial_deck.gd" id="1_ub7x2"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_ueov6"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_dx5sq"]
-[ext_resource type="Script" uid="uid://ckgw7vb3rieii" path="res://scenes/main scenes/Tutorial/Tutorial1/deck_tutorial.gd" id="4_f6sqv"]
+[ext_resource type="Script" uid="uid://ckgw7vb3rieii" path="res://scenes/main scenes/Tutorial/TutorialDeck/deck_tutorial.gd" id="4_f6sqv"]
 [ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="5_phppk"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="6_tbujl"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="7_ueov6"]
@@ -32,6 +32,7 @@ scale = Vector2(1.388, 1.388)
 texture = ExtResource("3_dx5sq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 custom_minimum_size = Vector2(1920, 1090)
 offset_right = 40.0
 offset_bottom = 40.0
@@ -163,4 +164,17 @@ text = "Continuar"
 
 [node name="PauseButton" parent="." instance=ExtResource("8_dx5sq")]
 
-[connection signal="button_down" from="ContinueButton" to="." method="_on_continue_button_button_down"]
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 987.0
+offset_right = 179.0
+offset_bottom = 1030.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+
+[connection signal="button_up" from="ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]

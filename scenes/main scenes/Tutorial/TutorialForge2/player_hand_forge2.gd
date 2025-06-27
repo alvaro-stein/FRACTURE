@@ -1,5 +1,9 @@
 extends Node2D
-class_name PlayerHand 
+class_name PlayerHandForge2
+
+signal valid_forge2
+signal invalid_forge2
+signal end_forge2
 
 const TRUE_CARD_WIDTH: float = 148.0
 const CARD_WIDTH: float = TRUE_CARD_WIDTH * 1.1
@@ -9,8 +13,7 @@ const HAND_Y_POS: float = 1080 + TRUE_CARD_HEIGHT/6 # 1 terço a mostra
 const SHOWN_HAND_Y_POS: float = 1080 - CARD_HEIGHT/2
 const VALID_PAIRS = [[2, 2], [2, 5], [2, 8], [5, 2], [8, 2]]
 
-@onready var game_actions = get_node("../../GameActions")
-@onready var card_manager = get_node("../../CardManager")
+@onready var card_manager: Node2D = $"../CardManager"
 
 var player_hand: Array[Card] = []
 var selected_cards: Array[Card] = []
@@ -19,13 +22,12 @@ var total_width: float
 var x_offset: float
 var animation_speed: float = 0.2
 var hand_hovered: bool = false
+var cards_forged: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Area2D/CollisionShape2D.shape.set_size(Vector2(0, 0))
 	screen_center_x = get_viewport_rect().size.x / 2
-	if self.get_parent().name == "Player":
-		game_actions.card_right_clicked.connect(_on_card_right_clicked)
 
 
 func remove_card_from_hand(card: Card) -> void:
@@ -68,7 +70,6 @@ func _on_area_2d_mouse_entered() -> void:
 	hand_hovered = true
 	update_hand_area_size()
 	show_hand()
-
 
 func _on_area_2d_mouse_exited() -> void:
 	hand_hovered = false
@@ -126,12 +127,15 @@ func attempt_merge(selected_cards):
 	var pair = [val1, val2]
 	
 	if pair in VALID_PAIRS:
-		# Combinação VÁLIDA!
-		print("Combinação válida! Fundindo cartas.")
 		merge_cards(card1, card2)
+		if cards_forged == 0:
+			emit_signal("valid_forge2")
+			cards_forged += 1
+		else:
+			emit_signal("end_forge2")
 	else:
 		# Combinação INVÁLIDA!
-		print("Combinação inválida.")
+		emit_signal("invalid_forge2")
 		reset_selection()
 
 func merge_cards(card1: Card, card2: Card):
@@ -149,12 +153,12 @@ func merge_cards(card1: Card, card2: Card):
 	self.player_hand.erase(card1)
 	self.player_hand.erase(card2)
 	
-	new_card.position = self.get_parent().position
+	new_card.position = Vector2(-50, 540)
 	
 	card_manager.add_child(new_card)
-	if self.get_parent().name == "Player":
-		new_card.get_node("Area2D/CollisionShape2D").disabled = false
-		new_card.flip()
+	
+	new_card.get_node("Area2D/CollisionShape2D").disabled = false
+	new_card.flip()
 	
 	self.add_card_to_hand(new_card)
 	

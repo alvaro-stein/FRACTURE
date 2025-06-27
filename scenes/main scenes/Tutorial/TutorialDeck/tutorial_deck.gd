@@ -11,7 +11,7 @@ const VERTICAL_SPACING: float = 15.0  # Espaço vertical entre linhas
 const START_POSITION: Vector2 = Vector2(249, 140)
 const CARDS_PER_ROW: int = 10
 const DECK_POSITION: Vector2 = Vector2(-213.0, 540)
-const DURATION_PER_CARD: float = 0.5 
+const DURATION_PER_CARD: float = 0.4 
 const DELAY_BETWEEN_CARDS: float = 0.1
 
 @onready var deck: DeckTutorial = $Deck
@@ -19,10 +19,10 @@ const DELAY_BETWEEN_CARDS: float = 0.1
 
 
 func _ready() -> void:
+	get_parent().connect_change_scene_signals(self)
 	deck.deck_ready.connect(distribute_cards)
 
 func distribute_cards():
-
 	if deck.deck_pile.is_empty():
 		return
 		
@@ -51,9 +51,9 @@ func distribute_cards():
 			
 	print("Distribuição de cartas concluída.")
 	
-func _input(event):
-	if event.is_action_pressed("Esc"):
-		emit_signal("change_scene_to", "Menu")
 		
-func _on_continue_button_button_down() -> void:
+func _on_continue_button_button_up() -> void:
+	emit_signal("change_scene_to", "TutorialSlot")
+	
+func _on_return_button_button_up() -> void:
 	emit_signal("change_scene_to", "Menu")

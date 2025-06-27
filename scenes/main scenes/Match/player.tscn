@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://j7him6825pu"]
 
 [ext_resource type="Script" uid="uid://g1ieo66rwqiv" path="res://scenes/main scenes/Match/player.gd" id="1_y3pes"]
-[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/cards/player_hand.tscn" id="2_1k5u8"]
+[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/Cards/player_hand.tscn" id="2_1k5u8"]
 [ext_resource type="Texture2D" uid="uid://brsnj1c5rwdei" path="res://assets/mana/Mana Pequena.png" id="3_um2kp"]
 [ext_resource type="Texture2D" uid="uid://bnk0m0xeychc4" path="res://assets/mana/Mana Grande.png" id="4_ajew7"]
 
