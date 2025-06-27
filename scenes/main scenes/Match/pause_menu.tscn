@@ -8,7 +8,7 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_8gcb0"]
 resource_name = "curspull"
 script = ExtResource("2_gda2a")
-metadata/rt = 34131937434548
+metadata/rt = 26064210463294
 
 [node name="PauseMenu" type="ColorRect"]
 process_mode = 2
@@ -29,7 +29,7 @@ anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -960.0
 offset_right = 960.0
-offset_bottom = 540.0
+offset_bottom = 390.0
 grow_horizontal = 2
 mouse_filter = 2
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
@@ -95,8 +95,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://2f4fi75scxes"
-metadata/mouse_position = Vector2(1181.02, -300.526)
-metadata/frame = 485596
+metadata/mouse_position = Vector2(1459.99, 662.162)
+metadata/frame = 395111
 metadata/rand = Array[int]([421576272, 2992739049, 3048483396, 2818746253, 4286089397, 485307845, 3677351074])
 
 [node name="Button" type="Button" parent="."]
@@ -107,9 +107,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -190.0
-offset_top = -204.0
+offset_top = -154.0
 offset_right = 190.0
-offset_bottom = -114.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
