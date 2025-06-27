@@ -32,6 +32,7 @@ scale = Vector2(1.388, 1.388)
 texture = ExtResource("3_dx5sq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 custom_minimum_size = Vector2(1920, 1090)
 offset_right = 40.0
 offset_bottom = 40.0

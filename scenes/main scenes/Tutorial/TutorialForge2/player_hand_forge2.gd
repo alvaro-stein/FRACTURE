@@ -71,7 +71,6 @@ func _on_area_2d_mouse_entered() -> void:
 	update_hand_area_size()
 	show_hand()
 
-
 func _on_area_2d_mouse_exited() -> void:
 	hand_hovered = false
 	update_hand()
@@ -154,7 +153,7 @@ func merge_cards(card1: Card, card2: Card):
 	self.player_hand.erase(card1)
 	self.player_hand.erase(card2)
 	
-	new_card.position = Vector2(540, 1130)
+	new_card.position = Vector2(-50, 540)
 	
 	card_manager.add_child(new_card)
 	

@@ -22,6 +22,10 @@ func reset_timer() -> void:
 	self.icon = CLOCK_SPRITE[0]
 	timer.start()
 
+func stop_timer() -> void:
+	label.text = str(MAX_TIME)
+	self.icon = CLOCK_SPRITE[0]
+	timer.stop()
 
 func update_label() -> void:
 	if int(label.text) > 0:

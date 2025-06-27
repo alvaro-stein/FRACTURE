@@ -30,8 +30,6 @@ func distribute_cards():
 		return
 		
 	var column_x_positions := [400, 818.5, 1217.5, 1586]
-	print(deck_types.deck_pile.size())
-	print(deck_types.deck_pile)
 	for i in range(deck_types.deck_pile.size()-1):
 		var card = deck_types.deck_pile[i]
 		card.position = DECK_POSITION
@@ -54,5 +52,3 @@ func distribute_cards():
 		
 		card.flip()
 		
-			
-	print("Distribuição de cartas concluída.")

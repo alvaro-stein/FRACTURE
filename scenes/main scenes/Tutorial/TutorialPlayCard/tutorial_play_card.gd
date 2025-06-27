@@ -29,7 +29,7 @@ func _ready() -> void:
 	card_slot_manager.get_node("AISlot").get_node(new_card_enemy.color.to_upper()).add_card_to_slot(new_card_enemy, true)
 	score_uptade(-new_card_enemy.rank, new_card_enemy.color)
 	
-	await get_tree().create_timer(0.7, false).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	
 	var new_card: Card = Card.new_card("GOLD", 10)
 	new_card.position = Vector2(-50, 540)

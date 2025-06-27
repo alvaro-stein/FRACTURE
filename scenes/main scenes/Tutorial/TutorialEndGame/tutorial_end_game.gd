@@ -1,7 +1,6 @@
 extends Node2D
-class_name TutorialEndTurn
 
-signal change_scene_to
+signal change_scene_to 
 
 const CARD_LAYER := 2 # Layer 2, valor 2
 const SLOT_LAYER := 4 # Layer 3, valor 4 # Pois são potencias de 2
@@ -15,49 +14,62 @@ var arrow
 
 @onready var card_slot_manager: Node2D = $CardSlotManager
 @onready var card_manager: Node2D = $CardManager
-@onready var clock: Button = $Clock
 @onready var text_box: RicherTextLabel = $TextBox
 @onready var text_box_2: RicherTextLabel = $TextBox2
-@onready var player_hand_end_turn: PlayerHandForge2 = $PlayerHandEndTurn
+@onready var player_hand_forge_2: PlayerHandForge2 = $PlayerHandForge2
 @onready var continue_button: Button = $ContinueButton
+@onready var clock: Button = $Clock
+@onready var deck: Node2D = $Deck
+@onready var label: Label = $Deck/Label
+var clock_clicked_on_time = 0
 
 func _on_continue_button_button_up() -> void:
-	emit_signal("change_scene_to", "TutorialEndGame")
+	emit_signal("change_scene_to", "TutorialFinal")
 
 func _on_return_button_button_up() -> void:
-	emit_signal("change_scene_to", "TutorialForge2")
+	emit_signal("change_scene_to", "TutorialEndTurn")
 
 func _ready() -> void:
 	get_parent().connect_change_scene_signals(self)
+	#deck.deck_ready.connect()
 	text_box_2.visible = false 
+	
 	clock._end_turn.connect(clock_clicked)
 	clock.reset_timer()
+	clock.label.text = str(5)
 	continue_button.disabled = true
+	
 	screen_size = get_viewport_rect().size
+	
 	arrow = ARROW_SCENE.instantiate()
 	self.add_child(arrow)
 	arrow.point_at(Vector2(1691.5, 544), Vector2(-40, -0))
 	arrow.z_index = 1
-	
+
+		#new_card.flip()
+	#new_card.get_node("Area2D/CollisionShape2D").disabled = false
+	#player_hand.add_card_to_hand(new_card)
 	
 	
 func clock_clicked():
-	clock.stop_timer()
-	clock.disabled = true
+	if clock_clicked_on_time != 0:
+		return
+	clock_clicked_on_time += 1
+	clock.disabled = false
 	text_box_2.visible = true 
 	text_box.visible = false
-	continue_button.disabled = false
+	clock.stop_timer()
 	
+	continue_button.disabled = false
 	arrow.hide_arrow()
-	arrow.point_at(Vector2(1735, 825.0), Vector2(-40, -0))
+	arrow.point_at(Vector2(180, 540), Vector2(110, -0))
 	arrow.show_arrow()
 	
-	var new_card: Card = Card.new_card("EMERALD", 6)
-	new_card.position = Vector2(-50, 540)
-	card_manager.add_child(new_card)
-	new_card.flip()
-	new_card.get_node("Area2D/CollisionShape2D").disabled = false
-	player_hand_end_turn.add_card_to_hand(new_card)
+	var card = deck.buy()
+	card.flip()
+	card.get_node("Area2D/CollisionShape2D").disabled = false
+	#player_hand.animation_speed = 0.3
+	player_hand_forge_2.add_card_to_hand(card)
 
 
 func _input(event: InputEvent) -> void:
@@ -111,11 +123,11 @@ func try_get_discard_pile() -> DiscardPile:
 	return result[0].collider.get_parent() if result else null
 
 func start_drag() -> void:
-	player_hand_end_turn.remove_card_from_hand(card_held)
+	player_hand_forge_2.remove_card_from_hand(card_held)
 	card_held.scale = Vector2(1, 1)
 
 func finish_drag() -> void:
 	if card_held:
 		card_held.scale = Vector2(1.05, 1.05)
-		player_hand_end_turn.add_card_to_hand(card_held)
+		player_hand_forge_2.add_card_to_hand(card_held)
 		card_held = null

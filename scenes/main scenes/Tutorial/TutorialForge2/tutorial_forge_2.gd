@@ -21,8 +21,15 @@ var cards_forged: int = 0
 
 func _ready() -> void:
 	get_parent().connect_change_scene_signals(self)
+	var color = ["RUBY", "RUBY", "SAPPHIRE"]
+	var rank = [7, 5, 2]
+	var i = 0
+	for card in card_manager.get_children():
+		card.get_node("Front").texture = load("res://assets/sprites/balatro cards/numbered/%s%s.png" %[color[i], rank[i]])
+		card.flip()
+		i += 1
+		
 	#self.hide_slots()
-	text_box_2.visible = false
 	continue_button.disabled = true
 	screen_size = get_viewport_rect().size
 
@@ -65,15 +72,12 @@ func _on_return_button_button_up() -> void:
 	emit_signal("change_scene_to", "TutorialCostMana")
 	
 func invalid_forge2():
-	text_box_2.visible = true 
 	text_box_2.text = "[fill]Essas cartas não podem ser forjadas, tente novamente. Lembre-se das combinações possíveis.[/fill]"
 	
 func valid_forge2():
-	text_box_2.visible = true 
 	text_box_2.text = "[fill]Bem jogado! Você forjou sua primeira carta! Forje mais uma para continuar.[/fill]"
 
 func finish_tutorial():
-	text_box.visible = false
 	text_box_2.text = "[fill]É isso! Você aprendeu as diferentes formas de forjar cartas e agora pode fazer jogadas ainda melhores![/fill]"
 	continue_button.disabled = false
 	
@@ -87,7 +91,8 @@ func _input(event: InputEvent) -> void:
 			finish_drag()
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		var highlighted_card = try_get_card()
-		player_hand._on_card_right_clicked(highlighted_card)
+		if highlighted_card:
+			player_hand._on_card_right_clicked(highlighted_card)
 
 func _process(delta: float) -> void:
 	self.drag_card()
