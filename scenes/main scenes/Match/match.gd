@@ -156,6 +156,7 @@ func _on_end_turn():
 
 func _on_score_updated(score_change_value: int, color: String):
 	score.get_node(color.to_upper()).get_node("SpinScore").play("spin score")
+	AudioGlobal.score_spin.play()
 	var score_label: Label = score.get_node(color.to_upper())
 	score_label.text = str(int(score_label.text) + score_change_value)
 	if int(score_label.text) == 0:

@@ -106,7 +106,6 @@ func _on_card_right_clicked(card: Card):
 		return
 	# Adiciona a carta à lista de seleção e atualiza seu visual
 	selected_cards.append(card)
-	card.is_selected = true
 	
 	# Se temos duas cartas selecionadas, tentamos a fusão
 	if selected_cards.size() == 2:
@@ -153,7 +152,7 @@ func merge_cards(card1: Card, card2: Card):
 	card_manager.add_child(new_card)
 	if self.get_parent().name == "Player":
 		new_card.get_node("Area2D/CollisionShape2D").disabled = false
-		new_card.flip()
+		new_card.flip(true)
 	
 	self.add_card_to_hand(new_card)
 	
@@ -167,6 +166,6 @@ func reset_selection():
 	for card in selected_cards:
 		if is_instance_valid(card): # Garante que a carta ainda existe
 			card.is_selected = false
-			card.flip()
+			card.flip(false)
 	
 	selected_cards.clear()

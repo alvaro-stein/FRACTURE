@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://376hcldotare"
+path="res://.godot/imported/card_flip.mp3-65fe454d0ef448dcc2a6c20e76960924.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/cards sfx/card_flip.mp3"
+dest_files=["res://.godot/imported/card_flip.mp3-65fe454d0ef448dcc2a6c20e76960924.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

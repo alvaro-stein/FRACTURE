@@ -4,15 +4,15 @@
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="3_8auk5"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_bv7u2"]
 [ext_resource type="Script" uid="uid://dhbxvg36y8pfd" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="3_df636"]
-[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="4_draql"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="4_draql"]
 [ext_resource type="Texture2D" uid="uid://v8cqeay5icvi" path="res://assets/sprites/github.png" id="5_rqnra"]
-[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="5_xttpw"]
-[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="6_4iww2"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="5_xttpw"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="6_4iww2"]
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_8auk5"]
 resource_name = "curspull"
 script = ExtResource("3_df636")
-metadata/rt = 14007801049076
+metadata/rt = 7626050078581
 
 [node name="Créditos" type="Control"]
 layout_mode = 3
@@ -24,6 +24,7 @@ grow_vertical = 2
 script = ExtResource("1_q67wh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.74902)
@@ -99,8 +100,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://2f4fi75scxes"
-metadata/mouse_position = Vector2(1195.35, 487.873)
-metadata/frame = 356881
+metadata/mouse_position = Vector2(1404.21, -507.072)
+metadata/frame = 33041
 
 [node name="Github" type="Sprite2D" parent="."]
 position = Vector2(1053, 511)
@@ -423,7 +424,7 @@ offset_bottom = -430.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_bv7u2")
-text = "Sair"
+text = "Voltar"
 
 [node name="botaosom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_draql")

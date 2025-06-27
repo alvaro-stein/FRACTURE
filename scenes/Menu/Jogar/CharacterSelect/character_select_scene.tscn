@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://0phqspx8vy2o" path="res://scenes/Menu/Jogar/CharacterSelect/character_select_scene.gd" id="1_b0yff"]
 [ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="1_yivy1"]
-[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="2_vgyah"]
-[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="3_7t2c3"]
-[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="4_q87tj"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="2_vgyah"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="3_7t2c3"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="4_q87tj"]
 [ext_resource type="Texture2D" uid="uid://7u6r433mmf21" path="res://assets/sprites/Viridianos/Parasita.png" id="4_s5vq1"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="6_6t0i8"]
 [ext_resource type="Texture2D" uid="uid://cbbpg1g7ujrxt" path="res://assets/sprites/Ophidianos/Ophidianosescolha.png" id="8_nm43w"]

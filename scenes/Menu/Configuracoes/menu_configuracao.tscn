@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://crc4yak5ndpg1"]
 
 [ext_resource type="Script" uid="uid://b6u1ypbc7sfv6" path="res://scenes/Menu/Configuracoes/menu_configuracao.gd" id="1_40fml"]
-[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="2_2os72"]
-[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="3_cheva"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="2_2os72"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="3_cheva"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_jlfwe"]
-[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="4_hopgu"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="4_hopgu"]
 
 [sub_resource type="GDScript" id="GDScript_bn6y7"]
 script/source = "extends LineEdit
@@ -28,11 +28,11 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_40fml")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.74902)
@@ -56,16 +56,21 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 100.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
+mouse_filter = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Nickname" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -77,6 +82,7 @@ text = "Nickname"
 fit_content = true
 
 [node name="LineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 42
 max_length = 20
@@ -87,8 +93,7 @@ custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("3_jlfwe")
-theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "Volume do menu"
 fit_content = true
@@ -104,8 +109,7 @@ custom_minimum_size = Vector2(705.71, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("3_jlfwe")
-theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/normal_font_size = 60
 text = "Volume dos botões"
 fit_content = true
 
@@ -122,8 +126,7 @@ custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = ExtResource("3_jlfwe")
-theme_override_font_sizes/normal_font_size = 70
+theme_override_font_sizes/normal_font_size = 60
 text = "Volume do tabuleiro"
 fit_content = true
 
@@ -143,7 +146,7 @@ offset_top = 35.0
 offset_right = 185.0
 offset_bottom = 115.0
 theme = ExtResource("3_jlfwe")
-text = "Sair"
+text = "Voltar"
 
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ControleVolume" to="." method="_on_controle_volume_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/ControleVolume" to="." method="_on_controle_volume_value_changed_start"]

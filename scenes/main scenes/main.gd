@@ -4,12 +4,20 @@ const TRANSITION_SCENE = preload("res://scenes/main scenes/scene_transition.tscn
 const SCENES_PATHS = {"Menu": "res://scenes/Menu/menu.tscn",
 					  "Match": "res://scenes/main scenes/Match/match.tscn",}
 
+@onready var black_background: ColorRect = $BlackBackground
+
 var current_scene: Node = null
+
 
 func _ready() -> void:
 	var initial_scene = load(SCENES_PATHS["Menu"]).instantiate()
 	self.add_child(initial_scene)
 	current_scene = initial_scene
+	AudioGlobal.opening.play()
+	var tween = get_tree().create_tween()
+	tween.tween_property(black_background, "modulate:a", 0, 3)
+	await tween.finished
+	black_background.queue_free()
 
 func _on_change_scene_to(next_scene: String):
 	var transition = TRANSITION_SCENE.instantiate()
@@ -17,13 +25,13 @@ func _on_change_scene_to(next_scene: String):
 	self.add_child(transition)
 	animation.play("transition")
 	await animation.animation_finished
-
+	
 	current_scene.queue_free()
 	var new_scene: Node = load(SCENES_PATHS[next_scene]).instantiate()
 	self.add_child(new_scene)
 	animation.play_backwards("transition")
 	await animation.animation_finished
-
+	
 	current_scene = new_scene
 	transition.queue_free()
 

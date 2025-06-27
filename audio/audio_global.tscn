@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://chw4rdspxlfau"]
+
+[ext_resource type="AudioStream" uid="uid://nap5hfb483c" path="res://audio/sfx/opening_sound.mp3" id="1_lj2qa"]
+[ext_resource type="Script" uid="uid://db6v1owjttmy" path="res://audio/audio_global.gd" id="1_tcplg"]
+[ext_resource type="AudioStream" uid="uid://376hcldotare" path="res://audio/sfx/cards sfx/card_flip.mp3" id="3_weu62"]
+[ext_resource type="AudioStream" uid="uid://csphova10r3qa" path="res://audio/sfx/cards sfx/card_draw.mp3" id="4_40v7m"]
+[ext_resource type="AudioStream" uid="uid://clj23oii4vmxg" path="res://audio/sfx/endscene sfx/defeat.wav" id="5_40v7m"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_weu62"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_weu62")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_40v7m"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("4_40v7m")
+
+[node name="AudioGlobal" type="Node"]
+script = ExtResource("1_tcplg")
+
+[node name="Opening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_lj2qa")
+volume_db = -20.0
+bus = &"Music"
+
+[node name="CardFlip" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_weu62")
+volume_db = -5.0
+pitch_scale = 1.3
+bus = &"Sfx"
+
+[node name="CardDraw" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_40v7m")
+volume_db = -5.0
+pitch_scale = 0.9
+bus = &"Sfx"
+
+[node name="ScoreSpin" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="Defeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_40v7m")
+volume_db = -10.0
+pitch_scale = 0.9

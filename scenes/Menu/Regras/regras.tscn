@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://0qx2fn4lf6em" path="res://scenes/Menu/Regras/regras.gd" id="1_qvsup"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_nc7kh"]
-[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="5_mhwx7"]
-[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="6_6pfaa"]
-[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="7_wawmh"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="5_mhwx7"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="6_6pfaa"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="7_wawmh"]
 
 [node name="Regras" type="Control"]
 layout_mode = 3
@@ -129,7 +129,7 @@ offset_top = 35.0
 offset_right = 185.0
 offset_bottom = 115.0
 theme = ExtResource("4_nc7kh")
-text = "Sair"
+text = "Voltar"
 
 [node name="botaosom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_mhwx7")
