@@ -22,14 +22,14 @@ func _on_return_button_button_up() -> void:
 	emit_signal("change_scene_to", "TutorialHowToWin")
 
 func _ready() -> void:
-	get_parent().connect_change_scene_signals(self)
+	#get_parent().connect_change_scene_signals(self)
 	deck_types.deck_types_ready.connect(distribute_cards)
 
 func distribute_cards():
 	if deck_types.deck_pile.is_empty():
 		return
 		
-	var column_x_positions := [400, 818.5, 1217.5, 1586]
+	var column_x_positions := [413, 782, 1154, 1526]
 	for i in range(deck_types.deck_pile.size()-1):
 		var card = deck_types.deck_pile[i]
 		card.position = DECK_POSITION

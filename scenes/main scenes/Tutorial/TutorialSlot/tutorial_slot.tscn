@@ -14,30 +14,30 @@ shader = ExtResource("1_imsq6")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.5
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_31i6i"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_egbcp"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 9836498623644
+metadata/rt = 8812333450666
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_vcds7"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_ggeop"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 9836901275864
+metadata/rt = 8812736129883
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_6hdio"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_6ek3d"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 9837303926899
+metadata/rt = 8813138780677
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_ske0g"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_kr42f"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 9837706582060
+metadata/rt = 8813541433918
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_tixuw"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_3iwtn"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 9838109235369
+metadata/rt = 8813944087575
 
 [node name="TutorialSlot" type="Node2D"]
 script = ExtResource("1_31i6i")
@@ -113,7 +113,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_31i6i")]
+custom_effects = [SubResource("RichTextEffect_egbcp")]
 script = ExtResource("6_31i6i")
 progress = 1.0
 visible_character = 4
@@ -212,7 +212,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_vcds7")]
+custom_effects = [SubResource("RichTextEffect_ggeop")]
 script = ExtResource("6_31i6i")
 progress = 1.0
 visible_character = 6
@@ -311,7 +311,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_6hdio")]
+custom_effects = [SubResource("RichTextEffect_6ek3d")]
 script = ExtResource("6_31i6i")
 progress = 1.0
 visible_character = 7
@@ -410,7 +410,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_ske0g")]
+custom_effects = [SubResource("RichTextEffect_kr42f")]
 script = ExtResource("6_31i6i")
 progress = 1.0
 visible_character = 4
@@ -509,7 +509,7 @@ theme_override_font_sizes/normal_font_size = 30
 theme_override_font_sizes/bold_font_size = 30
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_tixuw")]
+custom_effects = [SubResource("RichTextEffect_3iwtn")]
 script = ExtResource("6_31i6i")
 progress = 1.0
 visible_character = 9

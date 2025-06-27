@@ -26,8 +26,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 400.0
-offset_right = -400.0
+offset_left = 110.0
+offset_top = 130.0
+offset_right = -110.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -39,87 +41,107 @@ size_flags_vertical = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/bold_italics_font_size = 30
-theme_override_font_sizes/italics_font_size = 30
-theme_override_font_sizes/mono_font_size = 30
-theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
-text = "
-
-[center][b][font size=50]Regras de FRACTURE[/font][/b][/center]
+text = "[center][b][font size=50]Regras de FRACTURE[/font][/b][/center]
 
 
+Aqui você encontrará uma forma rápida para tirar dúvida e revisar regras. Para aprender como jogar visite o tutorial.
 
-[fill]		FRACTURE é um jogo de cartas 1vs1 estratégico e competitivo ambientado em um universo onde diversos mundos se interligaram a partir de fraturas que transcendem o espaço-tempo, onde você escolherá uma das raças dominantes de cada mundo para batalhar numa guerra por recursos e pela supremacia. A guerra é dividida em cinco batalhas no tabuleiro, seu objetivo é vencer três ou mais, ou seja, ter o maior valor numérico nelas de que seu oponente, e assim tornar o vencedor da guerra e manter as vidas de seus aliados e nação. [/fill]
+[b] O baralho [/b]
 
-[b]O Tabuleiro[/b]
+[img]res://assets/ImageRules/TotalDeck.png[/img]
 
-[fill]		O tabuleiro possui cinco colunas representando diferentes cores: Dourado, Jade, Cinza claro, Safira e Carmim. Além disso, há lugares específicos para os Generais (cartas especiais) que ficam atrás das colunas principais. Dentro do tabuleiro ainda existe a pilha de descarte, a pilha de compras e os cristais que simbolizam as ações disponíveis para o jogador. Aqui temos um exemplo: 
+O baralho é compartilhado entre os jogadores e é composto por 40 cartas únicas, sendo 10 de cada cor. No começo da partida você receberá 5 dessas cartas de forma aleatória.
 
-[center][img]res://Imagens/Tabuleiro_fracture.png[/img][/center][/fill]
 
-[b]Divisão das Cartas[/b]
 
-	As cartas são divididas em algumas categorias, tanto de poder e habilidades quanto de funções que possuem dentro do jogo. Elas são separadas em: 
+[b] Os slots [/b]
 
-	• Líderes: Representantes de cada raça, cartas especiais com habilidades fortes de uso único.
-	•  Generais: Cartas com habilidades ativadas imediatamente ao serem jogadas.
-	• Soldados: Cartas numeradas de 2 a 10 que participam das batalhas. São divididos em:
-  		▪ Baixos (2-4)
-  		▪ Médios (5-7)
- 	 	▪ Altos (8-10)
-	• Cartas Âncoras: Soldado principal da coluna.
-	• Cartas de Reforço: Soldados adicionais.
+[img]res://assets/ImageRules/Slots.png[/img]
 
-[b]Dinâmica do Jogo[/b][fill]
-	O jogo começa com cada jogador recebendo cinco cartas do baralho e a cada turno comprando uma carta adicional. Ambos os jogadores dividirão o mesmo baralho e portanto as cartas são limitadas e conhecidas pelos dois. Após a compra inicial a partida se dará por troca de turnos com cada turno tendo um tempo limite de dois minutos que será simbolizado na direita do tabuleiro. Durante o seu turno você poderá usar Mana, a qual é dividida em dois tipos de cristais, o primeiro um cristal maior representando a ação principal, e o segundo tipo dois cristais menores que representam as ações adicionais. Com isso a cada turno você terá uma ação principal e duas adicionais, podendo realizar entre elas:  [/fill]
+Cada carta só pode ser jogada no slot da mesma cor, exceto o slot quartzo, que é coringa e aceita qualquer carta. Cada jogador tem cinco slots próprios.
 
-  ◦ Ativar habilidades de Líderes (ação adicional): Ativar a habilidade de um Líder em jogo (uma vez por partida).
-  ◦ Usar Generais (ação adicional): Usar um General da sua mão.
-  ◦ Posicionamento (ação principal): Colocar uma carta virada para baixo em um slot.
-  ◦ Substituição (ação principal/adicional): Trocar uma carta na coluna por outra da mão.  Essa ação depende de qual carta será usada para determinar qual será seu custo (entre principal ou adicional).
-  ◦ Compra Adicional (duas ações adicionais): Descartar uma carta para comprar outra.
-  ◦ Mudança de ação (Mecânica): Trocar uma ação principal por uma adicional (ficando com 3 adicionais). Essa ação não custa Mana.
-  ◦ Sintonizar Tropas (Mecânica): Combinar duas cartas de valor 2 de cores diferentes para formar uma carta com a soma dos valores. Essa ação não custa Mana.
-  ◦ Passar a vez: Passar o turno para o oponente.
 
-[fill][b]Ação de Reforço[/b]: Você pode aprimorar o poder de uma coluna com uma Carta Âncora podendo fazer diversas e fortes combinações como: Alta+Baixa, Média+Média, Média+Baixa+Baixa, Baixa+Baixa+Baixa. Essa ação depende de qual carta será usada para determinar qual será seu custo (entre principal ou adicional).[/fill]
-    ▪ Reforço Alto: Carta Alta em cima de Baixa ou vice-versa. (ação principal)
-    ▪ Reforço Médio: Carta Média em cima de Média ou Baixa. (ação principal)
-    ▪ Reforço Baixo: Carta Baixa em cima de Média ou Baixa. (ação adicional)
 
-[b]Habilidades das Cartas[/b]
+[b] Como ganhar [/b]
 
-Algumas cartas possuem habilidades que aumentam a diversidade de jogadas e estratégia.
+[img]res://assets/ImageRules/HowToWin.png[/img]
 
-[b]Habilidades dos Líderes[/b]
+Vença conquistando 3 ou mais slots. Os hexágonos mostram a diferença de pontos. Se houver empate nos slots, ganha quem tiver mais pontos no total.
 
-• Ophidianos: Você olha a pilha de descartes e escolhe cartas para jogar automaticamente.
-  ◦ Opções: Duas baixas, uma média ou uma alta.
-  ◦ Pode usar \"Sintonizar Tropas\" com cartas de valor 2 da pilha de descarte com a da mão.
-• Viridanos: Durante este turno, todos os seus slots são coringa e todos os seus reforços são adicionais.
 
-[b]Habilidades dos Generais[/b]
 
-• General Dourado: Vale um ponto na Coluna Dourado. Olhe as 3 primeiras cartas do deck e escolha uma.
-• General Jade: Vale um ponto na ColunaJade. Move uma carta baixa sua para outro slot (pode trocar cartas).
-• General Safira: Vale um ponto na Coluna Safira. Troca uma carta de reforço sua com a do adversário.
-• General Carmim: Vale um ponto na Coluna Carmim. Olhe o baralho de descarte e compre uma carta.
+[b] Tipos de cartas [/b]
 
-[b]Exemplo de Turno[/b]
+[img]res://assets/ImageRules/CardTypes.png[/img]
 
-• Comprar uma Carta: Compre uma carta do baralho.
-• Ação Principal: Posicionar uma Carta no Slot: Escolha um Soldado (ex: \"6 Dourado\") e posicione-o virado para baixo.
-• Ação Adicional: Usar descarte e compra: Descarte uma carta e compre outra
+Além das cores as cartas possuem tipos. Elas podem ser Altas, Médias, Baixas ou Áses, dependendo do seu valor. Esses tipos irão influciar no custo para jogar e nas combinações possíveis entre elas, como veremos a seguir
 
-[b]Batalhas e Final do Jogo[/b][fill]
-	Quando o baralho de compras acabar o jogador que NÃO comprou a última carta terá o último turno da partida e com isso ocorrerão as batalhas coluna a coluna. Quem tiver um maior valor numérico na respectiva coluna será o vencedor da mesma. Caso haja empate quem tiver maior valor total de todas as colunas irá ganhar a guerra. [/fill]
+
+
+[b] Combinações [/b]
+
+[img]res://assets/ImageRules/Combinations.png[/img]
+
+As cartas devem seguir uma das combinações válidas abaixo, podendo serem jogadas em qualquer ordem. Os Áses são cartas independentes, ou seja, podem ser jogadas independente da combinação.
+
+
+
+[b] Mana [/b]
+
+[img]res://assets/ImageRules/ManaExplain.png[/img]
+
+O jogo  possui um sistema de Mana, para controlar a quantidade de ações por turno. Elas são divididas em manas pequenas e grandes sendo representadas por diferentes cristais, como visto acima. Cada turno você terá uma mana grande e duas manas pequena para planejar suas ações.
+
+
+
+[b] Custos de Mana [/b]
+
+[img]res://assets/ImageRules/CostMana.png[/img]
+
+
+
+[b] Deck de Discarte [/b]
+
+[img]res://assets/ImageRules/DiscardDeck.png[/img]
+
+Aqui você pode descartar cartas que não encaixam com o seu jogo, você pode fazer isso uma vez por turno. O Descarte fica na esquerda inferior do tabuleiro
+
+
+
+[b] Temporizador [/b] 
+
+[img]res://assets/ImageRules/Timer.png[/img]
+
+Esse é o temporizador, ele fica na parte central a direita do tabuleiro. Ele mostra o tempo restante do turno atual e se é sua vez de jogar ou não (se estiver apagado ou acesso). Caso deseje passar o turno clique nele. Se fizer isso sem gastar nenhuma mana irá fazer uma compra adicional. 
+
+
+
+[b] Forjar 2 [/b]
+
+[img]res://assets/ImageRules/Forge2Example.png[/img]
+
+Você ainda pode melhorar suas cartas a partir de uma ação especial, o forjar 2. Ela se resume em juntar uma carta de valor 2 com um outro 2,  5 ou 8. Como resultado será gerada uma carta com valor somado e de cor igual a cor da maior carta, Em caso de juntar 2 com outro 2 a cor será determinada pela primeira carta escolhida. 
+
+
+[b] Fim de jogo [/b]
+
+
+
+
+
+
 
 
 
 
 "
+horizontal_alignment = 1
 
 [node name="sair_button" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 80)
