@@ -38,6 +38,7 @@ offset_bottom = 40.0
 color = Color(0, 0, 0, 0.501961)
 
 [node name="ContinueButton" type="Button" parent="."]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -53,8 +54,10 @@ theme_override_font_sizes/font_size = 25
 text = "Continuar"
 
 [node name="PauseButton" parent="." instance=ExtResource("4_h2w63")]
+visible = false
 
 [node name="ReturnButton" type="Button" parent="."]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -143,9 +146,9 @@ metadata/_custom_type_script = "uid://2f4fi75scxes"
 [node name="Labels" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="Labels"]
-offset_left = 314.0
+offset_left = 324.0
 offset_top = 700.0
-offset_right = 487.0
+offset_right = 497.0
 offset_bottom = 742.0
 pivot_offset = Vector2(86, 21)
 size_flags_horizontal = 4
@@ -153,27 +156,27 @@ theme_override_font_sizes/font_size = 30
 text = "Cartas Altas"
 
 [node name="Label2" type="Label" parent="Labels"]
-offset_left = 716.04
+offset_left = 679.5
 offset_top = 700.0
-offset_right = 921.04
+offset_right = 884.5
 offset_bottom = 742.0
 pivot_offset = Vector2(102, 21)
 theme_override_font_sizes/font_size = 30
 text = "Cartas Médias"
 
 [node name="Label3" type="Label" parent="Labels"]
-offset_left = 1119.0
+offset_left = 1056.5
 offset_top = 700.0
-offset_right = 1314.0
+offset_right = 1251.5
 offset_bottom = 742.0
 pivot_offset = Vector2(97, 21)
 theme_override_font_sizes/font_size = 30
 text = "Cartas Baixas"
 
 [node name="Label4" type="Label" parent="Labels"]
-offset_left = 1553.0
+offset_left = 1493.0
 offset_top = 700.0
-offset_right = 1619.0
+offset_right = 1559.0
 offset_bottom = 742.0
 pivot_offset = Vector2(33, 21)
 theme_override_font_sizes/font_size = 30

@@ -75,6 +75,7 @@ text = "Voltar"
 position = Vector2(440, 540)
 
 [node name="TextBox" type="RichTextLabel" parent="."]
+visible = false
 clip_contents = false
 custom_minimum_size = Vector2(0, 175)
 offset_left = 53.0
@@ -91,7 +92,7 @@ theme_override_styles/normal = ExtResource("9_v2yg4")
 bbcode_enabled = true
 fit_content = true
 script = ExtResource("10_jgxhd")
-bbcode = "[fill]Vença conquistando 3 ou mais slots a mais que o oponente. Os hexágonos mostram a diferença de pontos. Se houver empate nos slots, ganha quem tiver mais pontos no total.[/fill]"
+bbcode = "[fill][fill]Vença conquistando 3 ou mais slots. Os hexágonos mostram a diferença de pontos. Se houver empate nos slots, ganha quem tiver mais pontos no total.[/fill][/fill]"
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
