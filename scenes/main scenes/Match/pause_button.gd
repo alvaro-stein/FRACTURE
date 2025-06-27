@@ -15,4 +15,5 @@ func _on_button_up() -> void:
 
 func _input(event):
 	if event.is_action_pressed("Esc"):
+		get_viewport().set_input_as_handled()
 		emit_signal("button_up")

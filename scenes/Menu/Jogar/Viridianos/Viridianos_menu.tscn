@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://b761mg57n6fnr"]
 
 [ext_resource type="Script" uid="uid://qp16dmkij1qt" path="res://scenes/Menu/Jogar/Viridianos/viridianos_menu.gd" id="1_nvtun"]
-[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="2_665cn"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="2_665cn"]
 [ext_resource type="Texture2D" uid="uid://dba5e30318jtp" path="res://assets/sprites/Viridianos/bg_Viridianos.png" id="2_xxfgb"]
 [ext_resource type="Texture2D" uid="uid://c8sjouufjkbuq" path="res://assets/sprites/Viridianos/LiderViridiano.png" id="3_0ttqf"]
-[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="3_wkbfa"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="3_wkbfa"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_5p83u"]
-[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="4_olbo0"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="4_olbo0"]
 
 
 [sub_resource type="LabelSettings" id="LabelSettings_rivfx"]

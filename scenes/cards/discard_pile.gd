@@ -7,7 +7,7 @@ func discard_card(card: Card):
 	if not card:
 		print("CARTA NULL, NÃO DEVERIA ESTAR TENTANDO DESCARTAR")
 	if not card.is_facing_down:
-		card.flip()
+		card.flip(false)
 	card.position = self.position
 	self.discard_pile.append(card)
 	card.get_node("Area2D/CollisionShape2D").disabled = true

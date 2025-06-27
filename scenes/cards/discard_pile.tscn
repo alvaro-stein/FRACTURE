@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxa4rkkv3bmd0"]
 
-[ext_resource type="Script" uid="uid://kv3u5615ac1x" path="res://scenes/Cards/discard_pile.gd" id="1_ywn7x"]
+[ext_resource type="Script" uid="uid://kv3u5615ac1x" path="res://scenes/cards/discard_pile.gd" id="1_ywn7x"]
 [ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="2_fagtb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fagtb"]

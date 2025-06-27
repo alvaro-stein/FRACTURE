@@ -46,7 +46,7 @@ func _ready() -> void:
 	clock._end_turn.connect(_on_end_turn)
 	clock._end_game.connect(_on_end_game)
 	game_actions.score_updated.connect(_on_score_updated)
-	await get_tree().create_timer(0.5, false).timeout
+	await get_tree().create_timer(1, false).timeout
 	await self.deal_initial_hand()
 	game_started = true
 	clock.reset_timer()
@@ -156,6 +156,7 @@ func _on_end_turn():
 
 func _on_score_updated(score_change_value: int, color: String):
 	score.get_node(color.to_upper()).get_node("SpinScore").play("spin score")
+	AudioGlobal.score_spin.play()
 	var score_label: Label = score.get_node(color.to_upper())
 	score_label.text = str(int(score_label.text) + score_change_value)
 	if int(score_label.text) == 0:

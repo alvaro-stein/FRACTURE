@@ -20,7 +20,8 @@ func card_set_z_index(index: int) -> void:
 	self.get_node("Back").z_index = index
 
 
-func flip() -> void:
+func flip(play_sound: bool) -> void:
+	if play_sound: AudioGlobal.card_flip.play()
 	if is_facing_down:
 		$"AnimationPlayer".play("flip")
 		is_facing_down = false
@@ -42,7 +43,7 @@ static func new_card(color: String, rank: int) -> Card:
 		new_card.type = TYPE[2]
 	elif rank <= 10:
 		new_card.type = TYPE[3]
-	new_card.get_node("Front").texture = load("res://assets/sprites/balatro cards/numbered/%s%s.png" %[color, rank])
+	new_card.get_node("Front").texture = load("res://assets/sprites/card sprites/numbered/%s%s.png" %[color, rank])
 	return new_card
 
 

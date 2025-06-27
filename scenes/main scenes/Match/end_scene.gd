@@ -27,6 +27,7 @@ func _ready() -> void:
 		
 		label.get_node("Sprite2D").z_index = 11
 		label.get_node("SpinScore").play("spin score")
+		AudioGlobal.score_spin.play()
 		await get_tree().create_timer(0.75, false).timeout
 	
 	var victorious = Match.who_win()

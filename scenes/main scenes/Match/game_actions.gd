@@ -52,7 +52,7 @@ func drag_card() -> void:
 func raycast_at_cursor(collision_mask: int) -> Array[Dictionary]:
 	# Get the 2D physics space state from the current world.
 	var space_state = get_world_2d().direct_space_state
-	var mouse_pos = get_global_mouse_position()
+	mouse_pos = get_global_mouse_position()
 	# Create the query parameters object.
 	var query = PhysicsPointQueryParameters2D.new()
 	query.position = mouse_pos
@@ -98,8 +98,9 @@ func _input(event: InputEvent) -> void:
 				finish_drag()
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			var highlighted_card = try_get_card()
-			emit_signal("card_right_clicked", highlighted_card)
 			
+			if highlighted_card:
+				emit_signal("card_right_clicked", highlighted_card)
 
 
 func start_drag() -> void:
@@ -243,14 +244,15 @@ func is_valid_combination(card: Card, slot: CardSlot):
 
 func buy_card() -> void:
 	var new_card = deck.buy()
+	AudioGlobal.card_draw.play()
 	if GM.current_player == player:
-		new_card.flip()
+		new_card.flip(false)
 		new_card.get_node("Area2D/CollisionShape2D").disabled = false
 		#player_hand.animation_speed = 0.3
 		player_hand.add_card_to_hand(new_card)
 		#player_hand.animation_speed = 0.2
 	else:
-		#new_card.flip() #adicionado para testes
+		#new_card.flip(false) #adicionado para testes
 		AI_hand.add_card_to_hand(new_card)
 
 
