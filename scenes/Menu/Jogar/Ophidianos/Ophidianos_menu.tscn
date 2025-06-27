@@ -26,18 +26,15 @@ script = ExtResource("1_fr4fu")
 stream = ExtResource("2_vy6ha")
 volume_db = -17.0
 pitch_scale = 1.05
-bus = &"Botoes menu"
 
 [node name="botaosom2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ss8lo")
 volume_db = -15.0
 pitch_scale = 1.05
-bus = &"Botoes menu"
 
 [node name="botaosom3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gfiu1")
 volume_db = -17.0
-bus = &"Botoes menu"
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.601222, 0.601224, 0.601222, 1)

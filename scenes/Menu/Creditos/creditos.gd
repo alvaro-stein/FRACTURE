@@ -7,5 +7,5 @@ func _input(event):
 		self.get_parent().close_option()
 
 
-func _on_sair_button_pressed() -> void:
+func _on_voltar_button_pressed() -> void:
 	self.get_parent().close_option()

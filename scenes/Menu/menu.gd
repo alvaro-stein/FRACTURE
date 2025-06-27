@@ -6,6 +6,9 @@ signal change_scene_to
 const REGRAS_SCENE := preload("res://scenes/Menu/Regras/regras.tscn")
 const CONFIG_SCENE := preload("res://scenes/Menu/Configuracoes/menu_configuracao.tscn")
 const CREDITOS_SCENE := preload("res://scenes/Menu/Creditos/creditos.tscn")
+const JOGAR_SCENE := preload("res://scenes/Menu/Jogar/jogar.tscn")
+const SINGLEPLAYER_SELECTION_SCENE := preload("res://scenes/Menu/Jogar/singleplayer_selection.tscn")
+const CHARACTER_SELECTION_SCENE := preload("res://scenes/Menu/Jogar/CharacterSelect/character_selection.tscn")
 
 var current_option: Node = null
 
@@ -14,6 +17,17 @@ func open_option(option: String) -> void:
 	$ButtonsBox.visible = false
 	$titulo.visible = false
 	match option:
+		"Jogar":
+			$titulo.visible = true
+			current_option = JOGAR_SCENE.instantiate()
+			self.add_child(current_option)
+		"SingleplayerSelection":
+			$titulo.visible = true
+			current_option = SINGLEPLAYER_SELECTION_SCENE.instantiate()
+			self.add_child(current_option)
+		"CharacterSelection":
+			current_option = CHARACTER_SELECTION_SCENE.instantiate()
+			self.add_child(current_option)
 		"Regras":
 			current_option = REGRAS_SCENE.instantiate()
 			self.add_child(current_option)
@@ -37,19 +51,10 @@ func _ready() -> void:
 
 
 func _on_button_pressed(_button : Button) -> void:
-	#var audio = get_node("somfundo")
-	## Garantir que o áudio esteja na árvore de nós principal
-	#if audio.get_parent() != get_tree().root:
-		#audio.reparent(get_tree().root)  # Move para a raiz da árvore
-		#audio.owner = null  # Garante que o nó não seja deletado
-  
-	#var sound_player = [$botaosom, $botaosom2, $botaosom3].pick_random()  	# Escolhe aleatoriamente um dos sons
-	#sound_player.play()
-	#await sound_player.finished
-	
 	match _button.name:
 		"jogar_button":
-			emit_signal("change_scene_to", "Match")
+			#emit_signal("change_scene_to", "Match")
+			open_option("Jogar")
 		"tutorial_button":
 			emit_signal("change_scene_to", "TutorialDeck")
 		"regras_button":

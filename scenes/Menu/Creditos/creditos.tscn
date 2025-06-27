@@ -12,7 +12,7 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_8auk5"]
 resource_name = "curspull"
 script = ExtResource("3_df636")
-metadata/rt = 7626050078581
+metadata/rt = 16627731122055
 
 [node name="Créditos" type="Control"]
 layout_mode = 3
@@ -100,8 +100,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://2f4fi75scxes"
-metadata/mouse_position = Vector2(1404.21, -507.072)
-metadata/frame = 33041
+metadata/mouse_position = Vector2(-1207.41, 1525.02)
+metadata/frame = 187478
 
 [node name="Github" type="Sprite2D" parent="."]
 position = Vector2(1053, 511)
@@ -409,7 +409,7 @@ metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(506.315, -32.1308)
 metadata/frame = 1095032
 
-[node name="sair_button" type="Button" parent="." groups=["button_creditos"]]
+[node name="VoltarButton" type="Button" parent="." groups=["button_creditos"]]
 custom_minimum_size = Vector2(150, 80)
 layout_mode = 1
 anchors_preset = 8
@@ -440,4 +440,4 @@ pitch_scale = 1.05
 stream = ExtResource("6_4iww2")
 volume_db = -17.0
 
-[connection signal="pressed" from="sair_button" to="." method="_on_sair_button_pressed"]
+[connection signal="pressed" from="VoltarButton" to="." method="_on_voltar_button_pressed"]

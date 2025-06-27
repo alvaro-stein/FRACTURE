@@ -6,8 +6,15 @@ extends ColorRect
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	match self.get_parent().name:
+		"Match":
+			button.text = "Sair da partida"
+		_: # Qualquer um dos tutoriais
+			button.text = "Sair do tutorial"
+	
+	
 	configuracao.get_node("ColorRect").queue_free()
-	configuracao.get_node("sair_button").queue_free()
+	configuracao.get_node("VoltarButton").queue_free()
 	label.modulate.a = 0
 	button.modulate.a = 0
 	configuracao.modulate.a = 0

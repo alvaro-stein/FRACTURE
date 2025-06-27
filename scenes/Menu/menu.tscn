@@ -121,24 +121,6 @@ theme_override_constants/outline_size = 5
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
 text = "Jogar"
 
-[node name="tutorial_button" type="Button" parent="ButtonsBox" groups=["buttons"]]
-layout_mode = 2
-theme = ExtResource("10_cbysg")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
-theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
-text = "Tutorial"
-
-[node name="regras_button" type="Button" parent="ButtonsBox" groups=["buttons"]]
-layout_mode = 2
-theme = ExtResource("10_cbysg")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
-theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
-text = "Regras"
-
 [node name="configuracao_button" type="Button" parent="ButtonsBox" groups=["buttons"]]
 layout_mode = 2
 theme = ExtResource("10_cbysg")

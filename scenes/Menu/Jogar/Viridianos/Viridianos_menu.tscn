@@ -8,7 +8,6 @@
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_5p83u"]
 [ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="4_olbo0"]
 
-
 [sub_resource type="LabelSettings" id="LabelSettings_rivfx"]
 font_size = 40
 shadow_size = 10
@@ -28,18 +27,15 @@ cena_inicial = "res://Interface/Menu/tela_menu.tscn"
 stream = ExtResource("3_wkbfa")
 volume_db = -17.0
 pitch_scale = 1.05
-bus = &"Botoes menu"
 
 [node name="botaosom2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_665cn")
 volume_db = -15.0
 pitch_scale = 1.05
-bus = &"Botoes menu"
 
 [node name="botaosom3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_olbo0")
 volume_db = -17.0
-bus = &"Botoes menu"
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.577008, 0.577008, 0.577008, 1)

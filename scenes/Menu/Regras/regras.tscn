@@ -121,7 +121,7 @@ Algumas cartas possuem habilidades que aumentam a diversidade de jogadas e estra
 
 "
 
-[node name="sair_button" type="Button" parent="."]
+[node name="VoltarButton" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 80)
 layout_mode = 0
 offset_left = 35.0
@@ -145,4 +145,4 @@ pitch_scale = 1.05
 stream = ExtResource("7_wawmh")
 volume_db = -17.0
 
-[connection signal="pressed" from="sair_button" to="." method="_on_sair_button_pressed"]
+[connection signal="pressed" from="VoltarButton" to="." method="_on_voltar_button_pressed"]

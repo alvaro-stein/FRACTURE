@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw5dy8pngklwu"]
+
+[ext_resource type="Script" uid="uid://crr875vmrr7q3" path="res://scenes/Menu/Jogar/CharacterSelect/character_selection.gd" id="1_jxu2o"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="2_d56dp"]
+
+[node name="CharacterSelection" type="Node2D"]
+script = ExtResource("1_jxu2o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.74902)
+
+[node name="VoltarButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 80)
+offset_left = 35.0
+offset_top = 35.0
+offset_right = 185.0
+offset_bottom = 115.0
+theme = ExtResource("2_d56dp")
+text = "Voltar"
+
+[connection signal="pressed" from="VoltarButton" to="." method="_on_voltar_button_pressed"]
