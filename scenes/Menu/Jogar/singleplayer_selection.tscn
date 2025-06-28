@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_jmuqv")
 
 [node name="ButtonsBox" type="VBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 766.0
 offset_top = 526.0
 offset_right = 1153.0

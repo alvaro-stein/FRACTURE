@@ -47,3 +47,7 @@ func _on_regras_pressed() -> void:
 
 func _on_voltar_pressed() -> void:
 	self.get_parent().close_option()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Esc"):
+		_on_voltar_pressed()
