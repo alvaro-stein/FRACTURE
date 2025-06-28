@@ -22,7 +22,7 @@ func _on_return_button_button_up() -> void:
 	emit_signal("change_scene_to", "TutorialHowToWin")
 
 func _ready() -> void:
-	#get_parent().connect_change_scene_signals(self)
+	get_parent().connect_change_scene_signals(self)
 	deck_types.deck_types_ready.connect(distribute_cards)
 
 func distribute_cards():

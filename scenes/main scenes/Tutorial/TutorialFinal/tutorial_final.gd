@@ -8,6 +8,3 @@ func _ready() -> void:
 
 func _on_menu_button_button_up() -> void:
 	emit_signal("change_scene_to", "Menu")
-
-func _on_play_button_button_up() -> void:
-	emit_signal("change_scene_to", "Match")

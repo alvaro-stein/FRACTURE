@@ -29,16 +29,16 @@ color = Color(0, 0, 0, 0.501961)
 
 [node name="TextBox" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 483)
+custom_minimum_size = Vector2(0, 414)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 351.5
-offset_top = 200.0
+offset_top = 243.0
 offset_right = 1568.5
-offset_bottom = 494.0
+offset_bottom = 669.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
@@ -55,7 +55,7 @@ bbcode = "Parabéns, você finalizou o tutorial!
 
 As regras estarão para consulta mais fácil no menu sempre que precisar. 
 
-Clique nos botões para retornar ao menu ou para já iniciar uma partida."
+Clique no botão para retornar ao menu. "
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
@@ -121,20 +121,4 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Menu"
 
-[node name="PlayButton" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 852.5
-offset_top = 680.0
-offset_right = 1067.5
-offset_bottom = 771.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "Jogar"
-
 [connection signal="button_up" from="MenuButton" to="." method="_on_menu_button_button_up"]
-[connection signal="button_up" from="PlayButton" to="." method="_on_play_button_button_up"]

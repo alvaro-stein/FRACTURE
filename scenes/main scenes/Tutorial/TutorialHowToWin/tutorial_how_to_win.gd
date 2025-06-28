@@ -13,7 +13,7 @@ signal change_scene_to
 @onready var pointing_arrow_5: Node2D = $PointingArrow5
 
 func _ready() -> void:
-	#get_parent().connect_change_scene_signals(self)
+	get_parent().connect_change_scene_signals(self)
 	self.position_arrows()
 	self.position_cards()
 	
