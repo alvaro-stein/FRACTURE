@@ -35,9 +35,18 @@ func mana_scale():
 	mana_g.scale = Vector2(0.13, 0.13)
 
 func mana_position():
-	mana_p_1.position =  Vector2(800, 100) 
-	mana_p_2.position = Vector2(800, 215)
-	mana_g.position = Vector2(810, 360)
+	#mana_p_1.position =  Vector2(800, 100) 
+	#mana_p_2.position = Vector2(800, 215)
+	#mana_g.position = Vector2(810, 360)
+	mana_g.position = Vector2(765, 340)
+	mana_g.rotation_degrees = 170
+	mana_g.flip_h = true
+	mana_p_1.position =  Vector2(790, 190)
+	mana_p_1.rotation_degrees = 165
+	mana_p_1.flip_h = true
+	mana_p_2.position = Vector2(870, 280)
+	mana_p_2.rotation_degrees = 195
+	mana_p_2.flip_h = true
 
 func update_mana_visual(available_small_mana, available_big_mana):
 	if available_small_mana != 2 or not available_big_mana:

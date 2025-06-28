@@ -22,10 +22,10 @@ shader = ExtResource("2_wf7y1")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.5
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_r7vf5"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_cvqky"]
 resource_name = "sparkle"
 script = ExtResource("15_r7vf5")
-metadata/rt = 40513604518394
+metadata/rt = 5908818123155
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_6ncua")
@@ -38,10 +38,10 @@ scale = Vector2(1.388, 1.388)
 texture = ExtResource("2_401qm")
 
 [node name="Clock" parent="." instance=ExtResource("2_8uon3")]
-offset_left = 1700.0
+offset_left = 1691.5
 offset_top = 476.0
-offset_right = 1836.0
-offset_bottom = 612.0
+offset_right = 1819.5
+offset_bottom = 604.0
 
 [node name="Score" parent="." instance=ExtResource("3_uwe1k")]
 
@@ -95,34 +95,26 @@ scale_amount_max = 0.2
 color = Color(0.568627, 0.831373, 1, 0.380392)
 
 [node name="YourTurn" type="RichTextLabel" parent="."]
-z_index = 5
-clip_contents = false
 custom_minimum_size = Vector2(0, 492)
 offset_right = 1920.0
 offset_bottom = 1066.0
 mouse_filter = 2
-theme_override_colors/default_color = Color(1, 0.73, 0.19, 0)
-theme_override_colors/font_outline_color = Color(0.204759, 0.142121, 0.0454615, 0)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
+theme_override_colors/default_color = Color(0.433333, 0.15, 1, 0)
+theme_override_colors/font_outline_color = Color(0.0807913, 0.0325528, 0.20235, 0)
 theme_override_constants/outline_size = 5
-theme_override_constants/shadow_offset_y = 9
-theme_override_constants/shadow_offset_x = 9
-theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/bold_italics_font_size = 180
 theme_override_font_sizes/italics_font_size = 180
 theme_override_font_sizes/mono_font_size = 180
 theme_override_font_sizes/normal_font_size = 180
 theme_override_font_sizes/bold_font_size = 180
-bbcode_enabled = true
-fit_content = true
 vertical_alignment = 1
-custom_effects = [SubResource("RichTextEffect_r7vf5")]
+custom_effects = [SubResource("RichTextEffect_cvqky")]
 script = ExtResource("15_kk7yl")
 bbcode = "[wave][sparkle]SEU
 TURNO"
 effects = 2
 alignment = 1
-color = Color(1, 0.73, 0.19, 0)
+color = Color(0.433333, 0.15, 1, 0)
 emoji_scale = 1.0
 font = ""
 font_auto_setup = true
@@ -130,10 +122,10 @@ font_size = 180
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25
-shadow_enabled = true
-shadow_offset = 0.05
+shadow_enabled = false
+shadow_offset = 0.08
 shadow_alpha = 0.25
-shadow_outline_size = 0.05
+shadow_outline_size = 0.1
 outline_size = 5
 outline_mode = 1
 outline_adjust = 0.8
