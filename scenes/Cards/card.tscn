@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bx70gmm6ej88p"]
 
-[ext_resource type="Script" uid="uid://y3le6lb5i1el" path="res://scenes/cards/card.gd" id="1_ad4w7"]
+[ext_resource type="Script" uid="uid://y3le6lb5i1el" path="res://scenes/Cards/card.gd" id="1_ad4w7"]
 [ext_resource type="Texture2D" uid="uid://l28w57bmbs26" path="res://assets/sprites/card sprites/Fracture Sleeve.png" id="2_73nwn"]
-[ext_resource type="Texture2D" uid="uid://b3fd06sw03muf" path="res://assets/sprites/card sprites/numbered/SAPPHIRE1.png" id="2_jl6rh"]
+[ext_resource type="Texture2D" uid="uid://siakoeo7drdh" path="res://assets/sprites/NewCards/SAPPHIRE1_DEFAULT.png" id="3_ad4w7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ad4w7"]
 size = Vector2(148, 200)
@@ -126,7 +126,7 @@ texture = ExtResource("2_73nwn")
 [node name="Front" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.179, 0.179)
-texture = ExtResource("2_jl6rh")
+texture = ExtResource("3_ad4w7")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

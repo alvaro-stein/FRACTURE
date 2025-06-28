@@ -17,27 +17,27 @@ shader_parameter/intensity = 1.5
 [sub_resource type="RichTextEffect" id="RichTextEffect_egbcp"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 2403722150759
+metadata/rt = 2360000725783
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ggeop"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 2404124803956
+metadata/rt = 2360403378980
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_6ek3d"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 2404527457153
+metadata/rt = 2360806032177
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_kr42f"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 2404930110350
+metadata/rt = 2361208685374
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_3iwtn"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 2405332763547
+metadata/rt = 2361611338571
 
 [node name="TutorialSlot" type="Node2D"]
 script = ExtResource("1_31i6i")
