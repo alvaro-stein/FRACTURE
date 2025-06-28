@@ -11,9 +11,11 @@ const MANA_GRANDE = preload("res://assets/mana/Mana Grande.png")
 const MANA_PEQUENA = preload("res://assets/mana/Mana Pequena.png")
 
 func _on_continue_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialCostMana")
 
 func _on_return_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialDiscard") 
 	
 func _ready() -> void:

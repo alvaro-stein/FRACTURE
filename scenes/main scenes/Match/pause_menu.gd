@@ -27,5 +27,6 @@ func _ready() -> void:
 
 
 func _on_button_button_up() -> void:
+	AudioGlobal.button.play()
 	get_tree().paused = false
 	self.get_parent().emit_signal("change_scene_to", "Menu")

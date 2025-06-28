@@ -24,9 +24,11 @@ var arrow
 var clock_clicked_on_time = 0
 
 func _on_continue_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialFinal")
 
 func _on_return_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialEndTurn")
 
 func _ready() -> void:

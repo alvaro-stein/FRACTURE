@@ -22,9 +22,11 @@ var arrow
 @onready var continue_button: Button = $ContinueButton
 
 func _on_continue_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialEndGame")
 
 func _on_return_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialForge2")
 
 func _ready() -> void:

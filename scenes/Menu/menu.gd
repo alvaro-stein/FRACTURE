@@ -51,6 +51,7 @@ func _ready() -> void:
 
 
 func _on_button_pressed(_button : Button) -> void:
+	AudioGlobal.button.play()
 	match _button.name:
 		"jogar_button":
 			open_option("Jogar")

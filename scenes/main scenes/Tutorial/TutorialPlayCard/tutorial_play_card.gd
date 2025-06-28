@@ -39,9 +39,11 @@ func _ready() -> void:
 	player_hand.add_card_to_hand(new_card)
 	
 func _on_continue_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialHowToWin")
 
 func _on_return_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialSlot")
 
 func _input(event: InputEvent) -> void:

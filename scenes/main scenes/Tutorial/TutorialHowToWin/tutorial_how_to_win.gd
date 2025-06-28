@@ -18,9 +18,11 @@ func _ready() -> void:
 	self.position_cards()
 	
 func _on_continue_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialCardTypes")
 
 func _on_return_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialPlayCard")
 
 func position_cards():

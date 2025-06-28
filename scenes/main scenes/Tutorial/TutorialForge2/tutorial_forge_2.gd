@@ -66,9 +66,11 @@ func _ready() -> void:
 	player_hand.add_card_to_hand(new_card)
 
 func _on_continue_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialEndTurn")
 
 func _on_return_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialCostMana")
 	
 func invalid_forge2():

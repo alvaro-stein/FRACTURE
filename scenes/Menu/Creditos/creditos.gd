@@ -8,4 +8,5 @@ func _input(event):
 
 
 func _on_voltar_button_pressed() -> void:
+	AudioGlobal.button.play()
 	self.get_parent().close_option()

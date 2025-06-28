@@ -32,6 +32,7 @@ func _ready() -> void:
 	self.add_child(initial_scene)
 	current_scene = initial_scene
 	AudioGlobal.opening.play()
+	AudioGlobal.music.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(black_background, "modulate:a", 0, 3)
 	await tween.finished

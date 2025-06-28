@@ -28,6 +28,7 @@ func _input(event):
 		_on_voltar_pressed()
 
 func _on_voltar_pressed() -> void:
+	AudioGlobal.button.play()
 	self.get_parent().close_option()
 	self.get_parent().open_option("SingleplayerSelection")
 
@@ -50,6 +51,7 @@ func _ready() -> void:
 
 # Ophidian logic
 func _on_ophidiano_pressed() -> void:
+	AudioGlobal.button.play()
 	ophidian.release_focus()
 	if not character_selected == "Ophidianos":
 		ophidian_select()
@@ -111,6 +113,7 @@ func _on_ophidiano_mouse_exited() -> void:
 
 # Viridian logic
 func _on_viridiano_pressed() -> void:
+	AudioGlobal.button.play()
 	viridian.release_focus()
 	if not character_selected == "Viridianos":
 		viridian_select()
@@ -171,6 +174,7 @@ func _on_viridiano_mouse_exited() -> void:
 
 
 func _on_jogar_pressed() -> void:
+	AudioGlobal.button.play()
 	jogar_button.release_focus()
 	match character_selected:
 		"Ophidianos":

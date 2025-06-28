@@ -31,6 +31,7 @@ theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
 theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
 theme_override_constants/outline_size = 5
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+disabled = true
 text = "Singleplayer"
 
 [node name="Facil" type="Button" parent="ButtonsBox"]

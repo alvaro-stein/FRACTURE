@@ -21,9 +21,11 @@ var mouse_pos: Vector2
 var screen_size: Vector2
 
 func _on_continue_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialMana")
 
 func _on_return_button_button_up() -> void:
+	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialCombinations")
 
 func _ready() -> void:

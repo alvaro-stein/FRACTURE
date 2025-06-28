@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://chw4rdspxlfau"]
+[gd_scene load_steps=10 format=3 uid="uid://chw4rdspxlfau"]
 
 [ext_resource type="AudioStream" uid="uid://nap5hfb483c" path="res://audio/sfx/opening_sound.mp3" id="1_lj2qa"]
 [ext_resource type="Script" uid="uid://db6v1owjttmy" path="res://audio/audio_global.gd" id="1_tcplg"]
+[ext_resource type="AudioStream" uid="uid://duyjsdrbfc0bd" path="res://audio/music/dunes.wav" id="3_40v7m"]
 [ext_resource type="AudioStream" uid="uid://376hcldotare" path="res://audio/sfx/cards sfx/card_flip.mp3" id="3_weu62"]
 [ext_resource type="AudioStream" uid="uid://csphova10r3qa" path="res://audio/sfx/cards sfx/card_draw.mp3" id="4_40v7m"]
+[ext_resource type="AudioStream" uid="uid://ubd4i0oox7yt" path="res://audio/sfx/button/button1.mp3" id="6_60upr"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_weu62"]
 random_pitch = 1.1
@@ -15,12 +17,24 @@ random_pitch = 1.1
 streams_count = 1
 stream_0/stream = ExtResource("4_40v7m")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_60upr"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("6_60upr")
+
 [node name="AudioGlobal" type="Node"]
+process_mode = 3
 script = ExtResource("1_tcplg")
 
 [node name="Opening" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_lj2qa")
+volume_db = -15.0
+bus = &"Music"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_40v7m")
 volume_db = -10.0
+pitch_scale = 0.9
 bus = &"Music"
 
 [node name="CardFlip" type="AudioStreamPlayer" parent="."]
@@ -30,7 +44,7 @@ bus = &"Sfx"
 
 [node name="CardDraw" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_40v7m")
-pitch_scale = 0.9
+pitch_scale = 0.95
 bus = &"Sfx"
 
 [node name="ScoreSpin" type="AudioStreamPlayer" parent="."]
@@ -41,3 +55,9 @@ bus = &"Sfx"
 volume_db = -10.0
 pitch_scale = 0.9
 bus = &"Sfx"
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_60upr")
+bus = &"Sfx"
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
