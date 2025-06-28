@@ -51,6 +51,7 @@ stream = ExtResource("5_sum3h")
 volume_db = -17.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -4
 material = SubResource("ShaderMaterial_fmqe5")
 layout_mode = 1
 anchors_preset = 15

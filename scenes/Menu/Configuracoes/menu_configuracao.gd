@@ -10,7 +10,7 @@ var music_bus_idx := AudioServer.get_bus_index("Music")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Esc"):
-		self.get_parent().close_option()
+		_on_voltar_button_pressed()
 
 
 func _on_voltar_button_pressed() -> void:
