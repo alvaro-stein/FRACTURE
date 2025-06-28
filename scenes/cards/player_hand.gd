@@ -109,7 +109,10 @@ func _on_card_right_clicked(card: Card):
 	
 	card.flip(true)
 	
-	# Se temos duas cartas selecionadas, tentamos a fusão
+	for card_selected in selected_cards:
+		if is_instance_valid(card_selected) and card_selected not in player_hand:
+			selected_cards.erase(card_selected)
+	
 	if selected_cards.size() == 2:
 		attempt_merge(selected_cards)
 		
@@ -126,12 +129,8 @@ func attempt_merge(selected_cards):
 	var pair = [val1, val2]
 	
 	if pair in VALID_PAIRS:
-		# Combinação VÁLIDA!
-		print("Combinação válida! Fundindo cartas.")
 		merge_cards(card1, card2)
 	else:
-		# Combinação INVÁLIDA!
-		print("Combinação inválida.")
 		reset_selection()
 
 func merge_cards(card1: Card, card2: Card):
@@ -163,11 +162,9 @@ func merge_cards(card1: Card, card2: Card):
 
 	selected_cards.clear()
 
-# Função para resetar a seleção caso a fusão falhe
 func reset_selection():
 	for card in selected_cards:
-		if is_instance_valid(card): # Garante que a carta ainda existe
-			card.is_selected = false
+		if is_instance_valid(card):
 			card.flip(false)
 	
 	selected_cards.clear()

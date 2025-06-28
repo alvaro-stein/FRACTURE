@@ -64,7 +64,6 @@ func _on_end_turn():
 	if self.current_player == player:
 		clock.disabled = true
 		self.current_player = AI
-		emit_signal("ai_turn_started")
 	else:
 		self.current_player = player
 		your_turn_warning()
@@ -77,6 +76,9 @@ func _on_end_turn():
 	else: # este é o último turno do jogo
 		clock.last_turn = true
 	
+	if self.current_player != player:
+		emit_signal("ai_turn_started")
+		
 	clock.reset_timer()
 
 

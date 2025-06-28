@@ -131,7 +131,7 @@ Você ainda pode melhorar suas cartas a partir de uma ação especial, o forjar 
 
 [b] Fim de jogo [/b]
 
-
+Ambos os jogadores compram uma carta no começo de cada turno, até que o baralho acabe. Assim que acabar, o jogador que comprou fará o penúltimo turno, deixando que o outro jogador finalize a partida.
 
 
 
@@ -143,7 +143,7 @@ Você ainda pode melhorar suas cartas a partir de uma ação especial, o forjar 
 "
 horizontal_alignment = 1
 
-[node name="VoltarButton" type="Button" parent="."]
+[node name="sair_button" type="Button" parent="."]
 custom_minimum_size = Vector2(150, 80)
 layout_mode = 0
 offset_left = 35.0
@@ -167,4 +167,4 @@ pitch_scale = 1.05
 stream = ExtResource("7_wawmh")
 volume_db = -17.0
 
-[connection signal="pressed" from="VoltarButton" to="." method="_on_voltar_button_pressed"]
+[connection signal="pressed" from="sair_button" to="." method="_on_sair_button_pressed"]

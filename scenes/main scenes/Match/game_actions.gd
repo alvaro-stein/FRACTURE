@@ -130,8 +130,6 @@ func try_place_card(card: Card, slot: CardSlot) -> bool:
 	var cost_small_mana = can_place_card.cost_small
 	var score_change_value = card.rank
 	
-	print("POSSO JOGAR AQUI? ", can_play)
-	
 	if can_play:
 		GM.current_player.use_mana(cost_big_mana, cost_small_mana)
 		slot.add_card_to_slot(card, is_AI)
@@ -214,7 +212,7 @@ func is_valid_combination(card: Card, slot: CardSlot):
 			["LOW", "LOW"]: "small",
 			["LOW", "MID"]: "small",
 			["LOW", "LOW", "MID"]: "small",
-			["LOW", "LOW", "MID"]: "small",
+			["LOW", "LOW", "LOW"]: "small",
 			["HIGH", "LOW"]: "big"
 		}
 	}

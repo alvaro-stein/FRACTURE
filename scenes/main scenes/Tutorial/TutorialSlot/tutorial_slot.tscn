@@ -17,27 +17,27 @@ shader_parameter/intensity = 1.5
 [sub_resource type="RichTextEffect" id="RichTextEffect_egbcp"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 8812333450666
+metadata/rt = 2356980826811
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ggeop"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 8812736129883
+metadata/rt = 2357383480008
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_6ek3d"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 8813138780677
+metadata/rt = 2357786133205
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_kr42f"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 8813541433918
+metadata/rt = 2358188786402
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_3iwtn"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 8813944087575
+metadata/rt = 2358591439599
 
 [node name="TutorialSlot" type="Node2D"]
 script = ExtResource("1_31i6i")
@@ -115,12 +115,10 @@ bbcode_enabled = true
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_egbcp")]
 script = ExtResource("6_31i6i")
-progress = 1.0
-visible_character = 4
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 88, 33), Transform2D(1, 0, 0, 1, 111, 33), Transform2D(1, 0, 0, 1, 131, 33)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(23, 24), Vector2(23, 24), Vector2(26, 24)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.0330751
 default_wait_time = 1.0
 play_on_bbcode = true
@@ -214,12 +212,10 @@ bbcode_enabled = true
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_ggeop")]
 script = ExtResource("6_31i6i")
-progress = 1.0
-visible_character = 6
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 74, 33), Transform2D(1, 0, 0, 1, 95, 33), Transform2D(1, 0, 0, 1, 111, 33), Transform2D(1, 0, 0, 1, 121, 33), Transform2D(1, 0, 0, 1, 141, 33)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(27, 24), Vector2(18, 24), Vector2(10, 24), Vector2(23, 24), Vector2(27, 24)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.0330751
 default_wait_time = 1.0
 play_on_bbcode = true
@@ -313,12 +309,10 @@ bbcode_enabled = true
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_6ek3d")]
 script = ExtResource("6_31i6i")
-progress = 1.0
-visible_character = 7
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 60, 33), Transform2D(1, 0, 0, 1, 83, 33), Transform2D(1, 0, 0, 1, 104, 33), Transform2D(1, 0, 0, 1, 124, 33), Transform2D(1, 0, 0, 1, 141, 33), Transform2D(1, 0, 0, 1, 159, 33)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(23, 24), Vector2(27, 24), Vector2(23, 24), Vector2(22, 24), Vector2(22, 24), Vector2(26, 24)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.0330751
 default_wait_time = 1.0
 play_on_bbcode = true
@@ -412,12 +406,10 @@ bbcode_enabled = true
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_kr42f")]
 script = ExtResource("6_31i6i")
-progress = 1.0
-visible_character = 4
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 93, 33), Transform2D(1, 0, 0, 1, 116, 33), Transform2D(1, 0, 0, 1, 136, 33)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(23, 24), Vector2(21, 24), Vector2(10, 24)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.0330751
 default_wait_time = 1.0
 play_on_bbcode = true
@@ -511,12 +503,10 @@ bbcode_enabled = true
 fit_content = true
 custom_effects = [SubResource("RichTextEffect_3iwtn")]
 script = ExtResource("6_31i6i")
-progress = 1.0
-visible_character = 9
-_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 36, 33), Transform2D(1, 0, 0, 1, 54, 33), Transform2D(1, 0, 0, 1, 82, 33), Transform2D(1, 0, 0, 1, 100, 33), Transform2D(1, 0, 0, 1, 119, 33), Transform2D(1, 0, 0, 1, 140, 33), Transform2D(1, 0, 0, 1, 157, 33), Transform2D(1, 0, 0, 1, 180, 33)])
-_char_size = Array[Vector2]([Vector2(0, 0), Vector2(20, 24), Vector2(28, 24), Vector2(18, 24), Vector2(23, 24), Vector2(27, 24), Vector2(19, 24), Vector2(24, 24), Vector2(27, 24)])
-_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
-_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)])
+_alpha = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
+_alpha_goal = Array[float]([0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
 _forced_finish_delay = -0.0330751
 default_wait_time = 1.0
 play_on_bbcode = true

@@ -20,28 +20,28 @@ func _on_singleplayer_pressed() -> void:
 func _on_facil_pressed() -> void:
 	GameSettings.ai_difficulty = "easy"
 	
-	self.get_parent().close_option()
-	self.get_parent().open_option("CharacterSelection")
+	#self.get_parent().close_option()
+	#self.get_parent().open_option("CharacterSelection")
 	
-	#emit_signal("change_scene_to", "Match")
+	emit_signal("change_scene_to", "Match")
 
 
 func _on_medio_pressed() -> void:
 	GameSettings.ai_difficulty = "medium"
 	
-	self.get_parent().close_option()
-	self.get_parent().open_option("CharacterSelection")
+	#self.get_parent().close_option()
+	#self.get_parent().open_option("CharacterSelection")
 	
-	#emit_signal("change_scene_to", "Match")
+	emit_signal("change_scene_to", "Match")
 
 
 func _on_dificil_pressed() -> void:
 	GameSettings.ai_difficulty = "hard"
 	
-	self.get_parent().close_option()
-	self.get_parent().open_option("CharacterSelection")
+	#self.get_parent().close_option()
+	#self.get_parent().open_option("CharacterSelection")
 	
-	#emit_signal("change_scene_to", "Match")
+	emit_signal("change_scene_to", "Match")
 
 
 func _on_voltar_pressed() -> void:

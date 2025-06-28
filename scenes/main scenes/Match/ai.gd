@@ -10,7 +10,6 @@ class_name AI
 
 var big_mana_AI := 1
 var small_mana_AI := 2
-
 var hand : 
 	get: return self.get_node("PlayerHand")
 
@@ -103,72 +102,91 @@ func can_use_mana(big_mana: int, small_mana: int):
 		return false
 
 func _start_ai_turn():
-	print("AI começa o turno")
+	if GameSettings.ai_difficulty == "easy":
+		self.easy_medium_ai_difficulty(true)
+	elif GameSettings.ai_difficulty == "medium":
+		self.easy_medium_ai_difficulty(false)
+	elif GameSettings.ai_difficulty == "hard":
+		self.hard_ai_difficulty()
+	else: 
+		print("Dificuldade inexistente")
+
 	
+func easy_medium_ai_difficulty(play_first_card: bool):
+	var play_again = randi_range(0, 1) 
+
 	if not hand.player_hand.size() == 0:
-		await get_tree().create_timer(2, false).timeout #pensando
-		self.decide_best_action()
-		var play_again = randi_range(0, 1) #sem usar por enquanto
-		if self.big_mana_AI or self.small_mana_AI == 2:
-			await get_tree().create_timer(2, false).timeout 
-			self.decide_best_action()
+		await get_tree().create_timer(1, false).timeout #pensando
+		place_card_AI(play_first_card)
+		if self.big_mana_AI or self.small_mana_AI == 2 and hand.player_hand.size() == 0:
+			if play_first_card: #easy AI sometimes play once
+				if play_again:
+					await get_tree().create_timer(1, false).timeout #pensando
+					place_card_AI(play_first_card)
+			else:
+				await get_tree().create_timer(1, false).timeout #pensando
+				place_card_AI(play_first_card)
 		await get_tree().create_timer(3, false).timeout
 		GM.get_node("Clock")._on_button_down()
 	else:
-		print("IA não tem cartas na mão para jogar. Passando o turno.")
 		await get_tree().create_timer(1, false).timeout
 		GM.get_node("Clock")._on_button_down()
-		
 	
-
-func place_card_AI():
+func place_card_AI(play_first_card: bool):
 	var card_placed = false
 	var correct_slot = null
 	
-	#while not card_placed:
-
-	hand.player_hand.sort_custom(func(a: Card, b: Card): return a.rank > b.rank)
+	if not play_first_card:
+		hand.player_hand.sort_custom(func(a: Card, b: Card): return a.rank > b.rank)
+		
 	var card_ace = hand.player_hand[-1]
+	
 	if card_ace.type == "ACE":
 		hand.remove_card_from_hand(card_ace)
 		correct_slot = ai_slot.get_node(card_ace.color)
-		card_placed = game_actions.try_place_card(hand.player_hand[-1], correct_slot)
-
+		card_placed = game_actions.try_place_card(card_ace, correct_slot)
+		#print("As foi jogado? ", card_placed)
+		
 	else:
 		for card in hand.player_hand:
-			#var random_index = randi_range(0, hand.player_hand.size() - 1)
-			#var card : Card = self.hand.player_hand[random_index]
 			hand.remove_card_from_hand(card)
 			correct_slot = ai_slot.get_node(card.color)
 			card_placed = game_actions.try_place_card(card, correct_slot)
 			if not card_placed:
-				print("IA não conseguiu encontrar um slot para a carta ", card.name, correct_slot.name)
+				#print("IA não conseguiu encontrar um slot para a carta ", card.name, " ", correct_slot.name)
+				pass
 			else:
+				#print("A carta foi jogada: ", card.name)
 				break #already played
 				
-		if not card_placed:
-			for card in hand.player_hand:
-				hand.remove_card_from_hand(card)
-				correct_slot = ai_slot.get_node("QUARTZ")
-				card_placed = game_actions.try_place_card(card, correct_slot)
-				if card_placed:
-					break
+	if not card_placed:
+		for card in hand.player_hand:
+			hand.remove_card_from_hand(card)
+			correct_slot = ai_slot.get_node("QUARTZ")
+			card_placed = game_actions.try_place_card(card, correct_slot)
+			if card_placed:
+				print("A carta foi jogada: ", card.name)
+				break
 			 
 	if not card_placed:
 		print("IA não conseguiu jogar nenhuma carta, nem no slot QUARTZ")
 			
 			
 	
-
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#pass # Replace with function body.
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
-	
+func hard_ai_difficulty():
+	var time_used = randi_range(1, 5) 
+	if not hand.player_hand.size() == 0:
+		await get_tree().create_timer(time_used, false).timeout #pensando
+		self.decide_best_action()
+		if self.big_mana_AI or self.small_mana_AI == 2 and hand.player_hand.size() == 0:
+			await get_tree().create_timer(1, false).timeout 
+			self.decide_best_action()
+		
+		await get_tree().create_timer(1, false).timeout
+		GM.get_node("Clock")._on_button_down()
+	else:
+		await get_tree().create_timer(1, false).timeout
+		GM.get_node("Clock")._on_button_down()
 	
 func decide_best_action():
 	var best_score = -1000000 
@@ -184,7 +202,6 @@ func decide_best_action():
 				# Simula a jogada e calcula o "score" potencial
 				var current_score = evaluate_play_card(card, slot, simulated_cost)
 				if current_score > best_score:
-					print("Melhor score atual: ", current_score)
 					best_score = current_score
 					best_action = {"type": "play_card", "card": card, "slot": slot, "cost": simulated_cost}
 					
@@ -269,11 +286,6 @@ func evaluate_play_card(card: Card, target_slot: Node, cost: Dictionary) -> floa
 			score += 20.0
 		else: 
 			score += 10.0
-
-	if target_slot.name.to_upper() == "QUARTZ" and card.type != "ACE":
-		score -= 5.0
-	elif target_slot.name.to_upper() != "QUARTZ" and card.type != "ACE":
-		score += 10
 		
 	if card.type in ["HIGH", "MID", "LOW"]:
 		var current_types = target_slot.slot_pile.map(func(c): return c.type)
