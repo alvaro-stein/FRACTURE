@@ -4,3 +4,10 @@
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vqakc")
+
+[node name="BlackBackground" type="ColorRect" parent="."]
+z_index = 20
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

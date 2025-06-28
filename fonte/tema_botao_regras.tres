@@ -1,7 +1,4 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://diciublvqerpy"]
-
-[ext_resource type="FontFile" uid="uid://b6v0eftq600q0" path="res://fonte/WOODCUTTER STORM.ttf" id="1_fyl87"]
+[gd_resource type="Theme" format=3 uid="uid://diciublvqerpy"]
 
 [resource]
-default_font = ExtResource("1_fyl87")
 default_font_size = 55

@@ -15,6 +15,15 @@ run/main_scene="uid://4sv27rsymmwq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/sprites/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://c5udnipeh6xe8"
+
+[autoload]
+
+AudioGlobal="*res://audio/audio_global.tscn"
+GameSettings="*res://game_settings.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -22,6 +31,8 @@ window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
+mouse_cursor/custom_image="uid://bbh05j1qc3ti3"
+mouse_cursor/custom_image_hotspot=Vector2(8, 8)
 
 [editor_plugins]
 

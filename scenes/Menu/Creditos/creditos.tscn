@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://chcupi57h2k6r"]
+[gd_scene load_steps=10 format=3 uid="uid://chcupi57h2k6r"]
 
 [ext_resource type="Script" uid="uid://i2dw8kpocqst" path="res://scenes/Menu/Creditos/creditos.gd" id="1_q67wh"]
-[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_s6me8"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="3_8auk5"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_bv7u2"]
-[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="4_draql"]
-[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="5_xttpw"]
-[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="6_4iww2"]
-[ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="7_25xe7"]
+[ext_resource type="Script" uid="uid://dhbxvg36y8pfd" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="3_df636"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="4_draql"]
+[ext_resource type="Texture2D" uid="uid://v8cqeay5icvi" path="res://assets/sprites/github.png" id="5_rqnra"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="5_xttpw"]
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="6_4iww2"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_8auk5"]
+resource_name = "curspull"
+script = ExtResource("3_df636")
+metadata/rt = 53932072207792
 
 [node name="Créditos" type="Control"]
 layout_mode = 3
@@ -17,74 +23,393 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q67wh")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.374139, 0.374139, 0.374139, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_s6me8")
-expand_mode = 1
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.74902)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 120
-alignment = 1
-
-[node name="Título" type="Label" parent="VBoxContainer"]
+[node name="Título" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 103)
 layout_mode = 2
+offset_left = 721.5
+offset_top = 100.0
+offset_right = 1198.5
+offset_bottom = 237.0
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
-text = "CRÉDITOS"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
-
-[node name="Coluna1" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(400, 800)
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 35
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 75
+theme_override_font_sizes/italics_font_size = 75
+theme_override_font_sizes/mono_font_size = 75
+theme_override_font_sizes/normal_font_size = 75
+theme_override_font_sizes/bold_font_size = 75
 bbcode_enabled = true
-text = "[b]Artes[/b]
-Sofia
- 
-[b]Menu[/b] 
-João Vitor
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_8auk5")]
+script = ExtResource("3_8auk5")
+bbcode = "[wave amp=15 freq=3][curspull]CRÉDITOS"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 75
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/mouse_position = Vector2(101.595, 392.424)
+metadata/frame = 968322
 
-[b]Estrutura do jogo[/b] 
-Arthur 
-Guilherme
-João Vitor"
-scroll_active = false
+[node name="Github" type="Sprite2D" parent="."]
+position = Vector2(1053, 511)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rqnra")
 
-[node name="Coluna2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(400, 800)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/normal_font_size = 30
-theme_override_font_sizes/bold_font_size = 35
+[node name="Github2" type="Sprite2D" parent="."]
+position = Vector2(1053, 579)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_rqnra")
+
+[node name="Nome1" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 69)
+layout_mode = 0
+offset_left = 535.0
+offset_top = 370.0
+offset_right = 1015.0
+offset_bottom = 640.0
+pivot_offset = Vector2(240, 135)
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
-text = "[b]Multiplayer[/b] 
-Guilherme
+fit_content = true
+vertical_alignment = 1
+script = ExtResource("3_8auk5")
+bbcode = "[wave amp=15 freq=3] Álvaro Neves Stein"
+effects = 2
+alignment = 2
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 50
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = true
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/mouse_position = Vector2(1150.82, 51.8622)
+metadata/frame = 1093971
 
-[b]Tabuleiro[/b] 
-Arthur 
-Guilherme
-João Vitor"
-scroll_active = false
+[node name="Nome2" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 69)
+layout_mode = 0
+offset_left = 535.0
+offset_top = 450.0
+offset_right = 1015.0
+offset_bottom = 720.0
+pivot_offset = Vector2(240, 135)
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+bbcode_enabled = true
+fit_content = true
+vertical_alignment = 1
+script = ExtResource("3_8auk5")
+bbcode = "[wave amp=15 freq=3]João Vitor E. Souza"
+effects = 2
+alignment = 2
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 50
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = true
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://assets/sprites/github.png"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/mouse_position = Vector2(1133.51, -22.8138)
+metadata/frame = 1094237
 
-[node name="sair_button" type="Button" parent="." groups=["button_creditos"]]
+[node name="github1" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 370.0
+offset_right = 1565.0
+offset_bottom = 640.0
+pivot_offset = Vector2(240, 135)
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+fit_content = true
+vertical_alignment = 1
+script = ExtResource("3_8auk5")
+bbcode = "[wave amp=15 freq=3]@alvaro-stein"
+effects = 2
+alignment = 0
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 40
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/mouse_position = Vector2(534.266, 78.4822)
+metadata/frame = 1094843
+
+[node name="github2" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 450.0
+offset_right = 1565.0
+offset_bottom = 720.0
+pivot_offset = Vector2(240, 135)
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+bbcode_enabled = true
+fit_content = true
+vertical_alignment = 1
+script = ExtResource("3_8auk5")
+bbcode = "[wave amp=15 freq=3]@1JoaoVitor"
+effects = 2
+alignment = 0
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 40
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/mouse_position = Vector2(506.315, -32.1308)
+metadata/frame = 1095032
+
+[node name="VoltarButton" type="Button" parent="." groups=["button_creditos"]]
 custom_minimum_size = Vector2(150, 80)
 layout_mode = 1
 anchors_preset = 8
@@ -99,7 +424,7 @@ offset_bottom = -430.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_bv7u2")
-text = "Sair"
+text = "Voltar"
 
 [node name="botaosom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_draql")
@@ -115,30 +440,4 @@ pitch_scale = 1.05
 stream = ExtResource("6_4iww2")
 volume_db = -17.0
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(953, 572)
-amount = 300
-texture = ExtResource("7_25xe7")
-lifetime = 500.0
-preprocess = 303.03
-lifetime_randomness = 0.11
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 600)
-direction = Vector2(0, 0)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 0.3
-initial_velocity_max = 0.5
-angular_velocity_min = 2.0
-angular_velocity_max = 5.0
-orbit_velocity_min = -0.01
-orbit_velocity_max = 0.01
-radial_accel_min = 0.03
-radial_accel_max = 0.05
-tangential_accel_min = -0.01
-tangential_accel_max = 0.01
-angle_min = -720.0
-angle_max = 720.0
-scale_amount_min = 0.1
-scale_amount_max = 0.2
-color = Color(0.568627, 0.831373, 1, 0.0784314)
+[connection signal="pressed" from="VoltarButton" to="." method="_on_voltar_button_pressed"]

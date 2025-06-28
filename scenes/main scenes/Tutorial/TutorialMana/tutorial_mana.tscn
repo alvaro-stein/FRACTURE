@@ -1,0 +1,309 @@
+[gd_scene load_steps=11 format=3 uid="uid://k0kl5xnqko2q"]
+
+[ext_resource type="Script" uid="uid://c81k557tvapgy" path="res://scenes/main scenes/Tutorial/TutorialMana/tutorial_mana.gd" id="1_xw0d3"]
+[ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_h7aof"]
+[ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_7w076"]
+[ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_xypv3"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="6_a684o"]
+[ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="7_icr2r"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="8_xkh61"]
+[ext_resource type="Texture2D" uid="uid://brsnj1c5rwdei" path="res://assets/mana/Mana Pequena.png" id="9_sy0m8"]
+[ext_resource type="Texture2D" uid="uid://bnk0m0xeychc4" path="res://assets/mana/Mana Grande.png" id="10_y7vc5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ct3av"]
+shader = ExtResource("2_h7aof")
+shader_parameter/speed = 1.0
+shader_parameter/intensity = 1.5
+
+[node name="TutorialMana" type="Node2D"]
+script = ExtResource("1_xw0d3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1920, 1090)
+offset_right = 1920.0
+offset_bottom = 1090.0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Fundo" type="Sprite2D" parent="."]
+z_index = -10
+material = SubResource("ShaderMaterial_ct3av")
+position = Vector2(960, 540)
+scale = Vector2(1.388, 1.388)
+texture = ExtResource("3_7w076")
+
+[node name="ContinueButton" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1741.0
+offset_top = 987.0
+offset_right = 1870.0
+offset_bottom = 1030.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Continuar"
+
+[node name="PauseButton" parent="." instance=ExtResource("4_xypv3")]
+
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 987.0
+offset_right = 179.0
+offset_bottom = 1030.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+
+[node name="CardManager" parent="." instance=ExtResource("6_a684o")]
+
+[node name="Mana" type="Node" parent="."]
+
+[node name="ManaP1" type="Sprite2D" parent="Mana"]
+visible = false
+position = Vector2(767, 695)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_sy0m8")
+
+[node name="ManaP2" type="Sprite2D" parent="Mana"]
+position = Vector2(1280, 400)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("9_sy0m8")
+
+[node name="ManaG" type="Sprite2D" parent="Mana"]
+position = Vector2(640, 360)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("10_y7vc5")
+
+[node name="TextBox" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 275)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 260.0
+offset_top = 688.0
+offset_right = 1660.0
+offset_bottom = 975.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+theme_override_styles/normal = ExtResource("7_icr2r")
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("8_xkh61")
+bbcode = "[fill]O jogo  possui um sistema de Mana, para controlar a quantidade de ações por turno. Elas são divididas em manas pequenas e grandes sendo representadas por diferentes cristais, como visto acima. Cada turno você terá uma mana grande e duas manas pequena para planejar suas ações.[/fill]"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 40
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = false
+autostyle_numbers_tag = "%s"
+autostyle_numbers_pad_decimals = false
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+
+[node name="TextBox2" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 55)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 501.0
+offset_top = 520.0
+offset_right = 779.0
+offset_bottom = 587.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+theme_override_styles/normal = ExtResource("7_icr2r")
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("8_xkh61")
+bbcode = "[fill]Mana Grande[/fill]"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 40
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = false
+autostyle_numbers_tag = "%s"
+autostyle_numbers_pad_decimals = false
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+
+[node name="TextBox3" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 55)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1126.5
+offset_top = 520.0
+offset_right = 1433.5
+offset_bottom = 590.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+theme_override_styles/normal = ExtResource("7_icr2r")
+bbcode_enabled = true
+fit_content = true
+script = ExtResource("8_xkh61")
+bbcode = "[fill]Mana pequena[/fill]"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 40
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = false
+autostyle_numbers_tag = "%s"
+autostyle_numbers_pad_decimals = false
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+
+[connection signal="button_up" from="ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]

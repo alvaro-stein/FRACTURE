@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfu4pr41wpo40"]
+
+[ext_resource type="Script" uid="uid://c4wxc2id5dqab" path="res://scenes/Menu/Jogar/jogar.gd" id="1_bkjxr"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="1_j3b45"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkjxr"]
+
+[node name="Jogar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bkjxr")
+
+[node name="ButtonsBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 526.0
+offset_right = 1153.0
+offset_bottom = 1105.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Singleplayer" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("1_j3b45")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
+text = "Singleplayer"
+
+[node name="Multiplayer" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("1_j3b45")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
+disabled = true
+text = "Multiplayer"
+
+[node name="Tutorial" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("1_j3b45")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
+text = "Tutorial"
+
+[node name="Regras" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("1_j3b45")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
+text = "Regras"
+
+[node name="Voltar" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("1_j3b45")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
+text = "Voltar
+"
+
+[connection signal="pressed" from="ButtonsBox/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="ButtonsBox/Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="ButtonsBox/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="ButtonsBox/Regras" to="." method="_on_regras_pressed"]
+[connection signal="pressed" from="ButtonsBox/Voltar" to="." method="_on_voltar_pressed"]

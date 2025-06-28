@@ -1,7 +1,6 @@
 extends Node2D
 
 var standard_z_index = self.z_index
-var card_being_dragged: Card = null
 var highlighted_card: Card = null
 var last_card_hovered: Card = null
 
@@ -34,8 +33,8 @@ func on_hovered_off_card(card: Card) -> void:
 func highlight_card(card: Card, hovered: bool) -> void:
 	if hovered:
 		card.scale = Vector2(1.05, 1.05)
-		card.card_set_z_index(card.z_index+1)
+		card.card_set_z_index(card.z_index+2)
 	else:
 		card.scale = Vector2(1, 1)
 		if not card.get_node("Area2D/CollisionShape2D").disabled:
-			card.card_set_z_index(card.z_index-1)
+			card.card_set_z_index(card.z_index-2)

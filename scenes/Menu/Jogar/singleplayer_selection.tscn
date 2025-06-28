@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://mife63apcltq"]
+
+[ext_resource type="Script" uid="uid://b1ycuesujcm0e" path="res://scenes/Menu/Jogar/singleplayer_selection.gd" id="1_jmuqv"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="2_fxmw7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxmw7"]
+
+[node name="SingleplayerSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jmuqv")
+
+[node name="ButtonsBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 526.0
+offset_right = 1153.0
+offset_bottom = 1105.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Singleplayer" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("2_fxmw7")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+disabled = true
+text = "Singleplayer"
+
+[node name="Facil" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("2_fxmw7")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+text = "vs IA Fácil"
+
+[node name="Medio" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("2_fxmw7")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+text = "vs IA Média"
+
+[node name="Dificil" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("2_fxmw7")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+text = "vs IA Difícil"
+
+[node name="Voltar" type="Button" parent="ButtonsBox"]
+layout_mode = 2
+theme = ExtResource("2_fxmw7")
+theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+text = "Voltar
+"
+
+[connection signal="pressed" from="ButtonsBox/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="ButtonsBox/Facil" to="." method="_on_facil_pressed"]
+[connection signal="pressed" from="ButtonsBox/Medio" to="." method="_on_medio_pressed"]
+[connection signal="pressed" from="ButtonsBox/Dificil" to="." method="_on_dificil_pressed"]
+[connection signal="pressed" from="ButtonsBox/Voltar" to="." method="_on_voltar_pressed"]

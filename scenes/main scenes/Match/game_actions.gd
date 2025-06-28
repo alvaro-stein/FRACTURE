@@ -2,11 +2,16 @@ extends Node2D
 class_name GameActions
 # Here each player action will have a function, connected by signal 
 
-var screen_size: Vector2
-var mouse_pos: Vector2
-
 signal card_right_clicked
 signal score_updated(score_change_value, color)
+
+const CARD_LAYER := 2 # Layer 2, valor 2
+const SLOT_LAYER := 4 # Layer 3, valor 4 # Pois são potencias de 2
+const DISCARD_PILE_LAYER := 8 # Layer 4, valor 8
+
+var screen_size: Vector2
+var mouse_pos: Vector2
+var card_held: Card = null
 
 @onready var GM: GameManager = $".."
 
@@ -14,18 +19,7 @@ signal score_updated(score_change_value, color)
 var deck_pile:
 	get: return deck.deck_pile
 
-@onready var card_manager: Node2D = $"../CardManager"
-var highlighted_card:
-	get: return card_manager.highlighted_card
-var card_being_dragged: Card = null
-
-@onready var card_slot_manager: Node2D = $"../CardSlotManager"
-var card_slot_hovered:
-	get: return card_slot_manager.card_slot_hovered
-
 @onready var discard_deck: Node2D = $"../DiscardPile"
-var discard_pile_hovered:
-	get: return discard_deck.discard_pile_hovered
 
 @onready var player: MatchPlayer = $"../Player"
 var player_hand:
@@ -47,41 +41,87 @@ func _process(delta: float) -> void:
 
 
 func drag_card() -> void:
-	if card_being_dragged:
+	if card_held:
 		mouse_pos = get_global_mouse_position()
 		mouse_pos.x = clamp(mouse_pos.x, 0, screen_size.x)
 		mouse_pos.y = clamp(mouse_pos.y, 0, screen_size.y)
-		card_being_dragged.position = mouse_pos
+		card_held.position = mouse_pos
+
+
+# Returns an Array of Dictionaries, each containing a colliding object. Empty if no collision.
+func raycast_at_cursor(collision_mask: int) -> Array[Dictionary]:
+	# Get the 2D physics space state from the current world.
+	var space_state = get_world_2d().direct_space_state
+	mouse_pos = get_global_mouse_position()
+	# Create the query parameters object.
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = mouse_pos
+	query.collision_mask = collision_mask
+	query.collide_with_areas = true
+	# Returns an Array[Dictionary]
+	return space_state.intersect_point(query)
+
+
+func try_get_card() -> Card:
+	var results: Array[Dictionary] = raycast_at_cursor(CARD_LAYER)
+	var cards: Array = []
+	for i in results.size():
+		cards.append(results[i].collider.get_parent())
+	if cards:
+		var card_under_cursor = cards[0]
+		for card in cards:
+			if card.z_index > card_under_cursor.z_index:
+				card_under_cursor = card
+		return card_under_cursor
+	else:
+		return null
+
+
+func try_get_slot() -> CardSlot:
+	var result = raycast_at_cursor(SLOT_LAYER)
+	return result[0].collider.get_parent() if result else null
+
+
+func try_get_discard_pile() -> DiscardPile:
+	var result = raycast_at_cursor(DISCARD_PILE_LAYER)
+	return result[0].collider.get_parent() if result else null
 
 
 func _input(event: InputEvent) -> void:
 	if GM.game_started:
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and highlighted_card:
-			start_drag() if event.pressed else finish_drag()
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and highlighted_card:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
+				card_held = try_get_card()
+				if card_held:
+					start_drag()
+			else:
+				finish_drag()
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			var highlighted_card = try_get_card()
+			
+			if highlighted_card:
 				emit_signal("card_right_clicked", highlighted_card)
-				highlighted_card.flip()
 
 
 func start_drag() -> void:
-	player_hand.remove_card_from_hand(highlighted_card)
-	card_being_dragged = highlighted_card
-	highlighted_card.scale = Vector2(1, 1)
+	GameSettings.set_cursor("closed")
+	player_hand.remove_card_from_hand(card_held)
+	card_held.scale = Vector2(1, 1)
 
 
 func finish_drag() -> void:
-	highlighted_card.scale = Vector2(1.05, 1.05)
-	if card_being_dragged:
+	if card_held:
+		GameSettings.set_cursor("open")
+		card_held.scale = Vector2(1.05, 1.05)
+		var card_slot_hovered = try_get_slot()
+		var discard_pile_hovered = try_get_discard_pile()
 		if card_slot_hovered and GM.current_player == player:
-			try_place_card(card_being_dragged, card_slot_hovered)
+			try_place_card(card_held, card_slot_hovered)
 		elif discard_pile_hovered and GM.current_player == player:
-			try_discard_card(card_being_dragged)
-			print("NÃO ESTAVA EM CIMA DO DESCARTE")
+			try_discard_card(card_held)
 		else: # Return card to hand
-			print("NÃO ESTAVA EM CIMA DO SLOT")
-			player_hand.add_card_to_hand(highlighted_card)
-		card_being_dragged = null
+			player_hand.add_card_to_hand(card_held)
+		card_held = null
 
 
 func try_place_card(card: Card, slot: CardSlot) -> bool:
@@ -91,8 +131,6 @@ func try_place_card(card: Card, slot: CardSlot) -> bool:
 	var cost_big_mana = can_place_card.cost_big
 	var cost_small_mana = can_place_card.cost_small
 	var score_change_value = card.rank
-	
-	print("POSSO JOGAR AQUI? ", can_play)
 	
 	if can_play:
 		GM.current_player.use_mana(cost_big_mana, cost_small_mana)
@@ -176,6 +214,7 @@ func is_valid_combination(card: Card, slot: CardSlot):
 			["LOW", "LOW"]: "small",
 			["LOW", "MID"]: "small",
 			["LOW", "LOW", "MID"]: "small",
+			["LOW", "LOW", "LOW"]: "small",
 			["HIGH", "LOW"]: "big"
 		}
 	}
@@ -196,24 +235,22 @@ func is_valid_combination(card: Card, slot: CardSlot):
 					combination.cost_big= 1
 					
 	elif card.type == "ACE":
-		if slot.color == "QUARTZ":
-			combination.is_valid = false
-		else:
-			combination.is_valid = true
+		combination.is_valid = true
 		combination.cost_small = 1
 	
 	return combination
 
 func buy_card() -> void:
 	var new_card = deck.buy()
+	AudioGlobal.card_draw.play()
 	if GM.current_player == player:
-		new_card.flip()
+		new_card.flip(false)
 		new_card.get_node("Area2D/CollisionShape2D").disabled = false
 		#player_hand.animation_speed = 0.3
 		player_hand.add_card_to_hand(new_card)
 		#player_hand.animation_speed = 0.2
 	else:
-		#new_card.flip() #adicionado para testes
+		#new_card.flip(false) #adicionado para testes
 		AI_hand.add_card_to_hand(new_card)
 
 

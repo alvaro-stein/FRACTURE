@@ -6,6 +6,7 @@ signal hovered_off
 const COLOR: Array[String] = ["GOLD", "SAPPHIRE", "RUBY", "EMERALD"]
 const TYPE: Array[String] = ["ACE", "LOW", "MID", "HIGH"]
 
+@onready var game_actions = $"../../GameActions"
 const CARD_SCENE = preload("res://scenes/cards/card.tscn")
 var is_facing_down = true
 var is_selected = false
@@ -20,7 +21,8 @@ func card_set_z_index(index: int) -> void:
 	self.get_node("Back").z_index = index
 
 
-func flip() -> void:
+func flip(play_sound: bool) -> void:
+	if play_sound: AudioGlobal.card_flip.play()
 	if is_facing_down:
 		$"AnimationPlayer".play("flip")
 		is_facing_down = false
@@ -42,8 +44,8 @@ static func new_card(color: String, rank: int) -> Card:
 		new_card.type = TYPE[2]
 	elif rank <= 10:
 		new_card.type = TYPE[3]
-	new_card.get_node("Front").texture = load("res://assets/sprites/balatro cards/numbered/%s%s.png" %[color, rank])
-	return new_card
+	new_card.get_node("Front").texture = load("res://assets/sprites/NewCards/%s%s_DEFAULT.png" %[color, rank])
+	return new_card	
 
 
 # Called when the node enters the scene tree for the first time.
@@ -53,8 +55,12 @@ func _ready() -> void:
 
 
 func _on_area_2d_mouse_entered() -> void:
+	if self.get_parent().get_parent().name == "Match" and not game_actions.card_held:
+		GameSettings.set_cursor("open")
 	emit_signal("hovered", self)
 
 
 func _on_area_2d_mouse_exited() -> void:
+	if self.get_parent().get_parent().name == "Match" and not game_actions.card_held:
+		GameSettings.set_cursor("default")
 	emit_signal("hovered_off", self)

@@ -1,13 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://b761mg57n6fnr"]
 
 [ext_resource type="Script" uid="uid://qp16dmkij1qt" path="res://scenes/Menu/Jogar/Viridianos/viridianos_menu.gd" id="1_nvtun"]
-[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://sfx/Tabuleiro/vidroquebrando2.mp3" id="2_665cn"]
+[ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="2_665cn"]
 [ext_resource type="Texture2D" uid="uid://dba5e30318jtp" path="res://assets/sprites/Viridianos/bg_Viridianos.png" id="2_xxfgb"]
 [ext_resource type="Texture2D" uid="uid://c8sjouufjkbuq" path="res://assets/sprites/Viridianos/LiderViridiano.png" id="3_0ttqf"]
-[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://sfx/Tabuleiro/vidroquebrando.wav" id="3_wkbfa"]
+[ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="3_wkbfa"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_5p83u"]
-[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://sfx/Tabuleiro/vidroquebrando3.mp3" id="4_olbo0"]
-
+[ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="4_olbo0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rivfx"]
 font_size = 40
@@ -28,18 +27,15 @@ cena_inicial = "res://Interface/Menu/tela_menu.tscn"
 stream = ExtResource("3_wkbfa")
 volume_db = -17.0
 pitch_scale = 1.05
-bus = &"Botoes menu"
 
 [node name="botaosom2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_665cn")
 volume_db = -15.0
 pitch_scale = 1.05
-bus = &"Botoes menu"
 
 [node name="botaosom3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_olbo0")
 volume_db = -17.0
-bus = &"Botoes menu"
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(0.577008, 0.577008, 0.577008, 1)
@@ -107,7 +103,7 @@ custom_minimum_size = Vector2(1080, 800)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "[fill]		Os Viridranos são uma raça vegetal consciente originária de Phyloderra, um planeta semelhante à Terra, mas sem presença humana. Essa ausência permitiu que as plantas evoluíssem de forma extraordinária, desenvolvendo consciência coletiva e a capacidade de parasitar e controlar outras formas de vida. Utilizando mecanismos parasitários, eles transformam outros seres em \"avatares\", extensões de sua própria consciência, expandindo seu domínio por todo o planeta. Atualmente, os Viridanos operam como uma vasta rede neural biológica, com uma hierarquia de líderes regionais chamados \"Filhos das Folhas\", coordenando as ações dos avatares.
+text = "[fill]		Os Viridianos são uma raça vegetal consciente originária de Phyloderra, um planeta semelhante à Terra, mas sem presença humana. Essa ausência permitiu que as plantas evoluíssem de forma extraordinária, desenvolvendo consciência coletiva e a capacidade de parasitar e controlar outras formas de vida. Utilizando mecanismos parasitários, eles transformam outros seres em \"avatares\", extensões de sua própria consciência, expandindo seu domínio por todo o planeta. Atualmente, os Viridanos operam como uma vasta rede neural biológica, com uma hierarquia de líderes regionais chamados \"Filhos das Folhas\", coordenando as ações dos avatares.
 
 	Sua principal motivação é a busca incessante por novos recursos para sustentar e expandir sua Rede Consciente. Além disso, uma invasão robótica anterior os levou a contra-atacar e a enxergar os robôs como potenciais novos avatares, ainda mais resistentes e poderosos que os biológicos. Assim, os Viridanos são uma consciência vegetal parasitária que busca expandir seu alcance através do controle de outras formas de vida, sejam elas orgânicas ou mecânicas, impulsionados pela necessidade de recursos e pela ambição de garantir sua hegemonia. [/fill]"
 

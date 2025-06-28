@@ -2,9 +2,9 @@ extends Node2D
 class_name PlayerHand 
 
 const TRUE_CARD_WIDTH: float = 148.0
-const CARD_WIDTH: float = TRUE_CARD_WIDTH * 1.10
+const CARD_WIDTH: float = TRUE_CARD_WIDTH * 1.1
 const TRUE_CARD_HEIGHT: float = 200.0
-const CARD_HEIGHT: float = TRUE_CARD_HEIGHT * 1.10
+const CARD_HEIGHT: float = TRUE_CARD_HEIGHT * 1.1
 const HAND_Y_POS: float = 1080 + TRUE_CARD_HEIGHT/6 # 1 terço a mostra
 const SHOWN_HAND_Y_POS: float = 1080 - CARD_HEIGHT/2
 const VALID_PAIRS = [[2, 2], [2, 5], [2, 8], [5, 2], [8, 2]]
@@ -99,16 +99,20 @@ func mirror_pos(pos: Vector2):
 	pos.y = (pos.y - 1080) * (-1)
 	return pos
 
-func _on_card_right_clicked(card: Node):
-
+func _on_card_right_clicked(card: Card):
 	if card in selected_cards:
 		selected_cards.erase(card)
+		card.flip(true)
 		return
 	# Adiciona a carta à lista de seleção e atualiza seu visual
 	selected_cards.append(card)
-	card.is_selected = true
 	
-	# Se temos duas cartas selecionadas, tentamos a fusão
+	card.flip(true)
+	
+	for card_selected in selected_cards:
+		if is_instance_valid(card_selected) and card_selected not in player_hand:
+			selected_cards.erase(card_selected)
+	
 	if selected_cards.size() == 2:
 		attempt_merge(selected_cards)
 		
@@ -125,12 +129,8 @@ func attempt_merge(selected_cards):
 	var pair = [val1, val2]
 	
 	if pair in VALID_PAIRS:
-		# Combinação VÁLIDA!
-		print("Combinação válida! Fundindo cartas.")
 		merge_cards(card1, card2)
 	else:
-		# Combinação INVÁLIDA!
-		print("Combinação inválida.")
 		reset_selection()
 
 func merge_cards(card1: Card, card2: Card):
@@ -153,7 +153,7 @@ func merge_cards(card1: Card, card2: Card):
 	card_manager.add_child(new_card)
 	if self.get_parent().name == "Player":
 		new_card.get_node("Area2D/CollisionShape2D").disabled = false
-		new_card.flip()
+		new_card.flip(true)
 	
 	self.add_card_to_hand(new_card)
 	
@@ -162,11 +162,9 @@ func merge_cards(card1: Card, card2: Card):
 
 	selected_cards.clear()
 
-# Função para resetar a seleção caso a fusão falhe
 func reset_selection():
 	for card in selected_cards:
-		if is_instance_valid(card): # Garante que a carta ainda existe
-			card.is_selected = false
-			card.flip()
+		if is_instance_valid(card):
+			card.flip(false)
 	
 	selected_cards.clear()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://se8i2us8xx1p"]
 
-[ext_resource type="Texture2D" uid="uid://dr72if31vjdrh" path="res://assets/sprites/gear.png" id="1_njft8"]
+[ext_resource type="Texture2D" uid="uid://dr72if31vjdrh" path="res://assets/sprites/config.png" id="1_njft8"]
 [ext_resource type="Script" uid="uid://wgtdcm1rygmh" path="res://scenes/main scenes/Match/pause_button.gd" id="2_et1ey"]
 
 [node name="PauseButton" type="Button"]

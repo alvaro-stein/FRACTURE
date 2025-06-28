@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bx70gmm6ej88p"]
 
 [ext_resource type="Script" uid="uid://y3le6lb5i1el" path="res://scenes/cards/card.gd" id="1_ad4w7"]
-[ext_resource type="Texture2D" uid="uid://b3fd06sw03muf" path="res://assets/sprites/balatro cards/numbered/SAPPHIRE1.png" id="2_jl6rh"]
-[ext_resource type="Texture2D" uid="uid://dwhlgd68uq0b1" path="res://assets/sprites/balatro cards/figures/Deck Backs18.png" id="3_t5m02"]
+[ext_resource type="Texture2D" uid="uid://l28w57bmbs26" path="res://assets/sprites/card sprites/Fracture Sleeve.png" id="2_73nwn"]
+[ext_resource type="Texture2D" uid="uid://siakoeo7drdh" path="res://assets/sprites/NewCards/SAPPHIRE1_DEFAULT.png" id="3_ad4w7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ad4w7"]
 size = Vector2(148, 200)
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.165, 0.165)]
+"values": [Vector2(0.119355, 0.114025)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -71,7 +71,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.165, 0.165), Vector2(0.025, 0.165), Vector2(0.165, 0.165)]
+"values": [Vector2(0.119355, 0.114025), Vector2(0.025, 0.114), Vector2(0.119, 0.114)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -120,15 +120,17 @@ _data = {
 script = ExtResource("1_ad4w7")
 
 [node name="Back" type="Sprite2D" parent="."]
-scale = Vector2(0.165, 0.165)
-texture = ExtResource("3_t5m02")
+scale = Vector2(0.119355, 0.114025)
+texture = ExtResource("2_73nwn")
 
 [node name="Front" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.179, 0.179)
-texture = ExtResource("2_jl6rh")
+texture = ExtResource("3_ad4w7")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ad4w7")

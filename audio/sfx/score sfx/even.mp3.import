@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnitjp7ydw3y4"
+path="res://.godot/imported/even.mp3-8bc6747ea2e4a3502d72786a25a0ff56.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/score sfx/even.mp3"
+dest_files=["res://.godot/imported/even.mp3-8bc6747ea2e4a3502d72786a25a0ff56.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

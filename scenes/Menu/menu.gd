@@ -3,6 +3,45 @@ class_name MainMenu
 
 signal change_scene_to
 
+const REGRAS_SCENE := preload("res://scenes/Menu/Regras/regras.tscn")
+const CONFIG_SCENE := preload("res://scenes/Menu/Configuracoes/menu_configuracao.tscn")
+const CREDITOS_SCENE := preload("res://scenes/Menu/Creditos/creditos.tscn")
+const JOGAR_SCENE := preload("res://scenes/Menu/Jogar/jogar.tscn")
+const SINGLEPLAYER_SELECTION_SCENE := preload("res://scenes/Menu/Jogar/singleplayer_selection.tscn")
+const CHARACTER_SELECTION_SCENE := preload("res://scenes/Menu/Jogar/CharacterSelect/character_selection.tscn")
+
+var current_option: Node = null
+
+
+func open_option(option: String) -> void:
+	$ButtonsBox.visible = false
+	$titulo.visible = false
+	match option:
+		"Jogar":
+			$titulo.visible = true
+			current_option = JOGAR_SCENE.instantiate()
+			self.add_child(current_option)
+		"SingleplayerSelection":
+			$titulo.visible = true
+			current_option = SINGLEPLAYER_SELECTION_SCENE.instantiate()
+			self.add_child(current_option)
+		"CharacterSelection":
+			current_option = CHARACTER_SELECTION_SCENE.instantiate()
+			self.add_child(current_option)
+		"Regras":
+			current_option = REGRAS_SCENE.instantiate()
+			self.add_child(current_option)
+		"Config":
+			current_option = CONFIG_SCENE.instantiate()
+			self.add_child(current_option)
+		"Creditos":
+			current_option = CREDITOS_SCENE.instantiate()
+			self.add_child(current_option)
+
+func close_option() -> void:
+	current_option.queue_free()
+	$ButtonsBox.visible = true
+	$titulo.visible = true
 
 func _ready() -> void:
 	get_parent().connect_change_scene_signals(self)
@@ -12,25 +51,13 @@ func _ready() -> void:
 
 
 func _on_button_pressed(_button : Button) -> void:
-	var audio = get_node("somfundo")
-	# Garantir que o áudio esteja na árvore de nós principal
-	if audio.get_parent() != get_tree().root:
-		audio.reparent(get_tree().root)  # Move para a raiz da árvore
-		audio.owner = null  # Garante que o nó não seja deletado
-  
-	var sound_player = [$botaosom, $botaosom2, $botaosom3].pick_random()  	# Escolhe aleatoriamente um dos sons
-	sound_player.play()
-	await sound_player.finished
-	
+	AudioGlobal.button.play()
 	match _button.name:
 		"jogar_button":
-			emit_signal("change_scene_to", "Match")
-			#get_tree().change_scene_to_file("res://Interface/Menu_Personagens/CharacterSelect/character_select_scene.tscn")
-		"regras_button":
-			emit_signal("change_scene_to", "Regras")
+			open_option("Jogar")
 		"configuracao_button":
-			emit_signal("change_scene_to", "Config")
+			open_option("Config")
 		"creditos_button":
-			emit_signal("change_scene_to", "Creditos")
+			open_option("Creditos")
 		"sair_button":
 			get_tree().quit()
