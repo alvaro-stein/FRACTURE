@@ -61,20 +61,24 @@ func _on_ophidiano_pressed() -> void:
 func ophidian_select():
 	jogar_label.bbcode = "[jit2]Jogar com os Ophidianos"
 	character_selected = "Ophidianos"
-	
+	tween1.stop()
 	tween2.stop()
 	tween3.stop()
-	ophidian_description.modulate.a = 0
-	ophidian_color_rect.modulate.a = 0
+	tween4.stop()
+	tween1 = get_tree().create_tween()
 	tween2 = get_tree().create_tween()
 	tween3 = get_tree().create_tween()
+	tween4 = get_tree().create_tween()
+	ophidian_description.modulate.a = 0
+	ophidian_color_rect.modulate.a = 0
+	tween1.tween_property(ophidian_background, "modulate:a", 1, 0.25)
 	tween2.tween_property(ophidian, "position", Vector2(710, ophidian.position.y), 0.5)
+	tween4.tween_property(viridian, "modulate:a", 0, 0.25)
 
 
 func ophidian_deselect():
 	character_selected = ""
 	jogar_label.bbcode = "[wave]Selecione uma Raça"
-	
 	tween1 = get_tree().create_tween()
 	tween2 = get_tree().create_tween()
 	tween3 = get_tree().create_tween()
@@ -124,20 +128,24 @@ func _on_viridiano_pressed() -> void:
 func viridian_select():
 	jogar_label.bbcode = "[jit2]Jogar com os Viridianos"
 	character_selected = "Viridianos"
-	
+	tween1.stop()
 	tween2.stop()
 	tween3.stop()
-	viridian_description.modulate.a = 0
-	viridian_color_rect.modulate.a = 0
+	tween4.stop()
+	tween1 = get_tree().create_tween()
 	tween2 = get_tree().create_tween()
 	tween3 = get_tree().create_tween()
+	tween4 = get_tree().create_tween()
+	viridian_description.modulate.a = 0
+	viridian_color_rect.modulate.a = 0
+	tween1.tween_property(viridian_background, "modulate:a", 1, 0.25)
 	tween2.tween_property(viridian, "position", Vector2(710, viridian.position.y), 0.5)
+	tween4.tween_property(ophidian, "modulate:a", 0, 0.25)
 
 
 func viridian_deselect():
 	character_selected = ""
 	jogar_label.bbcode = "[wave]Selecione uma Raça"
-	
 	tween1 = get_tree().create_tween()
 	tween2 = get_tree().create_tween()
 	tween3 = get_tree().create_tween()
