@@ -44,6 +44,8 @@ func distribute_cards():
 		
 		tween.tween_property(card, "position", target_position, DURATION_PER_CARD)
 		
+		AudioGlobal.card_draw.play()
+		
 		await get_tree().create_timer(DELAY_BETWEEN_CARDS, false).timeout
 		
 		card.flip(false)

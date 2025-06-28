@@ -111,6 +111,7 @@ offset_right = 1153.0
 offset_bottom = 1105.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="jogar_button" type="Button" parent="ButtonsBox" groups=["buttons"]]
