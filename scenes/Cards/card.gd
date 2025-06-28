@@ -6,6 +6,7 @@ signal hovered_off
 const COLOR: Array[String] = ["GOLD", "SAPPHIRE", "RUBY", "EMERALD"]
 const TYPE: Array[String] = ["ACE", "LOW", "MID", "HIGH"]
 
+@onready var game_actions = $"../../GameActions"
 const CARD_SCENE = preload("res://scenes/cards/card.tscn")
 var is_facing_down = true
 var is_selected = false
@@ -54,8 +55,12 @@ func _ready() -> void:
 
 
 func _on_area_2d_mouse_entered() -> void:
+	if not game_actions.card_held:
+		GameSettings.set_cursor("open")
 	emit_signal("hovered", self)
 
 
 func _on_area_2d_mouse_exited() -> void:
+	if not game_actions.card_held:
+		GameSettings.set_cursor("default")
 	emit_signal("hovered_off", self)
