@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_dx5sq"]
 [ext_resource type="Script" uid="uid://ckgw7vb3rieii" path="res://scenes/main scenes/Tutorial/TutorialDeck/deck_tutorial.gd" id="4_f6sqv"]
 [ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="5_phppk"]
-[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="6_tbujl"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="6_tbujl"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="7_ueov6"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="8_dx5sq"]
 
@@ -72,25 +72,25 @@ z_index = 0
 
 [node name="Text" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 207)
+custom_minimum_size = Vector2(0, 165)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 225.5
-offset_top = 500.0
+offset_top = 550.0
 offset_right = 1694.5
-offset_bottom = 1000.0
+offset_bottom = 1050.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 50
-theme_override_font_sizes/italics_font_size = 50
-theme_override_font_sizes/mono_font_size = 50
-theme_override_font_sizes/normal_font_size = 50
-theme_override_font_sizes/bold_font_size = 50
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 fit_content = true
 horizontal_alignment = 1
@@ -103,7 +103,7 @@ color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = ""
 font_auto_setup = true
-font_size = 50
+font_size = 40
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25

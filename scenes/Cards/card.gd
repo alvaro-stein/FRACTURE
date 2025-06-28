@@ -43,8 +43,8 @@ static func new_card(color: String, rank: int) -> Card:
 		new_card.type = TYPE[2]
 	elif rank <= 10:
 		new_card.type = TYPE[3]
-	new_card.get_node("Front").texture = load("res://assets/sprites/card sprites/numbered/%s%s.png" %[color, rank])
-	return new_card
+	new_card.get_node("Front").texture = load("res://assets/sprites/NewCards/%s%s_DEFAULT.png" %[color, rank])
+	return new_card	
 
 
 # Called when the node enters the scene tree for the first time.

@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://djejc0vo3dndh"
-
-path="res://.godot/imported/EMERALD2_DEFAULT.png-8174a5e7de5557ae0f0ecb68a0faf957.ctex"
+uid="uid://bdvrdco1n70cm"
+path="res://.godot/imported/GOLD8_DEFAULT.png-fefd88e794ba310c67309eccffaa08c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/NewCards/EMERALD2_DEFAULT.png"
-dest_files=["res://.godot/imported/EMERALD2_DEFAULT.png-8174a5e7de5557ae0f0ecb68a0faf957.ctex"]
+source_file="res://assets/sprites/NewCards/GOLD8_DEFAULT.png"
+dest_files=["res://.godot/imported/GOLD8_DEFAULT.png-fefd88e794ba310c67309eccffaa08c7.ctex"]
 
 [params]
 

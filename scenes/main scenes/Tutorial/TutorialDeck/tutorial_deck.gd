@@ -8,7 +8,7 @@ const TRUE_CARD_HEIGHT: float = 200.0
 
 const HORIZONTAL_SPACING: float = 10.0 # Espaço horizontal entre colunas
 const VERTICAL_SPACING: float = 15.0  # Espaço vertical entre linhas
-const START_POSITION: Vector2 = Vector2(249, 140)
+const START_POSITION: Vector2 = Vector2(249, 120)
 const CARDS_PER_ROW: int = 10
 const DECK_POSITION: Vector2 = Vector2(-213.0, 540)
 const DURATION_PER_CARD: float = 0.4 
