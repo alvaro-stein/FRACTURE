@@ -3,11 +3,10 @@ extends Node
 var ai_difficulty := "hard"
 var race := ""
 
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#pass # Replace with function body.
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
+const CURSOR = {"default": preload("res://assets/sprites/mouse/hand_point.png"),
+				"open": preload("res://assets/sprites/mouse/hand_open.png"),
+				"closed": preload("res://assets/sprites/mouse/hand_closed.png")}
+
+
+func set_cursor(str: String) -> void:
+	Input.set_custom_mouse_cursor(CURSOR[str], Input.CURSOR_ARROW, Vector2(8, 8))

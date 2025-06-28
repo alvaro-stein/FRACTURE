@@ -104,12 +104,14 @@ func _input(event: InputEvent) -> void:
 
 
 func start_drag() -> void:
+	GameSettings.set_cursor("closed")
 	player_hand.remove_card_from_hand(card_held)
 	card_held.scale = Vector2(1, 1)
 
 
 func finish_drag() -> void:
 	if card_held:
+		GameSettings.set_cursor("open")
 		card_held.scale = Vector2(1.05, 1.05)
 		var card_slot_hovered = try_get_slot()
 		var discard_pile_hovered = try_get_discard_pile()
