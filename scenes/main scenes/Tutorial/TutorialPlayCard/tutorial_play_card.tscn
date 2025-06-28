@@ -4,10 +4,10 @@
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_66rrl"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_cbe5v"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_x3poc"]
-[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/Cards/player_hand.tscn" id="5_eyygy"]
-[ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="6_008io"]
+[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/cards/player_hand.tscn" id="5_eyygy"]
+[ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/cards/card_slot_manager.tscn" id="6_008io"]
 [ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="7_hwwuo"]
-[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="8_66rrl"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="8_66rrl"]
 [ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="9_x3poc"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="10_eyygy"]
 

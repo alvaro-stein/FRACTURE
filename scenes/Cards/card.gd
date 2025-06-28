@@ -55,12 +55,12 @@ func _ready() -> void:
 
 
 func _on_area_2d_mouse_entered() -> void:
-	if not game_actions.card_held:
+	if self.get_parent().get_parent().name == "Match" and not game_actions.card_held:
 		GameSettings.set_cursor("open")
 	emit_signal("hovered", self)
 
 
 func _on_area_2d_mouse_exited() -> void:
-	if not game_actions.card_held:
+	if self.get_parent().get_parent().name == "Match" and not game_actions.card_held:
 		GameSettings.set_cursor("default")
 	emit_signal("hovered_off", self)

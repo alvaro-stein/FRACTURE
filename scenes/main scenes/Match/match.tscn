@@ -25,7 +25,7 @@ shader_parameter/intensity = 1.5
 [sub_resource type="RichTextEffect" id="RichTextEffect_r7vf5"]
 resource_name = "sparkle"
 script = ExtResource("15_r7vf5")
-metadata/rt = 11842432879957
+metadata/rt = 37855472752105
 
 [node name="Match" type="Node2D"]
 script = ExtResource("1_6ncua")

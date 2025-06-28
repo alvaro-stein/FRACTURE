@@ -58,6 +58,7 @@ func _on_ophidiano_pressed() -> void:
 	else:
 		ophidian_deselect()
 
+
 func ophidian_select():
 	jogar_label.bbcode = "[jit2]Jogar com os Ophidianos"
 	character_selected = "Ophidianos"
@@ -99,7 +100,6 @@ func _on_ophidiano_mouse_entered() -> void:
 		tween3.tween_property(ophidian_color_rect, "modulate:a", 1, 0.25)
 		tween4.tween_property(viridian, "modulate:a", 0, 0.25)
 		viridian.disabled = true
-
 
 
 func _on_ophidiano_mouse_exited() -> void:

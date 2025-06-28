@@ -32,6 +32,7 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5, false).timeout
 	
 	var new_card: Card = Card.new_card("GOLD", 10)
+	new_card.get_node("Area2D")
 	new_card.position = Vector2(-50, 540)
 	card_manager.add_child(new_card)
 	new_card.flip(true)

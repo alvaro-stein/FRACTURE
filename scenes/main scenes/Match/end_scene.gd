@@ -19,15 +19,18 @@ func _ready() -> void:
 		total_points += int(label.text)
 		label.get_node("Sprite2D").modulate = label.get(FONT_COLOR_PATH)
 		if label.get_node("Sprite2D").modulate == Color.BLACK:
+			AudioGlobal.even_score.play()
 			label.get_node("Sprite2D").modulate = Color.WHITE_SMOKE
 		elif label.get_node("Sprite2D").modulate == Color.FIREBRICK:
+			AudioGlobal.lose_score.play()
 			label.get_node("Sprite2D").modulate = Color(1.0, 0.19, 0.19)
 		elif label.get_node("Sprite2D").modulate == Color.SEA_GREEN:
+			AudioGlobal.win_score.play()
 			label.get_node("Sprite2D").modulate = Color(0.123, 0.95, 0.482)
 		
 		label.get_node("Sprite2D").z_index = 11
 		label.get_node("SpinScore").play("spin score")
-		AudioGlobal.score_spin.play()
+		
 		await get_tree().create_timer(0.75, false).timeout
 	
 	var victorious = Match.who_win()
@@ -53,6 +56,12 @@ func _ready() -> void:
 	sum_points.visible = true
 	await get_tree().create_timer(0.75, false).timeout
 	result.visible = true
+	if victorious == "player":
+		AudioGlobal.win.play()
+	elif victorious == "AI":
+		AudioGlobal.defeat.play()
+	else:
+		pass
 	await get_tree().create_timer(0.75, false).timeout
 	button.visible = true
 	

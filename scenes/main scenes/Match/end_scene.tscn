@@ -7,7 +7,7 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_wfiso"]
 resource_name = "curspull"
 script = ExtResource("2_wfiso")
-metadata/rt = 2331429127811
+metadata/rt = 20025234783570
 
 [node name="EndScene" type="ColorRect"]
 z_index = 10
