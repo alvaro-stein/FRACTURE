@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="1_imsq6"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_gcgp8"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="3_dmue5"]
-[ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/cards/card_slot.tscn" id="4_lhm24"]
+[ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/Cards/card_slot.tscn" id="4_lhm24"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="5_gcgp8"]
 [ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="5_lhm24"]
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="6_31i6i"]
@@ -17,37 +17,27 @@ shader_parameter/intensity = 1.5
 [sub_resource type="RichTextEffect" id="RichTextEffect_egbcp"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-
-metadata/rt = 2360000725783
-
+metadata/rt = 3586733982517
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ggeop"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-
-metadata/rt = 2360403378980
-
+metadata/rt = 3587136635713
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_6ek3d"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-
-metadata/rt = 2360806032177
-
+metadata/rt = 3587539288901
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_kr42f"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-
-metadata/rt = 2361208685374
-
+metadata/rt = 3587941942103
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_3iwtn"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-
-metadata/rt = 2361611338571
-
+metadata/rt = 3588344620775
 
 [node name="TutorialSlot" type="Node2D"]
 script = ExtResource("1_31i6i")
