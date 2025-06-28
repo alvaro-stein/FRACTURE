@@ -25,7 +25,7 @@ func _ready() -> void:
 	var rank = [7, 5, 2]
 	var i = 0
 	for card in card_manager.get_children():
-		card.get_node("Front").texture = load("res://assets/sprites/card sprites/numbered/%s%s.png" %[color[i], rank[i]])
+		card.get_node("Front").texture = load("res://assets/sprites/NewCards/%s%s_DEFAULT.png" %[color[i], rank[i]])
 		card.flip(true)
 		i += 1
 		
