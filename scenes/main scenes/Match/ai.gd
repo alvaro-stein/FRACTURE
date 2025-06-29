@@ -66,6 +66,7 @@ func change_mana_visibility(mana: Sprite2D, turn_visible: bool) -> void:
 	if turn_visible:
 		mana.modulate.a = 1.0
 	else: # turn "invisible"
+		AudioGlobal.mana_spend.play()
 		mana.modulate.a = 0.25
 
 func reset_mana():

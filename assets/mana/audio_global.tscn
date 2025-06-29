@@ -1,0 +1,106 @@
+[gd_scene load_steps=18 format=3 uid="uid://chw4rdspxlfau"]
+
+[ext_resource type="Script" uid="uid://db6v1owjttmy" path="res://audio/audio_global.gd" id="1_xto54"]
+[ext_resource type="AudioStream" uid="uid://nap5hfb483c" path="res://audio/sfx/opening_sound.mp3" id="2_iwo0h"]
+[ext_resource type="AudioStream" uid="uid://duyjsdrbfc0bd" path="res://audio/music/dunes.wav" id="3_tux6k"]
+[ext_resource type="AudioStream" uid="uid://ubd4i0oox7yt" path="res://audio/sfx/button/button1.mp3" id="4_ugumm"]
+[ext_resource type="AudioStream" uid="uid://376hcldotare" path="res://audio/sfx/cards sfx/card_flip.mp3" id="5_b5wvs"]
+[ext_resource type="AudioStream" uid="uid://csphova10r3qa" path="res://audio/sfx/cards sfx/card_draw.mp3" id="6_whed1"]
+[ext_resource type="AudioStream" uid="uid://bstekdu7a7qgh" path="res://audio/sfx/endscene sfx/win.wav" id="7_iscj6"]
+[ext_resource type="AudioStream" uid="uid://b3du3c7f7iiol" path="res://audio/sfx/endscene sfx/defeat.wav" id="8_5h1gd"]
+[ext_resource type="AudioStream" uid="uid://cwspk5ypq4ai1" path="res://audio/sfx/endscene sfx/tie.wav" id="9_i0cgi"]
+[ext_resource type="AudioStream" uid="uid://bh1m0da7d86vd" path="res://audio/sfx/score sfx/lose.mp3" id="10_pwnxr"]
+[ext_resource type="AudioStream" uid="uid://dd2kdgfuc5byk" path="res://audio/sfx/score sfx/win1.mp3" id="11_l1ypf"]
+[ext_resource type="AudioStream" uid="uid://caue8hafql22l" path="res://audio/sfx/score sfx/even1.wav" id="12_nid0h"]
+[ext_resource type="AudioStream" uid="uid://b1240i3m5emmx" path="res://assets/mana/mana_sound.mp3" id="13_r56g1"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_60upr"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("4_ugumm")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_weu62"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("5_b5wvs")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_40v7m"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("6_whed1")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xto54"]
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("13_r56g1")
+
+[node name="AudioGlobal" type="Node"]
+process_mode = 3
+script = ExtResource("1_xto54")
+
+[node name="Opening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iwo0h")
+volume_db = -15.0
+bus = &"Music"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tux6k")
+volume_db = -10.0
+pitch_scale = 0.9
+bus = &"Music"
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_60upr")
+bus = &"Sfx"
+
+[node name="CardFlip" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_weu62")
+pitch_scale = 1.3
+bus = &"Sfx"
+
+[node name="CardDraw" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_40v7m")
+pitch_scale = 0.95
+bus = &"Sfx"
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_iscj6")
+volume_db = -15.0
+pitch_scale = 1.2
+bus = &"Endscene"
+
+[node name="Defeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5h1gd")
+volume_db = 5.0
+pitch_scale = 0.5
+bus = &"Endscene"
+
+[node name="Tie" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_i0cgi")
+volume_db = -10.0
+pitch_scale = 0.8
+bus = &"Endscene"
+
+[node name="LoseScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_pwnxr")
+volume_db = -20.0
+pitch_scale = 0.8
+bus = &"Sfx"
+
+[node name="WinScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_l1ypf")
+volume_db = -20.0
+bus = &"Sfx"
+
+[node name="EvenScore" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_nid0h")
+volume_db = -5.0
+pitch_scale = 0.9
+bus = &"Sfx"
+
+[node name="ManaSpend" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_xto54")
+volume_db = -10.0
+bus = &"Sfx"
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

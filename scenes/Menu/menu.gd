@@ -9,6 +9,7 @@ const CREDITOS_SCENE := preload("res://scenes/Menu/Creditos/creditos.tscn")
 const JOGAR_SCENE := preload("res://scenes/Menu/Jogar/jogar.tscn")
 const SINGLEPLAYER_SELECTION_SCENE := preload("res://scenes/Menu/Jogar/singleplayer_selection.tscn")
 const CHARACTER_SELECTION_SCENE := preload("res://scenes/Menu/Jogar/CharacterSelect/character_selection.tscn")
+const LORE_SCENE := preload("res://scenes/Secundary Scenes/lore.tscn")
 
 var current_option: Node = null
 
@@ -27,6 +28,9 @@ func open_option(option: String) -> void:
 			self.add_child(current_option)
 		"CharacterSelection":
 			current_option = CHARACTER_SELECTION_SCENE.instantiate()
+			self.add_child(current_option)
+		"Lore":
+			current_option = LORE_SCENE.instantiate()
 			self.add_child(current_option)
 		"Regras":
 			current_option = REGRAS_SCENE.instantiate()

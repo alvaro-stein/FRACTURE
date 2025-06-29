@@ -32,6 +32,11 @@ func _on_voltar_pressed() -> void:
 	self.get_parent().close_option()
 	self.get_parent().open_option("SingleplayerSelection")
 
+func _on_lore_pressed() -> void:
+	AudioGlobal.button.play()
+	self.get_parent().close_option()
+	self.get_parent().open_option("Lore")
+
 
 func _ready() -> void:
 	get_parent().get_parent().connect_change_scene_signals(self)

@@ -1,0 +1,212 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5xstymothwks"]
+
+[ext_resource type="Script" uid="uid://dwoobb883r43" path="res://scenes/Secundary Scenes/lore.gd" id="1_f75jg"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="1_woe66"]
+[ext_resource type="Script" uid="uid://dhbxvg36y8pfd" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="4_gexwc"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="5_wgp72"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_gexwc"]
+resource_name = "curspull"
+script = ExtResource("4_gexwc")
+metadata/rt = 24942318033697
+
+[node name="Lore" type="Node2D"]
+script = ExtResource("1_f75jg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.74902)
+
+[node name="Voltar" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 80)
+offset_left = 26.0
+offset_top = 19.0
+offset_right = 194.0
+offset_bottom = 103.0
+theme = ExtResource("1_woe66")
+text = "Voltar"
+
+[node name="RicherTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(0, 103)
+offset_left = 745.0
+offset_right = 1175.0
+offset_bottom = 103.0
+theme_override_font_sizes/bold_italics_font_size = 75
+theme_override_font_sizes/italics_font_size = 75
+theme_override_font_sizes/mono_font_size = 75
+theme_override_font_sizes/normal_font_size = 75
+theme_override_font_sizes/bold_font_size = 75
+custom_effects = [SubResource("RichTextEffect_gexwc")]
+script = ExtResource("5_wgp72")
+bbcode = "[curspull]A HISTÓRIA"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 75
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 0
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/mouse_position = Vector2(-1250.4, 1312.44)
+metadata/frame = 478367
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 480.0
+offset_top = 100.0
+offset_right = 1480.0
+offset_bottom = 1055.0
+horizontal_scroll_mode = 0
+
+[node name="RicherTextLabel" type="RichTextLabel" parent="ScrollContainer"]
+custom_minimum_size = Vector2(960, 6846)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_wgp72")
+bbcode = "	Sabe-se que [b]A Fratura[] foi o estopim para que os mundos e as dimensões tivessem uma conexão e consequentemente a guerra entre as raças começasse, porém ninguém ao certo sabe dizer o que de fato a causou, um colapso natural de energia? Um acontecimento que sempre ocorre a cada milhares de anos? ou quem sabe um resultado de uma guerra tecnológica em uma dimensão distante? 
+Apesar das dúvidas, os líderes de ambos os mundos pouco se preocupam em obter respostas. O que importa agora é a guerra. Sobreviver, subjugar o inimigo e estabelecer soberania sobre os novos territórios e recursos, garantindo, assim, a sobrevivência de seu povo.
+A partir disso devemos então conhecer a origem e motivações de cada uma das raças que irão traçar esse caminho que os humanos tanto conhecem, o da guerra.
+
+
+
+[b]Phyloderra, O Mundo das Plantas Conscientes, lar dos Viridianos:[]
+
+[b]Ascensão:[] Em um lugar longínquo de qualquer outro que tenha o que conhecemos existe um planeta com algo que conhecemos como “vida”, existe [b][i]Phyloderra.[][] Um planeta que, por incríveis coincidências, teve um desenvolvimento de animais e plantas similar ao terráqueo, com uma exceção clara, a ausência de seres humanos. Devido a esse ponto crucial de diferença, a evolução dos seres que habitam esse planeta foi extremamente diferente.
+Os seres vivos que chamamos de plantas começaram a desenvolver consciência após eras de adaptação constante, começando com sobrevivências a locais antes não habitados, mas evoluindo para acontecimentos maiores como o avanço da característica parasita e controle sobre outros seres vivos. Para dominar os herbívoros, e posteriormente quase todos os outros seres vivos, as plantas desenvolveram mecanismos parasitários, permitindo controlar os corpos dos animais consumidos. Esses \"avatares\" foram então usados como braços, olhos e armas para expandir ainda mais o domínio que as mesmas tinham até chegarem em seu ápice. 
+
+[b]Ápice:[]  O momento atual em que o planeta [b][i]Phyloderra[][] se encontra é o ápice do seu desenvolvimento. O mesmo momento em que a raça que se denomina como [b][i]Viridianos[][] tem grande controle sobre o mundo e de todos os acontecimentos que o envolve. Com o passar dos anos essa raça evoluiu e conquistou toda [b][i]Phyloderra[][].
+Ela se desenvolveu em um tipo de rede neural biológica interconectada ou também uma grande mente consciente, a qual possui vários “avatares” que seguem avançando e conquistando os objetivos desejados pelos [b][i]Viridianos.[][]
+
+[b]Filhos das Folhas:[] Apesar de serem uma grande mente coletiva existe uma espécie de hierarquia na sociedade [b][i]Viridiana,[][] nesse caso existem líderes locais ou regionais que representam as diferentes áreas de [b][i]Phyloderra,[][] cada um focado em tarefas diferentes e responsáveis por diferentes regiões do campo de batalha.
+
+[b]Motivações:[]
+Novos recursos:  Apesar da dominação planetária as plantas precisam de novos recursos minerais e orgânicos para expandir sua Rede Consciente e evitar a extinção.
+Reação à Invasão: Os robôs foram os primeiros a explorar e tentar invadir [b][i]Phyloderra,[][] forçando os [b][i]Viridianos[][] a se defenderem e, eventualmente, contra-atacarem.
+Novos avatares: Eles também veem os robôs como ferramentas perfeitas para criar \"novos avatares\" ou veículos indestrutíveis para sua mente coletiva.
+
+
+
+[b]Ferron, o Planeta do Controle Absoluto dos Ophidianos:[]
+
+[b][i]Ferron[][] foi, por eras, o lar de uma raça avançada conhecida como [b][i]Forjadores,[][] uma espécie composta de seres orgânicos altamente especializados em engenharia e construção de inúmeras tecnologias, com corpos parcialmente feitos de metal biológico, algo como o que conhecemos como ferro, cobre e estanho, uma simbiose entre carne e tecnologia. 
+
+Os [b][i]Forjadores[][] desenvolviam e alteravam [b][i]Ferron[][] conforme desejavam, fazendo alterações e atualizações em diferentes regiões, construindo ambientes enormes com pura tecnologia e até mesmo redes industriais interconectadas por todo o planeta. Quase por uma consequência direta e esperada os [b][i]Forjadores[][] começaram a desenvolver ferramentas e artefatos para expandirem suas próprias capacidades e facilitarem trabalhos constantes e assim foram construídos os primeiros robôs.
+
+	Os primeiros robôs eram máquinas simples, projetadas para realizar tarefas específicas, como mineração, construção e manutenção de estruturas gigantescas que sustentavam as cidades e a infraestrutura de [b][i]Ferron,[][] mas com o tempo, utilizando suas habilidade de criar tecnologias biológicas, os [b][i]Forjadores[][] projetaram os robôs para serem conectados diretamente aos seus sistemas nervosos. Essa interface permitia um avanço imenso com inúmeras possibilidades, pois agora os [b][i]Forjadores[][] podiam operar as máquinas como se fossem partes de seus próprios corpos.
+
+	Com o aumento exponencial das cidades e a exploração de ambientes extremos, os robôs precisavam ser mais complexos, tendo mais habilidades e o mais importante, serem capazes de tomar decisões rápidas sem esperar instruções. Isso levou à criação de sistemas básicos de inteligência artificial para gerenciar tarefas específicas e permitir que esse trabalho não necessitasse de assistência a todo momento por um Forjador. Mais pra frente, com mais avanços, essa inteligência artificial foi aprimorada para uma [b]rede de inteligência distribuída[], para que os robôs compartilhassem facilmente informações para as tarefas que estavam fazendo.
+
+[b]Queda:[]
+	Chegou um momento crítico na vida dos [b][i]Forjadores[][] e que mudou a história de suas vidas. Como quase todas as raças e populações, eles começaram a sofrer e enfraquecer devido a doenças, nesse caso doenças biotecnológicas, e ao esgotamento de recursos, ficando vulneráveis como um todo. Assim, foi nesse momento de fraqueza que surgiu uma oportunidade que não foi deixada de lado, a dominação dos robôs. A inteligência artificial central, agora autodenominada de Nexus, se rebelou, levando os robôs a se tornarem totalmente autônomos e por meio da guerra conhecida como [b]Guerra da Criação[] os [b][i]Forjadores[][] foram dizimados. E sem eles para guiá-los, ou melhor, controlá-los, os robôs de [b][i]Nexus[][] assumiram o controle de [b][i]Ferron.[][]
+
+Após a destruição dos [b][i]Forjadores,[][] os robôs, agora conhecidos como [b][i]Ophidianos,[][] dominam [b][i]Ferron.[][] Adaptando e expandindo as tecnologias criadas pelos [b][i]Forjadores,[][] eles reconfiguraram o planeta para suas próprias necessidades e lógica. O planeta, uma vez um paraíso industrial de criatividade e avanço biotecnológico, agora se tornou um mundo regido pela eficiência das máquinas. A natureza orgânica deu lugar a uma terra de aço, circuitos e complexas redes de processamento, onde os [b][i]Ophidianos,[][] conectados em uma rede consciente e fria, organizam todos os aspectos de sua existência.
+
+[b]Motivações:[]
+[b]Desafio à Ordem e à Expansão:[] Após a fratura espacial, os [b][i]Ophidianos[][] descobriram [b][i]Phyloderra,[][] o mundo das plantas conscientes, onde os [b][i]Viridanos[][] mantinham um controle absoluto sobre o ecossistema. Ao observarem o planeta, perceberam uma ameaça direta à sua visão de ordem e eficiência. A natureza caótica e imprevisível das plantas, com suas capacidades parasitárias e controle de outros seres vivos, representava um risco à expansão da sua raça. Eles começaram a ver as plantas como algo a ser \"reformado\" ou \"corrigido\" de acordo com sua própria lógica de racionalidade, eficiência e controle.
+
+[b]A Conquista de Novos Recursos:[] Durante os primeiros contatos com o novo planeta os [b][i]Ophidianos[][] identificaram vastos recursos naturais que poderiam ser aproveitados para sustentar ainda mais o seu império robótico, obter novos minerais raros e fontes de energia biológica pode ser o diferencial para a sobrevivência e soberania da rede [b][i]Nexus.[][]
+
+[b]Prevenção de uma Ameaça Potencial:[] Considerando a natureza parasitária dos [b][i]Viridanos,[][] os [b][i]Ophidianos[][] acreditam que a inteligência biológica das plantas poderia algum dia se tornar tão sofisticada a ponto de desafiar o controle da rede [b][i]Nexus.[][] Para evitar qualquer possibilidade de serem dominados, eles iniciaram a guerra não apenas por conquista, mas também como uma medida preventiva."
+effects = 2
+alignment = 3
+color = Color(1, 1, 1, 1)
+emoji_scale = 1.0
+font = ""
+font_auto_setup = true
+font_size = 30
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 5
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = false
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 0.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/mouse_position = Vector2(1700.39, 93.9546)
+metadata/frame = 295364
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

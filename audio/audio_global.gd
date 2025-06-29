@@ -10,6 +10,7 @@ extends Node
 @onready var win_score: AudioStreamPlayer = $WinScore
 @onready var lose_score: AudioStreamPlayer = $LoseScore
 @onready var even_score: AudioStreamPlayer = $EvenScore
+@onready var mana_spend: AudioStreamPlayer = $ManaSpend
 
 
 var master_bus_idx := AudioServer.get_bus_index("Master")
