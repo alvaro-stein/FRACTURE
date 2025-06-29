@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://chcupi57h2k6r"]
+[gd_scene load_steps=44 format=3 uid="uid://chcupi57h2k6r"]
 
 [ext_resource type="Script" uid="uid://i2dw8kpocqst" path="res://scenes/Menu/Creditos/creditos.gd" id="1_q67wh"]
-[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="3_8auk5"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_bv7u2"]
 [ext_resource type="Script" uid="uid://dhbxvg36y8pfd" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="3_df636"]
 [ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="4_draql"]
@@ -9,11 +8,167 @@
 [ext_resource type="Texture2D" uid="uid://v8cqeay5icvi" path="res://assets/sprites/github.png" id="5_rqnra"]
 [ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="5_xttpw"]
 [ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="6_4iww2"]
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="7_rqnra"]
+
+[sub_resource type="FontVariation" id="FontVariation_jr2f8"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_iretd"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_levtm"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_rqnra"]
 resource_name = "curspull"
 script = ExtResource("3_df636")
-metadata/rt = 37007904576389
+metadata/rt = 2334549690343
+
+[sub_resource type="FontVariation" id="FontVariation_uogym"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_qktxa"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_83bfs"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_ioivv"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_7lk1c"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_8sra1"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_rqnra"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_obwsw"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_7bnaf"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_xy8ce"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_lm5si"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_c76wj"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_rbxtj"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_88he5"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_vw2ma"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_uel4j"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_yv2eh"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_pxkw8"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_5c27s"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_7yxlj"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_em5cw"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_nmubk"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_otbqy"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_4hy2m"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_li05q"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_2n1l0"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_o780f"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
+[sub_resource type="FontVariation" id="FontVariation_df636"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = -0.25
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_pobr2"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_nrgu1"]
+base_font = ExtResource("7_rqnra")
+variation_embolden = 1.5
+
 [node name="Créditos" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -31,220 +186,83 @@ color = Color(0, 0, 0, 0.74902)
 
 [node name="Título" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 103)
+custom_minimum_size = Vector2(0, 108)
 layout_mode = 2
 offset_left = 722.0
 offset_top = 117.0
 offset_right = 1199.0
-offset_bottom = 220.0
+offset_bottom = 225.0
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_jr2f8")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_iretd")
+theme_override_fonts/bold_font = SubResource("FontVariation_levtm")
 theme_override_font_sizes/bold_italics_font_size = 75
 theme_override_font_sizes/italics_font_size = 75
 theme_override_font_sizes/mono_font_size = 75
 theme_override_font_sizes/normal_font_size = 75
 theme_override_font_sizes/bold_font_size = 75
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]CRÉDITOS"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_rqnra")]
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3][curspull]CRÉDITOS"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 75
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
-metadata/mouse_position = Vector2(109.554, 320.641)
-metadata/frame = 465691
+metadata/mouse_position = Vector2(-33.1139, 234.881)
+metadata/frame = 13645
+
 [node name="Desenvolvedores" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 69)
+custom_minimum_size = Vector2(0, 73)
 layout_mode = 2
 offset_left = 533.0
 offset_top = 350.0
 offset_right = 1388.0
-offset_bottom = 419.0
+offset_bottom = 423.0
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_uogym")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_qktxa")
+theme_override_fonts/bold_font = SubResource("FontVariation_83bfs")
 theme_override_font_sizes/bold_italics_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
 theme_override_font_sizes/mono_font_size = 50
 theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]DESENVOLVEDORES"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]DESENVOLVEDORES"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 50
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(1719.67, 40.9796)
 metadata/frame = 448061
 
-[node name="Arte" type="RichTextLabel" parent="."]
+[node name="Artistas" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 69)
+custom_minimum_size = Vector2(0, 73)
 layout_mode = 2
 offset_left = 722.0
 offset_top = 650.0
 offset_right = 1199.0
-offset_bottom = 719.0
+offset_bottom = 723.0
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_ioivv")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_7lk1c")
+theme_override_fonts/bold_font = SubResource("FontVariation_8sra1")
 theme_override_font_sizes/bold_italics_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
 theme_override_font_sizes/mono_font_size = 50
 theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]ARTISTAS"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]ARTE"
-effects = 2
-alignment = 1
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 50
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(1532.81, -237.585)
 metadata/frame = 447752
 
@@ -270,593 +288,227 @@ texture = ExtResource("5_df636")
 
 [node name="Nome1" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 69)
+custom_minimum_size = Vector2(0, 73)
 layout_mode = 0
 offset_left = 535.0
 offset_top = 430.0
 offset_right = 1015.0
-offset_bottom = 499.0
+offset_bottom = 503.0
 pivot_offset = Vector2(240, 34.5)
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_rqnra")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_obwsw")
+theme_override_fonts/bold_font = SubResource("FontVariation_7bnaf")
 theme_override_font_sizes/bold_italics_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
 theme_override_font_sizes/mono_font_size = 50
 theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
+text = "[wave amp=15 freq=3] Álvaro Neves Stein"
 fit_content = true
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3] Álvaro Neves Stein"
-effects = 2
-alignment = 2
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 50
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = true
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(1150.82, 51.8622)
 metadata/frame = 1093971
 
 [node name="Nome2" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 69)
+custom_minimum_size = Vector2(0, 73)
 layout_mode = 0
 offset_left = 535.0
 offset_top = 510.0
 offset_right = 1015.0
-offset_bottom = 579.0
+offset_bottom = 583.0
 pivot_offset = Vector2(240, 34.5)
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_xy8ce")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_lm5si")
+theme_override_fonts/bold_font = SubResource("FontVariation_c76wj")
 theme_override_font_sizes/bold_italics_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
 theme_override_font_sizes/mono_font_size = 50
 theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]João Vitor E. Souza"
 fit_content = true
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]João Vitor E. Souza"
-effects = 2
-alignment = 2
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 50
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = true
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://assets/sprites/github.png"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(1133.51, -22.8138)
 metadata/frame = 1094237
 
 [node name="Nome3" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 69)
+custom_minimum_size = Vector2(0, 73)
 layout_mode = 0
 offset_left = 535.0
 offset_top = 730.0
 offset_right = 1015.0
-offset_bottom = 799.0
+offset_bottom = 803.0
 pivot_offset = Vector2(240, 34.5)
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_rbxtj")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_88he5")
+theme_override_fonts/bold_font = SubResource("FontVariation_vw2ma")
 theme_override_font_sizes/bold_italics_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
 theme_override_font_sizes/mono_font_size = 50
 theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]Isabela E. Souza"
 fit_content = true
+horizontal_alignment = 2
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]Isabela E. Souza"
-effects = 2
-alignment = 2
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 50
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = true
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://assets/sprites/github.png"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(1133.51, -22.8138)
 metadata/frame = 1094237
 
 [node name="Nome4" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 69)
+custom_minimum_size = Vector2(0, 73)
 layout_mode = 0
 offset_left = 535.0
 offset_top = 810.0
 offset_right = 1015.0
-offset_bottom = 879.0
+offset_bottom = 883.0
 pivot_offset = Vector2(240, 34.5)
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.25)
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_uel4j")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_yv2eh")
+theme_override_fonts/bold_font = SubResource("FontVariation_pxkw8")
 theme_override_font_sizes/bold_italics_font_size = 50
 theme_override_font_sizes/italics_font_size = 50
 theme_override_font_sizes/mono_font_size = 50
 theme_override_font_sizes/normal_font_size = 50
 theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]Sofia Castro G."
 fit_content = true
+horizontal_alignment = 2
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]Sofia Castro G."
-effects = 2
-alignment = 2
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 50
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = true
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://assets/sprites/github.png"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(1133.51, -22.8138)
 metadata/frame = 1094237
 
 [node name="github1" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 55)
+custom_minimum_size = Vector2(0, 58)
 layout_mode = 0
 offset_left = 1085.0
 offset_top = 437.0
 offset_right = 1565.0
-offset_bottom = 492.0
+offset_bottom = 495.0
 pivot_offset = Vector2(240, 27.5)
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_5c27s")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_7yxlj")
+theme_override_fonts/bold_font = SubResource("FontVariation_em5cw")
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
 theme_override_font_sizes/normal_font_size = 40
 theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]@alvaro-stein"
 fit_content = true
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]@alvaro-stein"
-effects = 2
-alignment = 0
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 40
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(534.266, 78.4822)
 metadata/frame = 1094843
 
 [node name="github2" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 55)
+custom_minimum_size = Vector2(0, 58)
 layout_mode = 0
 offset_left = 1085.0
 offset_top = 517.0
 offset_right = 1565.0
-offset_bottom = 572.0
+offset_bottom = 575.0
 pivot_offset = Vector2(240, 27.5)
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_nmubk")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_otbqy")
+theme_override_fonts/bold_font = SubResource("FontVariation_4hy2m")
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
 theme_override_font_sizes/normal_font_size = 40
 theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]@1JoaoVitor"
 fit_content = true
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]@1JoaoVitor"
-effects = 2
-alignment = 0
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 40
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(506.315, -32.1308)
 metadata/frame = 1095032
 
 [node name="insta1" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 55)
+custom_minimum_size = Vector2(0, 58)
 layout_mode = 0
 offset_left = 1085.0
 offset_top = 737.0
 offset_right = 1565.0
-offset_bottom = 792.0
+offset_bottom = 795.0
 pivot_offset = Vector2(240, 27.5)
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_li05q")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_2n1l0")
+theme_override_fonts/bold_font = SubResource("FontVariation_o780f")
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
 theme_override_font_sizes/normal_font_size = 40
 theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]@atelie.strach"
 fit_content = true
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]@atelie.strach"
-effects = 2
-alignment = 0
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 40
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(506.315, -32.1308)
 metadata/frame = 1095032
 
 [node name="insta2" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 55)
+custom_minimum_size = Vector2(0, 58)
 layout_mode = 0
 offset_left = 1085.0
 offset_top = 817.0
 offset_right = 1565.0
-offset_bottom = 872.0
+offset_bottom = 875.0
 pivot_offset = Vector2(240, 27.5)
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/normal_font = ExtResource("7_rqnra")
+theme_override_fonts/italics_font = SubResource("FontVariation_df636")
+theme_override_fonts/bold_italics_font = SubResource("FontVariation_pobr2")
+theme_override_fonts/bold_font = SubResource("FontVariation_nrgu1")
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
 theme_override_font_sizes/normal_font_size = 40
 theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
+text = "[wave amp=15 freq=3]@lucin_pi "
 fit_content = true
 vertical_alignment = 1
-script = ExtResource("3_8auk5")
-bbcode = "[wave amp=15 freq=3]@lucin_pi"
-effects = 2
-alignment = 0
-color = Color(1, 1, 1, 1)
-emoji_scale = 1.0
-font = ""
-font_auto_setup = true
-font_size = 40
-font_bold_weight = 1.5
-font_italics_slant = 0.25
-font_italics_weight = -0.25
-shadow_enabled = false
-shadow_offset = 0.08
-shadow_alpha = 0.25
-shadow_outline_size = 0.1
-outline_size = 0
-outline_mode = 1
-outline_adjust = 0.8
-outline_hue_adjust = 0.0125
-nicer_quotes_enabled = true
-nicer_quotes_format = "“%s”"
-markdown_enabled = true
-markdown_format_bold = "[b]%s[]"
-markdown_format_italics = "[i]%s[]"
-markdown_format_bold_italics = "[bi]%s[]"
-markdown_format_highlight = "[green;sin]%s[]"
-markdown_format_bold2 = "[b]*%s*[]"
-markdown_format_italics2 = "[i;gray]*%s*[]"
-markdown_format_bold_italics2 = "%s"
-context_enabled = true
-context_path = NodePath("/root/State")
-context_state = {}
-context_rich_objects = true
-context_rich_ints = true
-context_rich_array = true
-autostyle_numbers = true
-autostyle_numbers_tag = "[salmon]%s[]"
-autostyle_numbers_pad_decimals = true
-autostyle_numbers_decimals = 2
-autostyle_emojis = true
-effect_weight = 0.0
-image_path = "res://"
-image_resize_to_font_size = true
-image_scale = 1.0
-meta_auto_https = true
-meta_cursor = 2
-override_bbcodeEnabled = true
-override_clipContents = false
-override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
 metadata/mouse_position = Vector2(506.315, -32.1308)
 metadata/frame = 1095032
 
@@ -875,6 +527,7 @@ offset_bottom = -430.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_bv7u2")
+theme_override_fonts/font = ExtResource("7_rqnra")
 text = "Voltar"
 
 [node name="botaosom" type="AudioStreamPlayer" parent="."]

@@ -7,7 +7,7 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_wfiso"]
 resource_name = "curspull"
 script = ExtResource("2_wfiso")
-metadata/rt = 2380804474848
+metadata/rt = 2386609391918
 
 [node name="EndScene" type="ColorRect"]
 z_index = 10
@@ -95,8 +95,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://2f4fi75scxes"
-metadata/mouse_position = Vector2(-550.215, 272.557)
-metadata/frame = 430646
+metadata/mouse_position = Vector2(-893.646, 341.522)
+metadata/frame = 297562
 
 [node name="Button" type="Button" parent="."]
 visible = false

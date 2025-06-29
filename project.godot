@@ -28,7 +28,7 @@ GameSettings="*res://game_settings.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://bbh05j1qc3ti3"
@@ -49,6 +49,7 @@ Esc={
 [richer_text_label]
 
 fonts={
+&"NewRocker": "res://assets/fonts/NewRocker-Regular.ttf",
 &"VehicleBreaksDown": "res://fonte/VehicleBreaksDown-Regular.ttf",
 &"WOODCUTTER STORM": "res://fonte/WOODCUTTER STORM.ttf"
 }

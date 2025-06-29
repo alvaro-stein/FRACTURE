@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://q26prbnehvdf"]
+[gd_scene load_steps=15 format=3 uid="uid://q26prbnehvdf"]
 
 [ext_resource type="Script" uid="uid://su2n3grymllj" path="res://scenes/Menu/menu.gd" id="1_dnmm8"]
 [ext_resource type="AudioStream" uid="uid://ll5p6y3h6lbu" path="res://audio/sfx/Somfundo/somventoloop.mp3" id="2_nqj45"]
@@ -8,20 +8,15 @@
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="6_dsxoc"]
 [ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="7_1ro1i"]
 [ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="8_ywsxe"]
-[ext_resource type="FontFile" uid="uid://3bpd2kpm1dyv" path="res://fonte/VehicleBreaksDown-Regular.ttf" id="9_8y810"]
+[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="9_nqj45"]
 [ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="10_cbysg"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="10_t022d"]
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="14_sum3h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fmqe5"]
 shader = ExtResource("6_dsxoc")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.383
-
-[sub_resource type="LabelSettings" id="LabelSettings_rucv2"]
-font = ExtResource("9_8y810")
-font_size = 150
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 1)
-shadow_offset = Vector2(0, 4)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmxqu"]
 
@@ -57,10 +52,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -138.0
-offset_top = -132.0
-offset_right = 210.0
-offset_bottom = 64.0
+offset_left = -163.0
+offset_top = -45.0
+offset_right = 185.0
+offset_bottom = 151.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_1ro1i")
@@ -93,22 +88,87 @@ scale_amount_min = 0.1
 scale_amount_max = 0.2
 color = Color(0.568627, 0.831373, 1, 0.380392)
 
-[node name="titulo" type="Label" parent="."]
+[node name="titulo" type="RichTextLabel" parent="."]
+clip_contents = false
+custom_minimum_size = Vector2(0, 209)
 layout_mode = 2
+offset_top = 191.0
 offset_right = 1920.0
-offset_bottom = 350.0
+offset_bottom = 478.0
 size_flags_horizontal = 4
-text = "Fracture"
-label_settings = SubResource("LabelSettings_rucv2")
+theme_override_colors/default_color = Color(1, 1, 1, 0.901961)
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 0.901961)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/bold_italics_font_size = 200
+theme_override_font_sizes/italics_font_size = 200
+theme_override_font_sizes/mono_font_size = 200
+theme_override_font_sizes/normal_font_size = 200
+theme_override_font_sizes/bold_font_size = 200
+bbcode_enabled = true
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 2
+script = ExtResource("9_nqj45")
+bbcode = "FRACTURE"
+effects = 2
+alignment = 1
+color = Color(1, 1, 1, 0.901961)
+emoji_scale = 1.0
+font = "WOODCUTTER STORM"
+font_auto_setup = true
+font_size = 200
+font_bold_weight = 1.5
+font_italics_slant = 0.25
+font_italics_weight = -0.25
+shadow_enabled = false
+shadow_offset = 0.08
+shadow_alpha = 0.25
+shadow_outline_size = 0.1
+outline_size = 10
+outline_mode = 1
+outline_adjust = 0.8
+outline_hue_adjust = 0.0125
+nicer_quotes_enabled = true
+nicer_quotes_format = "“%s”"
+markdown_enabled = true
+markdown_format_bold = "[b]%s[]"
+markdown_format_italics = "[i]%s[]"
+markdown_format_bold_italics = "[bi]%s[]"
+markdown_format_highlight = "[green;sin]%s[]"
+markdown_format_bold2 = "[b]*%s*[]"
+markdown_format_italics2 = "[i;gray]*%s*[]"
+markdown_format_bold_italics2 = "%s"
+context_enabled = true
+context_path = NodePath("/root/State")
+context_state = {}
+context_rich_objects = true
+context_rich_ints = true
+context_rich_array = true
+autostyle_numbers = true
+autostyle_numbers_tag = "[salmon]%s[]"
+autostyle_numbers_pad_decimals = true
+autostyle_numbers_decimals = 2
+autostyle_emojis = true
+effect_weight = 1.0
+image_path = "res://"
+image_resize_to_font_size = true
+image_scale = 1.0
+meta_auto_https = true
+meta_cursor = 2
+override_bbcodeEnabled = true
+override_clipContents = false
+override_fitContent = true
+metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/mouse_position = Vector2(2610.48, 256.245)
+metadata/frame = 14259
+metadata/rand = Array[int]([688301870, 3266039292, 577069048, 213665041, 3284394005, 2257804248, 1038385835, 1082403092])
 
 [node name="ButtonsBox" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 766.0
-offset_top = 526.0
-offset_right = 1153.0
-offset_bottom = 1105.0
+offset_left = 80.0
+offset_top = 540.0
+offset_right = 472.0
+offset_bottom = 1119.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/separation = 20
@@ -116,36 +176,52 @@ alignment = 1
 
 [node name="jogar_button" type="Button" parent="ButtonsBox" groups=["buttons"]]
 layout_mode = 2
-theme = ExtResource("10_cbysg")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme = ExtResource("10_t022d")
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_sum3h")
+theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
 text = "Jogar"
+flat = true
+alignment = 0
 
 [node name="configuracao_button" type="Button" parent="ButtonsBox" groups=["buttons"]]
 layout_mode = 2
 theme = ExtResource("10_cbysg")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_sum3h")
+theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
 text = "Configurações"
+flat = true
+alignment = 0
 
 [node name="creditos_button" type="Button" parent="ButtonsBox" groups=["buttons"]]
 layout_mode = 2
 theme = ExtResource("10_cbysg")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_sum3h")
+theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
 text = "Creditos"
+flat = true
+alignment = 0
 
 [node name="sair_button" type="Button" parent="ButtonsBox" groups=["buttons"]]
 layout_mode = 2
 theme = ExtResource("10_cbysg")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("14_sum3h")
+theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
 text = "Sair"
+flat = true
+alignment = 0

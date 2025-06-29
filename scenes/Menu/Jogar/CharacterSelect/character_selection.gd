@@ -2,20 +2,20 @@ extends Node2D
 
 signal change_scene_to
 
-@onready var jogar_label: RicherTextLabel = $JogarLabel
+@onready var jogar_label: RichTextLabel = $JogarLabel
 @onready var jogar_button: Button = $JogarLabel/JogarButton
 
 @onready var ophidian: Button = $Ophidiano
 @onready var ophidian_background: Sprite2D = $OphidianBackground
 @onready var ophidian_color_rect: ColorRect = $Ophidiano/ColorRect
 @onready var ophidian_description: RichTextLabel = $Ophidiano/Description
-@onready var ophidian_name: RicherTextLabel = $Ophidiano/Name
+@onready var ophidian_name: RichTextLabel = $Ophidiano/Name
 
 @onready var viridian: Button = $Viridiano
 @onready var viridian_background: Sprite2D = $ViridianBackground
 @onready var viridian_color_rect: ColorRect = $Viridiano/ColorRect
 @onready var viridian_description: RichTextLabel = $Viridiano/Description
-@onready var viridian_name: RicherTextLabel = $Viridiano/Name
+@onready var viridian_name: RichTextLabel = $Viridiano/Name
 
 var character_selected: String = ""
 var tween1: Tween
