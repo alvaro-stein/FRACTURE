@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ebsp8cgsjef6"]
 
-[ext_resource type="Script" uid="uid://dgsf6tyx50isy" path="res://scenes/Cards/deck.gd" id="1_4e1uv"]
+[ext_resource type="Script" uid="uid://dgsf6tyx50isy" path="res://scenes/cards/deck.gd" id="1_4e1uv"]
 [ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="2_dea8j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u5uvd"]

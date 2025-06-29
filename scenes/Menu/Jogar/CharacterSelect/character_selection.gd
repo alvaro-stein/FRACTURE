@@ -191,8 +191,8 @@ func _on_jogar_pressed() -> void:
 	jogar_button.release_focus()
 	match character_selected:
 		"Ophidianos":
-			GameSettings.race = "Ophidianos"
+			GameSettings.race = "OPH"
 			emit_signal("change_scene_to", "Match")
 		"Viridianos":
-			GameSettings.race = "Viridianos"
+			GameSettings.race = "VIR"
 			emit_signal("change_scene_to", "Match")
