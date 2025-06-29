@@ -66,11 +66,12 @@ func change_mana_visibility(mana: Sprite2D, turn_visible: bool) -> void:
 	if turn_visible:
 		mana.modulate.a = 1.0
 	else: # turn "invisible"
+		AudioGlobal.mana_spend.play()
 		mana.modulate.a = 0.25
 
 func reset_mana():
 	self.big_mana_player = 1
-	self.small_mana_player  = 2
+	self.small_mana_player = 2
 	self.update_mana_visual(small_mana_player, big_mana_player)
 	
 	
