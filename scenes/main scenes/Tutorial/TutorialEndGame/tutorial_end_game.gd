@@ -58,8 +58,7 @@ func clock_clicked():
 		return
 	clock_clicked_on_time += 1
 	clock.disabled = false
-	text_box_2.visible = true 
-	text_box.visible = false
+	
 	clock.stop_timer()
 	
 	continue_button.disabled = false
@@ -72,6 +71,12 @@ func clock_clicked():
 	card.get_node("Area2D/CollisionShape2D").disabled = false
 	#player_hand.animation_speed = 0.3
 	player_hand_forge_2.add_card_to_hand(card)
+	
+	text_box.visible = false
+	
+	text_box_2.progress = 0.0
+	await get_tree().create_timer(0.3).timeout
+	text_box_2.visible = true
 
 
 func _input(event: InputEvent) -> void:
