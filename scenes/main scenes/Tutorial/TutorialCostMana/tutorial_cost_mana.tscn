@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3rfw60x6wiso"]
+[gd_scene load_steps=12 format=3 uid="uid://d3rfw60x6wiso"]
 
 [ext_resource type="Script" uid="uid://cxs6chdv4oew2" path="res://scenes/main scenes/Tutorial/TutorialCostMana/tutorial_cost_mana.gd" id="1_vawe5"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_mp4ke"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_wbmvw"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="4_4svlh"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_vi61b"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="5_771x5"]
 [ext_resource type="Texture2D" uid="uid://brsnj1c5rwdei" path="res://assets/mana/Mana Pequena.png" id="6_6cryy"]
@@ -43,6 +44,7 @@ offset_right = 1870.0
 offset_bottom = 1030.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_4svlh")
 theme_override_font_sizes/font_size = 25
 text = "Continuar"
 
@@ -57,6 +59,7 @@ offset_top = 987.0
 offset_right = 179.0
 offset_bottom = 1030.0
 grow_vertical = 0
+theme = ExtResource("4_4svlh")
 theme_override_font_sizes/font_size = 25
 text = "Voltar"
 

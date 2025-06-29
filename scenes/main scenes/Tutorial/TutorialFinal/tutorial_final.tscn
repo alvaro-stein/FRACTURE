@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbr2fnu5o4ik6"]
+[gd_scene load_steps=10 format=3 uid="uid://bbr2fnu5o4ik6"]
 
 [ext_resource type="Script" uid="uid://dryg8mdjk05gb" path="res://scenes/main scenes/Tutorial/TutorialFinal/tutorial_final.gd" id="1_ol7p4"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_l2j7c"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="4_2205o"]
 [ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="5_l2j7c"]
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="6_psv72"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="7_psv72"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5mxmq"]
 shader = ExtResource("2_l2j7c")
@@ -15,7 +16,7 @@ shader_parameter/intensity = 1.5
 [sub_resource type="RichTextEffect" id="RichTextEffect_2205o"]
 resource_name = "fader"
 script = ExtResource("5_l2j7c")
-metadata/rt = 7134041430224
+metadata/rt = 2579580929612
 
 [node name="TutorialFinal" type="Node2D"]
 script = ExtResource("1_ol7p4")
@@ -145,6 +146,7 @@ offset_right = 1067.5
 offset_bottom = 891.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_psv72")
 theme_override_font_sizes/font_size = 50
 text = "Menu"
 

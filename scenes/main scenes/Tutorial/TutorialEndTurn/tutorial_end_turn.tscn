@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b28wrkk8fgr6r"]
+[gd_scene load_steps=18 format=3 uid="uid://b28wrkk8fgr6r"]
 
 [ext_resource type="Script" uid="uid://dy4umbdb861xr" path="res://scenes/main scenes/Tutorial/TutorialEndTurn/tutorial_end_turn.gd" id="1_anrqf"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_b11ue"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_sdrqq"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_hq0xl"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="4_hyj77"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="6_ylm2i"]
 [ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="7_weiuc"]
 [ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="9_30vdb"]
@@ -23,12 +24,12 @@ shader_parameter/intensity = 1.5
 [sub_resource type="RichTextEffect" id="RichTextEffect_176y8"]
 resource_name = "fader"
 script = ExtResource("9_30vdb")
-metadata/rt = 6363849776739
+metadata/rt = 2550489236866
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ybj2l"]
 resource_name = "fader"
 script = ExtResource("9_30vdb")
-metadata/rt = 6659363657892
+metadata/rt = 2550824781192
 
 [node name="TutorialEndTurn" type="Node2D"]
 script = ExtResource("1_anrqf")
@@ -59,6 +60,7 @@ offset_right = 1870.0
 offset_bottom = 1030.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_hyj77")
 theme_override_font_sizes/font_size = 25
 text = "Continuar"
 metadata/_edit_use_anchors_ = true
@@ -76,6 +78,7 @@ offset_top = 987.0
 offset_right = 179.0
 offset_bottom = 1030.0
 grow_vertical = 0
+theme = ExtResource("4_hyj77")
 theme_override_font_sizes/font_size = 25
 text = "Voltar"
 metadata/_edit_use_anchors_ = true

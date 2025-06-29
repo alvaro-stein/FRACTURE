@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://drxfne1t0ywe2"]
+[gd_scene load_steps=15 format=3 uid="uid://drxfne1t0ywe2"]
 
 [ext_resource type="Script" uid="uid://wf3m7afhb1bx" path="res://scenes/main scenes/Tutorial/TutorialHowToWin/tutorial_how_to_win.gd" id="1_gan2o"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_0dpyl"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_v2yg4"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_jgxhd"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="4_ptf4w"]
 [ext_resource type="PackedScene" uid="uid://jt80x3adspxv" path="res://scenes/Cards/card_slot_manager.tscn" id="5_1yam0"]
 [ext_resource type="PackedScene" uid="uid://ddkgpa37r2cnu" path="res://scenes/main scenes/Match/score.tscn" id="6_7ksht"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="7_3f0w1"]
@@ -17,10 +18,10 @@ shader = ExtResource("2_0dpyl")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.5
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_twwxt"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_rgu7d"]
 resource_name = "fader"
 script = ExtResource("10_twwxt")
-metadata/rt = 8737741956842
+metadata/rt = 12653024092059
 
 [node name="TutorialHowToWin" type="Node2D"]
 script = ExtResource("1_gan2o")
@@ -44,6 +45,7 @@ offset_right = 1870.0
 offset_bottom = 1030.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_ptf4w")
 theme_override_font_sizes/font_size = 25
 text = "Continuar"
 
@@ -58,6 +60,7 @@ offset_top = 987.0
 offset_right = 179.0
 offset_bottom = 1030.0
 grow_vertical = 0
+theme = ExtResource("4_ptf4w")
 theme_override_font_sizes/font_size = 25
 text = "Voltar"
 
@@ -96,7 +99,7 @@ theme_override_font_sizes/bold_font_size = 25
 theme_override_styles/normal = ExtResource("9_v2yg4")
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_twwxt")]
+custom_effects = [SubResource("RichTextEffect_rgu7d")]
 script = ExtResource("11_ptf4w")
 progress = 1.0
 visible_character = 146

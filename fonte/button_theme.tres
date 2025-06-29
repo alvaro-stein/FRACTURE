@@ -1,3 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://deqej4j5brrwu"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://deqej4j5brrwu"]
+
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="1_x3h8r"]
 
 [resource]
+default_font = ExtResource("1_x3h8r")

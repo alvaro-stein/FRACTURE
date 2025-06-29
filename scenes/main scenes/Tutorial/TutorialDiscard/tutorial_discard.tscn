@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://d21g6vgn18n3y"]
+[gd_scene load_steps=17 format=3 uid="uid://d21g6vgn18n3y"]
 
 [ext_resource type="Script" uid="uid://bvb712mmgsejy" path="res://scenes/main scenes/Tutorial/TutorialDiscard/tutorial_discard.gd" id="1_rgjne"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_70ofx"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_b5i2q"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_bfa6b"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="4_gih2g"]
 [ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/Cards/player_hand.tscn" id="5_st8ca"]
 [ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="6_um321"]
 [ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="7_a2vb2"]
@@ -21,7 +22,7 @@ shader_parameter/intensity = 1.5
 [sub_resource type="RichTextEffect" id="RichTextEffect_ir5db"]
 resource_name = "fader"
 script = ExtResource("8_mcx2r")
-metadata/rt = 10604089795246
+metadata/rt = 2528175539376
 
 [sub_resource type="LabelSettings" id="LabelSettings_klqdn"]
 line_spacing = 0.0
@@ -59,6 +60,7 @@ offset_right = 1870.0
 offset_bottom = 1030.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_gih2g")
 theme_override_font_sizes/font_size = 25
 text = "Continuar"
 metadata/_edit_use_anchors_ = true
@@ -76,6 +78,7 @@ offset_top = 987.0
 offset_right = 179.0
 offset_bottom = 1030.0
 grow_vertical = 0
+theme = ExtResource("4_gih2g")
 theme_override_font_sizes/font_size = 25
 text = "Voltar"
 metadata/_edit_use_anchors_ = true
