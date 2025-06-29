@@ -1,6 +1,6 @@
 extends ColorRect
 
-@onready var label: RicherTextLabel = $RicherTextLabel
+@onready var label: RichTextLabel = $RichTextLabel
 @onready var button: Button = $Button
 @onready var configuracao: Control = $MenuConfiguracao
 

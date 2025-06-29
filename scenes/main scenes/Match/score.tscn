@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddkgpa37r2cnu"]
+[gd_scene load_steps=6 format=3 uid="uid://ddkgpa37r2cnu"]
 
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="1_8ucb0"]
 [ext_resource type="Texture2D" uid="uid://dxsrww0hmr4n1" path="res://assets/sprites/score.png" id="1_awygp"]
 
 [sub_resource type="Animation" id="Animation_awygp"]
@@ -79,6 +80,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_8ucb0")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -117,6 +119,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_8ucb0")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -155,6 +158,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_8ucb0")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -193,6 +197,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_8ucb0")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1
@@ -231,6 +236,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_8ucb0")
 theme_override_font_sizes/font_size = 35
 text = "0"
 horizontal_alignment = 1

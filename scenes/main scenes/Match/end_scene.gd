@@ -36,13 +36,13 @@ func _ready() -> void:
 	var victorious = Match.who_win()
 	match victorious:
 		"player":
-			result.bbcode = "[wave amp=15 freq=3][curspull]VITÓRIA"
+			result.text = "[wave amp=15 freq=3]VITÓRIA"
 			result.set("theme_override_colors/default_color", Color(0.123, 0.95, 0.482))
 		"AI":
-			result.bbcode = "[jit2 scale=3 freq=20][curspull -1.0]DERROTA"
+			result.text = "[wave amp=15 freq=3]DERROTA"
 			result.set("theme_override_colors/default_color", Color(1.0, 0.19, 0.19))
 		"empate":
-			result.bbcode = "[wave amp=15 freq=3][curspull]EMPATE"
+			result.text = "[wave amp=15 freq=3]EMPATE"
 			result.set("theme_override_colors/default_color", Color.WHITE_SMOKE)
 	
 	sum_points.text = sum_points.text + str(total_points)

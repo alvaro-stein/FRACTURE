@@ -17,7 +17,7 @@ var AI_hand:
 @onready var deck: Deck = $Deck
 @onready var score: Node = $Score
 const FONT_COLOR_PATH := "theme_override_colors/font_color"
-@onready var your_turn: RicherTextLabel = $YourTurn
+@onready var your_turn: RichTextLabel = $YourTurn
 
 
 
