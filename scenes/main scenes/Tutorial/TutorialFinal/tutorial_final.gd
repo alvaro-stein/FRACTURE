@@ -9,3 +9,7 @@ func _ready() -> void:
 func _on_menu_button_button_up() -> void:
 	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "Menu")
+
+func _on_return_button_button_up() -> void:
+	AudioGlobal.button.play()
+	emit_signal("change_scene_to", "TutorialEndGame")

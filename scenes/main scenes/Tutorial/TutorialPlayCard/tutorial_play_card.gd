@@ -147,7 +147,12 @@ func score_uptade(value, color):
 		score_label.set("theme_override_colors/font_color", Color.SEA_GREEN)
 
 func finish_tutorial():
-	text_box.text = "[fill]Boa! Você somou pontos ao jogar a carta! É assim que você irá ganhar do seu oponente. [/fill]"
+	text_box.text = "Boa! Você somou pontos ao jogar a carta! É assim que você irá ganhar do seu oponente."
+	await get_tree().process_frame
+	text_box.custom_minimum_size = Vector2(0, 0)
+	var content_height = text_box.get_content_height()
+	text_box.size.y = content_height
+	
 	var arrow = ARROW_SCENE.instantiate()
 	self.add_child(arrow)
 	arrow.point_at(Vector2(440.0, 540.0), Vector2(-40, -40))

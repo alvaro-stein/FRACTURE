@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="2_gcgp8"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="3_dmue5"]
 [ext_resource type="PackedScene" uid="uid://c2etx6kcf7wll" path="res://scenes/Cards/card_slot.tscn" id="4_lhm24"]
-[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="5_gcgp8"]
 [ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="5_lhm24"]
 [ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="6_31i6i"]
 
@@ -17,27 +16,32 @@ shader_parameter/intensity = 1.5
 [sub_resource type="RichTextEffect" id="RichTextEffect_egbcp"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 3586733982517
+metadata/rt = 4895440720830
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_ggeop"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 3587136635713
+metadata/rt = 4895843374120
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_6ek3d"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 3587539288901
+metadata/rt = 4896246027291
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_kr42f"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 3587941942103
+metadata/rt = 4896648680395
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_3iwtn"]
 resource_name = "fader"
 script = ExtResource("5_lhm24")
-metadata/rt = 3588344620775
+metadata/rt = 4897051333598
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_m54ga"]
+resource_name = "fader"
+script = ExtResource("5_lhm24")
+metadata/rt = 11164700462048
 
 [node name="TutorialSlot" type="Node2D"]
 script = ExtResource("1_31i6i")
@@ -606,7 +610,28 @@ bbcode_enabled = true
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 2
-script = ExtResource("5_gcgp8")
+custom_effects = [SubResource("RichTextEffect_m54ga")]
+script = ExtResource("6_31i6i")
+progress = 1.0
+visible_character = 153
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 152, 347), Transform2D(1, 0, 0, 1, 181, 347), Transform2D(1, 0, 0, 1, 212, 347), Transform2D(1, 0, 0, 1, 241, 347), Transform2D(1, 0, 0, 1, 254, 347), Transform2D(1, 0, 0, 1, 279, 347), Transform2D(1, 0, 0, 1, 308, 347), Transform2D(1, 0, 0, 1, 329, 347), Transform2D(1, 0, 0, 1, 349, 347), Transform2D(1, 0, 0, 1, 378, 347), Transform2D(1, 0, 0, 1, 391, 347), Transform2D(1, 0, 0, 1, 415, 347), Transform2D(1, 0, 0, 1, 446, 347), Transform2D(1, 0, 0, 1, 459, 347), Transform2D(1, 0, 0, 1, 490, 347), Transform2D(1, 0, 0, 1, 521, 347), Transform2D(1, 0, 0, 1, 552, 347), Transform2D(1, 0, 0, 1, 581, 347), Transform2D(1, 0, 0, 1, 594, 347), Transform2D(1, 0, 0, 1, 618, 347), Transform2D(1, 0, 0, 1, 647, 347), Transform2D(1, 0, 0, 1, 669, 347), Transform2D(1, 0, 0, 1, 682, 347), Transform2D(1, 0, 0, 1, 696, 347), Transform2D(1, 0, 0, 1, 726, 347), Transform2D(1, 0, 0, 1, 754, 347), Transform2D(1, 0, 0, 1, 783, 347), Transform2D(1, 0, 0, 1, 814, 347), Transform2D(1, 0, 0, 1, 843, 347), Transform2D(1, 0, 0, 1, 856, 347), Transform2D(1, 0, 0, 1, 888, 347), Transform2D(1, 0, 0, 1, 918, 347), Transform2D(1, 0, 0, 1, 931, 347), Transform2D(1, 0, 0, 1, 955, 347), Transform2D(1, 0, 0, 1, 969, 347), Transform2D(1, 0, 0, 1, 1000, 347), Transform2D(1, 0, 0, 1, 1019, 347), Transform2D(1, 0, 0, 1, 1032, 347), Transform2D(1, 0, 0, 1, 1063, 347), Transform2D(1, 0, 0, 1, 1092, 347), Transform2D(1, 0, 0, 1, 1105, 347), Transform2D(1, 0, 0, 1, 1153, 347), Transform2D(1, 0, 0, 1, 1182, 347), Transform2D(1, 0, 0, 1, 1206, 347), Transform2D(1, 0, 0, 1, 1254, 347), Transform2D(1, 0, 0, 1, 1283, 347), Transform2D(1, 0, 0, 1, 1296, 347), Transform2D(1, 0, 0, 1, 1321, 347), Transform2D(1, 0, 0, 1, 1351, 347), Transform2D(1, 0, 0, 1, 1373, 347), Transform2D(1, 0, 0, 1, 1386, 347), Transform2D(1, 0, 0, 1, 1399, 347), Transform2D(1, 0, 0, 1, 39, 416), Transform2D(1, 0, 0, 1, 68, 416), Transform2D(1, 0, 0, 1, 95, 416), Transform2D(1, 0, 0, 1, 120, 416), Transform2D(1, 0, 0, 1, 149, 416), Transform2D(1, 0, 0, 1, 169, 416), Transform2D(1, 0, 0, 1, 199, 416), Transform2D(1, 0, 0, 1, 212, 416), Transform2D(1, 0, 0, 1, 243, 416), Transform2D(1, 0, 0, 1, 256, 416), Transform2D(1, 0, 0, 1, 280, 416), Transform2D(1, 0, 0, 1, 294, 416), Transform2D(1, 0, 0, 1, 325, 416), Transform2D(1, 0, 0, 1, 344, 416), Transform2D(1, 0, 0, 1, 357, 416), Transform2D(1, 0, 0, 1, 388, 416), Transform2D(1, 0, 0, 1, 420, 416), Transform2D(1, 0, 0, 1, 449, 416), Transform2D(1, 0, 0, 1, 470, 416), Transform2D(1, 0, 0, 1, 490, 416), Transform2D(1, 0, 0, 1, 514, 416), Transform2D(1, 0, 0, 1, 545, 416), Transform2D(1, 0, 0, 1, 558, 416), Transform2D(1, 0, 0, 1, 571, 416), Transform2D(1, 0, 0, 1, 602, 416), Transform2D(1, 0, 0, 1, 634, 416), Transform2D(1, 0, 0, 1, 663, 416), Transform2D(1, 0, 0, 1, 676, 416), Transform2D(1, 0, 0, 1, 705, 416), Transform2D(1, 0, 0, 1, 718, 416), Transform2D(1, 0, 0, 1, 743, 416), Transform2D(1, 0, 0, 1, 773, 416), Transform2D(1, 0, 0, 1, 795, 416), Transform2D(1, 0, 0, 1, 809, 416), Transform2D(1, 0, 0, 1, 841, 416), Transform2D(1, 0, 0, 1, 868, 416), Transform2D(1, 0, 0, 1, 897, 416), Transform2D(1, 0, 0, 1, 910, 416), Transform2D(1, 0, 0, 1, 939, 416), Transform2D(1, 0, 0, 1, 952, 416), Transform2D(1, 0, 0, 1, 981, 416), Transform2D(1, 0, 0, 1, 1006, 416), Transform2D(1, 0, 0, 1, 1035, 416), Transform2D(1, 0, 0, 1, 1048, 416), Transform2D(1, 0, 0, 1, 1068, 416), Transform2D(1, 0, 0, 1, 1097, 416), Transform2D(1, 0, 0, 1, 1110, 416), Transform2D(1, 0, 0, 1, 1141, 416), Transform2D(1, 0, 0, 1, 1173, 416), Transform2D(1, 0, 0, 1, 1202, 416), Transform2D(1, 0, 0, 1, 1216, 416), Transform2D(1, 0, 0, 1, 1247, 416), Transform2D(1, 0, 0, 1, 1279, 416), Transform2D(1, 0, 0, 1, 1308, 416), Transform2D(1, 0, 0, 1, 1329, 416), Transform2D(1, 0, 0, 1, 1342, 416), Transform2D(1, 0, 0, 1, 1367, 416), Transform2D(1, 0, 0, 1, 1396, 416), Transform2D(1, 0, 0, 1, 1417, 416), Transform2D(1, 0, 0, 1, 1437, 416), Transform2D(1, 0, 0, 1, 1466, 416), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 297, 485), Transform2D(1, 0, 0, 1, 329, 485), Transform2D(1, 0, 0, 1, 358, 485), Transform2D(1, 0, 0, 1, 389, 485), Transform2D(1, 0, 0, 1, 418, 485), Transform2D(1, 0, 0, 1, 431, 485), Transform2D(1, 0, 0, 1, 445, 485), Transform2D(1, 0, 0, 1, 475, 485), Transform2D(1, 0, 0, 1, 503, 485), Transform2D(1, 0, 0, 1, 532, 485), Transform2D(1, 0, 0, 1, 563, 485), Transform2D(1, 0, 0, 1, 594, 485), Transform2D(1, 0, 0, 1, 616, 485), Transform2D(1, 0, 0, 1, 629, 485), Transform2D(1, 0, 0, 1, 649, 485), Transform2D(1, 0, 0, 1, 677, 485), Transform2D(1, 0, 0, 1, 725, 485), Transform2D(1, 0, 0, 1, 738, 485), Transform2D(1, 0, 0, 1, 763, 485), Transform2D(1, 0, 0, 1, 777, 485), Transform2D(1, 0, 0, 1, 808, 485), Transform2D(1, 0, 0, 1, 833, 485), Transform2D(1, 0, 0, 1, 864, 485), Transform2D(1, 0, 0, 1, 877, 485), Transform2D(1, 0, 0, 1, 901, 485), Transform2D(1, 0, 0, 1, 915, 485), Transform2D(1, 0, 0, 1, 946, 485), Transform2D(1, 0, 0, 1, 965, 485), Transform2D(1, 0, 0, 1, 990, 485), Transform2D(1, 0, 0, 1, 1003, 485), Transform2D(1, 0, 0, 1, 1034, 485), Transform2D(1, 0, 0, 1, 1056, 485), Transform2D(1, 0, 0, 1, 1086, 485), Transform2D(1, 0, 0, 1, 1117, 485), Transform2D(1, 0, 0, 1, 1139, 485), Transform2D(1, 0, 0, 1, 1153, 485), Transform2D(1, 0, 0, 1, 1183, 485), Transform2D(1, 0, 0, 1, 1208, 485)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(26, 39), Vector2(28, 39), Vector2(26, 39), Vector2(0, 39), Vector2(24, 39), Vector2(26, 39), Vector2(19, 39), Vector2(21, 39), Vector2(26, 39), Vector2(0, 39), Vector2(23, 39), Vector2(29, 39), Vector2(0, 39), Vector2(27, 39), Vector2(29, 39), Vector2(28, 39), Vector2(27, 39), Vector2(0, 39), Vector2(23, 39), Vector2(27, 39), Vector2(19, 39), Vector2(0, 39), Vector2(16, 39), Vector2(29, 39), Vector2(29, 39), Vector2(26, 39), Vector2(28, 39), Vector2(26, 39), Vector2(0, 39), Vector2(26, 39), Vector2(29, 39), Vector2(0, 39), Vector2(23, 39), Vector2(8, 39), Vector2(29, 39), Vector2(21, 39), Vector2(0, 39), Vector2(28, 39), Vector2(26, 39), Vector2(0, 39), Vector2(42, 39), Vector2(27, 39), Vector2(23, 39), Vector2(42, 39), Vector2(26, 39), Vector2(0, 39), Vector2(24, 39), Vector2(29, 39), Vector2(19, 39), Vector2(12, 39), Vector2(0, 39), Vector2(0, 39), Vector2(27, 39), Vector2(29, 39), Vector2(24, 39), Vector2(27, 39), Vector2(21, 39), Vector2(29, 39), Vector2(0, 39), Vector2(29, 39), Vector2(0, 39), Vector2(23, 39), Vector2(8, 39), Vector2(29, 39), Vector2(21, 39), Vector2(0, 39), Vector2(28, 39), Vector2(27, 39), Vector2(26, 39), Vector2(19, 39), Vector2(21, 39), Vector2(24, 39), Vector2(29, 39), Vector2(12, 39), Vector2(0, 39), Vector2(28, 39), Vector2(27, 39), Vector2(27, 39), Vector2(0, 39), Vector2(27, 39), Vector2(0, 39), Vector2(24, 39), Vector2(29, 39), Vector2(19, 39), Vector2(10, 39), Vector2(26, 39), Vector2(29, 39), Vector2(26, 39), Vector2(0, 39), Vector2(27, 39), Vector2(0, 39), Vector2(26, 39), Vector2(24, 39), Vector2(27, 39), Vector2(10, 39), Vector2(21, 39), Vector2(26, 39), Vector2(0, 39), Vector2(28, 39), Vector2(27, 39), Vector2(26, 39), Vector2(8, 39), Vector2(28, 39), Vector2(27, 39), Vector2(27, 39), Vector2(19, 39), Vector2(0, 39), Vector2(24, 39), Vector2(26, 39), Vector2(19, 39), Vector2(21, 39), Vector2(26, 39), Vector2(10, 39), Vector2(0, 0), Vector2(31, 39), Vector2(26, 39), Vector2(28, 39), Vector2(26, 39), Vector2(0, 39), Vector2(16, 39), Vector2(29, 39), Vector2(29, 39), Vector2(26, 39), Vector2(28, 39), Vector2(29, 39), Vector2(19, 39), Vector2(0, 39), Vector2(21, 39), Vector2(27, 39), Vector2(42, 39), Vector2(0, 39), Vector2(24, 39), Vector2(10, 39), Vector2(26, 39), Vector2(24, 39), Vector2(29, 39), Vector2(0, 39), Vector2(23, 39), Vector2(8, 39), Vector2(29, 39), Vector2(21, 39), Vector2(23, 39), Vector2(0, 39), Vector2(27, 39), Vector2(19, 39), Vector2(29, 39), Vector2(27, 39), Vector2(19, 39), Vector2(10, 39), Vector2(29, 39), Vector2(23, 39), Vector2(10, 39)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.0389937
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 30.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
 bbcode = "Cada carta só pode ser jogada no slot da mesma cor, 
 exceto o slot quartzo, que é coringa e aceita qualquer carta. Cada jogador tem cinco slots próprios."
 effects = 2
@@ -657,7 +682,7 @@ meta_cursor = 2
 override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
 
 [connection signal="button_up" from="ContinueButton" to="." method="_on_continue_button_button_up"]
 [connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]

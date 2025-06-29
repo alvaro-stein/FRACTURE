@@ -12,7 +12,7 @@
 [sub_resource type="RichTextEffect" id="RichTextEffect_8auk5"]
 resource_name = "curspull"
 script = ExtResource("3_df636")
-metadata/rt = 53932072207792
+metadata/rt = 17308667973257
 
 [node name="Créditos" type="Control"]
 layout_mode = 3
@@ -100,8 +100,8 @@ override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
 metadata/_custom_type_script = "uid://2f4fi75scxes"
-metadata/mouse_position = Vector2(101.595, 392.424)
-metadata/frame = 968322
+metadata/mouse_position = Vector2(144.494, -854.803)
+metadata/frame = 186478
 
 [node name="Github" type="Sprite2D" parent="."]
 position = Vector2(1053, 511)

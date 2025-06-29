@@ -1,15 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbr2fnu5o4ik6"]
+[gd_scene load_steps=9 format=3 uid="uid://bbr2fnu5o4ik6"]
 
 [ext_resource type="Script" uid="uid://dryg8mdjk05gb" path="res://scenes/main scenes/Tutorial/TutorialFinal/tutorial_final.gd" id="1_ol7p4"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_l2j7c"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_psv72"]
 [ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="4_2205o"]
-[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="5_n1q1y"]
+[ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="5_l2j7c"]
+[ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="6_psv72"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5mxmq"]
 shader = ExtResource("2_l2j7c")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.5
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_2205o"]
+resource_name = "fader"
+script = ExtResource("5_l2j7c")
+metadata/rt = 7134041430224
 
 [node name="TutorialFinal" type="Node2D"]
 script = ExtResource("1_ol7p4")
@@ -50,7 +56,28 @@ theme_override_font_sizes/bold_font_size = 50
 theme_override_styles/normal = ExtResource("4_2205o")
 bbcode_enabled = true
 fit_content = true
-script = ExtResource("5_n1q1y")
+custom_effects = [SubResource("RichTextEffect_2205o")]
+script = ExtResource("6_psv72")
+progress = 1.0
+visible_character = 151
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 222, 60), Transform2D(1, 0, 0, 1, 251, 60), Transform2D(1, 0, 0, 1, 272, 60), Transform2D(1, 0, 0, 1, 301, 60), Transform2D(1, 0, 0, 1, 332, 60), Transform2D(1, 0, 0, 1, 361, 60), Transform2D(1, 0, 0, 1, 393, 60), Transform2D(1, 0, 0, 1, 417, 60), Transform2D(1, 0, 0, 1, 431, 60), Transform2D(1, 0, 0, 1, 444, 60), Transform2D(1, 0, 0, 1, 471, 60), Transform2D(1, 0, 0, 1, 501, 60), Transform2D(1, 0, 0, 1, 526, 60), Transform2D(1, 0, 0, 1, 555, 60), Transform2D(1, 0, 0, 1, 568, 60), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 600, 60), Transform2D(1, 0, 0, 1, 632, 60), Transform2D(1, 0, 0, 1, 661, 60), Transform2D(1, 0, 0, 1, 675, 60), Transform2D(1, 0, 0, 1, 689, 60), Transform2D(1, 0, 0, 1, 713, 60), Transform2D(1, 0, 0, 1, 743, 60), Transform2D(1, 0, 0, 1, 775, 60), Transform2D(1, 0, 0, 1, 788, 60), Transform2D(1, 0, 0, 1, 819, 60), Transform2D(1, 0, 0, 1, 832, 60), Transform2D(1, 0, 0, 1, 852, 60), Transform2D(1, 0, 0, 1, 883, 60), Transform2D(1, 0, 0, 1, 903, 60), Transform2D(1, 0, 0, 1, 934, 60), Transform2D(1, 0, 0, 1, 955, 60), Transform2D(1, 0, 0, 1, 969, 60), Transform2D(1, 0, 0, 1, 998, 60), Transform2D(1, 0, 0, 1, 1012, 60), Transform2D(1, 0, 0, 1, 1026, 60), Transform2D(1, 0, 0, 1, 608, 129), Transform2D(1, 0, 0, 1, 69, 198), Transform2D(1, 0, 0, 1, 102, 198), Transform2D(1, 0, 0, 1, 126, 198), Transform2D(1, 0, 0, 1, 139, 198), Transform2D(1, 0, 0, 1, 161, 198), Transform2D(1, 0, 0, 1, 189, 198), Transform2D(1, 0, 0, 1, 217, 198), Transform2D(1, 0, 0, 1, 239, 198), Transform2D(1, 0, 0, 1, 268, 198), Transform2D(1, 0, 0, 1, 292, 198), Transform2D(1, 0, 0, 1, 305, 198), Transform2D(1, 0, 0, 1, 334, 198), Transform2D(1, 0, 0, 1, 358, 198), Transform2D(1, 0, 0, 1, 378, 198), Transform2D(1, 0, 0, 1, 407, 198), Transform2D(1, 0, 0, 1, 428, 198), Transform2D(1, 0, 0, 1, 457, 198), Transform2D(1, 0, 0, 1, 488, 198), Transform2D(1, 0, 0, 1, 501, 198), Transform2D(1, 0, 0, 1, 532, 198), Transform2D(1, 0, 0, 1, 561, 198), Transform2D(1, 0, 0, 1, 583, 198), Transform2D(1, 0, 0, 1, 612, 198), Transform2D(1, 0, 0, 1, 625, 198), Transform2D(1, 0, 0, 1, 650, 198), Transform2D(1, 0, 0, 1, 680, 198), Transform2D(1, 0, 0, 1, 712, 198), Transform2D(1, 0, 0, 1, 736, 198), Transform2D(1, 0, 0, 1, 768, 198), Transform2D(1, 0, 0, 1, 782, 198), Transform2D(1, 0, 0, 1, 802, 198), Transform2D(1, 0, 0, 1, 831, 198), Transform2D(1, 0, 0, 1, 844, 198), Transform2D(1, 0, 0, 1, 892, 198), Transform2D(1, 0, 0, 1, 921, 198), Transform2D(1, 0, 0, 1, 935, 198), Transform2D(1, 0, 0, 1, 959, 198), Transform2D(1, 0, 0, 1, 972, 198), Transform2D(1, 0, 0, 1, 990, 198), Transform2D(1, 0, 0, 1, 1019, 198), Transform2D(1, 0, 0, 1, 1044, 198), Transform2D(1, 0, 0, 1, 1058, 198), Transform2D(1, 0, 0, 1, 1072, 198), Transform2D(1, 0, 0, 1, 1085, 198), Transform2D(1, 0, 0, 1, 1117, 198), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 271, 267), Transform2D(1, 0, 0, 1, 319, 267), Transform2D(1, 0, 0, 1, 348, 267), Transform2D(1, 0, 0, 1, 379, 267), Transform2D(1, 0, 0, 1, 411, 267), Transform2D(1, 0, 0, 1, 424, 267), Transform2D(1, 0, 0, 1, 448, 267), Transform2D(1, 0, 0, 1, 477, 267), Transform2D(1, 0, 0, 1, 525, 267), Transform2D(1, 0, 0, 1, 556, 267), Transform2D(1, 0, 0, 1, 578, 267), Transform2D(1, 0, 0, 1, 606, 267), Transform2D(1, 0, 0, 1, 619, 267), Transform2D(1, 0, 0, 1, 650, 267), Transform2D(1, 0, 0, 1, 682, 267), Transform2D(1, 0, 0, 1, 711, 267), Transform2D(1, 0, 0, 1, 724, 267), Transform2D(1, 0, 0, 1, 755, 267), Transform2D(1, 0, 0, 1, 777, 267), Transform2D(1, 0, 0, 1, 806, 267), Transform2D(1, 0, 0, 1, 830, 267), Transform2D(1, 0, 0, 1, 844, 267), Transform2D(1, 0, 0, 1, 869, 267), Transform2D(1, 0, 0, 1, 898, 267), Transform2D(1, 0, 0, 1, 919, 267), Transform2D(1, 0, 0, 1, 933, 267), Transform2D(1, 0, 0, 1, 946, 267), Transform2D(1, 0, 0, 1, 608, 336), Transform2D(1, 0, 0, 1, 121, 405), Transform2D(1, 0, 0, 1, 153, 405), Transform2D(1, 0, 0, 1, 167, 405), Transform2D(1, 0, 0, 1, 181, 405), Transform2D(1, 0, 0, 1, 212, 405), Transform2D(1, 0, 0, 1, 243, 405), Transform2D(1, 0, 0, 1, 272, 405), Transform2D(1, 0, 0, 1, 285, 405), Transform2D(1, 0, 0, 1, 317, 405), Transform2D(1, 0, 0, 1, 347, 405), Transform2D(1, 0, 0, 1, 360, 405), Transform2D(1, 0, 0, 1, 391, 405), Transform2D(1, 0, 0, 1, 422, 405), Transform2D(1, 0, 0, 1, 441, 405), Transform2D(1, 0, 0, 1, 470, 405), Transform2D(1, 0, 0, 1, 501, 405), Transform2D(1, 0, 0, 1, 514, 405), Transform2D(1, 0, 0, 1, 545, 405), Transform2D(1, 0, 0, 1, 574, 405), Transform2D(1, 0, 0, 1, 596, 405), Transform2D(1, 0, 0, 1, 625, 405), Transform2D(1, 0, 0, 1, 638, 405), Transform2D(1, 0, 0, 1, 660, 405), Transform2D(1, 0, 0, 1, 688, 405), Transform2D(1, 0, 0, 1, 708, 405), Transform2D(1, 0, 0, 1, 739, 405), Transform2D(1, 0, 0, 1, 760, 405), Transform2D(1, 0, 0, 1, 792, 405), Transform2D(1, 0, 0, 1, 821, 405), Transform2D(1, 0, 0, 1, 842, 405), Transform2D(1, 0, 0, 1, 855, 405), Transform2D(1, 0, 0, 1, 884, 405), Transform2D(1, 0, 0, 1, 915, 405), Transform2D(1, 0, 0, 1, 928, 405), Transform2D(1, 0, 0, 1, 976, 405), Transform2D(1, 0, 0, 1, 1005, 405), Transform2D(1, 0, 0, 1, 1036, 405), Transform2D(1, 0, 0, 1, 1068, 405), Transform2D(1, 0, 0, 1, 1082, 405)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(26, 39), Vector2(19, 39), Vector2(26, 39), Vector2(27, 39), Vector2(27, 39), Vector2(26, 39), Vector2(23, 39), Vector2(12, 39), Vector2(0, 39), Vector2(29, 39), Vector2(29, 39), Vector2(24, 39), Vector2(27, 39), Vector2(0, 39), Vector2(31, 39), Vector2(0, 0), Vector2(26, 39), Vector2(26, 39), Vector2(8, 39), Vector2(10, 39), Vector2(24, 39), Vector2(29, 39), Vector2(27, 39), Vector2(0, 39), Vector2(29, 39), Vector2(0, 39), Vector2(21, 39), Vector2(27, 39), Vector2(21, 39), Vector2(29, 39), Vector2(19, 39), Vector2(10, 39), Vector2(26, 39), Vector2(8, 39), Vector2(10, 39), Vector2(0, 39), Vector2(0, 39), Vector2(36, 39), Vector2(23, 39), Vector2(0, 39), Vector2(19, 39), Vector2(27, 39), Vector2(29, 39), Vector2(19, 39), Vector2(26, 39), Vector2(23, 39), Vector2(0, 39), Vector2(27, 39), Vector2(23, 39), Vector2(21, 39), Vector2(26, 39), Vector2(19, 39), Vector2(26, 39), Vector2(29, 39), Vector2(0, 39), Vector2(27, 39), Vector2(26, 39), Vector2(19, 39), Vector2(26, 39), Vector2(0, 39), Vector2(24, 39), Vector2(29, 39), Vector2(26, 39), Vector2(23, 39), Vector2(27, 39), Vector2(8, 39), Vector2(21, 39), Vector2(26, 39), Vector2(0, 39), Vector2(42, 39), Vector2(26, 39), Vector2(10, 39), Vector2(23, 39), Vector2(0, 39), Vector2(23, 39), Vector2(26, 39), Vector2(24, 39), Vector2(10, 39), Vector2(8, 39), Vector2(0, 39), Vector2(26, 39), Vector2(29, 39), Vector2(0, 0), Vector2(42, 39), Vector2(27, 39), Vector2(26, 39), Vector2(27, 39), Vector2(0, 39), Vector2(23, 39), Vector2(27, 39), Vector2(42, 39), Vector2(27, 39), Vector2(19, 39), Vector2(27, 39), Vector2(0, 39), Vector2(28, 39), Vector2(27, 39), Vector2(27, 39), Vector2(0, 39), Vector2(27, 39), Vector2(19, 39), Vector2(27, 39), Vector2(24, 39), Vector2(10, 39), Vector2(23, 39), Vector2(26, 39), Vector2(19, 39), Vector2(10, 39), Vector2(0, 39), Vector2(0, 39), Vector2(0, 39), Vector2(31, 39), Vector2(8, 39), Vector2(10, 39), Vector2(28, 39), Vector2(27, 39), Vector2(27, 39), Vector2(0, 39), Vector2(26, 39), Vector2(29, 39), Vector2(0, 39), Vector2(27, 39), Vector2(29, 39), Vector2(21, 39), Vector2(26, 39), Vector2(29, 39), Vector2(0, 39), Vector2(27, 39), Vector2(26, 39), Vector2(19, 39), Vector2(26, 39), Vector2(0, 39), Vector2(19, 39), Vector2(27, 39), Vector2(21, 39), Vector2(29, 39), Vector2(19, 39), Vector2(26, 39), Vector2(26, 39), Vector2(19, 39), Vector2(0, 39), Vector2(26, 39), Vector2(29, 39), Vector2(0, 39), Vector2(42, 39), Vector2(27, 39), Vector2(26, 39), Vector2(27, 39), Vector2(10, 39), Vector2(0, 39)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.049297
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 50.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
 bbcode = "Parabéns, você finalizou o tutorial!
 
 As regras estarão para consulta mais fácil no menu sempre que precisar. 
@@ -104,7 +131,7 @@ meta_cursor = 2
 override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
 
 [node name="MenuButton" type="Button" parent="."]
 anchors_preset = 8
@@ -121,4 +148,18 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Menu"
 
+[node name="ReturnButton" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 987.0
+offset_right = 179.0
+offset_bottom = 1030.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 25
+text = "Voltar"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="button_up" from="MenuButton" to="." method="_on_menu_button_button_up"]
+[connection signal="button_up" from="ReturnButton" to="." method="_on_return_button_button_up"]
