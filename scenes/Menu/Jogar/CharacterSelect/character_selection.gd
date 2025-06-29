@@ -65,7 +65,7 @@ func _on_ophidiano_pressed() -> void:
 
 
 func ophidian_select():
-	jogar_label.bbcode = "[jit2]Jogar com os Ophidianos"
+	jogar_label.text = "[wave]Jogar com os Ophidianos"
 	character_selected = "Ophidianos"
 	tween1.stop()
 	tween2.stop()
@@ -84,7 +84,7 @@ func ophidian_select():
 
 func ophidian_deselect():
 	character_selected = ""
-	jogar_label.bbcode = "[wave]Selecione uma Raça"
+	jogar_label.text = "[wave]Selecione uma Raça"
 	tween1 = get_tree().create_tween()
 	tween2 = get_tree().create_tween()
 	tween3 = get_tree().create_tween()
@@ -131,7 +131,7 @@ func _on_viridiano_pressed() -> void:
 
 
 func viridian_select():
-	jogar_label.bbcode = "[jit2]Jogar com os Viridianos"
+	jogar_label.text = "[wave]Jogar com os Viridianos"
 	character_selected = "Viridianos"
 	tween1.stop()
 	tween2.stop()
@@ -150,7 +150,7 @@ func viridian_select():
 
 func viridian_deselect():
 	character_selected = ""
-	jogar_label.bbcode = "[wave]Selecione uma Raça"
+	jogar_label.text = "[wave]Selecione uma Raça"
 	tween1 = get_tree().create_tween()
 	tween2 = get_tree().create_tween()
 	tween3 = get_tree().create_tween()
