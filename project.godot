@@ -49,7 +49,11 @@ Esc={
 [richer_text_label]
 
 fonts={
+&"Cracked": "res://assets/fonts/Cracked-Regular.ttf",
 &"NewRocker": "res://assets/fonts/NewRocker-Regular.ttf",
+&"Quantico": "res://assets/fonts/Quantico-Italic.ttf",
+&"QuanticoItalic": "res://assets/fonts/Quantico-BoldItalic.ttf",
+&"Tourney-BlackItalic": "res://assets/fonts/Tourney-BlackItalic.ttf",
 &"VehicleBreaksDown": "res://fonte/VehicleBreaksDown-Regular.ttf",
 &"WOODCUTTER STORM": "res://fonte/WOODCUTTER STORM.ttf"
 }

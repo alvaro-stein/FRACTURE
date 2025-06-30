@@ -126,7 +126,7 @@ func who_win():
 
 func your_turn_warning():
 	var tween = self.create_tween()
-	tween.tween_property(your_turn, "color:a", 1, 0.25)
+	tween.tween_property(your_turn, "modulate:a", 1, 0.25)
 	await get_tree().create_timer(1.5).timeout
 	var tween1 = self.create_tween()
-	tween1.tween_property(your_turn, "color:a", 0, 0.25)
+	tween1.tween_property(your_turn, "modulate:a", 0, 0.25)
