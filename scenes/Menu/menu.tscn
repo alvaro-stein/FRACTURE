@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="7_1ro1i"]
 [ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="8_ywsxe"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="9_nqj45"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="10_cbysg"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="10_cbysg"]
 [ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="10_t022d"]
 [ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="14_sum3h"]
 
@@ -209,7 +209,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("14_sum3h")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tmxqu")
-text = "Creditos"
+text = "Créditos"
 flat = true
 alignment = 0
 

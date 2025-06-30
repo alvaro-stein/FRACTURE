@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dba5e30318jtp" path="res://assets/sprites/Viridianos/bg_Viridianos.png" id="2_xxfgb"]
 [ext_resource type="Texture2D" uid="uid://c8sjouufjkbuq" path="res://assets/sprites/Viridianos/LiderViridiano.png" id="3_0ttqf"]
 [ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="3_wkbfa"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_5p83u"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="4_5p83u"]
 [ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="4_olbo0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rivfx"]

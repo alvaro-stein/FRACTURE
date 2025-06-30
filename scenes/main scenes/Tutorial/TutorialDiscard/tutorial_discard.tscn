@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d21g6vgn18n3y"]
+[gd_scene load_steps=18 format=3 uid="uid://d21g6vgn18n3y"]
 
 [ext_resource type="Script" uid="uid://bvb712mmgsejy" path="res://scenes/main scenes/Tutorial/TutorialDiscard/tutorial_discard.gd" id="1_rgjne"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_70ofx"]
@@ -13,16 +13,17 @@
 [ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/Cards/discard_pile.tscn" id="9_ybbjp"]
 [ext_resource type="Script" uid="uid://cnpaq1emxrkdb" path="res://scenes/main scenes/Tutorial/TutorialDiscard/deck_tutorial_discard.gd" id="10_7mmej"]
 [ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="11_6k7x5"]
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="14_ir5db"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nd2xp"]
 shader = ExtResource("2_70ofx")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.5
 
-[sub_resource type="RichTextEffect" id="RichTextEffect_ir5db"]
+[sub_resource type="RichTextEffect" id="RichTextEffect_yl8b0"]
 resource_name = "fader"
 script = ExtResource("8_mcx2r")
-metadata/rt = 2528175539376
+metadata/rt = 13478513427861
 
 [sub_resource type="LabelSettings" id="LabelSettings_klqdn"]
 line_spacing = 0.0
@@ -111,7 +112,7 @@ theme_override_font_sizes/bold_font_size = 30
 theme_override_styles/normal = ExtResource("7_a2vb2")
 bbcode_enabled = true
 fit_content = true
-custom_effects = [SubResource("RichTextEffect_ir5db")]
+custom_effects = [SubResource("RichTextEffect_yl8b0")]
 script = ExtResource("9_gih2g")
 progress = 1.0
 visible_character = 158
@@ -209,6 +210,7 @@ offset_right = 27.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_ir5db")
 theme_override_font_sizes/font_size = 50
 text = "0"
 label_settings = SubResource("LabelSettings_klqdn")

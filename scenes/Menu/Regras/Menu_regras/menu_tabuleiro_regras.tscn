@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="1_g0fo8"]
 [ext_resource type="Script" uid="uid://crwy3ox00x5fn" path="res://scenes/Menu/Regras/Menu_regras/menu_tabuleiro_regras.gd" id="1_ri81c"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_nf0sh"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="3_nf0sh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3

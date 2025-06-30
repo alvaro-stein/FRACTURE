@@ -1,7 +1,7 @@
 [gd_scene load_steps=44 format=3 uid="uid://chcupi57h2k6r"]
 
 [ext_resource type="Script" uid="uid://i2dw8kpocqst" path="res://scenes/Menu/Creditos/creditos.gd" id="1_q67wh"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="3_bv7u2"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="3_bv7u2"]
 [ext_resource type="Script" uid="uid://dhbxvg36y8pfd" path="res://addons/richtext2/text_effects/effects/rte_curspull.gd" id="3_df636"]
 [ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="4_draql"]
 [ext_resource type="Texture2D" uid="uid://c0xf2bc5q11x7" path="res://assets/sprites/instagram.svg" id="5_df636"]
