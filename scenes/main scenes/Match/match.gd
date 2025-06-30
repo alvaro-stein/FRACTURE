@@ -4,7 +4,7 @@ class_name GameManager
 signal change_scene_to
 signal ai_turn_started
 
-const INITIAL_HAND_SIZE := 20
+const INITIAL_HAND_SIZE := 5
 
 @onready var clock: Button = $Clock
 @onready var player: MatchPlayer = $"Player"
