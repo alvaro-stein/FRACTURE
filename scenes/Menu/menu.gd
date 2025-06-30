@@ -48,6 +48,8 @@ func close_option() -> void:
 	$titulo.visible = true
 
 func _ready() -> void:
+	var italic_font: Font = $titulo.get_theme_font("italics_font")
+	italic_font.variation_embolden = 0
 	get_parent().connect_change_scene_signals(self)
 	
 	for _button in get_tree().get_nodes_in_group("buttons"):

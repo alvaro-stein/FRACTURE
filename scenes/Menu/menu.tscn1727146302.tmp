@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://q26prbnehvdf"]
+[gd_scene load_steps=15 format=3 uid="uid://q26prbnehvdf"]
 
 [ext_resource type="Script" uid="uid://su2n3grymllj" path="res://scenes/Menu/menu.gd" id="1_dnmm8"]
 [ext_resource type="AudioStream" uid="uid://ll5p6y3h6lbu" path="res://audio/sfx/Somfundo/somventoloop.mp3" id="2_nqj45"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://d2sj4pbnasco2" path="res://assets/background/bg_fracture_menu.jpg" id="7_1ro1i"]
 [ext_resource type="Texture2D" uid="uid://3y1k7t3bgnq2" path="res://assets/background/ponto_branco.png" id="8_ywsxe"]
 [ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="9_nqj45"]
-[ext_resource type="FontFile" uid="uid://b6v0eftq600q0" path="res://fonte/WOODCUTTER STORM.ttf" id="9_vd2iv"]
 [ext_resource type="Theme" path="res://fonte/tema_botao_regras.tres" id="10_cbysg"]
 [ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="10_t022d"]
 [ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="14_sum3h"]
@@ -18,19 +17,6 @@
 shader = ExtResource("6_dsxoc")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.383
-
-[sub_resource type="FontVariation" id="FontVariation_sum3h"]
-base_font = ExtResource("9_vd2iv")
-variation_transform = Transform2D(1, 0.35, 0, 1, 0, 0)
-
-[sub_resource type="FontVariation" id="FontVariation_dsxoc"]
-base_font = ExtResource("9_vd2iv")
-variation_embolden = 1.5
-variation_transform = Transform2D(1, 0.25, 0, 1, 0, 0)
-
-[sub_resource type="FontVariation" id="FontVariation_1ro1i"]
-base_font = ExtResource("9_vd2iv")
-variation_embolden = 1.5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmxqu"]
 
@@ -110,12 +96,9 @@ offset_top = 191.0
 offset_right = 1920.0
 offset_bottom = 478.0
 size_flags_horizontal = 4
-theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 0.901961)
+theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 0.901961)
 theme_override_constants/outline_size = 10
-theme_override_fonts/normal_font = ExtResource("9_vd2iv")
-theme_override_fonts/italics_font = SubResource("FontVariation_sum3h")
-theme_override_fonts/bold_italics_font = SubResource("FontVariation_dsxoc")
-theme_override_fonts/bold_font = SubResource("FontVariation_1ro1i")
 theme_override_font_sizes/bold_italics_font_size = 200
 theme_override_font_sizes/italics_font_size = 200
 theme_override_font_sizes/mono_font_size = 200
@@ -129,10 +112,10 @@ script = ExtResource("9_nqj45")
 bbcode = "[i]FRACTURE"
 effects = 2
 alignment = 1
-color = Color(1, 1, 1, 1)
+color = Color(1, 1, 1, 0.901961)
 emoji_scale = 1.0
 font = "WOODCUTTER STORM"
-font_auto_setup = false
+font_auto_setup = true
 font_size = 200
 font_bold_weight = 1.5
 font_italics_slant = 0.25
