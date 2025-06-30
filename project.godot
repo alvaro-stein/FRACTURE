@@ -21,8 +21,8 @@ buses/default_bus_layout="uid://c5udnipeh6xe8"
 
 [autoload]
 
-AudioGlobal="*res://assets/mana/audio_global.tscn"
 GameSettings="*res://game_settings.gd"
+AudioGlobal="*res://audio/audio_global.tscn"
 
 [display]
 
