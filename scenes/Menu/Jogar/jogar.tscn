@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bfu4pr41wpo40"]
 
 [ext_resource type="Script" uid="uid://c4wxc2id5dqab" path="res://scenes/Menu/Jogar/jogar.gd" id="1_bkjxr"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="1_j3b45"]
+[ext_resource type="Theme" path="res://fonte/return_button.tres" id="1_j3b45"]
 [ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="2_0uh6n"]
 [ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="3_esubv"]
 
@@ -49,10 +49,20 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("3_esubv")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_67rb7")
-disabled = true
 text = "Multiplayer"
 flat = true
 alignment = 0
+
+[node name="Label" type="Label" parent="ButtonsBox/Multiplayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 392.0
+offset_top = 19.0
+offset_right = 869.0
+offset_bottom = 77.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "Ainda não implementado"
 
 [node name="Tutorial" type="Button" parent="ButtonsBox"]
 layout_mode = 2
