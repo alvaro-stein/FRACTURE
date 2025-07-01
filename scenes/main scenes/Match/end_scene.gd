@@ -4,7 +4,8 @@ extends ColorRect
 @onready var Match: GameManager = $".."
 const FONT_COLOR_PATH := "theme_override_colors/font_color"
 @onready var result: RichTextLabel = $Result
-@onready var button: Button = $Button
+@onready var sair: Button = $Sair
+@onready var reiniciar: Button = $Reiniciar
 @onready var sum_points: Label = $SumPoints
 
 func _ready() -> void:
@@ -63,8 +64,15 @@ func _ready() -> void:
 	else:
 		pass
 	await get_tree().create_timer(0.75, false).timeout
-	button.visible = true
+	sair.visible = true
+	reiniciar.visible = true
 	
 
-func _on_button_button_down() -> void:
+func _on_sair_pressed() -> void:
+	AudioGlobal.button.play()
 	self.get_parent().emit_signal("change_scene_to", "Menu")
+
+
+func _on_reiniciar_pressed() -> void:
+	AudioGlobal.button.play()
+	self.get_parent().emit_signal("change_scene_to", "Match")

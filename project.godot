@@ -13,7 +13,7 @@ config_version=5
 config/name="FRACTURE"
 run/main_scene="uid://4sv27rsymmwq"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://assets/sprites/icon.svg"
+config/icon="uid://dkv5653oq05td"
 
 [audio]
 
@@ -21,8 +21,8 @@ buses/default_bus_layout="uid://c5udnipeh6xe8"
 
 [autoload]
 
-AudioGlobal="*res://assets/mana/audio_global.tscn"
 GameSettings="*res://game_settings.gd"
+AudioGlobal="*res://audio/audio_global.tscn"
 
 [display]
 
