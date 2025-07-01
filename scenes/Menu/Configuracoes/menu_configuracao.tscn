@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://crc4yak5ndpg1"]
 
 [ext_resource type="Script" uid="uid://b6u1ypbc7sfv6" path="res://scenes/Menu/Configuracoes/menu_configuracao.gd" id="1_40fml"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="3_jlfwe"]
+[ext_resource type="Theme" path="res://fonte/return_button.tres" id="3_jlfwe"]
 [ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="3_kob1h"]
 
 [sub_resource type="GDScript" id="GDScript_bn6y7"]
@@ -51,8 +51,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 50.0
-offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

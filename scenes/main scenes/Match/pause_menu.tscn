@@ -60,16 +60,16 @@ metadata/mouse_position = Vector2(2862.72, 87.6638)
 metadata/frame = 43811
 metadata/rand = Array[int]([421576272, 2992739049, 3048483396, 2818746253, 4286089397, 485307845, 3677351074])
 
-[node name="Button" type="Button" parent="."]
+[node name="Sair" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -190.0
+offset_left = -205.0
 offset_top = -154.0
-offset_right = 190.0
+offset_right = 205.0
 offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -78,6 +78,25 @@ theme_override_font_sizes/font_size = 50
 text = "Sair da partida"
 icon_alignment = 1
 
+[node name="Reiniciar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -264.0
+offset_right = 205.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_gda2a")
+theme_override_font_sizes/font_size = 50
+text = "Reiniciar partida"
+icon_alignment = 1
+
 [node name="MenuConfiguracao" parent="." instance=ExtResource("4_8gcb0")]
 
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Reiniciar" to="." method="_on_reiniciar_pressed"]

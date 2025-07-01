@@ -47,11 +47,10 @@ func _on_change_scene_to(next_scene: String):
 	
 	current_scene.queue_free()
 	var new_scene: Node = load(SCENES_PATHS[next_scene]).instantiate()
+	current_scene = new_scene
 	self.add_child(new_scene)
 	animation.play_backwards("transition")
 	await animation.animation_finished
-	
-	current_scene = new_scene
 	transition.queue_free()
 
 func connect_change_scene_signals(scene: Node):
