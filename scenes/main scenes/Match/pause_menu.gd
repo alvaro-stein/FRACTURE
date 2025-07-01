@@ -11,6 +11,7 @@ func _ready() -> void:
 		sair.text = "Sair da partida"
 	else: # Caso contrário, é qualquer um dos tutoriais
 		reiniciar.queue_free()
+		sair.position.y -= 60
 		sair.text = "Sair do tutorial"
 	
 	configuracao.get_node("ColorRect").queue_free()
