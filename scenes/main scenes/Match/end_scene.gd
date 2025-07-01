@@ -4,7 +4,8 @@ extends ColorRect
 @onready var Match: GameManager = $".."
 const FONT_COLOR_PATH := "theme_override_colors/font_color"
 @onready var result: RichTextLabel = $Result
-@onready var button: Button = $Button
+@onready var sair: Button = $Sair
+@onready var reiniciar: Button = $Reiniciar
 @onready var sum_points: Label = $SumPoints
 
 func _ready() -> void:
@@ -36,13 +37,13 @@ func _ready() -> void:
 	var victorious = Match.who_win()
 	match victorious:
 		"player":
-			result.bbcode = "[wave amp=15 freq=3][curspull]VITÓRIA"
+			result.text = "[wave amp=15 freq=3]VITÓRIA"
 			result.set("theme_override_colors/default_color", Color(0.123, 0.95, 0.482))
 		"AI":
-			result.bbcode = "[jit2 scale=3 freq=20][curspull -1.0]DERROTA"
+			result.text = "[wave amp=15 freq=3]DERROTA"
 			result.set("theme_override_colors/default_color", Color(1.0, 0.19, 0.19))
 		"empate":
-			result.bbcode = "[wave amp=15 freq=3][curspull]EMPATE"
+			result.text = "[wave amp=15 freq=3]EMPATE"
 			result.set("theme_override_colors/default_color", Color.WHITE_SMOKE)
 	
 	sum_points.text = sum_points.text + str(total_points)
@@ -63,8 +64,15 @@ func _ready() -> void:
 	else:
 		pass
 	await get_tree().create_timer(0.75, false).timeout
-	button.visible = true
+	sair.visible = true
+	reiniciar.visible = true
 	
 
-func _on_button_button_down() -> void:
+func _on_sair_pressed() -> void:
+	AudioGlobal.button.play()
 	self.get_parent().emit_signal("change_scene_to", "Menu")
+
+
+func _on_reiniciar_pressed() -> void:
+	AudioGlobal.button.play()
+	self.get_parent().emit_signal("change_scene_to", "Match")

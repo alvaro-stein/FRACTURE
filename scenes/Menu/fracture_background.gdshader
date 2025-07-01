@@ -11,7 +11,7 @@ void fragment() {
     float glow = smoothstep(0.6, 1.0, brightness);
 
     // Onda de brilho - Fazendo um ciclo de transição perceptível
-    float cycle = sin(TIME * speed) * 0.1 + 0.5;  // Varia de 0 a 1 suavemente
+    float cycle = sin(TIME * speed) * 0.5  + 0.5;  // Varia de 0 a 1 suavemente
 
     // Definição das cores para transição
     vec3 color_dark = vec3(0.0, 0.0, 0.0);  // Apagado (escuro)

@@ -30,6 +30,7 @@ func _ready() -> void:
 		i += 1
 		
 	#self.hide_slots()
+	text_box_2.visible = false
 	continue_button.disabled = true
 	screen_size = get_viewport_rect().size
 
@@ -65,6 +66,7 @@ func _ready() -> void:
 	new_card.get_node("Area2D/CollisionShape2D").disabled = false
 	player_hand.add_card_to_hand(new_card)
 
+
 func _on_continue_button_button_up() -> void:
 	AudioGlobal.button.play()
 	emit_signal("change_scene_to", "TutorialEndTurn")
@@ -74,13 +76,28 @@ func _on_return_button_button_up() -> void:
 	emit_signal("change_scene_to", "TutorialCostMana")
 	
 func invalid_forge2():
-	text_box_2.text = "[fill]Essas cartas não podem ser forjadas, tente novamente. Lembre-se das combinações possíveis.[/fill]"
+	text_box_2.text = "Essas cartas não podem ser forjadas, tente novamente. Lembre-se das combinações possíveis entre 2, 5 e 8."
+	await get_tree().process_frame
+	text_box_2.custom_minimum_size = Vector2(0, 0)
+	var content_height = text_box_2.get_content_height()
+	var content_width = text_box_2.get_content_width()
+	text_box_2.size = Vector2(content_width, content_height)
 	
 func valid_forge2():
-	text_box_2.text = "[fill]Bem jogado! Você forjou sua primeira carta! Forje mais uma para continuar.[/fill]"
+	text_box_2.text = "Bem jogado! Você forjou sua primeira carta! Forje mais uma para continuar."
+	await get_tree().process_frame
+	text_box_2.custom_minimum_size = Vector2(0, 0)
+	var content_height = text_box_2.get_content_height()
+	var content_width = text_box_2.get_content_width()
+	text_box_2.size = Vector2(content_width, content_height)
 
 func finish_tutorial():
-	text_box_2.text = "[fill]É isso! Você aprendeu as diferentes formas de forjar cartas e agora pode fazer jogadas ainda melhores![/fill]"
+	text_box_2.text = "É isso! Você aprendeu as diferentes formas de forjar cartas e agora pode fazer jogadas ainda melhores!"
+	await get_tree().process_frame
+	text_box_2.custom_minimum_size = Vector2(0, 0)
+	var content_height = text_box_2.get_content_height()
+	var content_width = text_box_2.get_content_width()
+	text_box_2.size = Vector2(content_width, content_height)
 	continue_button.disabled = false
 	
 func _input(event: InputEvent) -> void:
@@ -189,3 +206,9 @@ func finish_drag() -> void:
 		#score_label.set("theme_override_colors/font_color", Color.FIREBRICK)
 	#else:
 		#score_label.set("theme_override_colors/font_color", Color.SEA_GREEN)
+
+
+func _on_text_box_anim_finished() -> void:
+	text_box_2.progress = 0.0
+	await get_tree().create_timer(0.5).timeout
+	text_box_2.visible = true

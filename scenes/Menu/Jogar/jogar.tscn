@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfu4pr41wpo40"]
+[gd_scene load_steps=6 format=3 uid="uid://bfu4pr41wpo40"]
 
 [ext_resource type="Script" uid="uid://c4wxc2id5dqab" path="res://scenes/Menu/Jogar/jogar.gd" id="1_bkjxr"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="1_j3b45"]
+[ext_resource type="Theme" path="res://fonte/return_button.tres" id="1_j3b45"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="2_0uh6n"]
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="3_esubv"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkjxr"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_67rb7"]
 
 [node name="Jogar" type="Control"]
 layout_mode = 3
@@ -16,61 +18,90 @@ script = ExtResource("1_bkjxr")
 
 [node name="ButtonsBox" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 766.0
-offset_top = 526.0
-offset_right = 1153.0
-offset_bottom = 1105.0
+offset_left = 80.0
+offset_top = 501.0
+offset_right = 472.0
+offset_bottom = 1080.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Singleplayer" type="Button" parent="ButtonsBox"]
 layout_mode = 2
-theme = ExtResource("1_j3b45")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme = ExtResource("2_0uh6n")
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
+theme_override_fonts/font = ExtResource("3_esubv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67rb7")
 text = "Singleplayer"
+flat = true
+alignment = 0
 
 [node name="Multiplayer" type="Button" parent="ButtonsBox"]
 layout_mode = 2
 theme = ExtResource("1_j3b45")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
-disabled = true
+theme_override_fonts/font = ExtResource("3_esubv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67rb7")
 text = "Multiplayer"
+flat = true
+alignment = 0
+
+[node name="Label" type="Label" parent="ButtonsBox/Multiplayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 392.0
+offset_top = 19.0
+offset_right = 869.0
+offset_bottom = 77.0
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "Ainda não implementado"
 
 [node name="Tutorial" type="Button" parent="ButtonsBox"]
 layout_mode = 2
 theme = ExtResource("1_j3b45")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
+theme_override_fonts/font = ExtResource("3_esubv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67rb7")
 text = "Tutorial"
+flat = true
+alignment = 0
 
 [node name="Regras" type="Button" parent="ButtonsBox"]
 layout_mode = 2
 theme = ExtResource("1_j3b45")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
+theme_override_fonts/font = ExtResource("3_esubv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67rb7")
 text = "Regras"
+flat = true
+alignment = 0
 
 [node name="Voltar" type="Button" parent="ButtonsBox"]
 layout_mode = 2
 theme = ExtResource("1_j3b45")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bkjxr")
-text = "Voltar
-"
+theme_override_fonts/font = ExtResource("3_esubv")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_67rb7")
+text = "Voltar"
+flat = true
+alignment = 0
 
 [connection signal="pressed" from="ButtonsBox/Singleplayer" to="." method="_on_singleplayer_pressed"]
 [connection signal="pressed" from="ButtonsBox/Multiplayer" to="." method="_on_multiplayer_pressed"]

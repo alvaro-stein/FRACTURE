@@ -13,7 +13,7 @@ config_version=5
 config/name="FRACTURE"
 run/main_scene="uid://4sv27rsymmwq"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://assets/sprites/icon.svg"
+config/icon="uid://dkv5653oq05td"
 
 [audio]
 
@@ -21,14 +21,14 @@ buses/default_bus_layout="uid://c5udnipeh6xe8"
 
 [autoload]
 
-AudioGlobal="*res://audio/audio_global.tscn"
 GameSettings="*res://game_settings.gd"
+AudioGlobal="*res://audio/audio_global.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 mouse_cursor/custom_image="uid://bbh05j1qc3ti3"
@@ -49,6 +49,11 @@ Esc={
 [richer_text_label]
 
 fonts={
+&"Cracked": "res://assets/fonts/Cracked-Regular.ttf",
+&"NewRocker": "res://assets/fonts/NewRocker-Regular.ttf",
+&"Quantico": "res://assets/fonts/Quantico-Italic.ttf",
+&"QuanticoItalic": "res://assets/fonts/Quantico-BoldItalic.ttf",
+&"Tourney-BlackItalic": "res://assets/fonts/Tourney-BlackItalic.ttf",
 &"VehicleBreaksDown": "res://fonte/VehicleBreaksDown-Regular.ttf",
 &"WOODCUTTER STORM": "res://fonte/WOODCUTTER STORM.ttf"
 }

@@ -1,47 +1,57 @@
-[gd_scene load_steps=16 format=3 uid="uid://chw4rdspxlfau"]
+[gd_scene load_steps=18 format=3 uid="uid://bry5ue6uwaxj0"]
 
-[ext_resource type="AudioStream" uid="uid://nap5hfb483c" path="res://audio/sfx/opening_sound.mp3" id="1_lj2qa"]
-[ext_resource type="Script" uid="uid://db6v1owjttmy" path="res://audio/audio_global.gd" id="1_tcplg"]
-[ext_resource type="AudioStream" uid="uid://duyjsdrbfc0bd" path="res://audio/music/dunes.wav" id="3_40v7m"]
-[ext_resource type="AudioStream" uid="uid://376hcldotare" path="res://audio/sfx/cards sfx/card_flip.mp3" id="3_weu62"]
-[ext_resource type="AudioStream" uid="uid://csphova10r3qa" path="res://audio/sfx/cards sfx/card_draw.mp3" id="4_40v7m"]
-[ext_resource type="AudioStream" uid="uid://ubd4i0oox7yt" path="res://audio/sfx/button/button1.mp3" id="6_60upr"]
-[ext_resource type="AudioStream" uid="uid://bstekdu7a7qgh" path="res://audio/sfx/endscene sfx/win.wav" id="6_ev6ex"]
-[ext_resource type="AudioStream" uid="uid://b3du3c7f7iiol" path="res://audio/sfx/endscene sfx/defeat.wav" id="6_kxkkg"]
-[ext_resource type="AudioStream" uid="uid://bh1m0da7d86vd" path="res://audio/sfx/score sfx/lose.mp3" id="7_kfn1p"]
-[ext_resource type="AudioStream" uid="uid://cwspk5ypq4ai1" path="res://audio/sfx/endscene sfx/tie.wav" id="8_6ga5v"]
-[ext_resource type="AudioStream" uid="uid://dd2kdgfuc5byk" path="res://audio/sfx/score sfx/win1.mp3" id="9_kfn1p"]
-[ext_resource type="AudioStream" uid="uid://caue8hafql22l" path="res://audio/sfx/score sfx/even1.wav" id="12_0mpjn"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_weu62"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("3_weu62")
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_40v7m"]
-random_pitch = 1.1
-streams_count = 1
-stream_0/stream = ExtResource("4_40v7m")
+[ext_resource type="Script" uid="uid://db6v1owjttmy" path="res://audio/audio_global.gd" id="1_0mpjn"]
+[ext_resource type="AudioStream" uid="uid://nap5hfb483c" path="res://audio/sfx/opening_sound.mp3" id="2_bayjd"]
+[ext_resource type="AudioStream" uid="uid://duyjsdrbfc0bd" path="res://audio/music/dunes.wav" id="3_ck7vq"]
+[ext_resource type="AudioStream" uid="uid://ubd4i0oox7yt" path="res://audio/sfx/button/button1.mp3" id="4_41rit"]
+[ext_resource type="AudioStream" uid="uid://376hcldotare" path="res://audio/sfx/cards sfx/card_flip.mp3" id="5_gcg64"]
+[ext_resource type="AudioStream" uid="uid://csphova10r3qa" path="res://audio/sfx/cards sfx/card_draw.mp3" id="6_fvimt"]
+[ext_resource type="AudioStream" uid="uid://bstekdu7a7qgh" path="res://audio/sfx/endscene sfx/win.wav" id="7_hrjke"]
+[ext_resource type="AudioStream" uid="uid://b3du3c7f7iiol" path="res://audio/sfx/endscene sfx/defeat.wav" id="8_4iqgl"]
+[ext_resource type="AudioStream" uid="uid://cwspk5ypq4ai1" path="res://audio/sfx/endscene sfx/tie.wav" id="9_p7x73"]
+[ext_resource type="AudioStream" uid="uid://bh1m0da7d86vd" path="res://audio/sfx/score sfx/lose.mp3" id="10_ttmbs"]
+[ext_resource type="AudioStream" uid="uid://dd2kdgfuc5byk" path="res://audio/sfx/score sfx/win1.mp3" id="11_n17f7"]
+[ext_resource type="AudioStream" uid="uid://caue8hafql22l" path="res://audio/sfx/score sfx/even1.wav" id="12_hqcb8"]
+[ext_resource type="AudioStream" uid="uid://b1240i3m5emmx" path="res://assets/mana/mana_sound.mp3" id="13_ui1ft"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_60upr"]
 random_pitch = 1.1
 streams_count = 1
-stream_0/stream = ExtResource("6_60upr")
+stream_0/stream = ExtResource("4_41rit")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_weu62"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("5_gcg64")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_40v7m"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("6_fvimt")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xto54"]
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("13_ui1ft")
 
 [node name="AudioGlobal" type="Node"]
 process_mode = 3
-script = ExtResource("1_tcplg")
+script = ExtResource("1_0mpjn")
 
 [node name="Opening" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_lj2qa")
+stream = ExtResource("2_bayjd")
 volume_db = -15.0
 bus = &"Music"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_40v7m")
+stream = ExtResource("3_ck7vq")
 volume_db = -10.0
 pitch_scale = 0.9
 bus = &"Music"
+
+[node name="Button" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_60upr")
+bus = &"Sfx"
 
 [node name="CardFlip" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_weu62")
@@ -54,42 +64,43 @@ pitch_scale = 0.95
 bus = &"Sfx"
 
 [node name="Win" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_ev6ex")
+stream = ExtResource("7_hrjke")
 volume_db = -15.0
 pitch_scale = 1.2
 bus = &"Endscene"
 
 [node name="Defeat" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_kxkkg")
+stream = ExtResource("8_4iqgl")
 volume_db = 5.0
 pitch_scale = 0.5
 bus = &"Endscene"
 
 [node name="Tie" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_6ga5v")
+stream = ExtResource("9_p7x73")
 volume_db = -10.0
 pitch_scale = 0.8
 bus = &"Endscene"
 
 [node name="LoseScore" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_kfn1p")
+stream = ExtResource("10_ttmbs")
 volume_db = -20.0
 pitch_scale = 0.8
 bus = &"Sfx"
 
-[node name="Button" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_60upr")
-bus = &"Sfx"
-
 [node name="WinScore" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_kfn1p")
+stream = ExtResource("11_n17f7")
 volume_db = -20.0
 bus = &"Sfx"
 
 [node name="EvenScore" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_0mpjn")
+stream = ExtResource("12_hqcb8")
 volume_db = -5.0
 pitch_scale = 0.9
+bus = &"Sfx"
+
+[node name="ManaSpend" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_xto54")
+volume_db = -15.0
 bus = &"Sfx"
 
 [connection signal="finished" from="Music" to="." method="_on_music_finished"]

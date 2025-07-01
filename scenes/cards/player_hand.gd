@@ -37,6 +37,8 @@ func remove_card_from_hand(card: Card) -> void:
 
 
 func add_card_to_hand(card: Card) -> void:
+	if self.get_parent().name == "AI":
+		card.rotation_degrees = 180
 	if card not in player_hand:
 		player_hand.append(card)
 		card.card_set_z_index(card.z_index+1)
@@ -151,9 +153,14 @@ func merge_cards(card1: Card, card2: Card):
 	new_card.position = self.get_parent().position
 	
 	card_manager.add_child(new_card)
+	
 	if self.get_parent().name == "Player":
 		new_card.get_node("Area2D/CollisionShape2D").disabled = false
+		call_deferred("setup_new_front", new_card, GameSettings.race)
 		new_card.flip(true)
+	else:
+		var AI_race = "OPH" if GameSettings.race == "VIR" else "VIR"
+		call_deferred("setup_new_front", new_card, AI_race)
 	
 	self.add_card_to_hand(new_card)
 	
@@ -168,3 +175,7 @@ func reset_selection():
 			card.flip(false)
 	
 	selected_cards.clear()
+
+func setup_new_front(card, race):
+	card.get_node("Front").texture = load("res://assets/sprites/NewCards/%s_%s.png" %[card.color+str(card.rank), GameSettings.race])
+	card.get_node("Front").texture = load("res://assets/sprites/NewCards/%s_%s.png" %[card.color+str(card.rank), race])

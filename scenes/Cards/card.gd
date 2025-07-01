@@ -34,7 +34,7 @@ func flip(play_sound: bool) -> void:
 static func new_card(color: String, rank: int) -> Card:
 	var new_card = CARD_SCENE.instantiate()
 	new_card.rank = rank
-	new_card.name = str(rank) + color
+	new_card.name = color + str(rank)
 	new_card.color = color
 	if rank == 1:
 		new_card.type = TYPE[0]

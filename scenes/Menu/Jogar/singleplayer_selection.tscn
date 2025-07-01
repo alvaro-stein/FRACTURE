@@ -1,9 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://mife63apcltq"]
+[gd_scene load_steps=6 format=3 uid="uid://mife63apcltq"]
 
 [ext_resource type="Script" uid="uid://b1ycuesujcm0e" path="res://scenes/Menu/Jogar/singleplayer_selection.gd" id="1_jmuqv"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="2_fxmw7"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="2_fxmw7"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="2_o40ac"]
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="3_rukrc"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fxmw7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8oeb"]
 
 [node name="SingleplayerSelection" type="Control"]
 layout_mode = 3
@@ -16,61 +18,80 @@ script = ExtResource("1_jmuqv")
 
 [node name="ButtonsBox" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 766.0
-offset_top = 526.0
-offset_right = 1153.0
-offset_bottom = 1105.0
+offset_left = 80.0
+offset_top = 501.0
+offset_right = 472.0
+offset_bottom = 1080.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Singleplayer" type="Button" parent="ButtonsBox"]
 layout_mode = 2
-theme = ExtResource("2_fxmw7")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme = ExtResource("2_o40ac")
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+theme_override_fonts/font = ExtResource("3_rukrc")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8oeb")
 disabled = true
 text = "Singleplayer"
+flat = true
+alignment = 0
 
 [node name="Facil" type="Button" parent="ButtonsBox"]
 layout_mode = 2
 theme = ExtResource("2_fxmw7")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+theme_override_fonts/font = ExtResource("3_rukrc")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8oeb")
 text = "vs IA Fácil"
+flat = true
+alignment = 0
 
 [node name="Medio" type="Button" parent="ButtonsBox"]
 layout_mode = 2
 theme = ExtResource("2_fxmw7")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+theme_override_fonts/font = ExtResource("3_rukrc")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8oeb")
 text = "vs IA Média"
+flat = true
+alignment = 0
 
 [node name="Dificil" type="Button" parent="ButtonsBox"]
 layout_mode = 2
 theme = ExtResource("2_fxmw7")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
+theme_override_fonts/font = ExtResource("3_rukrc")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8oeb")
 text = "vs IA Difícil"
+flat = true
+alignment = 0
 
 [node name="Voltar" type="Button" parent="ButtonsBox"]
 layout_mode = 2
 theme = ExtResource("2_fxmw7")
-theme_override_colors/font_hover_color = Color(1, 0.46, 0.577, 1)
-theme_override_colors/font_pressed_color = Color(1, 0.29, 0.301833, 1)
+theme_override_colors/font_hover_color = Color(0.32, 0.444667, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.14, 0.297666, 1, 1)
 theme_override_constants/outline_size = 5
-theme_override_styles/focus = SubResource("StyleBoxEmpty_fxmw7")
-text = "Voltar
-"
+theme_override_fonts/font = ExtResource("3_rukrc")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j8oeb")
+text = "Voltar"
+flat = true
+alignment = 0
 
 [connection signal="pressed" from="ButtonsBox/Singleplayer" to="." method="_on_singleplayer_pressed"]
 [connection signal="pressed" from="ButtonsBox/Facil" to="." method="_on_facil_pressed"]

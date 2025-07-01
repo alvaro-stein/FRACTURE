@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://64bppejne62j" path="res://assets/sprites/Ophidianos/LiderOphidiano.png" id="3_dusji"]
 [ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="3_ss8lo"]
 [ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="4_gfiu1"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_i8i07"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="4_i8i07"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rivfx"]
 font_size = 40

@@ -246,13 +246,14 @@ func buy_card() -> void:
 	if GM.current_player == player:
 		new_card.flip(false)
 		new_card.get_node("Area2D/CollisionShape2D").disabled = false
+		new_card.get_node("Front").texture = load("res://assets/sprites/NewCards/%s_%s.png" %[new_card.name, GameSettings.race])
 		#player_hand.animation_speed = 0.3
 		player_hand.add_card_to_hand(new_card)
 		#player_hand.animation_speed = 0.2
 	else:
 		#new_card.flip(false) #adicionado para testes
+		new_card.get_node("Front").texture = load("res://assets/sprites/NewCards/%s_%s.png" %[new_card.name, "OPH" if GameSettings.race == "VIR" else "VIR"])
 		AI_hand.add_card_to_hand(new_card)
-
 
 
 

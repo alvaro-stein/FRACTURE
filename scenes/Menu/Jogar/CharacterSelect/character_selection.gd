@@ -2,20 +2,20 @@ extends Node2D
 
 signal change_scene_to
 
-@onready var jogar_label: RicherTextLabel = $JogarLabel
+@onready var jogar_label: RichTextLabel = $JogarLabel
 @onready var jogar_button: Button = $JogarLabel/JogarButton
 
 @onready var ophidian: Button = $Ophidiano
 @onready var ophidian_background: Sprite2D = $OphidianBackground
 @onready var ophidian_color_rect: ColorRect = $Ophidiano/ColorRect
 @onready var ophidian_description: RichTextLabel = $Ophidiano/Description
-@onready var ophidian_name: RicherTextLabel = $Ophidiano/Name
+@onready var ophidian_name: RichTextLabel = $Ophidiano/Name
 
 @onready var viridian: Button = $Viridiano
 @onready var viridian_background: Sprite2D = $ViridianBackground
 @onready var viridian_color_rect: ColorRect = $Viridiano/ColorRect
 @onready var viridian_description: RichTextLabel = $Viridiano/Description
-@onready var viridian_name: RicherTextLabel = $Viridiano/Name
+@onready var viridian_name: RichTextLabel = $Viridiano/Name
 
 var character_selected: String = ""
 var tween1: Tween
@@ -31,6 +31,11 @@ func _on_voltar_pressed() -> void:
 	AudioGlobal.button.play()
 	self.get_parent().close_option()
 	self.get_parent().open_option("SingleplayerSelection")
+
+func _on_lore_pressed() -> void:
+	AudioGlobal.button.play()
+	self.get_parent().close_option()
+	self.get_parent().open_option("Lore")
 
 
 func _ready() -> void:
@@ -60,7 +65,7 @@ func _on_ophidiano_pressed() -> void:
 
 
 func ophidian_select():
-	jogar_label.bbcode = "[jit2]Jogar com os Ophidianos"
+	jogar_label.text = "[wave]Jogar com os Ophidianos"
 	character_selected = "Ophidianos"
 	tween1.stop()
 	tween2.stop()
@@ -79,7 +84,7 @@ func ophidian_select():
 
 func ophidian_deselect():
 	character_selected = ""
-	jogar_label.bbcode = "[wave]Selecione uma Raça"
+	jogar_label.text = "[wave]Selecione uma Raça"
 	tween1 = get_tree().create_tween()
 	tween2 = get_tree().create_tween()
 	tween3 = get_tree().create_tween()
@@ -126,7 +131,7 @@ func _on_viridiano_pressed() -> void:
 
 
 func viridian_select():
-	jogar_label.bbcode = "[jit2]Jogar com os Viridianos"
+	jogar_label.text = "[wave]Jogar com os Viridianos"
 	character_selected = "Viridianos"
 	tween1.stop()
 	tween2.stop()
@@ -145,7 +150,7 @@ func viridian_select():
 
 func viridian_deselect():
 	character_selected = ""
-	jogar_label.bbcode = "[wave]Selecione uma Raça"
+	jogar_label.text = "[wave]Selecione uma Raça"
 	tween1 = get_tree().create_tween()
 	tween2 = get_tree().create_tween()
 	tween3 = get_tree().create_tween()
@@ -186,8 +191,8 @@ func _on_jogar_pressed() -> void:
 	jogar_button.release_focus()
 	match character_selected:
 		"Ophidianos":
-			GameSettings.race = "Ophidianos"
+			GameSettings.race = "OPH"
 			emit_signal("change_scene_to", "Match")
 		"Viridianos":
-			GameSettings.race = "Viridianos"
+			GameSettings.race = "VIR"
 			emit_signal("change_scene_to", "Match")

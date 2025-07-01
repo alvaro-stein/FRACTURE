@@ -1,21 +1,29 @@
-[gd_scene load_steps=14 format=3 uid="uid://d21g6vgn18n3y"]
+[gd_scene load_steps=18 format=3 uid="uid://d21g6vgn18n3y"]
 
 [ext_resource type="Script" uid="uid://bvb712mmgsejy" path="res://scenes/main scenes/Tutorial/TutorialDiscard/tutorial_discard.gd" id="1_rgjne"]
 [ext_resource type="Shader" uid="uid://tvpfvluk8hvf" path="res://scenes/Menu/fracture_background.gdshader" id="2_70ofx"]
 [ext_resource type="Texture2D" uid="uid://ccwuigx8bnpsp" path="res://assets/background/Fratura_central.jpg" id="3_b5i2q"]
 [ext_resource type="PackedScene" uid="uid://se8i2us8xx1p" path="res://scenes/main scenes/Match/pause_button.tscn" id="4_bfa6b"]
-[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/Cards/player_hand.tscn" id="5_st8ca"]
-[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/Cards/card_manager.tscn" id="6_um321"]
+[ext_resource type="Theme" uid="uid://deqej4j5brrwu" path="res://fonte/button_theme.tres" id="4_gih2g"]
+[ext_resource type="PackedScene" uid="uid://crgylbabj2taj" path="res://scenes/cards/player_hand.tscn" id="5_st8ca"]
+[ext_resource type="PackedScene" uid="uid://dapf7tew78ua2" path="res://scenes/cards/card_manager.tscn" id="6_um321"]
 [ext_resource type="StyleBox" uid="uid://b1glg7x2bravg" path="res://assets/Themes/textBox.tres" id="7_a2vb2"]
-[ext_resource type="Script" uid="uid://2f4fi75scxes" path="res://addons/richtext2/richer_text_label.gd" id="8_j5tnc"]
-[ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/Cards/discard_pile.tscn" id="9_ybbjp"]
+[ext_resource type="Script" uid="uid://5hv4pjs1xcht" path="res://addons/richtext2/text_effects/anims/rte_fader.gd" id="8_mcx2r"]
+[ext_resource type="Script" uid="uid://b6mbstaftpedd" path="res://addons/richtext2/rich_text_animation.gd" id="9_gih2g"]
+[ext_resource type="PackedScene" uid="uid://cxa4rkkv3bmd0" path="res://scenes/cards/discard_pile.tscn" id="9_ybbjp"]
 [ext_resource type="Script" uid="uid://cnpaq1emxrkdb" path="res://scenes/main scenes/Tutorial/TutorialDiscard/deck_tutorial_discard.gd" id="10_7mmej"]
 [ext_resource type="Texture2D" uid="uid://dqj57she863dn" path="res://assets/sprites/Slots/Quarzto.png" id="11_6k7x5"]
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="14_ir5db"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nd2xp"]
 shader = ExtResource("2_70ofx")
 shader_parameter/speed = 1.0
 shader_parameter/intensity = 1.5
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ir5db"]
+resource_name = "fader"
+script = ExtResource("8_mcx2r")
+metadata/rt = 12489630766796
 
 [sub_resource type="LabelSettings" id="LabelSettings_klqdn"]
 line_spacing = 0.0
@@ -53,6 +61,7 @@ offset_right = 1870.0
 offset_bottom = 1030.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_gih2g")
 theme_override_font_sizes/font_size = 25
 text = "Continuar"
 metadata/_edit_use_anchors_ = true
@@ -70,6 +79,7 @@ offset_top = 987.0
 offset_right = 179.0
 offset_bottom = 1030.0
 grow_vertical = 0
+theme = ExtResource("4_gih2g")
 theme_override_font_sizes/font_size = 25
 text = "Voltar"
 metadata/_edit_use_anchors_ = true
@@ -81,7 +91,7 @@ position = Vector2(960, 1080)
 
 [node name="TextBox" type="RichTextLabel" parent="."]
 clip_contents = false
-custom_minimum_size = Vector2(0, 136)
+custom_minimum_size = Vector2(0, 210)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -94,23 +104,44 @@ offset_bottom = 622.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0.2, 0.2, 0.2, 1)
-theme_override_font_sizes/bold_italics_font_size = 24
-theme_override_font_sizes/italics_font_size = 24
-theme_override_font_sizes/mono_font_size = 24
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
 theme_override_styles/normal = ExtResource("7_a2vb2")
 bbcode_enabled = true
 fit_content = true
-script = ExtResource("8_j5tnc")
-bbcode = "[fill]Você ainda pode descartar cartas que não sei encaixam no seu jogo. Para fazer isso, arraste a carta que deseja descartar para a pilha de descarte na esquerda.[/fill]"
+custom_effects = [SubResource("RichTextEffect_ir5db")]
+script = ExtResource("9_gih2g")
+progress = 1.0
+visible_character = 157
+_transforms = Array[Transform2D]([Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 25, 39), Transform2D(1, 0, 0, 1, 43, 39), Transform2D(1, 0, 0, 1, 58, 39), Transform2D(1, 0, 0, 1, 75, 39), Transform2D(1, 0, 0, 1, 87, 39), Transform2D(1, 0, 0, 1, 104, 39), Transform2D(1, 0, 0, 1, 113, 39), Transform2D(1, 0, 0, 1, 132, 39), Transform2D(1, 0, 0, 1, 150, 39), Transform2D(1, 0, 0, 1, 168, 39), Transform2D(1, 0, 0, 1, 180, 39), Transform2D(1, 0, 0, 1, 198, 39), Transform2D(1, 0, 0, 1, 217, 39), Transform2D(1, 0, 0, 1, 236, 39), Transform2D(1, 0, 0, 1, 253, 39), Transform2D(1, 0, 0, 1, 265, 39), Transform2D(1, 0, 0, 1, 283, 39), Transform2D(1, 0, 0, 1, 301, 39), Transform2D(1, 0, 0, 1, 315, 39), Transform2D(1, 0, 0, 1, 330, 39), Transform2D(1, 0, 0, 1, 348, 39), Transform2D(1, 0, 0, 1, 361, 39), Transform2D(1, 0, 0, 1, 372, 39), Transform2D(1, 0, 0, 1, 390, 39), Transform2D(1, 0, 0, 1, 403, 39), Transform2D(1, 0, 0, 1, 415, 39), Transform2D(1, 0, 0, 1, 430, 39), Transform2D(1, 0, 0, 1, 447, 39), Transform2D(1, 0, 0, 1, 460, 39), Transform2D(1, 0, 0, 1, 472, 39), Transform2D(1, 0, 0, 1, 489, 39), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 6, 81), Transform2D(1, 0, 0, 1, 24, 81), Transform2D(1, 0, 0, 1, 44, 81), Transform2D(1, 0, 0, 1, 61, 81), Transform2D(1, 0, 0, 1, 70.8333, 81), Transform2D(1, 0, 0, 1, 89.8333, 81), Transform2D(1, 0, 0, 1, 106.833, 81), Transform2D(1, 0, 0, 1, 125.833, 81), Transform2D(1, 0, 0, 1, 135.667, 81), Transform2D(1, 0, 0, 1, 149.667, 81), Transform2D(1, 0, 0, 1, 167.667, 81), Transform2D(1, 0, 0, 1, 177.5, 81), Transform2D(1, 0, 0, 1, 194.5, 81), Transform2D(1, 0, 0, 1, 213.5, 81), Transform2D(1, 0, 0, 1, 228.5, 81), Transform2D(1, 0, 0, 1, 245.5, 81), Transform2D(1, 0, 0, 1, 254.5, 81), Transform2D(1, 0, 0, 1, 270.5, 81), Transform2D(1, 0, 0, 1, 288.5, 81), Transform2D(1, 0, 0, 1, 316.5, 81), Transform2D(1, 0, 0, 1, 326.333, 81), Transform2D(1, 0, 0, 1, 345.333, 81), Transform2D(1, 0, 0, 1, 363.333, 81), Transform2D(1, 0, 0, 1, 373.167, 81), Transform2D(1, 0, 0, 1, 387.167, 81), Transform2D(1, 0, 0, 1, 405.167, 81), Transform2D(1, 0, 0, 1, 424.167, 81), Transform2D(1, 0, 0, 1, 434, 81), Transform2D(1, 0, 0, 1, 442, 81), Transform2D(1, 0, 0, 1, 460, 81), Transform2D(1, 0, 0, 1, 477, 81), Transform2D(1, 0, 0, 1, 496, 81), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 6, 123), Transform2D(1, 0, 0, 1, 24, 123), Transform2D(1, 0, 0, 1, 42, 123), Transform2D(1, 0, 0, 1, 55, 123), Transform2D(1, 0, 0, 1, 72, 123), Transform2D(1, 0, 0, 1, 92, 123), Transform2D(1, 0, 0, 1, 103, 123), Transform2D(1, 0, 0, 1, 120, 123), Transform2D(1, 0, 0, 1, 134, 123), Transform2D(1, 0, 0, 1, 152, 123), Transform2D(1, 0, 0, 1, 165, 123), Transform2D(1, 0, 0, 1, 185, 123), Transform2D(1, 0, 0, 1, 193, 123), Transform2D(1, 0, 0, 1, 208, 123), Transform2D(1, 0, 0, 1, 222, 123), Transform2D(1, 0, 0, 1, 241, 123), Transform2D(1, 0, 0, 1, 249, 123), Transform2D(1, 0, 0, 1, 269, 123), Transform2D(1, 0, 0, 1, 286, 123), Transform2D(1, 0, 0, 1, 299, 123), Transform2D(1, 0, 0, 1, 312, 123), Transform2D(1, 0, 0, 1, 329, 123), Transform2D(1, 0, 0, 1, 344, 123), Transform2D(1, 0, 0, 1, 356, 123), Transform2D(1, 0, 0, 1, 373, 123), Transform2D(1, 0, 0, 1, 393, 123), Transform2D(1, 0, 0, 1, 410, 123), Transform2D(1, 0, 0, 1, 430, 123), Transform2D(1, 0, 0, 1, 445, 123), Transform2D(1, 0, 0, 1, 462, 123), Transform2D(1, 0, 0, 1, 475, 123), Transform2D(1, 0, 0, 1, 487, 123), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 6, 165), Transform2D(1, 0, 0, 1, 24, 165), Transform2D(1, 0, 0, 1, 44, 165), Transform2D(1, 0, 0, 1, 61, 165), Transform2D(1, 0, 0, 1, 72.4, 165), Transform2D(1, 0, 0, 1, 90.4, 165), Transform2D(1, 0, 0, 1, 108.4, 165), Transform2D(1, 0, 0, 1, 122.4, 165), Transform2D(1, 0, 0, 1, 140.4, 165), Transform2D(1, 0, 0, 1, 148.4, 165), Transform2D(1, 0, 0, 1, 165.4, 165), Transform2D(1, 0, 0, 1, 176.8, 165), Transform2D(1, 0, 0, 1, 194.8, 165), Transform2D(1, 0, 0, 1, 212.8, 165), Transform2D(1, 0, 0, 1, 226.8, 165), Transform2D(1, 0, 0, 1, 241.8, 165), Transform2D(1, 0, 0, 1, 259.8, 165), Transform2D(1, 0, 0, 1, 272.8, 165), Transform2D(1, 0, 0, 1, 283.8, 165), Transform2D(1, 0, 0, 1, 301.8, 165), Transform2D(1, 0, 0, 1, 314.8, 165), Transform2D(1, 0, 0, 1, 326.2, 165), Transform2D(1, 0, 0, 1, 344.2, 165), Transform2D(1, 0, 0, 1, 362.2, 165), Transform2D(1, 0, 0, 1, 375.2, 165), Transform2D(1, 0, 0, 1, 392.2, 165), Transform2D(1, 0, 0, 1, 403.6, 165), Transform2D(1, 0, 0, 1, 420.6, 165), Transform2D(1, 0, 0, 1, 432, 165), Transform2D(1, 0, 0, 1, 450, 165), Transform2D(1, 0, 0, 1, 459, 165), Transform2D(1, 0, 0, 1, 467, 165), Transform2D(1, 0, 0, 1, 486, 165), Transform2D(1, 0, 0, 1, 0, 0), Transform2D(1, 0, 0, 1, 6, 207), Transform2D(1, 0, 0, 1, 24, 207), Transform2D(1, 0, 0, 1, 42, 207), Transform2D(1, 0, 0, 1, 50, 207), Transform2D(1, 0, 0, 1, 68, 207), Transform2D(1, 0, 0, 1, 86, 207), Transform2D(1, 0, 0, 1, 100, 207), Transform2D(1, 0, 0, 1, 115, 207), Transform2D(1, 0, 0, 1, 133, 207), Transform2D(1, 0, 0, 1, 146, 207), Transform2D(1, 0, 0, 1, 157, 207), Transform2D(1, 0, 0, 1, 175, 207), Transform2D(1, 0, 0, 1, 183, 207), Transform2D(1, 0, 0, 1, 202, 207), Transform2D(1, 0, 0, 1, 219, 207), Transform2D(1, 0, 0, 1, 227, 207), Transform2D(1, 0, 0, 1, 244, 207), Transform2D(1, 0, 0, 1, 259, 207), Transform2D(1, 0, 0, 1, 277, 207), Transform2D(1, 0, 0, 1, 296, 207), Transform2D(1, 0, 0, 1, 314, 207), Transform2D(1, 0, 0, 1, 327, 207), Transform2D(1, 0, 0, 1, 345, 207), Transform2D(1, 0, 0, 1, 363, 207)])
+_char_size = Array[Vector2]([Vector2(0, 0), Vector2(18, 24), Vector2(15, 24), Vector2(17, 24), Vector2(0, 24), Vector2(17, 24), Vector2(7, 24), Vector2(17, 24), Vector2(18, 24), Vector2(17, 24), Vector2(0, 24), Vector2(18, 24), Vector2(18, 24), Vector2(18, 24), Vector2(17, 24), Vector2(0, 24), Vector2(18, 24), Vector2(17, 24), Vector2(15, 24), Vector2(15, 24), Vector2(17, 24), Vector2(13, 24), Vector2(14, 24), Vector2(17, 24), Vector2(13, 24), Vector2(0, 24), Vector2(15, 24), Vector2(17, 24), Vector2(13, 24), Vector2(14, 24), Vector2(17, 24), Vector2(15, 24), Vector2(0, 0), Vector2(18, 24), Vector2(17, 24), Vector2(17, 24), Vector2(0, 24), Vector2(17, 24), Vector2(17, 24), Vector2(18, 24), Vector2(0, 24), Vector2(15, 24), Vector2(17, 24), Vector2(0, 24), Vector2(17, 24), Vector2(17, 24), Vector2(15, 24), Vector2(17, 24), Vector2(7, 24), Vector2(19, 24), Vector2(17, 24), Vector2(27, 24), Vector2(0, 24), Vector2(17, 24), Vector2(18, 24), Vector2(0, 24), Vector2(15, 24), Vector2(17, 24), Vector2(17, 24), Vector2(0, 24), Vector2(11, 24), Vector2(18, 24), Vector2(19, 24), Vector2(18, 24), Vector2(8, 24), Vector2(0, 0), Vector2(17, 24), Vector2(17, 24), Vector2(13, 24), Vector2(17, 24), Vector2(0, 24), Vector2(15, 24), Vector2(17, 24), Vector2(15, 24), Vector2(17, 24), Vector2(13, 24), Vector2(0, 24), Vector2(7, 24), Vector2(15, 24), Vector2(15, 24), Vector2(18, 24), Vector2(9, 24), Vector2(0, 24), Vector2(17, 24), Vector2(13, 24), Vector2(13, 24), Vector2(17, 24), Vector2(15, 24), Vector2(14, 24), Vector2(17, 24), Vector2(0, 24), Vector2(17, 24), Vector2(0, 24), Vector2(15, 24), Vector2(17, 24), Vector2(13, 24), Vector2(14, 24), Vector2(17, 24), Vector2(0, 0), Vector2(18, 24), Vector2(17, 24), Vector2(17, 24), Vector2(0, 24), Vector2(18, 24), Vector2(17, 24), Vector2(15, 24), Vector2(17, 24), Vector2(11, 24), Vector2(17, 24), Vector2(0, 24), Vector2(18, 24), Vector2(17, 24), Vector2(15, 24), Vector2(15, 24), Vector2(17, 24), Vector2(13, 24), Vector2(14, 24), Vector2(17, 24), Vector2(13, 24), Vector2(0, 24), Vector2(18, 24), Vector2(17, 24), Vector2(13, 24), Vector2(17, 24), Vector2(0, 24), Vector2(17, 24), Vector2(0, 24), Vector2(18, 24), Vector2(7, 24), Vector2(6, 24), Vector2(17, 24), Vector2(17, 24), Vector2(0, 0), Vector2(18, 24), Vector2(17, 24), Vector2(0, 24), Vector2(18, 24), Vector2(17, 24), Vector2(15, 24), Vector2(15, 24), Vector2(17, 24), Vector2(13, 24), Vector2(14, 24), Vector2(17, 24), Vector2(0, 24), Vector2(17, 24), Vector2(17, 24), Vector2(0, 24), Vector2(17, 24), Vector2(15, 24), Vector2(18, 24), Vector2(17, 24), Vector2(17, 24), Vector2(13, 24), Vector2(18, 24), Vector2(17, 24), Vector2(8, 24)])
+_alpha = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_alpha_goal = Array[float]([1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0])
+_forced_finish_delay = -0.033875
+default_wait_time = 1.0
+play_on_bbcode = true
+play_speed = 50.0
+fade_out = false
+fade_in_speed = 10.0
+fade_out_speed = 120.0
+ctc_offset = Vector2(1, -0.5)
+ctc_on_finished = false
+ctc_on_wait = false
+shortcut_expression = true
+shortcut_bookmark = true
+signal_quotes = true
+signal_stars = true
+bbcode = "[fill]Você ainda pode descartar cartas que não se encaixam no seu jogo. Para fazer isso, arraste a carta que deseja descartar para a pilha de descarte na esquerda.[/fill]"
 effects = 2
 alignment = 1
 color = Color(1, 1, 1, 1)
 emoji_scale = 1.0
 font = ""
 font_auto_setup = true
-font_size = 24
+font_size = 30
 font_bold_weight = 1.5
 font_italics_slant = 0.25
 font_italics_weight = -0.25
@@ -152,7 +183,7 @@ meta_cursor = 2
 override_bbcodeEnabled = true
 override_clipContents = false
 override_fitContent = true
-metadata/_custom_type_script = "uid://2f4fi75scxes"
+metadata/_custom_type_script = "uid://b6mbstaftpedd"
 metadata/_edit_use_anchors_ = true
 
 [node name="DiscardPile" parent="." instance=ExtResource("9_ybbjp")]
@@ -179,6 +210,7 @@ offset_right = 27.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("14_ir5db")
 theme_override_font_sizes/font_size = 50
 text = "0"
 label_settings = SubResource("LabelSettings_klqdn")

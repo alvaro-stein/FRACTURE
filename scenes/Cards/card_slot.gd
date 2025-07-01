@@ -22,6 +22,7 @@ var total: int
 
 func add_card_to_slot(card: Card, is_AI: bool) -> void:
 	card.get_node("Area2D/CollisionShape2D").disabled = true
+	card.scale = Vector2(1, 1)
 	if card.is_facing_down:
 		card.flip(true)
 	# Insert sorted from low to high

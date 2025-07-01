@@ -14,7 +14,7 @@ const SCENES_PATHS = {"Menu": "res://scenes/Menu/menu.tscn",
 					  "TutorialCombinations": "res://scenes/main scenes/Tutorial/TutorialCombinations/tutorial_combinations.tscn",
 					  "TutorialDiscard": "res://scenes/main scenes/Tutorial/TutorialDiscard/tutorial_discard.tscn",
 					  "TutorialMana": "res://scenes/main scenes/Tutorial/TutorialMana/tutorial_mana.tscn",
-					  "TutorialCostMana": "res://scenes/main scenes/Tutorial/TutorialCostMana/tuturial_cost_mana.tscn",
+					  "TutorialCostMana": "res://scenes/main scenes/Tutorial/TutorialCostMana/tutorial_cost_mana.tscn",
 					  "TutorialForge2": "res://scenes/main scenes/Tutorial/TutorialForge2/tutorial_forge2.tscn",
 					  "TutorialEndTurn": "res://scenes/main scenes/Tutorial/TutorialEndTurn/tutorial_end_turn.tscn",
 					  "TutorialEndGame": "res://scenes/main scenes/Tutorial/TutorialEndGame/tutorial_end_game.tscn",
@@ -47,11 +47,10 @@ func _on_change_scene_to(next_scene: String):
 	
 	current_scene.queue_free()
 	var new_scene: Node = load(SCENES_PATHS[next_scene]).instantiate()
+	current_scene = new_scene
 	self.add_child(new_scene)
 	animation.play_backwards("transition")
 	await animation.animation_finished
-	
-	current_scene = new_scene
 	transition.queue_free()
 
 func connect_change_scene_signals(scene: Node):

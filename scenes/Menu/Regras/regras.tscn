@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://2krmhcdinrk0"]
+[gd_scene load_steps=7 format=3 uid="uid://2krmhcdinrk0"]
 
 [ext_resource type="Script" uid="uid://0qx2fn4lf6em" path="res://scenes/Menu/Regras/regras.gd" id="1_qvsup"]
-[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/tema_botao_regras.tres" id="4_nc7kh"]
+[ext_resource type="Theme" uid="uid://diciublvqerpy" path="res://fonte/return_button.tres" id="2_7h27b"]
+[ext_resource type="FontFile" uid="uid://ct6px8l5cfhgl" path="res://assets/fonts/Quantico-BoldItalic.ttf" id="2_uhsdv"]
 [ext_resource type="AudioStream" uid="uid://dtyrdnnd64uql" path="res://audio/sfx/Tabuleiro/vidroquebrando.wav" id="5_mhwx7"]
 [ext_resource type="AudioStream" uid="uid://xppry7fxumo6" path="res://audio/sfx/Tabuleiro/vidroquebrando2.mp3" id="6_6pfaa"]
 [ext_resource type="AudioStream" uid="uid://clmfp6oa1opsf" path="res://audio/sfx/Tabuleiro/vidroquebrando3.mp3" id="7_wawmh"]
@@ -41,6 +42,11 @@ size_flags_vertical = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_uhsdv")
+theme_override_fonts/mono_font = ExtResource("2_uhsdv")
+theme_override_fonts/italics_font = ExtResource("2_uhsdv")
+theme_override_fonts/bold_italics_font = ExtResource("2_uhsdv")
+theme_override_fonts/bold_font = ExtResource("2_uhsdv")
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/italics_font_size = 40
 theme_override_font_sizes/mono_font_size = 40
@@ -150,7 +156,8 @@ offset_left = 35.0
 offset_top = 35.0
 offset_right = 185.0
 offset_bottom = 115.0
-theme = ExtResource("4_nc7kh")
+theme = ExtResource("2_7h27b")
+theme_override_font_sizes/font_size = 50
 text = "Voltar"
 
 [node name="botaosom" type="AudioStreamPlayer" parent="."]
