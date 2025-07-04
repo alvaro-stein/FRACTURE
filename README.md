@@ -1,5 +1,8 @@
 # FRACTURE
 
+Jogue agora [clicando aqui!](fracture-studio.itch.io/fracture)
+Ou acessando este link: fracture-studio.itch.io/fracture
+
 Oct 22, 2024
  
 Batalha-dos-naipes
